@@ -674,10 +674,19 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                 /* Mobile ≤ 480px */
                 @media (max-width: 480px) {
                     .aj-header {
-                        padding: var(--space-12) var(--space-section-px-sm) var(--space-8);
+                        padding: var(--space-8) var(--space-section-px-sm) var(--space-6);
                     }
+
+                    .aj-header .btn {
+                        height: 40px;
+                        font-size: 14px;
+                        padding: 0 var(--space-3);
+                        width: auto;
+                        align-self: flex-start;
+                    }
+
                     .aj-progress {
-                        padding: var(--space-6) var(--space-section-px-sm);
+                        padding: var(--space-4) var(--space-section-px-sm);
                     }
                     .aj-body {
                         padding: 0 var(--space-section-px-sm) var(--space-12);
@@ -694,8 +703,16 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                     }
 
                     .aj-header-title {
-                        font-size: 26px;
-                        line-height: 34px;
+                        font-size: 24px;
+                        line-height: 30px;
+                    }
+
+                    .aj-header-subtitle {
+                        font-size: var(--text-sm);
+                    }
+
+                    .aj-step-card {
+                        padding: var(--space-4);
                     }
                 }
             `}</style>
