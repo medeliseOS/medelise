@@ -361,12 +361,16 @@ export default function DespreNoiContent() {
                     {/* Brand Logos */}
                     <div className="dn-quote-brand">
                         <div className="dn-quote-brand-logo">
-                            <Image
-                                src="/images/quality/Logo.svg"
-                                alt="Medelise logo"
-                                width={200}
-                                height={40}
-                            />
+                            <span style={{
+                                fontFamily: 'var(--font-brand)',
+                                fontSize: '24px',
+                                textTransform: 'uppercase',
+                                color: 'var(--color-primary)',
+                                letterSpacing: '0.05em',
+                                lineHeight: 1,
+                            }}>
+                                MEDELISE
+                            </span>
                         </div>
                     </div>
                 </div>

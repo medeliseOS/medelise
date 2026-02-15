@@ -345,7 +345,6 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
             `}</style>
 
             <fieldset className="aj-step-card">
-                <legend className="aj-step-card-title">Date personale</legend>
 
                 {/* ── B2B Toggle: PF / PJ ── */}
                 <div className="aj-toggle-row">
