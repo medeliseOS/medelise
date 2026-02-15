@@ -54,7 +54,16 @@ export default function Footer() {
                         {/* Left: Logo + tagline */}
                         <div className="footer-brand">
                             <Link href="/">
-                                <Image src="/images/quality/Logo.svg" alt="MEDVITA" width={200} height={40} />
+                                <span style={{
+                                    fontFamily: 'var(--font-brand)',
+                                    fontSize: '24px',
+                                    textTransform: 'uppercase' as const,
+                                    color: 'var(--color-primary)',
+                                    letterSpacing: '0.05em',
+                                    lineHeight: 1,
+                                }}>
+                                    MEDELISE
+                                </span>
                             </Link>
                             <p className="footer-tagline">
                                 We love working with ambitious people. Let&apos;s build something great together now.
@@ -108,7 +117,7 @@ export default function Footer() {
                     {/* ── Bottom Row ── */}
                     <div className="footer-bottom">
                         <p className="footer-copyright">
-                            © 2025 MEDVITA HEALTH SOLUTIONS S.R.L<br />
+                            © 2025 MEDELISE HEALTH SOLUTIONS S.R.L<br />
                             Toate drepturile rezervate
                         </p>
                         <div className="footer-socials">
