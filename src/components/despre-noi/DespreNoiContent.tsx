@@ -64,8 +64,7 @@ export default function DespreNoiContent() {
 
                 .dn-quote-wrapper {
                     width: 100%;
-                    max-width: 1216px;
-                    padding: var(--space-10) var(--space-4);
+                    padding: var(--space-10) 0;
                     display: flex;
                     flex-direction: column;
                     gap: var(--space-8);
@@ -79,8 +78,8 @@ export default function DespreNoiContent() {
                 }
 
                 .dn-quote-text {
-                    width: 596px;
-                    flex-shrink: 0;
+                    flex: 1;
+                    min-width: 0;
                     color: var(--color-primary, #213170);
                     font-family: var(--font-heading);
                     font-size: 36px;
@@ -200,7 +199,6 @@ export default function DespreNoiContent() {
                     }
 
                     .dn-quote-wrapper {
-                        max-width: 704px;
                         padding: var(--space-10) 0;
                         gap: var(--space-8);
                     }
@@ -275,7 +273,6 @@ export default function DespreNoiContent() {
                     }
 
                     .dn-quote-wrapper {
-                        max-width: 343px;
                         padding: 0;
                         gap: var(--space-4);
                     }
