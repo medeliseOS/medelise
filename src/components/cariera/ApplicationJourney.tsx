@@ -702,6 +702,10 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                         font-size: 12px;
                     }
 
+                    .aj-progress-line {
+                        margin-bottom: 0;
+                    }
+
                     .aj-header-title {
                         font-size: 24px;
                         line-height: 30px;
