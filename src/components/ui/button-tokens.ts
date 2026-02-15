@@ -13,21 +13,21 @@ export const BUTTON_TOKENS = {
         height: 48,
         paddingX: 24,
         fontSize: 16,
-        borderRadius: 8,
+        borderRadius: 100,
     },
     /** 768px – 1023px — Tablet */
     tablet: {
         height: 48,
         paddingX: 20,
         fontSize: 16,
-        borderRadius: 8,
+        borderRadius: 100,
     },
     /** <768px — Mobile */
     mobile: {
         height: 56,
         paddingX: 16,
         fontSize: 18,
-        borderRadius: 12,
+        borderRadius: 100,
     },
 } as const;
 
