@@ -620,11 +620,54 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                     .aj-header {
                         padding: var(--space-16) var(--space-section-px-md) var(--space-10);
                     }
+                    .aj-header-title {
+                        font-size: 32px;
+                        line-height: 40px;
+                    }
                     .aj-progress {
                         padding: var(--space-8) var(--space-section-px-md);
                     }
                     .aj-body {
                         padding: 0 var(--space-section-px-md) var(--space-16);
+                    }
+                    .aj-progress-label {
+                        font-size: 11px;
+                    }
+                }
+
+                /* Small tablet / large mobile ≤ 768px */
+                @media (max-width: 768px) {
+                    .aj-field-row {
+                        flex-direction: column;
+                    }
+
+                    .aj-step-card {
+                        padding: var(--space-6);
+                    }
+
+                    .aj-nav {
+                        flex-direction: column-reverse;
+                        align-items: stretch;
+                    }
+
+                    .aj-nav-step-info {
+                        text-align: center;
+                    }
+
+                    .aj-nav-buttons {
+                        justify-content: stretch;
+                    }
+
+                    .aj-nav-buttons > * {
+                        flex: 1;
+                    }
+
+                    .aj-progress-label {
+                        font-size: 10px;
+                        max-width: 60px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                     }
                 }
 
@@ -640,10 +683,6 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                         padding: 0 var(--space-section-px-sm) var(--space-12);
                     }
 
-                    .aj-field-row {
-                        flex-direction: column;
-                    }
-
                     .aj-progress-label {
                         display: none;
                     }
@@ -654,26 +693,9 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                         font-size: 12px;
                     }
 
-                    .aj-step-card {
-                        padding: var(--space-6);
-                    }
-
                     .aj-header-title {
                         font-size: 26px;
                         line-height: 34px;
-                    }
-
-                    .aj-nav {
-                        flex-direction: column-reverse;
-                        align-items: stretch;
-                    }
-
-                    .aj-nav-step-info {
-                        text-align: center;
-                    }
-
-                    .aj-nav-buttons {
-                        justify-content: stretch;
                     }
                 }
             `}</style>

@@ -259,7 +259,32 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                     border-radius: var(--radius-full);
                 }
 
-                /* ── Mobile responsive ── */
+                /* ── Tablet responsive ≤ 768px ── */
+                @media (max-width: 768px) {
+                    .aj-toggle-row {
+                        width: 100%;
+                    }
+
+                    .aj-toggle-btn {
+                        flex: 1;
+                        text-align: center;
+                    }
+
+                    .aj-phone-dropdown {
+                        width: calc(100vw - var(--space-section-px-md) * 2 - var(--space-12));
+                    }
+
+                    .aj-section-subtitle {
+                        font-size: var(--text-xs);
+                    }
+
+                    .aj-b2b-section {
+                        margin-top: var(--space-4);
+                        padding-top: var(--space-4);
+                    }
+                }
+
+                /* ── Mobile responsive ≤ 480px ── */
                 @media (max-width: 480px) {
                     .aj-phone-dropdown {
                         width: calc(100vw - var(--space-section-px-sm) * 2 - var(--space-12));
@@ -268,6 +293,11 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                     .aj-phone-prefix-btn {
                         min-width: 90px;
                         padding: var(--space-2) var(--space-2);
+                    }
+
+                    .aj-toggle-btn {
+                        font-size: var(--text-xs);
+                        padding: var(--space-2) var(--space-3);
                     }
                 }
 
