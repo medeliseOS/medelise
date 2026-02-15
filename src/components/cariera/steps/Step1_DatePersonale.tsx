@@ -329,6 +329,19 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                     color: var(--color-error, #dc2626);
                     margin-top: var(--space-1);
                 }
+
+                /* ── Section Subtitle ── */
+                .aj-section-subtitle {
+                    font-family: var(--font-heading);
+                    font-size: var(--text-sm);
+                    font-weight: 600;
+                    color: var(--color-text-muted);
+                    text-transform: uppercase;
+                    letter-spacing: 0.04em;
+                    margin-bottom: var(--space-4);
+                    padding-bottom: var(--space-2);
+                    border-bottom: 1px solid var(--color-border-form);
+                }
             `}</style>
 
             <fieldset className="aj-step-card">
@@ -351,6 +364,13 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                         Colaborare B2B
                     </button>
                 </div>
+
+                {/* ── Section subtitle: contact / representative ── */}
+                <p className="aj-section-subtitle">
+                    {data.tipColaborare === 'b2b'
+                        ? 'Persoană de contact / Reprezentant'
+                        : 'Date personale'}
+                </p>
 
                 {/* ── Row 1: Nume + Prenume ── */}
                 <div className="aj-field-row">
@@ -585,25 +605,27 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                     </div>
                 </div>
 
-                {/* ── Row 5: Data nașterii ── */}
-                <div className="aj-field">
-                    <label className="aj-label" htmlFor="aj-data-nastere">
-                        Data nașterii
-                    </label>
-                    <input
-                        id="aj-data-nastere"
-                        type="date"
-                        className="aj-input"
-                        value={data.dataNasterii ?? ''}
-                        onChange={(e) => onChange('dataNasterii', e.target.value)}
-                        style={{ maxWidth: '240px' }}
-                    />
-                </div>
+                {/* ── Row 5: Data nașterii (only PF) ── */}
+                {(data.tipColaborare ?? 'pf') !== 'b2b' && (
+                    <div className="aj-field">
+                        <label className="aj-label" htmlFor="aj-data-nastere">
+                            Data nașterii
+                        </label>
+                        <input
+                            id="aj-data-nastere"
+                            type="date"
+                            className="aj-input"
+                            value={data.dataNasterii ?? ''}
+                            onChange={(e) => onChange('dataNasterii', e.target.value)}
+                            style={{ maxWidth: '240px' }}
+                        />
+                    </div>
+                )}
 
                 {/* ── B2B Company Fields (conditional) ── */}
                 {data.tipColaborare === 'b2b' && (
                     <div className="aj-b2b-section">
-                        <p className="aj-b2b-title">Date companie / PJ</p>
+                        <p className="aj-section-subtitle">Date identificare societate (PJ)</p>
 
                         <div className="aj-field-row">
                             <div className="aj-field">
@@ -614,17 +636,17 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                                     id="aj-cui"
                                     type="text"
                                     required
-                                    placeholder="12345678"
+                                    placeholder="RO12345678"
                                     className="aj-input"
                                     value={data.cui ?? ''}
                                     onChange={(e) => {
-                                        const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
-                                        onChange('cui', digits);
+                                        const clean = e.target.value.replace(/[^0-9RO]/gi, '').toUpperCase();
+                                        onChange('cui', clean.slice(0, 12));
                                     }}
-                                    maxLength={10}
+                                    maxLength={12}
                                 />
-                                {data.cui && !/^\d+$/.test(data.cui) && (
-                                    <p className="aj-field-error">CUI-ul trebuie să conțină doar cifre</p>
+                                {data.cui && data.cui.length > 0 && !/^(RO)?\d{2,10}$/i.test(data.cui) && (
+                                    <p className="aj-field-error">Format: RO12345678 sau doar cifre (2-10 caractere)</p>
                                 )}
                             </div>
                             <div className="aj-field">
@@ -669,9 +691,14 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                                     placeholder="RO49AAAA1B31007593840000"
                                     className="aj-input"
                                     value={data.iban ?? ''}
-                                    onChange={(e) => onChange('iban', e.target.value.toUpperCase())}
+                                    onChange={(e) => onChange('iban', e.target.value.toUpperCase().replace(/\s/g, ''))}
                                     maxLength={24}
                                 />
+                                {data.iban && data.iban.length > 0 && data.iban.length !== 24 && (
+                                    <p className="aj-field-error">
+                                        IBAN-ul trebuie să aibă exact 24 caractere ({data.iban.length}/24)
+                                    </p>
+                                )}
                             </div>
                         </div>
 
@@ -709,10 +736,10 @@ export function validateStep1(data: Record<string, any>): boolean {
     // B2B validation
     if (data.tipColaborare === 'b2b') {
         const { cui, regCom, sediuSocial, iban, reprezentantLegal } = data;
-        if (!cui?.trim() || !/^\d+$/.test(cui)) return false;
+        if (!cui?.trim() || !/^(RO)?\d{2,10}$/i.test(cui)) return false;
         if (!regCom?.trim()) return false;
         if (!sediuSocial?.trim()) return false;
-        if (!iban?.trim() || iban.length < 16) return false;
+        if (!iban?.trim() || iban.length !== 24) return false;
         if (!reprezentantLegal?.trim()) return false;
     }
 
