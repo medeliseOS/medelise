@@ -17,6 +17,8 @@ import {
 interface DocumentCheckerProps {
     /** The currently selected medical role */
     selectedRole: MedicalRole;
+    /** Optional B2B documents to show instead of personal documents */
+    b2bDocuments?: DocumentRequirement[];
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -124,12 +126,15 @@ function buildAcceptString(fileTypes: string[]): string {
  * COMPONENT
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-export default function DocumentChecker({ selectedRole }: DocumentCheckerProps) {
+export default function DocumentChecker({ selectedRole, b2bDocuments }: DocumentCheckerProps) {
     const [checkedDocs, setCheckedDocs] = useState<Set<string>>(new Set());
     const [uploadedFiles, setUploadedFiles] = useState<Record<string, File[]>>({});
     const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
-    const requirements = useMemo(() => getRequirementsForRole(selectedRole), [selectedRole]);
+    const requirements = useMemo(
+        () => b2bDocuments ?? getRequirementsForRole(selectedRole),
+        [selectedRole, b2bDocuments],
+    );
     const sections = useMemo(() => groupBySections(requirements), [requirements]);
     const malpraxisTooltip = useMemo(() => getMalpraxisTooltip(selectedRole), [selectedRole]);
 

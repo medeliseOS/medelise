@@ -24,10 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: `Aplică — ${title} · Carieră`,
-        description: `Aplică online pentru poziția de ${title} la Medvita Health Solutions. Completează formularul de aplicare.`,
+        description: `Aplică online pentru poziția de ${title} la Medelise Health Solutions. Completează formularul de aplicare.`,
         openGraph: {
-            title: `Aplică — ${title} · Carieră · Medvita`,
-            description: `Aplică acum pentru ${title}. Alătură-te echipei Medvita.`,
+            title: `Aplică — ${title} · Carieră · Medelise`,
+            description: `Aplică acum pentru ${title}. Alătură-te echipei Medelise.`,
         },
     };
 }

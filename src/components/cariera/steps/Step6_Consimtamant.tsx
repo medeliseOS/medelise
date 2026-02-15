@@ -39,7 +39,7 @@ export default function Step6_Consimtamant({ data, onChange }: StepProps) {
                     onChange={(e) => onChange('newsletter', e.target.checked)}
                 />
                 <label htmlFor="aj-newsletter" className="aj-checkbox-label">
-                    Doresc să primesc notificări despre noi oportunități de angajare la Medvita.
+                    Doresc să primesc notificări despre noi oportunități de angajare la Medelise.
                 </label>
             </div>
         </fieldset>

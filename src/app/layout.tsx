@@ -30,13 +30,13 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Medvita · Soluții Medicale Premium",
-    template: "%s · Medvita",
+    default: "Medelise · Soluții Medicale Premium",
+    template: "%s · Medelise",
   },
   description:
-    "Medvita Health Solutions — servicii medicale premium, vizite la domiciliu și abonamente EasyCare. Programează online.",
+    "Medelise Health Solutions — servicii medicale premium, vizite la domiciliu și abonamente EasyCare. Programează online.",
   openGraph: {
-    title: "Medvita · Soluții Medicale Premium",
+    title: "Medelise · Soluții Medicale Premium",
     description:
       "Servicii medicale premium, vizite la domiciliu și abonamente EasyCare.",
     locale: "ro_RO",

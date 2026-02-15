@@ -270,10 +270,87 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                         padding: var(--space-2) var(--space-2);
                     }
                 }
+
+                /* ── B2B Toggle ── */
+                .aj-toggle-row {
+                    display: flex;
+                    gap: var(--space-2);
+                    margin-bottom: var(--space-6);
+                    padding: var(--space-1);
+                    background: var(--color-surface);
+                    border-radius: var(--radius-main);
+                    border: 1px solid var(--color-border-form);
+                    width: fit-content;
+                }
+
+                .aj-toggle-btn {
+                    padding: var(--space-2) var(--space-4);
+                    font-family: var(--font-body);
+                    font-size: var(--text-sm);
+                    font-weight: 500;
+                    color: var(--color-text-muted);
+                    background: transparent;
+                    border: none;
+                    border-radius: calc(var(--radius-main) - 2px);
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    white-space: nowrap;
+                }
+
+                .aj-toggle-btn--active {
+                    background: var(--color-primary);
+                    color: var(--color-white);
+                    box-shadow: var(--shadow-sm);
+                }
+
+                .aj-toggle-btn:hover:not(.aj-toggle-btn--active) {
+                    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+                }
+
+                /* ── B2B Fields Section ── */
+                .aj-b2b-section {
+                    margin-top: var(--space-6);
+                    padding-top: var(--space-6);
+                    border-top: 1px solid var(--color-border-form);
+                }
+
+                .aj-b2b-title {
+                    font-family: var(--font-heading);
+                    font-size: var(--text-base);
+                    font-weight: 600;
+                    color: var(--color-primary);
+                    margin-bottom: var(--space-4);
+                }
+
+                /* ── Field-level Errors ── */
+                .aj-field-error {
+                    font-family: var(--font-body);
+                    font-size: var(--text-xs);
+                    color: var(--color-error, #dc2626);
+                    margin-top: var(--space-1);
+                }
             `}</style>
 
             <fieldset className="aj-step-card">
                 <legend className="aj-step-card-title">Date personale</legend>
+
+                {/* ── B2B Toggle: PF / PJ ── */}
+                <div className="aj-toggle-row">
+                    <button
+                        type="button"
+                        className={`aj-toggle-btn ${(data.tipColaborare ?? 'pf') === 'pf' ? 'aj-toggle-btn--active' : ''}`}
+                        onClick={() => onChange('tipColaborare', 'pf')}
+                    >
+                        Persoană Fizică
+                    </button>
+                    <button
+                        type="button"
+                        className={`aj-toggle-btn ${data.tipColaborare === 'b2b' ? 'aj-toggle-btn--active' : ''}`}
+                        onClick={() => onChange('tipColaborare', 'b2b')}
+                    >
+                        Colaborare B2B
+                    </button>
+                </div>
 
                 {/* ── Row 1: Nume + Prenume ── */}
                 <div className="aj-field-row">
@@ -324,6 +401,9 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                             value={data.email ?? ''}
                             onChange={(e) => onChange('email', e.target.value)}
                         />
+                        {data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) && (
+                            <p className="aj-field-error">Adresa de email nu este validă</p>
+                        )}
                     </div>
                     <div className="aj-field">
                         <label className="aj-label" htmlFor="aj-telefon">
@@ -519,6 +599,98 @@ export default function Step1_DatePersonale({ data, onChange }: StepProps) {
                         style={{ maxWidth: '240px' }}
                     />
                 </div>
+
+                {/* ── B2B Company Fields (conditional) ── */}
+                {data.tipColaborare === 'b2b' && (
+                    <div className="aj-b2b-section">
+                        <p className="aj-b2b-title">Date companie / PJ</p>
+
+                        <div className="aj-field-row">
+                            <div className="aj-field">
+                                <label className="aj-label" htmlFor="aj-cui">
+                                    CUI <span className="aj-req">*</span>
+                                </label>
+                                <input
+                                    id="aj-cui"
+                                    type="text"
+                                    required
+                                    placeholder="12345678"
+                                    className="aj-input"
+                                    value={data.cui ?? ''}
+                                    onChange={(e) => {
+                                        const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                        onChange('cui', digits);
+                                    }}
+                                    maxLength={10}
+                                />
+                                {data.cui && !/^\d+$/.test(data.cui) && (
+                                    <p className="aj-field-error">CUI-ul trebuie să conțină doar cifre</p>
+                                )}
+                            </div>
+                            <div className="aj-field">
+                                <label className="aj-label" htmlFor="aj-regcom">
+                                    Nr. Registrul Comerțului <span className="aj-req">*</span>
+                                </label>
+                                <input
+                                    id="aj-regcom"
+                                    type="text"
+                                    required
+                                    placeholder="J40/1234/2024"
+                                    className="aj-input"
+                                    value={data.regCom ?? ''}
+                                    onChange={(e) => onChange('regCom', e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="aj-field-row">
+                            <div className="aj-field">
+                                <label className="aj-label" htmlFor="aj-sediu">
+                                    Sediu Social <span className="aj-req">*</span>
+                                </label>
+                                <input
+                                    id="aj-sediu"
+                                    type="text"
+                                    required
+                                    placeholder="Str. Exemplu nr. 1, București"
+                                    className="aj-input"
+                                    value={data.sediuSocial ?? ''}
+                                    onChange={(e) => onChange('sediuSocial', e.target.value)}
+                                />
+                            </div>
+                            <div className="aj-field">
+                                <label className="aj-label" htmlFor="aj-iban">
+                                    IBAN <span className="aj-req">*</span>
+                                </label>
+                                <input
+                                    id="aj-iban"
+                                    type="text"
+                                    required
+                                    placeholder="RO49AAAA1B31007593840000"
+                                    className="aj-input"
+                                    value={data.iban ?? ''}
+                                    onChange={(e) => onChange('iban', e.target.value.toUpperCase())}
+                                    maxLength={24}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="aj-field">
+                            <label className="aj-label" htmlFor="aj-repr-legal">
+                                Reprezentant Legal <span className="aj-req">*</span>
+                            </label>
+                            <input
+                                id="aj-repr-legal"
+                                type="text"
+                                required
+                                placeholder="Nume și prenume reprezentant"
+                                className="aj-input"
+                                value={data.reprezentantLegal ?? ''}
+                                onChange={(e) => onChange('reprezentantLegal', e.target.value)}
+                            />
+                        </div>
+                    </div>
+                )}
             </fieldset>
         </>
     );
@@ -533,6 +705,16 @@ export function validateStep1(data: Record<string, any>): boolean {
     // For Romania, require județ
     const isRomania = (tara ?? 'RO') === 'RO';
     if (isRomania && !data.judet?.trim()) return false;
+
+    // B2B validation
+    if (data.tipColaborare === 'b2b') {
+        const { cui, regCom, sediuSocial, iban, reprezentantLegal } = data;
+        if (!cui?.trim() || !/^\d+$/.test(cui)) return false;
+        if (!regCom?.trim()) return false;
+        if (!sediuSocial?.trim()) return false;
+        if (!iban?.trim() || iban.length < 16) return false;
+        if (!reprezentantLegal?.trim()) return false;
+    }
 
     return true;
 }

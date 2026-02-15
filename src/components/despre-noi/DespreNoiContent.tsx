@@ -12,6 +12,7 @@ export default function DespreNoiContent() {
                 .dn-hero {
                     width: 100%;
                     padding: var(--space-8) var(--space-section-px-lg);
+                    background: #ffffff;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -328,11 +329,11 @@ export default function DespreNoiContent() {
                             &ldquo;Bine ai venit în spațiul unde sănătatea înseamnă încredere, grijă și claritate.&rdquo;
                         </blockquote>
                         <p className="dn-quote-desc">
-                            „Am creat Medvita pentru că știu cât de greu e uneori să găsești un răspuns clar, un profesionist potrivit sau pur și simplu un ghid de încredere atunci când vine vorba de sănătate.
+                            „Am creat Medelise pentru că știu cât de greu e uneori să găsești un răspuns clar, un profesionist potrivit sau pur și simplu un ghid de încredere atunci când vine vorba de sănătate.
                             <br /><br />
-                            Medvita nu este doar o platformă. Este un partener real în procesul tău – fie că ai nevoie de un tratament performant, de o opinie profesionistă sau doar vrei să verifici periodic cum stai cu sănătatea.
+                            Medelise nu este doar o platformă. Este un partener real în procesul tău – fie că ai nevoie de un tratament performant, de o opinie profesionistă sau doar vrei să verifici periodic cum stai cu sănătatea.
                             <br /><br />
-                            Credem într-o abordare pozitivă și preventivă. De aceea, Medvita pune educația pacientului în centrul a tot ce face. Cu fiecare consultație, cu fiecare interacțiune, te ajutăm să înțelegi mai bine corpul tău, să gândești în perspectivă și să ai o viață cu adevărat mai bună.
+                            Credem într-o abordare pozitivă și preventivă. De aceea, Medelise pune educația pacientului în centrul a tot ce face. Cu fiecare consultație, cu fiecare interacțiune, te ajutăm să înțelegi mai bine corpul tău, să gândești în perspectivă și să ai o viață cu adevărat mai bună.
                             <br /><br />
                             Bine ai venit în rețeaua medicală care are grijă de tine, înainte să fie nevoie.&rdquo;
                         </p>
@@ -346,14 +347,14 @@ export default function DespreNoiContent() {
                         <div className="dn-quote-avatar">
                             <Image
                                 src="/images/despre-noi/founder-avatar.jpg"
-                                alt="Mircea Popa — Fondator Medvita"
+                                alt="Mircea Popa — Fondator Medelise"
                                 width={56}
                                 height={56}
                             />
                         </div>
                         <p className="dn-quote-name">
                             Mircea Popa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder{' '}
-                            <span className="dn-quote-name-brand">MEDVITA</span>
+                            <span className="dn-quote-name-brand">MEDELISE</span>
                         </p>
                     </div>
 
@@ -362,7 +363,7 @@ export default function DespreNoiContent() {
                         <div className="dn-quote-brand-logo">
                             <Image
                                 src="/images/quality/Logo.svg"
-                                alt="Medvita logo"
+                                alt="Medelise logo"
                                 width={200}
                                 height={40}
                             />

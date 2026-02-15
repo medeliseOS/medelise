@@ -216,3 +216,52 @@ export function getRequirementsForRole(role: MedicalRole): DocumentRequirement[]
 export function getMalpraxisTooltip(role: MedicalRole): string {
     return MALPRAXIS_THRESHOLDS[role];
 }
+
+/* ─── B2B Document Requirements ─── */
+
+export const B2B_DOCUMENT_REQUIREMENTS: DocumentRequirement[] = [
+    {
+        id: 'cui-certificat',
+        label: 'CUI / Certificat Înregistrare Fiscală',
+        description: 'Copie a Certificatului de Înregistrare Fiscală (CIF/CUI)',
+        fileTypes: ['pdf', 'jpg', 'jpeg'],
+        required: true,
+        roles: 'all',
+        section: 'general',
+    },
+    {
+        id: 'certificat-constatator',
+        label: 'Certificat Constatator (ORC)',
+        description: 'Emis de Oficiul Registrului Comerțului, valabil',
+        fileTypes: ['pdf'],
+        required: true,
+        tooltip: 'Trebuie emis cu cel mult 30 de zile înainte de data aplicării.',
+        roles: 'all',
+        section: 'general',
+    },
+    {
+        id: 'autorizatie-dsp',
+        label: 'Autorizație DSP',
+        description: 'Autorizația sanitară de funcționare emisă de DSP',
+        fileTypes: ['pdf'],
+        required: true,
+        roles: 'all',
+        section: 'specific',
+    },
+    {
+        id: 'malpraxis-firma',
+        label: 'Poliță Malpraxis Firmă',
+        description: 'Asigurare de răspundere civilă profesională a societății',
+        fileTypes: ['pdf'],
+        required: true,
+        tooltip: 'Polița trebuie să fie valabilă la momentul colaborării.',
+        roles: 'all',
+        section: 'malpraxis',
+    },
+];
+
+/* ─── Helper: get B2B requirements ─── */
+
+export function getB2BRequirements(): DocumentRequirement[] {
+    return B2B_DOCUMENT_REQUIREMENTS;
+}

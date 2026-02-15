@@ -14,7 +14,7 @@ export default function JobSidebarCard({ job, slug, className }: { job: JobDetai
                     <div className="sidebar-logo-wrap">
                         <Image
                             src="/icons/icon employee/logo-medvita/Black Solid/icon 1.svg"
-                            alt="Medvita"
+                            alt="Medelise"
                             width={36}
                             height={20}
                         />
@@ -43,7 +43,7 @@ export default function JobSidebarCard({ job, slug, className }: { job: JobDetai
                     <div className="sidebar-info-item">
                         <span className="sidebar-info-label">Website Companie</span>
                         <a
-                            href="https://www.medvita.ro"
+                            href="https://www.medelise.ro"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="sidebar-info-value"

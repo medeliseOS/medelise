@@ -26,7 +26,7 @@ const FAQ_ITEMS = [
     },
     {
         q: 'Pot solicita același specialist la fiecare vizită?',
-        a: 'Da. Dacă specialistul este disponibil, îl poți selecta direct la programare. Medvita încurajează continuitatea pentru confort și siguranță.',
+        a: 'Da. Dacă specialistul este disponibil, îl poți selecta direct la programare. Medelise încurajează continuitatea pentru confort și siguranță.',
     },
     {
         q: 'Care este zona de acoperire și timpul mediu de sosire?',
@@ -53,7 +53,7 @@ export default function ContactFaqSection({ className = '' }: ContactFaqSectionP
                     <h2 className="faq-title">
                         Ai o întrebare?
                         <br />
-                        Uite ce ne întreabă cel mai des pacienții Medvita
+                        Uite ce ne întreabă cel mai des pacienții Medelise
                     </h2>
                 </div>
 

@@ -25,7 +25,7 @@ export default function ContactContent() {
                             „Suntem gata să te ascultăm."
                         </h1>
                         <p className="contact-hero-desc">
-                            Contactează echipa Medvita pentru întrebări legate de servicii, parteneriate sau colaborări.
+                            Contactează echipa Medelise pentru întrebări legate de servicii, parteneriate sau colaborări.
                             <br />
                             Credem într-o comunicare transparentă și rapidă, exact așa cum ar trebui să fie îngrijirea modernă.
                         </p>
@@ -65,7 +65,7 @@ export default function ContactContent() {
                         </Link>
                         <Link href="/login">
                             <Button variant="outline">
-                                Intră în contul tău Medelise
+                                Intră în contul tău MEDELISE
                             </Button>
                         </Link>
                     </div>
@@ -131,6 +131,7 @@ export default function ContactContent() {
                 .cta-section {
                     width: 100%;
                     padding: 64px;
+                    background: var(--color-white, #fff);
                     display: flex;
                     flex-direction: column;
                     align-items: center;

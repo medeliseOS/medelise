@@ -149,7 +149,7 @@ export default function Step4_IncarcareCV({ data, onChange }: StepProps) {
                 </label>
                 <textarea
                     id="aj-scrisoare"
-                    placeholder="Scrie câteva rânduri despre motivația ta și de ce dorești să faci parte din echipa Medvita..."
+                    placeholder="Scrie câteva rânduri despre motivația ta și de ce dorești să faci parte din echipa Medelise..."
                     maxLength={1000}
                     rows={5}
                     className="aj-textarea"

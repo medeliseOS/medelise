@@ -4,11 +4,11 @@ import LoginPageContent from '@/components/login/LoginPageContent';
 export const metadata: Metadata = {
     title: 'Autentificare',
     description:
-        'Autentifică-te sau creează un cont Medvita pentru a accesa serviciile medicale premium și portalul de pacient.',
+        'Autentifică-te sau creează un cont Medelise pentru a accesa serviciile medicale premium și portalul de pacient.',
     openGraph: {
-        title: 'Autentificare · Medvita',
+        title: 'Autentificare · Medelise',
         description:
-            'Accesează contul tău Medvita sau creează unul nou.',
+            'Accesează contul tău Medelise sau creează unul nou.',
     },
 };
 

@@ -48,10 +48,10 @@ export default function CarieraContent() {
                         <div className="cariera-hero-content">
                             <div className="cariera-hero-text">
                                 <h1 className="cariera-hero-title">
-                                    „Începe-ți călătoria cu Medvita"
+                                    „Începe-ți călătoria cu Medelise"
                                 </h1>
                                 <p className="cariera-hero-desc">
-                                    Alătură-te Medvita și descoperă libertatea de a-ți organiza programul exact așa cum dorești!
+                                    Alătură-te Medelise și descoperă libertatea de a-ți organiza programul exact așa cum dorești!
                                     <br /><br />
                                     Noi înțelegem cât de important este echilibrul dintre viața profesională și cea personală, de aceea îți oferim flexibilitatea de a lucra exact atunci când îți dorești.
                                 </p>
@@ -160,7 +160,7 @@ export default function CarieraContent() {
                                                     </span>
                                                     <Image
                                                         src="/icons/icon employee/logo-medvita/Black Solid/icon 1.svg"
-                                                        alt="Logo Medvita Health Solutions"
+                                                        alt="Logo Medelise Health Solutions"
                                                         width={36}
                                                         height={20}
                                                         className="job-logo"

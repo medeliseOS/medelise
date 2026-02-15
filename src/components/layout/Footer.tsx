@@ -12,8 +12,8 @@ const COMPANY_LINKS = [
 const CONTACT_ITEMS = [
     {
         icon: '/images/quality/Email.svg',
-        text: 'office@medvita.ro',
-        href: 'mailto:office@medvita.ro',
+        text: 'office@medelise.ro',
+        href: 'mailto:office@medelise.ro',
     },
     {
         icon: '/images/quality/Phone.svg',

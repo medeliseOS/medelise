@@ -3,6 +3,10 @@
    Replace with API / CMS when ready.
    ─────────────────────────────────────── */
 
+/* ─── Centralized Brand Constants ─── */
+export const COMPANY_BRAND = 'Medelise Health Solutions';
+export const COMPANY_WEBSITE = 'www.medelise.ro';
+
 /* ─── Interfaces ─── */
 export interface JobDetail {
     /* Listing-level (cards on /cariera) */
@@ -60,7 +64,7 @@ export const JOBS: Record<string, JobDetail> = {
             'Suntem o companie medicală orientată spre viitor, cu misiunea de a oferi îngrijire medicală de calitate, direct la pacient acasă.\nCu ajutorul platformei noastre digitale – careOS – organizăm, planificăm și livrăm servicii medicale personalizate, eficiente și empatice.\nCredem că adevărata schimbare în sănătate începe cu oameni bine pregătiți, bine plătiți și profund motivați.',
         tasksTitle: 'Ce vei face concret?',
         tasksBody:
-            'Vei efectua vizite medicale la domiciliul pacienților (evaluări, tratamente, monitorizare post-operatorie etc.)\nVei colabora cu medici specialiști pentru planul de îngrijire personalizat\nVei introduce date clinice și observații direct în aplicația Medvita (tablete oferite de companie)\nVei educa pacienții și aparținătorii în privința tratamentului și recuperării\nVei avea un program flexibil, stabilit împreună cu coordonatorul regional',
+            'Vei efectua vizite medicale la domiciliul pacienților (evaluări, tratamente, monitorizare post-operatorie etc.)\nVei colabora cu medici specialiști pentru planul de îngrijire personalizat\nVei introduce date clinice și observații direct în aplicația Medelise (tablete oferite de companie)\nVei educa pacienții și aparținătorii în privința tratamentului și recuperării\nVei avea un program flexibil, stabilit împreună cu coordonatorul regional',
         profileTitle: 'Profilul tău ideal:',
         profileBody:
             'Ești asistent medical generalist, cu diplomă recunoscută (minim 2 ani experiență)\nDeții Certificat de Membru OAMGMAMR și aviz anual valabil\nAi carnet de conducere categoria B (avantaj important)\nÎți place să lucrezi autonom și să iei decizii rapide în teren\nEști empatic, atent la detalii și vrei să faci diferența',
@@ -68,11 +72,11 @@ export const JOBS: Record<string, JobDetail> = {
         benefitsBody:
             'Pachet salarial competitiv (fix + bonusuri per caz + diurne)\nTraininguri periodice (inclusiv cu parteneri internaționali)\nTehnologie modernă – totul digitalizat (fără hârtii, fără pierdere de timp)\nEchipamente și consumabile medicale de calitate, asigurate de companie\nProgram de lucru flexibil, adaptabil stilului tău de viață\nPosibilitatea de a avansa spre roluri de coordonare sau specializare',
         closingText:
-            'Dacă ești gata să redai demnitatea îngrijirii medicale și vrei să lucrezi într-un sistem care respectă profesioniștii, te așteptăm în echipa Medvita.',
+            'Dacă ești gata să redai demnitatea îngrijirii medicale și vrei să lucrezi într-un sistem care respectă profesioniștii, te așteptăm în echipa Medelise.',
         sidebar: {
-            companyName: 'Medvita Health Solutions',
+            companyName: COMPANY_BRAND,
             locations: ['București – Ilfov', 'Cluj', 'Timișoara'],
-            website: 'www.medvita.ro',
+            website: COMPANY_WEBSITE,
             jobType: 'Full Time / Part Time',
             salary: '3K - 9K Lei',
             workLocation: 'Teren',
@@ -104,9 +108,9 @@ export const JOBS: Record<string, JobDetail> = {
         closingText:
             'Dacă ești pasionat de medicină de urgență și vrei să faci parte dintr-o echipă care salvează vieți zilnic, aplică acum!',
         sidebar: {
-            companyName: 'Medvita Health Solutions',
+            companyName: COMPANY_BRAND,
             locations: ['Constanța', 'București'],
-            website: 'www.medvita.ro',
+            website: COMPANY_WEBSITE,
             jobType: 'Full Time',
             salary: '5K - 6K Lei',
             workLocation: 'Teren',
@@ -128,19 +132,19 @@ export const JOBS: Record<string, JobDetail> = {
             'Suntem o companie medicală orientată spre viitor, cu misiunea de a oferi îngrijire medicală de calitate, direct la pacient acasă.\nCu ajutorul platformei noastre digitale – careOS – organizăm, planificăm și livrăm servicii medicale personalizate, eficiente și empatice.\nCredem că adevărata schimbare în sănătate începe cu oameni bine pregătiți, bine plătiți și profund motivați.',
         tasksTitle: 'Ce vei face concret?',
         tasksBody:
-            'Vei consulta pacienți la domiciliu, oferind diagnostic și tratament personalizat\nVei monitoriza pacienți cronici și vei ajusta planurile de tratament\nVei elibera rețete, trimiteri și certificări medicale\nVei colabora cu specialiști pentru cazuri complexe\nVei utiliza platforma Medvita pentru documentarea digitală a consultațiilor',
+            'Vei consulta pacienți la domiciliu, oferind diagnostic și tratament personalizat\nVei monitoriza pacienți cronici și vei ajusta planurile de tratament\nVei elibera rețete, trimiteri și certificări medicale\nVei colabora cu specialiști pentru cazuri complexe\nVei utiliza platforma Medelise pentru documentarea digitală a consultațiilor',
         profileTitle: 'Profilul tău ideal:',
         profileBody:
             'Ești medic specialist în medicină de familie, cu drept de liberă practică\nAi minim 5 ani experiență clinică\nEști membru activ al Colegiului Medicilor\nÎți place abordarea holistică a pacientului\nEști organizat, empatic și orientat spre soluții',
         benefitsTitle: 'Ce îți oferim:',
         benefitsBody:
-            'Remunerație premium per consultație + bonusuri de performanță\nFlexibilitate totală – tu îți alegi programul\nTabletă și echipament medical asigurate de companie\nTraininguri și conferințe medicale finanțate integral\nSistem digital complet – fără birocrație\nOportunități de leadership medical în cadrul rețelei Medvita',
+            'Remunerație premium per consultație + bonusuri de performanță\nFlexibilitate totală – tu îți alegi programul\nTabletă și echipament medical asigurate de companie\nTraininguri și conferințe medicale finanțate integral\nSistem digital complet – fără birocrație\nOportunități de leadership medical în cadrul rețelei Medelise',
         closingText:
-            'Dacă vrei să practici medicina de familie fără constrângerile sistemului tradițional, Medvita îți oferă cadrul perfect.',
+            'Dacă vrei să practici medicina de familie fără constrângerile sistemului tradițional, Medelise îți oferă cadrul perfect.',
         sidebar: {
-            companyName: 'Medvita Health Solutions',
+            companyName: COMPANY_BRAND,
             locations: ['București', 'Ilfov'],
-            website: 'www.medvita.ro',
+            website: COMPANY_WEBSITE,
             jobType: 'Part Time',
             salary: '9K - 12K Lei',
             workLocation: 'Teren + Remote',
@@ -170,11 +174,11 @@ export const JOBS: Record<string, JobDetail> = {
         benefitsBody:
             'Salariu competitiv + bonusuri de performanță trimestriale\nLucru 100% remote cu flexibilitate de program\nEchipamente de lucru asigurate (laptop, telefon, licențe software)\nTraininguri de leadership și management operațional\nMediu de lucru modern, dinamic, orientat spre inovație\nOportunități de avansare în management regional',
         closingText:
-            'Dacă ești un organizator natural care vrea să schimbe modul în care funcționează serviciile medicale, locul tău este în echipa Medvita.',
+            'Dacă ești un organizator natural care vrea să schimbe modul în care funcționează serviciile medicale, locul tău este în echipa Medelise.',
         sidebar: {
-            companyName: 'Medvita Health Solutions',
+            companyName: COMPANY_BRAND,
             locations: ['Remote – Toată România'],
-            website: 'www.medvita.ro',
+            website: COMPANY_WEBSITE,
             jobType: 'Full Time',
             salary: '30K - 35K Lei',
             workLocation: 'Remote',
