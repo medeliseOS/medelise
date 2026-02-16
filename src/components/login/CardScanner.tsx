@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useCallback } from 'react';
 import * as THREE from 'three';
-import { randomFloat, generateCode, calcCodeDims } from './cardScannerUtils';
+import { randomFloat, generateCode, calcCodeDims, CARD_IMAGES } from './cardScannerUtils';
 
 /* ═══════════════════════════════════════════════════════
    CardScanner  —  self-contained React component
@@ -28,73 +28,25 @@ export default function CardScanner() {
       const wrapper = document.createElement('div');
       wrapper.className = 'cs-card-wrapper';
 
-      /* normal card (fingerprint SVG) */
+      /* normal card (image) */
       const normal = document.createElement('div');
-      normal.className = 'cs-card cs-card-normal cs-card-fingerprint';
+      normal.className = 'cs-card cs-card-normal';
+      const img = document.createElement('img');
+      img.className = 'cs-card-image';
+      img.src = CARD_IMAGES[i % CARD_IMAGES.length];
+      img.alt = 'Card';
+      img.onerror = () => {
+        const c = document.createElement('canvas');
+        c.width = CARD_W; c.height = CARD_H;
+        const cx = c.getContext('2d')!;
+        const g = cx.createLinearGradient(0, 0, CARD_W, CARD_H);
+        g.addColorStop(0, '#667eea'); g.addColorStop(1, '#764ba2');
+        cx.fillStyle = g; cx.fillRect(0, 0, CARD_W, CARD_H);
+        img.src = c.toDataURL();
+      };
+      normal.appendChild(img);
 
-      // Generate SVG Fingerprint (V3: Spiral Whorl + Capsule Mask)
-      const ns = "http://www.w3.org/2000/svg";
-      const svg = document.createElementNS(ns, "svg");
-      svg.setAttribute("viewBox", "0 0 100 120");
-      svg.classList.add("cs-fingerprint-svg");
-
-      // Define Mask (Capsule Shape)
-      const defs = document.createElementNS(ns, "defs");
-      const mask = document.createElementNS(ns, "mask");
-      mask.setAttribute("id", "fingerprint-mask");
-      const maskRect = document.createElementNS(ns, "rect");
-      maskRect.setAttribute("x", "10");
-      maskRect.setAttribute("y", "10");
-      maskRect.setAttribute("width", "80");
-      maskRect.setAttribute("height", "100");
-      maskRect.setAttribute("rx", "30"); // Rounded top/bottom (capsule)
-      maskRect.setAttribute("fill", "white");
-      mask.appendChild(maskRect);
-      defs.appendChild(mask);
-      svg.appendChild(defs);
-
-      // Group for ridges (Masked)
-      const g = document.createElementNS(ns, "g");
-      g.setAttribute("mask", "url(#fingerprint-mask)");
-
-      // Generate Archimedian Spiral for organic ridge look
-      // r = a + b * theta
-      const path = document.createElementNS(ns, "path");
-      let d = "M 50 60 "; // Start center
-
-      // Spiral parameters
-      const rotations = 20;
-      const step = 0.5; // rad step
-      const gap = 2.2; // space between ridges
-
-      // We generate points for the spiral
-      for (let t = 0; t < rotations * Math.PI * 2; t += step) {
-        const r = 2 + (gap * t) / (2 * Math.PI); // Radius growth
-        const x = 50 + r * Math.cos(t);
-        const y = 60 + r * Math.sin(t) * 1.2; // 1.2 stretch for finger height
-        d += `L ${x.toFixed(1)} ${y.toFixed(1)} `;
-      }
-
-      path.setAttribute("d", d);
-      path.setAttribute("fill", "none");
-      path.setAttribute("stroke", "var(--color-primary)");
-      path.setAttribute("stroke-width", "1.8");
-      path.setAttribute("stroke-linecap", "round");
-
-      // Organic "Ridge Breaks" using stroke-dasharray
-      // High randomness to simulate pores and breaks
-      path.setAttribute("stroke-dasharray", "20 4 30 5 15 3 40 6");
-
-      g.appendChild(path);
-      svg.appendChild(g);
-      normal.appendChild(svg);
-
-      // Scan line effect
-      const scanLine = document.createElement('div');
-      scanLine.className = 'cs-fingerprint-scan-line';
-      normal.appendChild(scanLine);
-
-      /* ASCII card (back layer) */
+      /* ASCII card */
       const ascii = document.createElement('div');
       ascii.className = 'cs-card cs-card-ascii';
       const asciiContent = document.createElement('div');
@@ -706,43 +658,12 @@ export default function CardScanner() {
           pointer-events: none;
         }
 
-        .cs-card-fingerprint {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.02); /* Subtle glass bg */
-            border: 1px solid rgba(33, 49, 112, 0.1);
-        }
-
-        :global(.cs-fingerprint-svg) {
-            width: 60%;
-            height: auto;
-            fill: none;
-            stroke: var(--color-primary);
-            stroke-width: 1.6px;
-            stroke-linecap: round;
-            opacity: 0.9;
-            filter: drop-shadow(0 0 1px rgba(33, 49, 112, 0.5));
-        }
-
-        :global(.cs-fingerprint-scan-line) {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .cs-card-image {
             width: 100%;
-            height: 2px;
-            background: #89CFF0; /* Baby Blue */
-            box-shadow: 0 0 10px 2px #80bdd9ff, 0 0 20px 4px rgba(137, 207, 240, 0.5);
-            opacity: 0;
-            animation: cs-fingerprint-scan 3s ease-in-out infinite;
-            z-index: 10;
-        }
-
-        @keyframes cs-fingerprint-scan {
-            0% { top: 10%; opacity: 0; width: 0%; left: 50%; }
-            10% { opacity: 1; width: 80%; left: 10%; }
-            90% { opacity: 1; width: 80%; left: 10%; }
-            100% { top: 90%; opacity: 0; width: 0%; left: 50%; }
+            height: 100%;
+            object-fit: cover;
+            /* Tint image to primary indigo approx #213170 */
+            filter: sepia(100%) hue-rotate(190deg) saturate(500%) brightness(0.4) contrast(1.2);
         }
 
         .cs-header {
@@ -960,7 +881,7 @@ export default function CardScanner() {
           position: absolute;
           top: 0; left: 0;
           width: 100%; height: 100%;
-          color: var(--color-primary);
+          color: rgba(200,180,255,1);
           font-family: 'Courier New', monospace;
           font-size: 11px;
           line-height: 13px;
@@ -986,7 +907,7 @@ export default function CardScanner() {
           position: absolute;
           top: 0; left: 0;
           width: 100%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(137, 207, 240, 0.6), transparent); /* Baby Blue scan */
+          background: linear-gradient(90deg, transparent, rgba(0,255,255,0.4), transparent);
           animation: cs-scanFx 0.6s ease-out;
           pointer-events: none;
           z-index: 5;
