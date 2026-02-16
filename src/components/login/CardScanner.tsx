@@ -32,53 +32,60 @@ export default function CardScanner() {
       const normal = document.createElement('div');
       normal.className = 'cs-card cs-card-normal cs-card-fingerprint';
 
-      // Generate SVG Fingerprint
-      // Generate SVG Fingerprint (Improved "Tech" Look)
+      // Generate SVG Fingerprint (V3: Spiral Whorl + Capsule Mask)
       const ns = "http://www.w3.org/2000/svg";
       const svg = document.createElementNS(ns, "svg");
       svg.setAttribute("viewBox", "0 0 100 120");
       svg.classList.add("cs-fingerprint-svg");
 
-      // Group for ridges
+      // Define Mask (Capsule Shape)
+      const defs = document.createElementNS(ns, "defs");
+      const mask = document.createElementNS(ns, "mask");
+      mask.setAttribute("id", "fingerprint-mask");
+      const maskRect = document.createElementNS(ns, "rect");
+      maskRect.setAttribute("x", "10");
+      maskRect.setAttribute("y", "10");
+      maskRect.setAttribute("width", "80");
+      maskRect.setAttribute("height", "100");
+      maskRect.setAttribute("rx", "30"); // Rounded top/bottom (capsule)
+      maskRect.setAttribute("fill", "white");
+      mask.appendChild(maskRect);
+      defs.appendChild(mask);
+      svg.appendChild(defs);
+
+      // Group for ridges (Masked)
       const g = document.createElementNS(ns, "g");
+      g.setAttribute("mask", "url(#fingerprint-mask)");
 
-      // Generate dense concentric ellipses for "Fingerprint" effect
-      // Center roughly at 50, 60
-      const cx = 50;
-      const cy = 60;
+      // Generate Archimedian Spiral for organic ridge look
+      // r = a + b * theta
+      const path = document.createElementNS(ns, "path");
+      let d = "M 50 60 "; // Start center
 
-      for (let i = 1; i <= 20; i++) {
-        const path = document.createElementNS(ns, "path");
-        const rx = 3 + i * 2.2;  // Radius X - tighter spacing
-        const ry = 5 + i * 3.2;  // Radius Y - tall ellipse shape
+      // Spiral parameters
+      const rotations = 20;
+      const step = 0.5; // rad step
+      const gap = 2.2; // space between ridges
 
-        // Ellipse path command: M cx-rx cy A rx ry 0 1 1 cx+rx cy A rx ry 0 1 1 cx-rx cy
-        // But we want incomplete ellipses to look like ridges.
-        // Let's use two arcs to form the full ellipse.
-
-        const d = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx + rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx - rx} ${cy}`;
-
-        path.setAttribute("d", d);
-
-        // Random "gap" logic using stroke-dasharray
-        // Dash length long (ridge), gap short (break)
-        // Add randomness to make it look organic
-        const dashBase = 15 + Math.random() * 20;
-        const gapBase = 3 + Math.random() * 5;
-        path.style.strokeDasharray = `${dashBase} ${gapBase}`;
-        path.style.strokeDashoffset = `${Math.random() * 100}`;
-
-        g.appendChild(path);
+      // We generate points for the spiral
+      for (let t = 0; t < rotations * Math.PI * 2; t += step) {
+        const r = 2 + (gap * t) / (2 * Math.PI); // Radius growth
+        const x = 50 + r * Math.cos(t);
+        const y = 60 + r * Math.sin(t) * 1.2; // 1.2 stretch for finger height
+        d += `L ${x.toFixed(1)} ${y.toFixed(1)} `;
       }
 
-      // Core whorl - simple spiral or circle?
-      // Just a few small circles/arcs in center
-      const core = document.createElementNS(ns, "path");
-      core.setAttribute("d", `M 48 60 Q 50 55 52 60 T 48 60`);
-      core.style.fill = "none";
-      core.style.stroke = "var(--color-primary)";
-      g.appendChild(core);
+      path.setAttribute("d", d);
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", "var(--color-primary)");
+      path.setAttribute("stroke-width", "1.8");
+      path.setAttribute("stroke-linecap", "round");
 
+      // Organic "Ridge Breaks" using stroke-dasharray
+      // High randomness to simulate pores and breaks
+      path.setAttribute("stroke-dasharray", "20 4 30 5 15 3 40 6");
+
+      g.appendChild(path);
       svg.appendChild(g);
       normal.appendChild(svg);
 
@@ -712,10 +719,10 @@ export default function CardScanner() {
             height: auto;
             fill: none;
             stroke: var(--color-primary);
-            stroke-width: 2.5px;
+            stroke-width: 1.6px;
             stroke-linecap: round;
-            opacity: 0.8;
-            filter: drop-shadow(0 0 2px rgba(33, 49, 112, 0.3));
+            opacity: 0.9;
+            filter: drop-shadow(0 0 1px rgba(33, 49, 112, 0.5));
         }
 
         :global(.cs-fingerprint-scan-line) {
