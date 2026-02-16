@@ -8,6 +8,8 @@ import Button from '../ui/Button'; // Adjust based on actual path
 export default function DeshidratareContent() {
     const [volume, setVolume] = useState<'500ml' | '1000ml'>('500ml');
     const [quantity, setQuantity] = useState(1);
+    const [activeTab, setActiveTab] = useState<'descriere' | 'recenzii'>('descriere');
+    const [mobileAccordionOpen, setMobileAccordionOpen] = useState(false);
 
     // Pricing configuration
     // Assuming 450 Lei is for 500ml. Let's arbitrarily say 1000ml is 750 Lei for now, 
@@ -170,6 +172,122 @@ export default function DeshidratareContent() {
                 {/* Footer Disclaimer */}
                 <div className="drez-disclaimer">
                     Imaginea are rol exclusiv ilustrativ, iar culorile soluției prezentate nu reflectă neapărat culoarea reală a tratamentului. Pigmentarea este folosită în scopuri de marketing și diferențiere vizuală între produse. Efectele medicale menționate sunt reale și susținute de ingredientele active din compoziție.
+                </div>
+
+                {/* ═══ Tabs Section (Desktop / Tablet) ═══ */}
+                <div className="drez-tabs-section">
+                    {/* Desktop + Tablet: Underline Tabs */}
+                    <div className="drez-tabs-bar">
+                        <button
+                            className={`drez-tab ${activeTab === 'descriere' ? 'drez-tab-active' : ''}`}
+                            onClick={() => setActiveTab('descriere')}
+                        >
+                            Descriere
+                        </button>
+                        <button
+                            className={`drez-tab ${activeTab === 'recenzii' ? 'drez-tab-active' : ''}`}
+                            onClick={() => setActiveTab('recenzii')}
+                        >
+                            Recenzii clienți
+                        </button>
+                    </div>
+
+                    {/* Mobile: Accordion */}
+                    <div className="drez-accordion">
+                        <button
+                            className="drez-accordion-header"
+                            onClick={() => setMobileAccordionOpen(!mobileAccordionOpen)}
+                        >
+                            <span>{activeTab === 'descriere' ? 'Descriere' : 'Recenzii clienți'}</span>
+                            <div className={`drez-accordion-arrow ${mobileAccordionOpen ? 'drez-accordion-arrow-open' : ''}`} />
+                        </button>
+                        {mobileAccordionOpen && (
+                            <div className="drez-accordion-dropdown">
+                                <button
+                                    className={`drez-accordion-option ${activeTab === 'descriere' ? 'drez-accordion-option-active' : ''}`}
+                                    onClick={() => { setActiveTab('descriere'); setMobileAccordionOpen(false); }}
+                                >
+                                    Descriere
+                                </button>
+                                <button
+                                    className={`drez-accordion-option ${activeTab === 'recenzii' ? 'drez-accordion-option-active' : ''}`}
+                                    onClick={() => { setActiveTab('recenzii'); setMobileAccordionOpen(false); }}
+                                >
+                                    Recenzii clienți
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Tab Content */}
+                    <div className="drez-tab-content">
+                        {activeTab === 'descriere' ? (
+                            <div className="drez-tab-panel">
+                                <h3 className="drez-tab-panel-title">Despre Tratamentul IV Deshidratare</h3>
+                                <p className="drez-tab-panel-text">
+                                    Terapia intravenoasă pentru deshidratare este o soluție medicală avansată care livrează fluide, electroliți și nutrienți esențiali direct în fluxul sanguin. Această metodă permite o absorbție de 100%, comparativ cu doar 20-25% în cazul hidratării orale.
+                                </p>
+                                <h4 className="drez-tab-panel-subtitle">Compoziție</h4>
+                                <ul className="drez-tab-panel-list">
+                                    <li>Soluție salină fiziologică (NaCl 0,9%)</li>
+                                    <li>Electroliți (Potasiu, Magneziu, Calciu)</li>
+                                    <li>Vitamine din complexul B (B1, B2, B3, B5, B6, B12)</li>
+                                    <li>Vitamina C</li>
+                                    <li>Zinc</li>
+                                </ul>
+                                <h4 className="drez-tab-panel-subtitle">Durata tratamentului</h4>
+                                <p className="drez-tab-panel-text">
+                                    Tratamentul durează între 30 și 60 de minute, în funcție de volumul ales (500 ml sau 1000 ml). Efectele sunt resimțite imediat după administrare.
+                                </p>
+                                <h4 className="drez-tab-panel-subtitle">Indicații</h4>
+                                <p className="drez-tab-panel-text">
+                                    Recomandat pentru persoanele care suferă de deshidratare cauzată de efort fizic intens, expunere prelungită la căldură, consum insuficient de lichide, răceli, gripă sau alte afecțiuni care duc la pierderea de fluide.
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="drez-tab-panel">
+                                <h3 className="drez-tab-panel-title">Recenzii Clienți</h3>
+                                {/* Reviews */}
+                                <div className="drez-review-card">
+                                    <div className="drez-review-header">
+                                        <div className="drez-review-stars">
+                                            {[1,2,3,4,5].map(i => <div key={i} className="drez-star-icon" />)}
+                                        </div>
+                                        <span className="drez-review-date">12 Ianuarie 2026</span>
+                                    </div>
+                                    <p className="drez-review-author">Maria D.</p>
+                                    <p className="drez-review-text">
+                                        Am apelat la acest tratament după o perioadă de gripă. Diferența a fost enormă — m-am simțit revitalizată aproape instant. Recomand cu încredere!
+                                    </p>
+                                </div>
+                                <div className="drez-review-card">
+                                    <div className="drez-review-header">
+                                        <div className="drez-review-stars">
+                                            {[1,2,3,4,5].map(i => <div key={i} className="drez-star-icon" />)}
+                                        </div>
+                                        <span className="drez-review-date">28 Decembrie 2025</span>
+                                    </div>
+                                    <p className="drez-review-author">Andrei P.</p>
+                                    <p className="drez-review-text">
+                                        După un maraton, aveam nevoie urgentă de rehidratare. Tratamentul a fost rapid, eficient și personalul extrem de profesionist.
+                                    </p>
+                                </div>
+                                <div className="drez-review-card">
+                                    <div className="drez-review-header">
+                                        <div className="drez-review-stars">
+                                            {[1,2,3,4].map(i => <div key={i} className="drez-star-icon" />)}
+                                            <div className="drez-star-icon-empty" />
+                                        </div>
+                                        <span className="drez-review-date">15 Noiembrie 2025</span>
+                                    </div>
+                                    <p className="drez-review-author">Elena S.</p>
+                                    <p className="drez-review-text">
+                                        Foarte bine pentru recuperarea rapida. Singurul minus a fost programarea care a durat un pic. De rest, totul excelent!
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
 
@@ -478,6 +596,178 @@ export default function DeshidratareContent() {
                     line-height: 1.4;
                 }
 
+                /* ═══ Tabs Section ═══ */
+                .drez-tabs-section {
+                    width: 100%;
+                    max-width: 1312px;
+                    padding: 16px 0;
+                }
+
+                /* Desktop Tabs Bar */
+                .drez-tabs-bar {
+                    display: flex;
+                    align-items: flex-start;
+                }
+                .drez-tab {
+                    width: 240px;
+                    padding: 10px 20px;
+                    background: none;
+                    border: none;
+                    border-bottom: 2px solid #BDE0FF;
+                    color: var(--Color-Brand-Ocean-Blue, #213170);
+                    font-size: 18px;
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 600;
+                    line-height: 28px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    transition: border-color 0.2s;
+                }
+                .drez-tab-active {
+                    border-bottom: 2px solid #FE5D16;
+                }
+
+                /* Mobile Accordion — hidden on desktop/tablet */
+                .drez-accordion {
+                    display: none;
+                }
+
+                /* Tab content area */
+                .drez-tab-content {
+                    padding: 32px 0;
+                }
+                .drez-tab-panel {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+                .drez-tab-panel-title {
+                    color: #213170;
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin: 0;
+                }
+                .drez-tab-panel-subtitle {
+                    color: #213170;
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin: 16px 0 0;
+                }
+                .drez-tab-panel-text {
+                    color: #213170;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 1.6;
+                    margin: 0;
+                }
+                .drez-tab-panel-list {
+                    list-style: disc;
+                    padding-left: 24px;
+                    margin: 0;
+                    color: #213170;
+                    font-size: 16px;
+                    line-height: 1.8;
+                }
+
+                /* Review Cards */
+                .drez-review-card {
+                    padding: 24px;
+                    background: #F8F9FB;
+                    border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+                .drez-review-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .drez-review-stars {
+                    display: flex;
+                    gap: 4px;
+                }
+                .drez-star-icon-empty {
+                    width: 20px;
+                    height: 20px;
+                    background: #CED2DA;
+                    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+                }
+                .drez-review-date {
+                    color: #97A1AF;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+                .drez-review-author {
+                    margin: 0;
+                    color: #213170;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                .drez-review-text {
+                    margin: 0;
+                    color: #213170;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 1.6;
+                }
+
+                /* Accordion (Mobile) Styles — base definition, shown only via media query */
+                .drez-accordion-header {
+                    width: 100%;
+                    padding: 12px;
+                    background: white;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+                    color: #213170;
+                    font-size: 14px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 600;
+                    line-height: 20px;
+                }
+                .drez-accordion-arrow {
+                    width: 12px;
+                    height: 7px;
+                    background: #213170;
+                    clip-path: polygon(0 0, 100% 0, 50% 100%);
+                    transition: transform 0.2s;
+                }
+                .drez-accordion-arrow-open {
+                    transform: rotate(180deg);
+                }
+                .drez-accordion-dropdown {
+                    border: 1px solid #CED2DA;
+                    border-top: none;
+                    border-radius: 0 0 5px 5px;
+                    overflow: hidden;
+                }
+                .drez-accordion-option {
+                    width: 100%;
+                    padding: 12px;
+                    background: white;
+                    border: none;
+                    text-align: left;
+                    cursor: pointer;
+                    color: #213170;
+                    font-size: 14px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 500;
+                    line-height: 20px;
+                }
+                .drez-accordion-option:hover {
+                    background: #F2F4F7;
+                }
+                .drez-accordion-option-active {
+                    font-weight: 600;
+                    background: #F2F4F7;
+                }
+
 
                 /* ── Tablet Styles (<= 1024px) ── */
                 @media (max-width: 1024px) {
@@ -521,6 +811,16 @@ export default function DeshidratareContent() {
                     }
                     .drez-benefits-list li {
                         font-size: 16px;
+                    }
+
+                    /* Tabs Tablet */
+                    .drez-tab {
+                        font-size: 16px;
+                        font-family: 'Montserrat', sans-serif;
+                        line-height: 24px;
+                    }
+                    .drez-tabs-section {
+                        padding: 16px 0;
                     }
                 }
 
@@ -597,6 +897,27 @@ export default function DeshidratareContent() {
                     /* Disclaimer Mobile */
                     .drez-disclaimer {
                         font-size: 12px;
+                    }
+
+                    /* Tabs: hide underline tabs, show accordion */
+                    .drez-tabs-bar {
+                        display: none;
+                    }
+                    .drez-accordion {
+                        display: block;
+                    }
+                    .drez-tab-content {
+                        padding: 16px 0;
+                    }
+                    .drez-tab-panel-title {
+                        font-size: 18px;
+                    }
+                    .drez-tab-panel-subtitle {
+                        font-size: 16px;
+                    }
+                    .drez-tab-panel-text,
+                    .drez-tab-panel-list {
+                        font-size: 14px;
                     }
                 }
             `}</style>
