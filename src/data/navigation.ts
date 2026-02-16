@@ -77,11 +77,11 @@ const IV_DRIP_ITEMS: SubMenuItem[] = [
     { title: 'BOOST DE ENERGIE', subtitle: 'Vitalitate instantă', href: '/iv-drip-therapy/boost-de-energie' },
     { title: 'BOOST DE IMUNITATE', subtitle: 'Susținere antivirală', href: '/iv-drip-therapy/boost-de-imunitate' },
     { title: 'SUPER - BOOST DE IMUNITATE', subtitle: 'Protecție avansată', href: '/iv-drip-therapy/super-boost-de-imunitate' },
-    { title: 'FRUMUSETE', subtitle: 'Regenerare celulară' },
+    { title: 'FRUMUSETE', subtitle: 'Regenerare celulară', href: '/iv-drip-therapy/frumusete' },
     { title: 'MYERS-COCKTAIL', subtitle: 'Complex vitaminic total', href: '/iv-drip-therapy/myers-cocktail' },
     { title: 'CALMAREA MIGRENELOR', subtitle: 'Relaxare neurovasculară', href: '/iv-drip-therapy/calmarea-migrenelor' },
     { title: 'ALL - INCLUSIVE', subtitle: 'Suport complet', href: '/iv-drip-therapy/all-inclusive' },
-    { title: 'GASTROENTERITA', subtitle: 'Hidratare corectivă' },
+    { title: 'GASTROENTERITA', subtitle: 'Hidratare corectivă', href: '/iv-drip-therapy/gastroenterita' },
 ];
 
 const SERVICII_ITEMS: SubMenuItem[] = [
