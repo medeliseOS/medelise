@@ -54,6 +54,7 @@ export default function CardScanner() {
       const dims = calcCodeDims(CARD_W, CARD_H);
       asciiContent.style.fontSize = dims.fontSize + 'px';
       asciiContent.style.lineHeight = dims.lineHeight + 'px';
+      asciiContent.style.color = 'var(--color-primary)';
       asciiContent.textContent = generateCode(dims.width, dims.height);
       ascii.appendChild(asciiContent);
 
@@ -584,10 +585,9 @@ export default function CardScanner() {
             identity<span className="cs-dots"><span className="cs-dot cs-dot-1">.</span><span className="cs-dot cs-dot-2">.</span><span className="cs-dot cs-dot-3">.</span></span>
           </a>
         </div>
-        {/* Footer: Security badges */}
         <div className="cs-footer">
           <div className="cs-sec-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
             <span>SECURITATE DE NIVEL MILITAR</span>
           </div>
           <p className="cs-sec-desc">
@@ -621,8 +621,22 @@ export default function CardScanner() {
             rgba(255, 255, 255, 0.5) 30%,
             rgba(255, 255, 255, 0) 50%
           );
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.5) 30%,
+            rgba(255, 255, 255, 0) 50%
+          );
           z-index: 20;
           pointer-events: none;
+        }
+
+        .cs-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Tint image to primary indigo approx #213170 */
+            filter: sepia(100%) hue-rotate(190deg) saturate(500%) brightness(0.4) contrast(1.2);
         }
 
         .cs-header {
@@ -655,7 +669,7 @@ export default function CardScanner() {
         .cs-logo-line {
           flex: 1;
           height: 1px;
-          background: var(--color-surface-border);
+          background: var(--color-primary);
         }
 
         .cs-footer {
@@ -674,7 +688,7 @@ export default function CardScanner() {
           display: flex;
           align-items: center;
           gap: 8px;
-          color: var(--color-success);
+          color: var(--color-primary);
           font-size: 14px;
           font-weight: 700;
           letter-spacing: 0.05em;
@@ -682,18 +696,20 @@ export default function CardScanner() {
         }
 
         .cs-sec-desc {
-          color: var(--color-text-muted);
+          color: var(--color-primary);
           font-size: 14px;
           font-weight: 400;
           line-height: 22px;
           margin: 0;
+          opacity: 0.9;
         }
 
         .cs-sec-badges {
-          color: var(--color-text-muted);
+          color: var(--color-primary);
           font-size: 13px;
           font-weight: 400;
           margin: 0;
+          opacity: 0.8;
         }
 
         .cs-scanning-label {
