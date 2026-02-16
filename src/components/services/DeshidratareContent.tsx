@@ -507,6 +507,7 @@ export default function DeshidratareContent() {
 
                 .drez-qty-control {
                     display: inline-flex;
+                    width: fit-content;
                     border: 1px solid #CED2DA;
                     border-radius: 8px;
                     overflow: hidden;
