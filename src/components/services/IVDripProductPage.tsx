@@ -224,15 +224,6 @@ export default function IVDripProductPage({
                 {/* Disclaimer */}
                 {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
 
-                {/* Why it works Section */}
-                <IVWhySection
-                    imageSrc={imageSrc}
-                    imageAlt={imageAlt}
-                    heading={whyHeading}
-                    intro={whyIntro}
-                    features={whyFeatures}
-                />
-
                 {/* Tabs Section */}
                 <div className="drez-tabs-section">
                     {/* Desktop + Tablet: Underline Tabs */}
@@ -282,6 +273,13 @@ export default function IVDripProductPage({
                     <div className="drez-tab-content">
                         {activeTab === 'descriere' ? (
                             <div className="drez-tab-panel">
+                                <IVWhySection
+                                    imageSrc={imageSrc}
+                                    imageAlt={imageAlt}
+                                    heading={whyHeading}
+                                    intro={whyIntro}
+                                    features={whyFeatures}
+                                />
                                 <h3 className="drez-tab-panel-title">{description.title}</h3>
                                 <p className="drez-tab-panel-text">{description.intro}</p>
                                 {description.sections.map((sec, i) => (
