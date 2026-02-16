@@ -1,19 +1,53 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Button from '../ui/Button'; // Adjust based on actual path
 
 export default function DeshidratareContent() {
+    const [volume, setVolume] = useState<'500ml' | '1000ml'>('500ml');
+    const [quantity, setQuantity] = useState(1);
+
+    // Pricing configuration
+    // Assuming 450 Lei is for 500ml. Let's arbitrarily say 1000ml is 750 Lei for now, 
+    // or just keep it simple and say price depends on volume.
+    // Given the text "0,55 Lei/ml", 1000ml * 0.55 = 550 Lei.
+    // 500ml at 450 Lei is 0.9 Lei/ml.
+    // The "Economiseste" text suggests a deal. 
+    // Let's implement dynamic pricing:
+    // 500ml: 450 Lei (Old: 600 Lei)
+    // 1000ml: 750 Lei (Old: 1000 Lei) - purely illustrative if not specified.
+    // actually, let's keep it simple: 450 Lei base.
+
+    const BASE_PRICE = volume === '500ml' ? 450 : 750;
+    const OLD_PRICE = volume === '500ml' ? 600 : 1000;
+
+    const totalPrice = BASE_PRICE * quantity;
+
+    const handleIncrement = () => setQuantity(q => q + 1);
+    const handleDecrement = () => setQuantity(q => Math.max(1, q - 1));
+
+    const handleAddToCart = () => {
+        // Mock Add to Cart
+        const item = {
+            id: 'deshidratare-iv',
+            name: 'Deshidratare IV Drip',
+            volume,
+            quantity,
+            price: BASE_PRICE,
+            total: totalPrice,
+        };
+        console.log('Added to cart:', item);
+        alert(`Adăugat în coș:\n${item.name} (${item.volume})\nCantitate: ${item.quantity}\nTotal: ${item.total} Lei`);
+    };
+
     return (
         <div className="drez-page">
             <div className="drez-container">
                 <div className="drez-main-row">
                     {/* Image Section */}
                     <div className="drez-image-wrapper">
-                        {/* Using standard img tag for exact prompt compliance regarding style props, 
-                            but could use Next.js Image if preferred. Sticking to simple img for now 
-                            to match the 'copy-paste' nature of the request, but styling it with classes. */}
                         <img
                             src="/images/iv-drip/Photo.svg"
                             alt="Deshidratare IV Drip"
@@ -41,13 +75,15 @@ export default function DeshidratareContent() {
                         {/* Price */}
                         <div className="drez-price-group">
                             <div className="drez-price-row">
-                                <span className="drez-price-current">450 Lei</span>
-                                <span className="drez-price-old">600 Lei</span>
+                                <span className="drez-price-current">{BASE_PRICE} Lei</span>
+                                <span className="drez-price-old">{OLD_PRICE} Lei</span>
                             </div>
-                            <div className="drez-discount-badge">Reducere de 36,36%</div>
+                            <div className="drez-discount-badge">Reducere de {Math.round((1 - BASE_PRICE / OLD_PRICE) * 100)}%!</div>
                             <div className="drez-economy-group">
                                 <span className="drez-eco-label">Economisește acum!</span>
-                                <span className="drez-eco-value">0,55 Lei/ml vs 0,849 Lei/ml</span>
+                                <span className="drez-eco-value">
+                                    {volume === '500ml' ? '0,90 Lei/ml' : '0,75 Lei/ml'} vs 1,20 Lei/ml
+                                </span>
                             </div>
                         </div>
 
@@ -70,8 +106,18 @@ export default function DeshidratareContent() {
                             <div className="drez-selector-block">
                                 <span className="drez-selector-label">Selectează volumul :</span>
                                 <div className="drez-volume-options">
-                                    <div className="drez-vol-btn drez-vol-btn-white">500 ml</div>
-                                    <div className="drez-vol-btn drez-vol-btn-blue">1000 ml</div>
+                                    <button
+                                        onClick={() => setVolume('500ml')}
+                                        className={`drez-vol-btn ${volume === '500ml' ? 'drez-vol-btn-active' : 'drez-vol-btn-inactive'}`}
+                                    >
+                                        500 ml
+                                    </button>
+                                    <button
+                                        onClick={() => setVolume('1000ml')}
+                                        className={`drez-vol-btn ${volume === '1000ml' ? 'drez-vol-btn-active' : 'drez-vol-btn-inactive'}`}
+                                    >
+                                        1000 ml
+                                    </button>
                                 </div>
                             </div>
 
@@ -79,11 +125,19 @@ export default function DeshidratareContent() {
                             <div className="drez-selector-block">
                                 <span className="drez-selector-label">Selectează Cantitatea :</span>
                                 <div className="drez-qty-control">
-                                    <button className="drez-qty-btn">
+                                    <button
+                                        className="drez-qty-btn"
+                                        onClick={handleDecrement}
+                                        aria-label="Scade cantitatea"
+                                    >
                                         <div className="drez-qty-minus" />
                                     </button>
-                                    <div className="drez-qty-display">1</div>
-                                    <button className="drez-qty-btn">
+                                    <div className="drez-qty-display">{quantity}</div>
+                                    <button
+                                        className="drez-qty-btn"
+                                        onClick={handleIncrement}
+                                        aria-label="Creste cantitatea"
+                                    >
                                         <div className="drez-qty-plus">
                                             <div className="bar-h" />
                                             <div className="bar-v" />
@@ -95,10 +149,16 @@ export default function DeshidratareContent() {
 
                         {/* CTA */}
                         <div className="drez-cta-row">
-                            <Link href="/contact" className="drez-btn-program">
-                                Programează
-                            </Link>
-                            <button className="drez-btn-fav">
+                            {/* Reusing existing Button component */}
+                            <Button
+                                variant="primary"
+                                onClick={handleAddToCart}
+                                style={{ flex: 1 }}
+                            >
+                                Adaugă în coș - {totalPrice} Lei
+                            </Button>
+
+                            <button className="drez-btn-fav" aria-label="Adauga la favorite">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#213170" strokeWidth="1.5">
                                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                 </svg>
@@ -127,7 +187,7 @@ export default function DeshidratareContent() {
 
                 .drez-container {
                     width: 100%;
-                    max-width: 1440px; /* Wrapper mostly for centering */
+                    max-width: 1440px;
                     padding: 0 64px;
                     display: flex;
                     flex-direction: column;
@@ -164,7 +224,6 @@ export default function DeshidratareContent() {
                 /* Content Panel */
                 .drez-content {
                     flex: 1;
-                    /* min-width: 300px; */
                     display: flex;
                     flex-direction: column;
                     gap: 32px;
@@ -283,7 +342,6 @@ export default function DeshidratareContent() {
                     font-weight: 400;
                     line-height: 1.5;
                 }
-                /* Add bullet manually or via css? User prompt had explicit divs. */
                 .drez-benefits-list li::before {
                     content: "• ";
                     margin-right: 4px;
@@ -305,7 +363,7 @@ export default function DeshidratareContent() {
                     font-size: 18px;
                     font-family: 'Open Sans', sans-serif;
                     font-weight: 600;
-                    text-align: center; /* Centered in desktop? prompt said textAlign center */
+                    text-align: center; 
                 }
                 .drez-volume-options {
                     display: flex;
@@ -322,14 +380,22 @@ export default function DeshidratareContent() {
                     cursor: pointer;
                     font-weight: 500;
                     font-size: 18px;
+                    background: white;
+                    color: #213170;
+                    transition: all 0.2s;
                 }
-                .drez-vol-btn-white {
+                /* Active / Inactive states */
+                .drez-vol-btn-active {
+                    background: #213170;
+                    color: white;
+                    border-color: #213170;
+                }
+                .drez-vol-btn-inactive {
                     background: white;
                     color: #213170;
                 }
-                .drez-vol-btn-blue {
-                    background: #213170;
-                    color: white;
+                .drez-vol-btn:hover {
+                    border-color: #213170;
                 }
 
                 .drez-qty-control {
@@ -342,23 +408,31 @@ export default function DeshidratareContent() {
                     background: white;
                     border: none;
                     border-right: 1px solid #CED2DA;
-                    padding: 10px 20px;
+                    padding: 0 20px;
+                    width: 60px;
+                    height: 44px;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    transition: background 0.1s;
+                }
+                .drez-qty-btn:active {
+                    background-color: #f2f4f7;
                 }
                 .drez-qty-btn:last-child {
                     border-right: none;
                 }
                 .drez-qty-display {
-                    padding: 10px 20px;
+                    width: 60px;
+                    height: 44px;
                     font-size: 18px;
                     font-weight: 600;
                     color: #213170;
                     border-right: 1px solid #CED2DA;
                     display: flex;
                     align-items: center;
+                    justify-content: center;
                 }
                 .drez-qty-minus {
                     width: 20px; height: 2px; background: #213170;
@@ -376,17 +450,8 @@ export default function DeshidratareContent() {
                     gap: 32px;
                     align-items: center;
                 }
-                .drez-btn-program {
-                    flex: 1;
-                    background: #213170;
-                    color: white;
-                    text-decoration: none;
-                    text-align: center;
-                    padding: 10px 20px;
-                    border-radius: 8px;
-                    font-size: 18px;
-                    font-weight: 500;
-                }
+                /* drez-btn-program removed in favor of Component */
+                
                 .drez-btn-fav {
                     width: 44px;
                     height: 44px;
@@ -397,6 +462,7 @@ export default function DeshidratareContent() {
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+                    flex-shrink: 0;
                 }
 
                 /* Disclaimer */
@@ -411,7 +477,6 @@ export default function DeshidratareContent() {
                     text-align: center;
                     line-height: 1.4;
                 }
-
 
 
                 /* ── Tablet Styles (<= 1024px) ── */
@@ -527,9 +592,7 @@ export default function DeshidratareContent() {
                     }
                     
                     /* CTA Mobile */
-                    .drez-btn-program {
-                        font-size: 16px;
-                    }
+                    /* Button component handles its own responsive sizing, but wrapper might need help */
                     
                     /* Disclaimer Mobile */
                     .drez-disclaimer {
