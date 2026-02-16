@@ -74,7 +74,7 @@ const IV_DRIP_ITEMS: SubMenuItem[] = [
     { title: 'ANTI-MAHMUREALĂ', subtitle: 'Reducerea greței și cefaleei' },
     { title: 'RECUPERARE', subtitle: 'Refacere accelerată' },
     { title: 'FERTILITY+', subtitle: 'Optimizare celulară' },
-    { title: 'BOOST DE ENERGIE', subtitle: 'Vitalitate instantă' },
+    { title: 'BOOST DE ENERGIE', subtitle: 'Vitalitate instantă', href: '/iv-drip-therapy/boost-de-energie' },
     { title: 'BOOST DE IMUNITATE', subtitle: 'Susținere antivirală' },
     { title: 'SUPER - BOOST DE IMUNITATE', subtitle: 'Protecție avansată' },
     { title: 'FRUMUSETE', subtitle: 'Regenerare celulară' },
