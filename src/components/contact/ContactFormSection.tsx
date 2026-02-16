@@ -1,6 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
 
 interface ContactFormSectionProps {
     className?: string;
@@ -30,6 +32,8 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
         }
     };
 
+    const isSubmitting = formStatus === 'sending';
+
     return (
         <>
             <section className={`contact-section ${className}`}>
@@ -40,7 +44,7 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
                             <div className="contact-info-text">
                                 <h2 className="contact-info-title">Suntem aici pentru tine</h2>
                                 <p className="contact-info-desc">
-                                    Ai întrebări sau vrei să afli mai multe despre abonamentele sau serviciile Medvita?
+                                    Ai întrebări sau vrei să afli mai multe despre abonamentele sau serviciile Medelise?
                                     <br />
                                     Echipa noastră este aici să te ajute cu informații clare, rapide și complete.
                                 </p>
@@ -64,7 +68,7 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
                                     </div>
                                     <div className="contact-info-card">
                                         <span className="contact-info-label">E-mail</span>
-                                        <span className="contact-info-value">office@medvita.ro</span>
+                                        <span className="contact-info-value">office@medelise.ro</span>
                                     </div>
                                 </div>
                             </div>
@@ -144,14 +148,17 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
                                     </div>
                                 </div>
 
-                                <button
-                                    type="submit"
-                                    className="contact-submit-btn"
-                                    disabled={formStatus === 'sending'}
-                                >
-                                    {formStatus === 'sending' ? 'Se trimite...' : 'Trimite mesajul'}
-                                </button>
-
+                                <div className="contact-actions">
+                                    <Button
+                                        type="submit"
+                                        variant="accent"
+                                        isFullWidth
+                                        disabled={isSubmitting}
+                                        isLoading={isSubmitting}
+                                    >
+                                        Trimite Mesajul
+                                    </Button>
+                                </div>
                                 {formStatus === 'sent' && (
                                     <p className="contact-form-success">✓ Mesajul a fost trimis cu succes!</p>
                                 )}
@@ -207,9 +214,9 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
 
                 .contact-info-title {
                     color: white;
-                    font-size: 36px;
+                    font-size: var(--text-h2);
                     font-weight: 600;
-                    line-height: 44px;
+                    line-height: 1.2;
                     margin: 0;
                 }
 
@@ -342,33 +349,8 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
                     min-height: 100px;
                 }
 
-                .contact-submit-btn {
-                    width: 100%;
-                    padding: 12px 24px;
-                    background: var(--color-primary);
-                    border-radius: 8px;
-                    border: none;
-                    color: white;
-                    font-size: 16px;
-                    font-weight: 600;
-                    line-height: 24px;
-                    cursor: pointer;
-                    transition: background 0.2s, transform 0.15s;
-                    text-align: center;
-                }
-
-                .contact-submit-btn:hover:not(:disabled) {
-                    background: var(--color-primary-hover);
-                    transform: translateY(-1px);
-                }
-
-                .contact-submit-btn:active:not(:disabled) {
-                    transform: translateY(0);
-                }
-
-                .contact-submit-btn:disabled {
-                    opacity: 0.7;
-                    cursor: not-allowed;
+                .contact-actions {
+                    margin-top: 24px;
                 }
 
                 .contact-form-success {

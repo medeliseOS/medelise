@@ -28,22 +28,22 @@ export default function DespreNoiContent() {
                 .dn-hero-title {
                     width: 396px;
                     flex-shrink: 0;
-                    color: var(--color-primary, #213170);
+                    color: var(--color-primary);
                     font-family: var(--font-heading);
-                    font-size: 72px;
+                    font-size: var(--text-display);
                     font-weight: 500;
-                    line-height: 80px;
+                    line-height: 1.1;
                     word-wrap: break-word;
                     margin: 0;
                 }
 
                 .dn-hero-desc {
                     flex: 1;
-                    color: var(--color-primary, #213170);
+                    color: var(--color-primary);
                     font-family: var(--font-heading);
-                    font-size: 28px;
+                    font-size: var(--text-h3);
                     font-weight: 500;
-                    line-height: 36px;
+                    line-height: 1.3;
                     word-wrap: break-word;
                     margin: 0;
                     padding-bottom: var(--space-2);
@@ -80,22 +80,22 @@ export default function DespreNoiContent() {
                 .dn-quote-text {
                     flex: 1;
                     min-width: 0;
-                    color: var(--color-primary, #213170);
+                    color: var(--color-primary);
                     font-family: var(--font-heading);
-                    font-size: 36px;
+                    font-size: var(--text-h2);
                     font-weight: 600;
-                    line-height: 44px;
+                    line-height: 1.2;
                     word-wrap: break-word;
                     margin: 0;
                 }
 
                 .dn-quote-desc {
                     flex: 1;
-                    color: var(--color-primary, #213170);
+                    color: var(--color-primary);
                     font-family: var(--font-heading);
-                    font-size: 20px;
+                    font-size: var(--text-body-lg);
                     font-weight: 400;
-                    line-height: 28px;
+                    line-height: 1.6;
                     word-wrap: break-word;
                     margin: 0;
                 }
@@ -170,9 +170,9 @@ export default function DespreNoiContent() {
 
                     .dn-hero-title {
                         width: 100%;
-                        font-size: 36px;
+                        font-size: var(--text-h2);
                         font-weight: 600;
-                        line-height: 44px;
+                        line-height: 1.2;
                     }
 
                     .dn-hero-desc {
@@ -244,9 +244,9 @@ export default function DespreNoiContent() {
 
                     .dn-hero-title {
                         width: 100%;
-                        font-size: 32px;
+                        font-size: var(--text-h3);
                         font-weight: 600;
-                        line-height: 40px;
+                        line-height: 1.3;
                     }
 
                     .dn-hero-desc {

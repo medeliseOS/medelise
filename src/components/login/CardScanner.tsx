@@ -249,24 +249,25 @@ export default function CardScanner() {
       colors[i * 3] = colors[i * 3 + 1] = colors[i * 3 + 2] = 1;
 
       const orbitRadius = Math.random() * 200 + 100;
-      // Revert to / 8 as per snippet to get the intended size variation
-      sizes[i] = (Math.random() * (orbitRadius - 60) + 60) / 8;
+      // Drastically reduced size for "fine point" look (1.5px - 3.5px)
+      sizes[i] = Math.random() * 2 + 1.5;
 
-      alphas[i] = (Math.random() * 8 + 2) / 10;
+      // Lower opacity for subtlety (0.1 - 0.6)
+      alphas[i] = (Math.random() * 5 + 1) / 10;
       velocitiesArr[i] = Math.random() * 60 + 30;
     }
 
-    /* particle dot texture - Sharp Indigo for "fine" look on light bg */
+    /* particle dot texture - Sharp definition */
     const dotCanvas = document.createElement('canvas');
-    dotCanvas.width = dotCanvas.height = 64; // Smaller canvas sufficient
+    dotCanvas.width = dotCanvas.height = 32; // Smaller texture
     const dCtx = dotCanvas.getContext('2d')!;
-    const half = 32;
+    const half = 16;
     const dGrad = dCtx.createRadialGradient(half, half, 0, half, half, half);
 
-    // Sharp gradient to simulate "fine" hard dots with subtle softness
+    // Harder gradient for crisp points
     dGrad.addColorStop(0, 'rgba(33, 49, 112, 1)');     // Core Indigo
-    dGrad.addColorStop(0.2, 'rgba(33, 49, 112, 0.8)'); // High opacity body
-    dGrad.addColorStop(0.4, 'rgba(33, 49, 112, 0)');   // Fade out quickly -> clean edges
+    dGrad.addColorStop(0.4, 'rgba(33, 49, 112, 0.8)'); // High opacity body
+    dGrad.addColorStop(0.5, 'rgba(33, 49, 112, 0)');   // Sharp edge
     dGrad.addColorStop(1, 'transparent');
 
     dCtx.fillStyle = dGrad;
