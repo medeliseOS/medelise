@@ -349,9 +349,9 @@ export default function CardScanner() {
     const gCtx = gradDot.getContext('2d')!;
     const gHalf = 8;
     const gGrd = gCtx.createRadialGradient(gHalf, gHalf, 0, gHalf, gHalf, gHalf);
-    gGrd.addColorStop(0, 'rgba(255,255,255,1)');
-    gGrd.addColorStop(0.3, 'rgba(196,181,253,0.8)');
-    gGrd.addColorStop(0.7, 'rgba(139,92,246,0.4)');
+    gGrd.addColorStop(0, 'rgba(33, 49, 112, 1)'); // Primary
+    gGrd.addColorStop(0.3, 'rgba(189, 224, 255, 0.8)'); // Baby Blue
+    gGrd.addColorStop(0.7, 'rgba(189, 224, 255, 0.4)');
     gGrd.addColorStop(1, 'transparent');
     gCtx.fillStyle = gGrd;
     gCtx.beginPath(); gCtx.arc(gHalf, gHalf, gHalf, 0, Math.PI * 2); gCtx.fill();
@@ -393,12 +393,14 @@ export default function CardScanner() {
     }
 
     function drawLightBar() {
+      /* Vertical fade mask */
       const vGrad = sCtx.createLinearGradient(0, 0, 0, sH);
       vGrad.addColorStop(0, 'rgba(255,255,255,0)');
       vGrad.addColorStop(fadeZone / sH, 'rgba(255,255,255,1)');
       vGrad.addColorStop(1 - fadeZone / sH, 'rgba(255,255,255,1)');
       vGrad.addColorStop(1, 'rgba(255,255,255,0)');
 
+      /* We use source-over for light background visibility */
       sCtx.globalCompositeOperation = 'source-over';
 
       const targetGlow = scanningActive ? 3.5 : 1;
@@ -406,53 +408,67 @@ export default function CardScanner() {
       const gi = currentGlowIntensity;
       const lw = lightBarWidth;
 
+      // For light background: We need dark/vibrant colors for the glow to be visible.
+      // Using Indigo (Primary) and Baby Blue.
+      const primaryColor = '33, 49, 112'; // Indigo
+      const secondaryColor = '189, 224, 255'; // Baby Blue
+
       /* core */
       const coreG = sCtx.createLinearGradient(lightBarX - lw / 2, 0, lightBarX + lw / 2, 0);
-      coreG.addColorStop(0, 'rgba(33,49,112,0)');
-      coreG.addColorStop(0.3, `rgba(33,49,112,${0.9 * gi})`);
-      coreG.addColorStop(0.5, `rgba(33,49,112,${1 * gi})`);
-      coreG.addColorStop(0.7, `rgba(33,49,112,${0.9 * gi})`);
-      coreG.addColorStop(1, 'rgba(33,49,112,0)');
+      coreG.addColorStop(0, `rgba(${primaryColor}, 0)`);
+      coreG.addColorStop(0.3, `rgba(${primaryColor}, ${0.9 * gi})`);
+      coreG.addColorStop(0.5, `rgba(${primaryColor}, ${1 * gi})`);
+      coreG.addColorStop(0.7, `rgba(${primaryColor}, ${0.9 * gi})`);
+      coreG.addColorStop(1, `rgba(${primaryColor}, 0)`);
+
       sCtx.globalAlpha = 1;
       sCtx.fillStyle = coreG;
       sCtx.beginPath();
-      sCtx.roundRect(lightBarX - lw / 2, 0, lw, sH, 15);
+      if (sCtx.roundRect) sCtx.roundRect(lightBarX - lw / 2, 0, lw, sH, 15);
+      else sCtx.rect(lightBarX - lw / 2, 0, lw, sH); // Fallback
       sCtx.fill();
 
       /* glow 1 */
       const g1 = sCtx.createLinearGradient(lightBarX - lw * 2, 0, lightBarX + lw * 2, 0);
-      g1.addColorStop(0, 'rgba(139,92,246,0)');
-      g1.addColorStop(0.5, `rgba(196,181,253,${0.8 * gi})`);
-      g1.addColorStop(1, 'rgba(139,92,246,0)');
+      g1.addColorStop(0, `rgba(${secondaryColor}, 0)`);
+      g1.addColorStop(0.5, `rgba(${secondaryColor}, ${0.8 * gi})`);
+      g1.addColorStop(1, `rgba(${secondaryColor}, 0)`);
+
       sCtx.globalAlpha = scanningActive ? 1.0 : 0.8;
       sCtx.fillStyle = g1;
       sCtx.beginPath();
-      sCtx.roundRect(lightBarX - lw * 2, 0, lw * 4, sH, 25);
+      if (sCtx.roundRect) sCtx.roundRect(lightBarX - lw * 2, 0, lw * 4, sH, 25);
+      else sCtx.rect(lightBarX - lw * 2, 0, lw * 4, sH);
       sCtx.fill();
 
       /* glow 2 */
       const g2 = sCtx.createLinearGradient(lightBarX - lw * 4, 0, lightBarX + lw * 4, 0);
-      g2.addColorStop(0, 'rgba(139,92,246,0)');
-      g2.addColorStop(0.5, `rgba(139,92,246,${0.4 * gi})`);
-      g2.addColorStop(1, 'rgba(139,92,246,0)');
+      g2.addColorStop(0, `rgba(${secondaryColor}, 0)`);
+      g2.addColorStop(0.5, `rgba(${secondaryColor}, ${0.4 * gi})`);
+      g2.addColorStop(1, `rgba(${secondaryColor}, 0)`);
+
       sCtx.globalAlpha = scanningActive ? 0.8 : 0.6;
       sCtx.fillStyle = g2;
       sCtx.beginPath();
-      sCtx.roundRect(lightBarX - lw * 4, 0, lw * 8, sH, 35);
+      if (sCtx.roundRect) sCtx.roundRect(lightBarX - lw * 4, 0, lw * 8, sH, 35);
+      else sCtx.rect(lightBarX - lw * 4, 0, lw * 8, sH);
       sCtx.fill();
 
       if (scanningActive) {
         const g3 = sCtx.createLinearGradient(lightBarX - lw * 8, 0, lightBarX + lw * 8, 0);
-        g3.addColorStop(0, 'rgba(139,92,246,0)');
-        g3.addColorStop(0.5, 'rgba(139,92,246,0.2)');
-        g3.addColorStop(1, 'rgba(139,92,246,0)');
+        g3.addColorStop(0, `rgba(${secondaryColor}, 0)`);
+        g3.addColorStop(0.5, `rgba(${secondaryColor}, 0.2)`);
+        g3.addColorStop(1, `rgba(${secondaryColor}, 0)`);
+
         sCtx.globalAlpha = scanningActive ? 0.6 : 0.4;
         sCtx.fillStyle = g3;
         sCtx.beginPath();
-        sCtx.roundRect(lightBarX - lw * 8, 0, lw * 16, sH, 45);
+        if (sCtx.roundRect) sCtx.roundRect(lightBarX - lw * 8, 0, lw * 16, sH, 45);
+        else sCtx.rect(lightBarX - lw * 8, 0, lw * 16, sH);
         sCtx.fill();
       }
 
+      /* Masking for top/bottom fade */
       sCtx.globalCompositeOperation = 'destination-in';
       sCtx.globalAlpha = 1;
       sCtx.fillStyle = vGrad;
@@ -827,7 +843,7 @@ export default function CardScanner() {
 
         .cs-card-normal {
           background: transparent;
-          box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+          box-shadow: none;
           z-index: 2;
           clip-path: inset(0 0 0 var(--clip-right, 0%));
         }
@@ -836,9 +852,8 @@ export default function CardScanner() {
           width: 100%;
           height: 100%;
           object-fit: contain;
-          border-radius: 10px;
-          background: var(--color-text);
-          filter: brightness(1.1) contrast(1.1);
+          border-radius: 0;
+          filter: sepia(100%) hue-rotate(190deg) saturate(500%) brightness(0.4) contrast(1.2);
           transition: filter 0.3s ease;
         }
         .cs-card-image:hover {
