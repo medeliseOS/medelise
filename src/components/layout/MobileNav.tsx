@@ -103,17 +103,33 @@ export default function MobileNav() {
 
                             {/* Sub-menu heading */}
                             <div className="w-full px-6">
-                                <h2
-                                    className="text-white underline"
-                                    style={{
-                                        fontSize: 20,
-                                        fontFamily: 'var(--font-body)',
-                                        fontWeight: 600,
-                                        lineHeight: '20.3px',
-                                    }}
-                                >
-                                    {currentSub.heading}
-                                </h2>
+                                {currentSub.href ? (
+                                    <a href={currentSub.href}>
+                                        <h2
+                                            className="text-white underline transition-opacity hover:opacity-80"
+                                            style={{
+                                                fontSize: 20,
+                                                fontFamily: 'var(--font-body)',
+                                                fontWeight: 600,
+                                                lineHeight: '20.3px',
+                                            }}
+                                        >
+                                            {currentSub.heading}
+                                        </h2>
+                                    </a>
+                                ) : (
+                                    <h2
+                                        className="text-white underline"
+                                        style={{
+                                            fontSize: 20,
+                                            fontFamily: 'var(--font-body)',
+                                            fontWeight: 600,
+                                            lineHeight: '20.3px',
+                                        }}
+                                    >
+                                        {currentSub.heading}
+                                    </h2>
+                                )}
                             </div>
 
                             {/* Sub-menu items list */}

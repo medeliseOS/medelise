@@ -14,6 +14,7 @@ export interface SubMenuItem {
 export interface MegaMenuData {
     title: string;
     heading: string;
+    href?: string;
     columns: SubMenuItem[][];
     items: SubMenuItem[];
 }
@@ -111,6 +112,7 @@ export const MEGA_MENUS: Record<MegaMenuKey, MegaMenuData> = {
     ivDrip: {
         title: 'IV DRIP THERAPY',
         heading: 'IV Drip Therapy',
+        href: '/iv-drip-therapy',
         columns: toColumns(IV_DRIP_ITEMS, 3),
         items: IV_DRIP_ITEMS,
     },

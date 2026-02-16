@@ -169,12 +169,23 @@ export default function DesktopNav({ isHomePage = true }: { isHomePage?: boolean
                     >
                         <div className="px-[112px] pt-4 pb-16">
                             {/* Section Title */}
-                            <h2
-                                className="mb-16 font-body text-2xl font-normal text-white underline"
-                                style={{ lineHeight: '20.3px' }}
-                            >
-                                {currentMenu.title}
-                            </h2>
+                            {currentMenu.href ? (
+                                <Link href={currentMenu.href}>
+                                    <h2
+                                        className="mb-16 font-body text-2xl font-normal text-white underline transition-opacity hover:opacity-80"
+                                        style={{ lineHeight: '20.3px' }}
+                                    >
+                                        {currentMenu.title}
+                                    </h2>
+                                </Link>
+                            ) : (
+                                <h2
+                                    className="mb-16 font-body text-2xl font-normal text-white underline"
+                                    style={{ lineHeight: '20.3px' }}
+                                >
+                                    {currentMenu.title}
+                                </h2>
+                            )}
 
                             {/* 3-Column Grid */}
                             <div className="flex">
