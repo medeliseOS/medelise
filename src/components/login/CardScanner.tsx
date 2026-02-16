@@ -238,6 +238,7 @@ export default function CardScanner() {
     const pCount = 400;
     const positions = new Float32Array(pCount * 3);
     const colors = new Float32Array(pCount * 3);
+    const sizes = new Float32Array(pCount);
     const alphas = new Float32Array(pCount);
     const velocitiesArr = new Float32Array(pCount);
 
@@ -246,19 +247,25 @@ export default function CardScanner() {
       positions[i * 3 + 1] = (Math.random() - 0.5) * 250;
       positions[i * 3 + 2] = 0;
       colors[i * 3] = colors[i * 3 + 1] = colors[i * 3 + 2] = 1;
+
+      const orbitRadius = Math.random() * 200 + 100;
+      // "Very fine" requires smaller sizes. Snippet had / 8. Let's try / 10 for "very fine".
+      sizes[i] = (Math.random() * (orbitRadius - 60) + 60) / 10;
+
       alphas[i] = (Math.random() * 8 + 2) / 10;
       velocitiesArr[i] = Math.random() * 60 + 30;
     }
 
-    /* particle dot texture */
+    /* particle dot texture - Black/Grey for "particulele negre" */
     const dotCanvas = document.createElement('canvas');
     dotCanvas.width = dotCanvas.height = 100;
     const dCtx = dotCanvas.getContext('2d')!;
     const half = 50;
     const dGrad = dCtx.createRadialGradient(half, half, 0, half, half, half);
-    dGrad.addColorStop(0.025, '#fff');
-    dGrad.addColorStop(0.1, 'hsl(217,61%,33%)');
-    dGrad.addColorStop(0.25, 'hsl(217,64%,6%)');
+    // Adjusted for Indigo particles on light background
+    dGrad.addColorStop(0.025, 'rgba(33, 49, 112, 1)'); // Primary Indigo Core
+    dGrad.addColorStop(0.1, 'rgba(33, 49, 112, 0.8)');   // Indigo
+    dGrad.addColorStop(0.25, 'rgba(33, 49, 112, 0.4)');  // Soft Indigo
     dGrad.addColorStop(1, 'transparent');
     dCtx.fillStyle = dGrad;
     dCtx.beginPath(); dCtx.arc(half, half, half, 0, Math.PI * 2); dCtx.fill();
@@ -267,15 +274,16 @@ export default function CardScanner() {
     const geom = new THREE.BufferGeometry();
     geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geom.setAttribute('size', new THREE.BufferAttribute(sizes, 1)); // Variable size
     geom.setAttribute('alpha', new THREE.BufferAttribute(alphas, 1));
 
     const mat = new THREE.ShaderMaterial({
-      uniforms: { pointTexture: { value: dotTexture }, size: { value: 15.0 } },
+      uniforms: { pointTexture: { value: dotTexture } },
       vertexShader: `
         attribute float alpha;
+        attribute float size;
         varying float vAlpha;
         varying vec3 vColor;
-        uniform float size;
         void main(){
           vAlpha=alpha; vColor=color;
           vec4 mv=modelViewMatrix*vec4(position,1.0);
@@ -290,7 +298,7 @@ export default function CardScanner() {
           gl_FragColor=vec4(vColor,vAlpha)*texture2D(pointTexture,gl_PointCoord);
         }`,
       transparent: true,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending, // Normal blending for dark particles on light bg
       depthWrite: false,
       vertexColors: true,
     });
@@ -413,12 +421,12 @@ export default function CardScanner() {
       const primaryColor = '33, 49, 112'; // Indigo
       const secondaryColor = '189, 224, 255'; // Baby Blue
 
-      /* core */
+      /* core - indigo edges, baby blue center */
       const coreG = sCtx.createLinearGradient(lightBarX - lw / 2, 0, lightBarX + lw / 2, 0);
       coreG.addColorStop(0, `rgba(${primaryColor}, 0)`);
-      coreG.addColorStop(0.3, `rgba(${primaryColor}, ${0.9 * gi})`);
-      coreG.addColorStop(0.5, `rgba(${primaryColor}, ${1 * gi})`);
-      coreG.addColorStop(0.7, `rgba(${primaryColor}, ${0.9 * gi})`);
+      coreG.addColorStop(0.2, `rgba(${primaryColor}, ${1 * gi})`);
+      coreG.addColorStop(0.5, `rgba(${secondaryColor}, ${1 * gi})`); // Baby Blue center
+      coreG.addColorStop(0.8, `rgba(${primaryColor}, ${1 * gi})`);
       coreG.addColorStop(1, `rgba(${primaryColor}, 0)`);
 
       sCtx.globalAlpha = 1;
@@ -428,11 +436,11 @@ export default function CardScanner() {
       else sCtx.rect(lightBarX - lw / 2, 0, lw, sH); // Fallback
       sCtx.fill();
 
-      /* glow 1 */
+      /* glow 1 - Indigo for visibility/contrast on light bg */
       const g1 = sCtx.createLinearGradient(lightBarX - lw * 2, 0, lightBarX + lw * 2, 0);
-      g1.addColorStop(0, `rgba(${secondaryColor}, 0)`);
-      g1.addColorStop(0.5, `rgba(${secondaryColor}, ${0.8 * gi})`);
-      g1.addColorStop(1, `rgba(${secondaryColor}, 0)`);
+      g1.addColorStop(0, `rgba(${primaryColor}, 0)`);
+      g1.addColorStop(0.5, `rgba(${primaryColor}, ${0.5 * gi})`);
+      g1.addColorStop(1, `rgba(${primaryColor}, 0)`);
 
       sCtx.globalAlpha = scanningActive ? 1.0 : 0.8;
       sCtx.fillStyle = g1;
@@ -441,10 +449,10 @@ export default function CardScanner() {
       else sCtx.rect(lightBarX - lw * 2, 0, lw * 4, sH);
       sCtx.fill();
 
-      /* glow 2 */
+      /* glow 2 - Baby Blue (wide) */
       const g2 = sCtx.createLinearGradient(lightBarX - lw * 4, 0, lightBarX + lw * 4, 0);
       g2.addColorStop(0, `rgba(${secondaryColor}, 0)`);
-      g2.addColorStop(0.5, `rgba(${secondaryColor}, ${0.4 * gi})`);
+      g2.addColorStop(0.5, `rgba(${secondaryColor}, ${0.6 * gi})`);
       g2.addColorStop(1, `rgba(${secondaryColor}, 0)`);
 
       sCtx.globalAlpha = scanningActive ? 0.8 : 0.6;
