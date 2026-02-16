@@ -73,7 +73,7 @@ const IV_DRIP_ITEMS: SubMenuItem[] = [
     { title: 'DESHIDRATARE', subtitle: 'Rehidratare rapidă', href: '/iv-drip-therapy/deshidratare' },
     { title: 'ANTI-MAHMUREALĂ', subtitle: 'Reducerea greței și cefaleei', href: '/iv-drip-therapy/anti-mahmureala' },
     { title: 'RECUPERARE', subtitle: 'Refacere accelerată', href: '/iv-drip-therapy/recuperare' },
-    { title: 'FERTILITY+', subtitle: 'Optimizare celulară' },
+    { title: 'FERTILITY+', subtitle: 'Optimizare celulară', href: '/iv-drip-therapy/fertility-plus' },
     { title: 'BOOST DE ENERGIE', subtitle: 'Vitalitate instantă', href: '/iv-drip-therapy/boost-de-energie' },
     { title: 'BOOST DE IMUNITATE', subtitle: 'Susținere antivirală', href: '/iv-drip-therapy/boost-de-imunitate' },
     { title: 'SUPER - BOOST DE IMUNITATE', subtitle: 'Protecție avansată', href: '/iv-drip-therapy/super-boost-de-imunitate' },
