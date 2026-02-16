@@ -71,7 +71,7 @@ export const NAV_LINKS: NavLink[] = [
 
 const IV_DRIP_ITEMS: SubMenuItem[] = [
     { title: 'DESHIDRATARE', subtitle: 'Rehidratare rapidă', href: '/iv-drip-therapy/deshidratare' },
-    { title: 'ANTI-MAHMUREALĂ', subtitle: 'Reducerea greței și cefaleei' },
+    { title: 'ANTI-MAHMUREALĂ', subtitle: 'Reducerea greței și cefaleei', href: '/iv-drip-therapy/anti-mahmureala' },
     { title: 'RECUPERARE', subtitle: 'Refacere accelerată' },
     { title: 'FERTILITY+', subtitle: 'Optimizare celulară' },
     { title: 'BOOST DE ENERGIE', subtitle: 'Vitalitate instantă', href: '/iv-drip-therapy/boost-de-energie' },
