@@ -316,17 +316,16 @@ export default function DeshidratareContent() {
                 .drez-image-wrapper {
                     flex-shrink: 0;
                     width: 592px;
-                    height: 836px;
                     display: flex;
                     justify-content: center;
-                    align-items: center;
+                    align-items: flex-start;
                 }
 
                 .drez-image {
                     width: 100%;
-                    height: 100%;
+                    height: auto;
                     border-radius: 8px;
-                    object-fit: cover;
+                    object-fit: contain;
                 }
 
                 /* Content Panel */
@@ -828,8 +827,14 @@ export default function DeshidratareContent() {
                         gap: 32px;
                     }
                     .drez-image-wrapper {
+                        width: 100%;
                         max-width: 100%;
-                        aspect-ratio: 343 / 359; /* Mobile aspect */
+                        height: auto;
+                    }
+                    .drez-image {
+                        width: 100%;
+                        height: auto;
+                        object-fit: contain;
                     }
                     
                     /* Typography overrides for Mobile */
@@ -847,10 +852,11 @@ export default function DeshidratareContent() {
                     
                     /* Price Mobile */
                     .drez-price-current {
-                        font-size: 16px; /* Mobile prompt: 16px */
+                        font-size: 28px;
+                        font-weight: 700;
                     }
                     .drez-price-old {
-                        font-size: 20px; /* Mobile prompt: 20px */
+                        font-size: 18px;
                     }
                     .drez-discount-badge {
                         font-size: 16px;
