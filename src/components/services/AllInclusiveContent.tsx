@@ -1,208 +1,97 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
+import IVDripProductPage from './IVDripProductPage';
 
 export default function AllInclusiveContent() {
     return (
-        <main className="service-page">
-            {/* ── Hero Section ── */}
-            <section className="service-hero">
-                <div className="service-hero-content">
-                    <h1 className="service-title">
-                        Tratament IV <span className="text-accent">All - Inclusive</span>
-                    </h1>
-                    <p className="service-subtitle">
-                        Experiența supremă de revitalizare. Un pachet complet care combină hidratarea intensă,
-                        complexul de vitamine, minerale și antioxidanți pentru o regenerare totală a organismului.
-                    </p>
-                    <div className="service-cta-group">
-                        <Link href="/contact">
-                            <Button variant="primary">Programează acum</Button>
-                        </Link>
-                        <p className="service-price">
-                            de la <span className="font-semibold">600 RON</span>
-                        </p>
-                    </div>
-                </div>
-                <div className="service-hero-image">
-                    {/* Placeholder image until user provides specific one */}
-                    <div className="image-placeholder">
-                        <span>IV Drip All Inclusive Image</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Benefits Section ── */}
-            <section className="service-benefits">
-                <div className="benefits-container">
-                    <h2 className="section-heading">Beneficii Cheie</h2>
-                    <div className="benefits-grid">
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Regenerare Totală</h3>
-                            <p className="benefit-desc">Cel mai complex cocktail din oferta noastră, acoperind toate nevoile nutriționale esențiale.</p>
-                        </div>
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Energie & Imunitate</h3>
-                            <p className="benefit-desc">Maximizează nivelul de energie și fortifică sistemul imunitar simultan.</p>
-                        </div>
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Detox & Anti-Aging</h3>
-                            <p className="benefit-desc">Combinația puternică de antioxidanți susține detoxifierea și oferă un efect vizibil de întinerire.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <style jsx>{`
-                .service-page {
-                    width: 100%;
-                    min-height: 100vh;
-                    background: var(--color-surface);
-                    font-family: var(--font-body);
-                }
-
-                /* ── Hero ── */
-                .service-hero {
-                    width: 100%;
-                    max-width: var(--max-width);
-                    margin: 0 auto;
-                    padding: var(--space-section-py) var(--space-section-px);
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-8);
-                    align-items: center;
-                }
-
-                @media (min-width: 1025px) {
-                    .service-hero {
-                        flex-direction: row;
-                        justify-content: space-between;
-                        gap: var(--space-12);
-                    }
-                }
-
-                .service-hero-content {
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-6);
-                }
-
-                .service-title {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h2);
-                    color: var(--color-primary);
-                    line-height: 1.2;
-                }
-
-                .text-accent {
-                    color: var(--color-accent);
-                }
-
-                .service-subtitle {
-                    font-size: var(--text-body-lg);
-                    color: var(--color-text);
-                    max-width: 60ch;
-                    line-height: 1.6;
-                }
-
-                .service-cta-group {
-                    display: flex;
-                    align-items: center;
-                    gap: var(--space-6);
-                    margin-top: var(--space-4);
-                }
-
-                .service-price {
-                    font-size: var(--text-body);
-                    color: var(--color-primary);
-                }
-
-                .service-hero-image {
-                    flex: 1;
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .image-placeholder {
-                    width: 100%;
-                    max-width: 500px;
-                    height: 350px;
-                    background: var(--color-surface-card);
-                    border-radius: var(--radius-lg);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: var(--color-text-muted);
-                    border: 1px dashed var(--color-border-light);
-                }
-
-                /* ── Benefits ── */
-                .service-benefits {
-                    width: 100%;
-                    background: var(--color-white);
-                    padding: var(--space-section-py) var(--space-section-px);
-                }
-
-                .benefits-container {
-                    width: 100%;
-                    max-width: var(--max-width);
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-10);
-                }
-
-                .section-heading {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h3);
-                    color: var(--color-primary);
-                    text-align: center;
-                }
-
-                .benefits-grid {
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    gap: var(--space-6);
-                }
-
-                @media (min-width: 768px) {
-                    .benefits-grid {
-                        grid-template-columns: repeat(3, 1fr);
-                    }
-                }
-
-                .benefit-card {
-                    padding: var(--space-6);
-                    background: var(--color-surface);
-                    border-radius: var(--radius-main);
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-3);
-                    transition: transform 0.2s ease;
-                }
-
-                .benefit-card:hover {
-                    transform: translateY(-4px);
-                }
-
-                .benefit-title {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h5);
-                    color: var(--color-primary);
-                }
-
-                .benefit-desc {
-                    font-size: var(--text-body);
-                    color: var(--color-text);
-                    line-height: 1.5;
-                }
-            `}</style>
-        </main>
+        <IVDripProductPage
+            id="all-inclusive-iv"
+            title="ALL-INCLUSIVE"
+            subtitle="Suport Complet VIP – Toate Beneficiile într-o Singură Perfuzie"
+            imageSrc="/images/iv-drip/all-inclusive.png"
+            imageAlt="All-Inclusive IV Drip"
+            price={1500}
+            oldPrice={2500}
+            volumeOptions={['1000ml']}
+            economyPerMl={['1,50 Lei/ml']}
+            benefits={[
+                'Pachet VIP complet – combină toate terapiile',
+                'Hidratare, imunitate, energie și detoxifiere',
+                'Regenerare celulară și anti-aging premium',
+                'Suport cognitiv și neurologic avansat',
+                'Cele mai mari doze de antioxidanți disponibile',
+                'Experiența ultimă în wellness intravenos',
+            ]}
+            description={{
+                title: 'IV Drip All-Inclusive – Pachetul VIP Complet',
+                intro: 'All-Inclusive este protocolul nostru de vârf – o perfuzie premium care combină cele mai valoroase elemente din toate terapiile noastre IV. Conceput pentru cei care doresc cel mai înalt nivel de wellness, acest cocktail oferă beneficii la 360° pentru organism.',
+                sections: [
+                    {
+                        heading: 'Compoziție',
+                        content: [
+                            'Glutation Premium – detoxifiere și luminozitate',
+                            'Vitamina C megadoză (20g+)',
+                            'Complex complet de vitamine B (B1-B12)',
+                            'Magneziu, Zinc, Seleniu, Calciu',
+                            'Coenzima Q10 și L-Carnitină',
+                            'Alpha Lipoic Acid (ALA)',
+                            'N-Acetilcisteină (NAC)',
+                            'Taurină și aminoacizi esențiali',
+                            'Vitamina D3 și Vitamina E',
+                            'Biotină pentru piele, păr, unghii',
+                        ],
+                    },
+                    {
+                        heading: 'Durata tratamentului',
+                        content: 'Perfuzia durează 90-120 de minute datorită cantității mari de substanțe active. Se administrează într-un cadru confortabil, cu monitorizare continuă.',
+                    },
+                    {
+                        heading: 'Ce include',
+                        content: [
+                            'Consultație inițială cu personalul medical',
+                            'Evaluare pre-administrare completă',
+                            'Perfuzia All-Inclusive premium',
+                            'Monitorizare pe toată durata administrării',
+                            'Kit de wellness post-tratament',
+                            'Follow-up telefonic la 24h',
+                        ],
+                    },
+                    {
+                        heading: 'Indicații',
+                        content: [
+                            'Wellness premium și mentenanță lunară',
+                            'Pregătire pentru evenimente importante',
+                            'Recuperare completă post-boală sau chirurgie',
+                            'Detoxifiere și reset complet al organismului',
+                            'Anti-aging și regenerare celulară completă',
+                            'Cadou VIP pentru persoane dragi',
+                        ],
+                    },
+                ],
+            }}
+            reviews={[
+                {
+                    author: 'Maximilian H.',
+                    date: '12 Februarie 2025',
+                    rating: 5,
+                    text: 'Experiență VIP în adevăratul sens! Echipa Medelise a fost impecabilă de la consultație până la follow-up. Este cel mai bun lucru pe care l-am făcut pentru sănătatea mea. Merită fiecare bănuț!',
+                },
+                {
+                    author: 'Adriana B.',
+                    date: '28 Ianuarie 2025',
+                    rating: 5,
+                    text: 'Am primit All-Inclusive cadou de la soț. Cel mai bun cadou posibil! M-am simțit extraordinar zile întregi după perfuzie. Acum e abonament lunar!',
+                },
+                {
+                    author: 'Inv. Dr. Teodorescu',
+                    date: '5 Ianuarie 2025',
+                    rating: 5,
+                    text: 'Ca medic și pacient, apreciez protocoalele Medelise. All-Inclusive este formulat impecabil, cu ingrediente de cea mai înaltă calitate. Recomandare fără rezerve.',
+                },
+            ]}
+            reviewCount={22}
+            averageRating={5}
+        />
     );
 }

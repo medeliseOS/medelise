@@ -1,208 +1,82 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
+import IVDripProductPage from './IVDripProductPage';
 
 export default function CalmareaMigrenelorContent() {
     return (
-        <main className="service-page">
-            {/* ── Hero Section ── */}
-            <section className="service-hero">
-                <div className="service-hero-content">
-                    <h1 className="service-title">
-                        Tratament IV <span className="text-accent">Calmarea Migrenelor</span>
-                    </h1>
-                    <p className="service-subtitle">
-                        Nu lăsa durerea să te oprească. Tratament perfuzabil rapid pentru ameliorarea migrenelor severe,
-                        durerilor de cap tensionale și a simptomelor asociate.
-                    </p>
-                    <div className="service-cta-group">
-                        <Link href="/contact">
-                            <Button variant="primary">Programează acum</Button>
-                        </Link>
-                        <p className="service-price">
-                            de la <span className="font-semibold">450 RON</span>
-                        </p>
-                    </div>
-                </div>
-                <div className="service-hero-image">
-                    {/* Placeholder image until user provides specific one */}
-                    <div className="image-placeholder">
-                        <span>IV Drip Migraine Image</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Benefits Section ── */}
-            <section className="service-benefits">
-                <div className="benefits-container">
-                    <h2 className="section-heading">Beneficii Cheie</h2>
-                    <div className="benefits-grid">
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Ameliorare Rapidă</h3>
-                            <p className="benefit-desc">Acționează direct în fluxul sanguin pentru a reduce rapid inflamația și durerea neurovasculară.</p>
-                        </div>
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Complex Anti-Inflamator</h3>
-                            <p className="benefit-desc">Conține un mix de analgezice, antiinflamatoare și magneziu pentru relaxare musculară și vasculară.</p>
-                        </div>
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Eliminare Greață</h3>
-                            <p className="benefit-desc">Reduce stările de greață și sensibilitatea la lumină/zgomot asociate frecvent cu migrenele.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <style jsx>{`
-                .service-page {
-                    width: 100%;
-                    min-height: 100vh;
-                    background: var(--color-surface);
-                    font-family: var(--font-body);
-                }
-
-                /* ── Hero ── */
-                .service-hero {
-                    width: 100%;
-                    max-width: var(--max-width);
-                    margin: 0 auto;
-                    padding: var(--space-section-py) var(--space-section-px);
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-8);
-                    align-items: center;
-                }
-
-                @media (min-width: 1025px) {
-                    .service-hero {
-                        flex-direction: row;
-                        justify-content: space-between;
-                        gap: var(--space-12);
-                    }
-                }
-
-                .service-hero-content {
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-6);
-                }
-
-                .service-title {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h2);
-                    color: var(--color-primary);
-                    line-height: 1.2;
-                }
-
-                .text-accent {
-                    color: var(--color-accent);
-                }
-
-                .service-subtitle {
-                    font-size: var(--text-body-lg);
-                    color: var(--color-text);
-                    max-width: 60ch;
-                    line-height: 1.6;
-                }
-
-                .service-cta-group {
-                    display: flex;
-                    align-items: center;
-                    gap: var(--space-6);
-                    margin-top: var(--space-4);
-                }
-
-                .service-price {
-                    font-size: var(--text-body);
-                    color: var(--color-primary);
-                }
-
-                .service-hero-image {
-                    flex: 1;
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .image-placeholder {
-                    width: 100%;
-                    max-width: 500px;
-                    height: 350px;
-                    background: var(--color-surface-card);
-                    border-radius: var(--radius-lg);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: var(--color-text-muted);
-                    border: 1px dashed var(--color-border-light);
-                }
-
-                /* ── Benefits ── */
-                .service-benefits {
-                    width: 100%;
-                    background: var(--color-white);
-                    padding: var(--space-section-py) var(--space-section-px);
-                }
-
-                .benefits-container {
-                    width: 100%;
-                    max-width: var(--max-width);
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-10);
-                }
-
-                .section-heading {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h3);
-                    color: var(--color-primary);
-                    text-align: center;
-                }
-
-                .benefits-grid {
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    gap: var(--space-6);
-                }
-
-                @media (min-width: 768px) {
-                    .benefits-grid {
-                        grid-template-columns: repeat(3, 1fr);
-                    }
-                }
-
-                .benefit-card {
-                    padding: var(--space-6);
-                    background: var(--color-surface);
-                    border-radius: var(--radius-main);
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-3);
-                    transition: transform 0.2s ease;
-                }
-
-                .benefit-card:hover {
-                    transform: translateY(-4px);
-                }
-
-                .benefit-title {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h5);
-                    color: var(--color-primary);
-                }
-
-                .benefit-desc {
-                    font-size: var(--text-body);
-                    color: var(--color-text);
-                    line-height: 1.5;
-                }
-            `}</style>
-        </main>
+        <IVDripProductPage
+            id="calmarea-migrenelor-iv"
+            title="CALMAREA MIGRENELOR"
+            subtitle="Relaxare Neurovasculară și Ameliorare Rapidă"
+            imageSrc="/images/iv-drip/headache-relif.png"
+            imageAlt="Calmarea Migrenelor IV Drip"
+            price={550}
+            oldPrice={750}
+            volumeOptions={['500ml', '1000ml']}
+            economyPerMl={['1,10 Lei/ml', '0,55 Lei/ml']}
+            benefits={[
+                'Ameliorare rapidă a migrenei și cefaleei',
+                'Relaxare neurovasculară naturală',
+                'Reducerea sensibilității la lumină și zgomot',
+                'Hidratare care susține circulația cerebrală',
+                'Efect antiinflamator și analgezic',
+                'Prevenirea recurenței episoadelor de migrenă',
+            ]}
+            description={{
+                title: 'IV Drip Calmarea Migrenelor – Ameliorare Rapidă și Prevenție',
+                intro: 'Migrena nu este doar o durere de cap – este o afecțiune neurologică debilitantă. Tratamentul nostru IV Drip acționează direct asupra mecanismelor vasculare și inflamatorii ale migrenei, oferind ameliorare când medicamentele orale nu sunt suficiente sau nu pot fi tolerate.',
+                sections: [
+                    {
+                        heading: 'Compoziție',
+                        content: [
+                            'Magneziu sulfat (relaxant neurovascular)',
+                            'Ketorolac (antiinflamator puternic)',
+                            'Ondansetron (pentru greența asociată migrenei)',
+                            'Complex de vitamine B (neuroprotectoare)',
+                            'Vitamina B2 (Riboflavină) – dovedită în prevenția migrenei',
+                            'Soluție salină pentru hidratare optimă',
+                        ],
+                    },
+                    {
+                        heading: 'Durata tratamentului',
+                        content: 'Perfuzia durează 45-60 de minute. Majoritatea pacienților raportează ameliorare semnificativă în primele 20-30 de minute de la începerea tratamentului.',
+                    },
+                    {
+                        heading: 'Indicații',
+                        content: [
+                            'Migrenă acută cu sau fără aură',
+                            'Cefalee de tensiune severă',
+                            'Cefalee prin abuz medicamentos',
+                            'Migrenă menstruală',
+                            'Cefalee post-traumatică (cu aviz medical)',
+                            'Prevenție la pacienții cu migrene frecvente',
+                        ],
+                    },
+                ],
+            }}
+            reviews={[
+                {
+                    author: 'Raluca C.',
+                    date: '7 Februarie 2025',
+                    rating: 5,
+                    text: 'Sufăr de migrene cronice de 10 ani. Nicio pastilă nu ajuta în crize severe. Perfuzia Medelise este singurul lucru care mă scoate din criză rapid. Sunt recunoscătoare!',
+                },
+                {
+                    author: 'Daniel M.',
+                    date: '18 Ianuarie 2025',
+                    rating: 5,
+                    text: 'Am chemat echipa la 3 dimineața în plină criză de migrenă. Au venit în 90 de minute și după perfuzie am putut în sfârșit să dorm. Serviciu salvator!',
+                },
+                {
+                    author: 'Irina T.',
+                    date: '2 Ianuarie 2025',
+                    rating: 4,
+                    text: 'Funcționează excelent! Am redus frecvența migrenelor cu perfuzii preventive lunare. Diferența este enormă față de tratamentul oral.',
+                },
+            ]}
+            reviewCount={33}
+            averageRating={5}
+        />
     );
 }

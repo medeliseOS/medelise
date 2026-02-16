@@ -11,8 +11,8 @@ export default function DeshidratareContent() {
             subtitle="Revitalizează și Rehidratează"
             imageSrc="/images/iv-drip/Photo.svg"
             imageAlt="Deshidratare IV Drip"
-            price={250}
-            oldPrice={350}
+            price={300}
+            oldPrice={450}
             volumeOptions={['500ml', '1000ml']}
             economyPerMl={['0,50 Lei/ml', '0,25 Lei/ml']}
             benefits={[

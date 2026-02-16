@@ -1,208 +1,83 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
+import IVDripProductPage from './IVDripProductPage';
 
 export default function FrumuseteContent() {
     return (
-        <main className="service-page">
-            {/* ── Hero Section ── */}
-            <section className="service-hero">
-                <div className="service-hero-content">
-                    <h1 className="service-title">
-                        Tratament IV <span className="text-accent">Frumusețe</span>
-                    </h1>
-                    <p className="service-subtitle">
-                        Strălucire din interior. Un cocktail revitalizant cu Biotină, Glutation și Vitamina C
-                        pentru o piele radioasă, păr sănătos și unghii puternice.
-                    </p>
-                    <div className="service-cta-group">
-                        <Link href="/contact">
-                            <Button variant="primary">Programează acum</Button>
-                        </Link>
-                        <p className="service-price">
-                            de la <span className="font-semibold">480 RON</span>
-                        </p>
-                    </div>
-                </div>
-                <div className="service-hero-image">
-                    {/* Placeholder image until user provides specific one */}
-                    <div className="image-placeholder">
-                        <span>IV Drip Beauty Image</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Benefits Section ── */}
-            <section className="service-benefits">
-                <div className="benefits-container">
-                    <h2 className="section-heading">Beneficii Cheie</h2>
-                    <div className="benefits-grid">
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Efect Anti-Aging</h3>
-                            <p className="benefit-desc">Stimulează producția naturală de colagen și reduce liniile fine datorită antioxidanților puternici.</p>
-                        </div>
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Păr și Unghii</h3>
-                            <p className="benefit-desc">Biotina (Vitamina B7) fortifică structura firului de păr și întărește unghiile fragile.</p>
-                        </div>
-                        <div className="benefit-card">
-                            <h3 className="benefit-title">Detoxifiere Profundă</h3>
-                            <p className="benefit-desc">Elimină toxinele care afectează aspectul pielii, redându-i luminozitatea naturală.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <style jsx>{`
-                .service-page {
-                    width: 100%;
-                    min-height: 100vh;
-                    background: var(--color-surface);
-                    font-family: var(--font-body);
-                }
-
-                /* ── Hero ── */
-                .service-hero {
-                    width: 100%;
-                    max-width: var(--max-width);
-                    margin: 0 auto;
-                    padding: var(--space-section-py) var(--space-section-px);
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-8);
-                    align-items: center;
-                }
-
-                @media (min-width: 1025px) {
-                    .service-hero {
-                        flex-direction: row;
-                        justify-content: space-between;
-                        gap: var(--space-12);
-                    }
-                }
-
-                .service-hero-content {
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-6);
-                }
-
-                .service-title {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h2);
-                    color: var(--color-primary);
-                    line-height: 1.2;
-                }
-
-                .text-accent {
-                    color: var(--color-accent);
-                }
-
-                .service-subtitle {
-                    font-size: var(--text-body-lg);
-                    color: var(--color-text);
-                    max-width: 60ch;
-                    line-height: 1.6;
-                }
-
-                .service-cta-group {
-                    display: flex;
-                    align-items: center;
-                    gap: var(--space-6);
-                    margin-top: var(--space-4);
-                }
-
-                .service-price {
-                    font-size: var(--text-body);
-                    color: var(--color-primary);
-                }
-
-                .service-hero-image {
-                    flex: 1;
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .image-placeholder {
-                    width: 100%;
-                    max-width: 500px;
-                    height: 350px;
-                    background: var(--color-surface-card);
-                    border-radius: var(--radius-lg);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: var(--color-text-muted);
-                    border: 1px dashed var(--color-border-light);
-                }
-
-                /* ── Benefits ── */
-                .service-benefits {
-                    width: 100%;
-                    background: var(--color-white);
-                    padding: var(--space-section-py) var(--space-section-px);
-                }
-
-                .benefits-container {
-                    width: 100%;
-                    max-width: var(--max-width);
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-10);
-                }
-
-                .section-heading {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h3);
-                    color: var(--color-primary);
-                    text-align: center;
-                }
-
-                .benefits-grid {
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    gap: var(--space-6);
-                }
-
-                @media (min-width: 768px) {
-                    .benefits-grid {
-                        grid-template-columns: repeat(3, 1fr);
-                    }
-                }
-
-                .benefit-card {
-                    padding: var(--space-6);
-                    background: var(--color-surface);
-                    border-radius: var(--radius-main);
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--space-3);
-                    transition: transform 0.2s ease;
-                }
-
-                .benefit-card:hover {
-                    transform: translateY(-4px);
-                }
-
-                .benefit-title {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-h5);
-                    color: var(--color-primary);
-                }
-
-                .benefit-desc {
-                    font-size: var(--text-body);
-                    color: var(--color-text);
-                    line-height: 1.5;
-                }
-            `}</style>
-        </main>
+        <IVDripProductPage
+            id="frumusete-iv"
+            title="FRUMUSEȚE"
+            subtitle="Regenerare Celulară și Strălucire Naturală"
+            imageSrc="/images/iv-drip/beauty.png"
+            imageAlt="Frumusețe IV Drip"
+            price={700}
+            oldPrice={1500}
+            volumeOptions={['500ml', '1000ml']}
+            economyPerMl={['1,40 Lei/ml', '0,70 Lei/ml']}
+            benefits={[
+                'Piele luminoasă și hidratată din interior',
+                'Reducerea semnelor de îmbătrânire celulară',
+                'Întărirea unghiilor și părului',
+                'Detoxifiere cu Glutation – cel mai puternic antioxidant',
+                'Stimularea producției naturale de colagen',
+                'Protecție împotriva stresului oxidativ',
+            ]}
+            description={{
+                title: 'IV Drip Frumusețe – Glow din Interior',
+                intro: 'Adevărata frumusețe vine din interior. Tratamentul nostru IV Drip de Frumusețe furnizează direct în fluxul sanguin antioxidanții și vitaminele esențiale pentru regenerarea celulară, producția de colagen și protecția împotriva radicalilor liberi.',
+                sections: [
+                    {
+                        heading: 'Compoziție',
+                        content: [
+                            'Glutation – antioxidant master pentru luminozitatea pielii',
+                            'Vitamina C megadoză – stimulează producția de colagen',
+                            'Biotină (Vitamina B7) – pentru păr, piele și unghii',
+                            'Acid Hialuronic – hidratare profundă',
+                            'Zinc – regenerare tisulară',
+                            'Vitamina E – protecție antioxidantă',
+                            'Seleniu – anti-aging celular',
+                        ],
+                    },
+                    {
+                        heading: 'Durata tratamentului',
+                        content: 'Perfuzia durează 45-75 de minute în funcție de concentrația de Glutation aleasă. Rezultatele vizibile apar după 3-4 ședințe, cu menținere lunară recomandată.',
+                    },
+                    {
+                        heading: 'Indicații',
+                        content: [
+                            'Piele matură cu semne de îmbătrânire',
+                            'Pregătire pre-eveniment (nuntă, gală, ședință foto)',
+                            'Hiperpigmentare și ten neuniform',
+                            'Păr fragil și unghii casante',
+                            'Recuperare post-expunere solară excesivă',
+                            'Detoxifiere completă pentru un glow natural',
+                        ],
+                    },
+                ],
+            }}
+            reviews={[
+                {
+                    author: 'Alina S.',
+                    date: '9 Februarie 2025',
+                    rating: 5,
+                    text: 'Am făcut 4 ședințe înainte de nuntă și pielea mea arăta incredibil! Make-up artist-a a remarcat diferența. Glutation-ul face minuni!',
+                },
+                {
+                    author: 'Cristina P.',
+                    date: '22 Ianuarie 2025',
+                    rating: 5,
+                    text: 'La 45 de ani pielea mea arată mai bine ca niciodată. Fac lunar perfuzia de frumusețe și diferența este vizibilă. Recomand tuturor prietenelor!',
+                },
+                {
+                    author: 'Monica D.',
+                    date: '5 Ianuarie 2025',
+                    rating: 4,
+                    text: 'Rezultate bune, dar necesită consecvență. După 3 ședințe am observat pielea mai luminoasă și unghiile mai puternice. Merită investiția pe termen lung.',
+                },
+            ]}
+            reviewCount={44}
+            averageRating={5}
+        />
     );
 }
