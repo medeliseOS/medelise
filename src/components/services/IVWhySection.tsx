@@ -118,7 +118,7 @@ export default function IVWhySection({
                 /* ══ Section Container ══ */
                 .iv-why {
                     width: 100%;
-                    max-width: 1312px;
+                    max-width: 100%;
                     display: flex;
                     flex-direction: column;
                     gap: 64px;
