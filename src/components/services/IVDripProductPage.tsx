@@ -308,7 +308,7 @@ export default function IVDripProductPage({
                     background: white;
                     display: flex;
                     justify-content: center;
-                    padding: 64px 0;
+                    padding: 0;
                     font-family: 'Montserrat', sans-serif;
                 }
                 .drez-container {
@@ -483,7 +483,7 @@ export default function IVDripProductPage({
 
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {
-                    .drez-page { padding: 32px 0; }
+                    .drez-page { padding: 0; }
                     .drez-container { max-width: 704px; padding: 0 32px; gap: 32px; }
                     .drez-main-row { flex-direction: column; align-items: center; gap: 32px; }
                     .drez-image-wrapper { width: 100%; max-width: 704px; max-height: 500px; }
@@ -500,7 +500,7 @@ export default function IVDripProductPage({
 
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
-                    .drez-page { padding: 32px 0; }
+                    .drez-page { padding: 0; }
                     .drez-container { max-width: 100%; padding: 0 16px; gap: 32px; }
                     .drez-main-row { gap: 32px; }
                     .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 360px; }
