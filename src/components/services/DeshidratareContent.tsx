@@ -710,7 +710,7 @@ export default function DeshidratareContent() {
                     width: 100%;
                     padding: 12px;
                     background: white;
-                    border: 1px solid black;
+                    border: 1px solid #213170;
                     border-radius: 5px;
                     display: flex;
                     justify-content: space-between;
