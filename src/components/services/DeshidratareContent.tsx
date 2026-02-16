@@ -481,7 +481,7 @@ export default function DeshidratareContent() {
                     font-size: 18px;
                     font-family: 'Open Sans', sans-serif;
                     font-weight: 600;
-                    text-align: center; 
+                    text-align: left; 
                 }
                 .drez-volume-options {
                     display: flex;
