@@ -11,20 +11,10 @@ export default function DeshidratareContent() {
     const [activeTab, setActiveTab] = useState<'descriere' | 'recenzii'>('descriere');
     const [mobileAccordionOpen, setMobileAccordionOpen] = useState(false);
 
-    // Pricing configuration
-    // Assuming 450 Lei is for 500ml. Let's arbitrarily say 1000ml is 750 Lei for now, 
-    // or just keep it simple and say price depends on volume.
-    // Given the text "0,55 Lei/ml", 1000ml * 0.55 = 550 Lei.
-    // 500ml at 450 Lei is 0.9 Lei/ml.
-    // The "Economiseste" text suggests a deal. 
-    // Let's implement dynamic pricing:
-    // 500ml: 450 Lei (Old: 600 Lei)
-    // 1000ml: 750 Lei (Old: 1000 Lei) - purely illustrative if not specified.
-    // actually, let's keep it simple: 450 Lei base.
-
-    const BASE_PRICE = volume === '500ml' ? 450 : 750;
-    const OLD_PRICE = volume === '500ml' ? 600 : 1000;
-
+    // Pricing: 250 Lei per perfusion
+    const BASE_PRICE = 250; 
+    const OLD_PRICE = 350;
+    
     const totalPrice = BASE_PRICE * quantity;
 
     const handleIncrement = () => setQuantity(q => q + 1);
@@ -84,7 +74,7 @@ export default function DeshidratareContent() {
                             <div className="drez-economy-group">
                                 <span className="drez-eco-label">Economisește acum!</span>
                                 <span className="drez-eco-value">
-                                    {volume === '500ml' ? '0,90 Lei/ml' : '0,75 Lei/ml'} vs 1,20 Lei/ml
+                                    {volume === '500ml' ? '0,50 Lei/ml' : '0,25 Lei/ml'} vs prețul standard
                                 </span>
                             </div>
                         </div>
