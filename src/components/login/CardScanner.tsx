@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useCallback } from 'react';
 import * as THREE from 'three';
-import { randomFloat, generateCode, calcCodeDims, CARD_IMAGES } from './cardScannerUtils';
+import { randomFloat, generateCode, calcCodeDims } from './cardScannerUtils';
 
 /* ═══════════════════════════════════════════════════════
    CardScanner  —  self-contained React component
@@ -28,25 +28,59 @@ export default function CardScanner() {
       const wrapper = document.createElement('div');
       wrapper.className = 'cs-card-wrapper';
 
-      /* normal card (image) */
+      /* normal card (fingerprint SVG) */
       const normal = document.createElement('div');
-      normal.className = 'cs-card cs-card-normal';
-      const img = document.createElement('img');
-      img.className = 'cs-card-image';
-      img.src = CARD_IMAGES[i % CARD_IMAGES.length];
-      img.alt = 'Card';
-      img.onerror = () => {
-        const c = document.createElement('canvas');
-        c.width = CARD_W; c.height = CARD_H;
-        const cx = c.getContext('2d')!;
-        const g = cx.createLinearGradient(0, 0, CARD_W, CARD_H);
-        g.addColorStop(0, '#667eea'); g.addColorStop(1, '#764ba2');
-        cx.fillStyle = g; cx.fillRect(0, 0, CARD_W, CARD_H);
-        img.src = c.toDataURL();
-      };
-      normal.appendChild(img);
+      normal.className = 'cs-card cs-card-normal cs-card-fingerprint';
 
-      /* ASCII card */
+      // Generate SVG Fingerprint
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 100 120");
+      svg.classList.add("cs-fingerprint-svg");
+
+      // Group for ridges
+      const g = document.createElementNS(ns, "g");
+
+      // Generate concentric irregular ridges
+      for (let r = 5; r < 50; r += 3.5) {
+        const path = document.createElementNS(ns, "path");
+
+        // Simple arc logic to create fingerprint-like curves (arch shape)
+        // We use cubic bezier to create the arch
+        // Start low-left, go up-center, end low-right
+        const yStart = 60 + r * 0.5; // Offset start y
+        const yPeak = 60 - r * 0.8; // Peak height
+        const xLeft = 50 - r;
+        const xRight = 50 + r;
+
+        // Gap logic: randomly break lines for natural look using stroke-dasharray
+        // We apply this via CSS or attribute? Attribute is easier for randomness here.
+        const dashLen = Math.random() * 20 + 10;
+        const gapLen = Math.random() * 5 + 2;
+
+        // Path Definition: M xL yS Q xC yP xR yS
+        // Using Quadratic Bezier for smooth arches
+        const d = `M ${xLeft} ${yStart} Q 50 ${yPeak} ${xRight} ${yStart}`;
+
+        path.setAttribute("d", d);
+        path.style.strokeDasharray = `${dashLen} ${gapLen}`;
+        path.style.strokeDashoffset = `${Math.random() * 10}`;
+
+        g.appendChild(path);
+      }
+
+      // Add a core loop or spiral center? 
+      // Simplified: Just the arches gives a good "fingerprint icon" look.
+
+      svg.appendChild(g);
+      normal.appendChild(svg);
+
+      // Scan line effect
+      const scanLine = document.createElement('div');
+      scanLine.className = 'cs-fingerprint-scan-line';
+      normal.appendChild(scanLine);
+
+      /* ASCII card (back layer) */
       const ascii = document.createElement('div');
       ascii.className = 'cs-card cs-card-ascii';
       const asciiContent = document.createElement('div');
@@ -658,12 +692,43 @@ export default function CardScanner() {
           pointer-events: none;
         }
 
-        .cs-card-image {
+        .cs-card-fingerprint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02); /* Subtle glass bg */
+            border: 1px solid rgba(33, 49, 112, 0.1);
+        }
+
+        :global(.cs-fingerprint-svg) {
+            width: 60%;
+            height: auto;
+            fill: none;
+            stroke: var(--color-primary);
+            stroke-width: 2.5px;
+            stroke-linecap: round;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 2px rgba(33, 49, 112, 0.3));
+        }
+
+        :global(.cs-fingerprint-scan-line) {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Tint image to primary indigo approx #213170 */
-            filter: sepia(100%) hue-rotate(190deg) saturate(500%) brightness(0.4) contrast(1.2);
+            height: 2px;
+            background: #89CFF0; /* Baby Blue */
+            box-shadow: 0 0 10px 2px #80bdd9ff, 0 0 20px 4px rgba(137, 207, 240, 0.5);
+            opacity: 0;
+            animation: cs-fingerprint-scan 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes cs-fingerprint-scan {
+            0% { top: 10%; opacity: 0; width: 0%; left: 50%; }
+            10% { opacity: 1; width: 80%; left: 10%; }
+            90% { opacity: 1; width: 80%; left: 10%; }
+            100% { top: 90%; opacity: 0; width: 0%; left: 50%; }
         }
 
         .cs-header {
@@ -881,7 +946,7 @@ export default function CardScanner() {
           position: absolute;
           top: 0; left: 0;
           width: 100%; height: 100%;
-          color: rgba(200,180,255,1);
+          color: var(--color-primary);
           font-family: 'Courier New', monospace;
           font-size: 11px;
           line-height: 13px;
@@ -907,7 +972,7 @@ export default function CardScanner() {
           position: absolute;
           top: 0; left: 0;
           width: 100%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(0,255,255,0.4), transparent);
+          background: linear-gradient(90deg, transparent, rgba(137, 207, 240, 0.6), transparent); /* Baby Blue scan */
           animation: cs-scanFx 0.6s ease-out;
           pointer-events: none;
           z-index: 5;
