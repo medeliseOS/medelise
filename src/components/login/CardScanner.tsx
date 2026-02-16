@@ -249,24 +249,26 @@ export default function CardScanner() {
       colors[i * 3] = colors[i * 3 + 1] = colors[i * 3 + 2] = 1;
 
       const orbitRadius = Math.random() * 200 + 100;
-      // "Very fine" requires smaller sizes. Snippet had / 8. Let's try / 10 for "very fine".
-      sizes[i] = (Math.random() * (orbitRadius - 60) + 60) / 10;
+      // Revert to / 8 as per snippet to get the intended size variation
+      sizes[i] = (Math.random() * (orbitRadius - 60) + 60) / 8;
 
       alphas[i] = (Math.random() * 8 + 2) / 10;
       velocitiesArr[i] = Math.random() * 60 + 30;
     }
 
-    /* particle dot texture - Black/Grey for "particulele negre" */
+    /* particle dot texture - Sharp Indigo for "fine" look on light bg */
     const dotCanvas = document.createElement('canvas');
-    dotCanvas.width = dotCanvas.height = 100;
+    dotCanvas.width = dotCanvas.height = 64; // Smaller canvas sufficient
     const dCtx = dotCanvas.getContext('2d')!;
-    const half = 50;
+    const half = 32;
     const dGrad = dCtx.createRadialGradient(half, half, 0, half, half, half);
-    // Adjusted for Indigo particles on light background
-    dGrad.addColorStop(0.025, 'rgba(33, 49, 112, 1)'); // Primary Indigo Core
-    dGrad.addColorStop(0.1, 'rgba(33, 49, 112, 0.8)');   // Indigo
-    dGrad.addColorStop(0.25, 'rgba(33, 49, 112, 0.4)');  // Soft Indigo
+
+    // Sharp gradient to simulate "fine" hard dots with subtle softness
+    dGrad.addColorStop(0, 'rgba(33, 49, 112, 1)');     // Core Indigo
+    dGrad.addColorStop(0.2, 'rgba(33, 49, 112, 0.8)'); // High opacity body
+    dGrad.addColorStop(0.4, 'rgba(33, 49, 112, 0)');   // Fade out quickly -> clean edges
     dGrad.addColorStop(1, 'transparent');
+
     dCtx.fillStyle = dGrad;
     dCtx.beginPath(); dCtx.arc(half, half, half, 0, Math.PI * 2); dCtx.fill();
     const dotTexture = new THREE.CanvasTexture(dotCanvas);
