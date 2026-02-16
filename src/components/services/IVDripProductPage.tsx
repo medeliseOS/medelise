@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Button from '../ui/Button';
+import IVWhySection from './IVWhySection';
+import type { IVWhyFeature } from './IVWhySection';
 
 /* ── Types ── */
 export interface IVDripReview {
@@ -49,6 +51,12 @@ export interface IVDripProductProps {
     averageRating?: number;
     /** Disclaimer text */
     disclaimer?: string;
+    /** Override "Why it works" section heading */
+    whyHeading?: string;
+    /** Override "Why it works" section intro text */
+    whyIntro?: string;
+    /** Override "Why it works" feature cards */
+    whyFeatures?: IVWhyFeature[];
 }
 
 /* ── Component ── */
@@ -68,6 +76,9 @@ export default function IVDripProductPage({
     reviewCount,
     averageRating = 5,
     disclaimer = 'Imaginea are rol exclusiv ilustrativ, iar culorile soluției prezentate nu reflectă neapărat culoarea reală a tratamentului. Pigmentarea este folosită în scopuri de marketing și diferențiere vizuală între produse. Efectele medicale menționate sunt reale și susținute de ingredientele active din compoziție.',
+    whyHeading,
+    whyIntro,
+    whyFeatures,
 }: IVDripProductProps) {
     const [selectedVolume, setSelectedVolume] = useState(volumeOptions[0]);
     const [quantity, setQuantity] = useState(1);
@@ -212,6 +223,15 @@ export default function IVDripProductPage({
 
                 {/* Disclaimer */}
                 {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
+
+                {/* Why it works Section */}
+                <IVWhySection
+                    imageSrc={imageSrc}
+                    imageAlt={imageAlt}
+                    heading={whyHeading}
+                    intro={whyIntro}
+                    features={whyFeatures}
+                />
 
                 {/* Tabs Section */}
                 <div className="drez-tabs-section">
