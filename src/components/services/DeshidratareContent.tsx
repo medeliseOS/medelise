@@ -316,6 +316,7 @@ export default function DeshidratareContent() {
                 .drez-image-wrapper {
                     flex-shrink: 0;
                     width: 592px;
+                    max-height: 620px;
                     display: flex;
                     justify-content: center;
                     align-items: flex-start;
@@ -323,7 +324,7 @@ export default function DeshidratareContent() {
 
                 .drez-image {
                     width: 100%;
-                    height: auto;
+                    max-height: 620px;
                     border-radius: 8px;
                     object-fit: contain;
                 }
@@ -777,8 +778,10 @@ export default function DeshidratareContent() {
                     .drez-image-wrapper {
                         width: 100%;
                         max-width: 704px;
-                        height: auto;
-                        aspect-ratio: 704 / 737;
+                        max-height: 500px;
+                    }
+                    .drez-image {
+                        max-height: 500px;
                     }
                     .drez-content {
                         width: 100%;
@@ -830,11 +833,11 @@ export default function DeshidratareContent() {
                     .drez-image-wrapper {
                         width: 100%;
                         max-width: 100%;
-                        height: auto;
+                        max-height: 360px;
                     }
                     .drez-image {
                         width: 100%;
-                        height: auto;
+                        max-height: 360px;
                         object-fit: contain;
                     }
                     
