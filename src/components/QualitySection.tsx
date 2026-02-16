@@ -268,9 +268,9 @@ export default function QualitySection() {
 
         .quality-email-input {
           width: 100%;
-          padding: var(--space-3) var(--space-2) var(--space-3) var(--space-3);
+          padding: var(--space-3) var(--space-6) var(--space-3) var(--space-6);
           background: var(--color-white);
-          border-radius: var(--radius-main);
+          border-radius: var(--radius-pill);
           border: none;
           outline: 1px var(--color-input-border) solid;
           outline-offset: -1px;
@@ -291,9 +291,9 @@ export default function QualitySection() {
         }
 
         .quality-cta-btn {
-          padding: var(--space-3) var(--space-5);
+          padding: var(--space-3) var(--space-6);
           background: var(--color-primary);
-          border-radius: var(--radius-main);
+          border-radius: var(--radius-pill);
           border: none;
           color: var(--color-white);
           font-size: var(--text-body);
