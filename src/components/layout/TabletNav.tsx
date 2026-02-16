@@ -121,7 +121,7 @@ export default function TabletNav() {
                                 {currentSub.items.map((item) => (
                                     <a
                                         key={item.title}
-                                        href="#"
+                                        href={item.href || '#'}
                                         className="flex items-center justify-between transition-colors hover:bg-white/5"
                                         style={{
                                             height: 75,

@@ -183,7 +183,7 @@ export default function DesktopNav({ isHomePage = true }: { isHomePage?: boolean
                                         {column.map((item, rowIndex) => (
                                             <a
                                                 key={item.title}
-                                                href="#"
+                                                href={item.href || '#'}
                                                 className="group flex items-center justify-between px-5 py-[18px] transition-colors hover:bg-white/5"
                                                 style={{
                                                     height: 75,

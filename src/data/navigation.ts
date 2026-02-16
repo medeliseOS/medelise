@@ -8,6 +8,7 @@
 export interface SubMenuItem {
     title: string;
     subtitle: string;
+    href?: string;
 }
 
 export interface MegaMenuData {
@@ -69,7 +70,7 @@ export const NAV_LINKS: NavLink[] = [
 /* ── Mega Menu Data ─────────────────────────────────────────────── */
 
 const IV_DRIP_ITEMS: SubMenuItem[] = [
-    { title: 'DESHIDRATARE', subtitle: 'Rehidratare rapidă' },
+    { title: 'DESHIDRATARE', subtitle: 'Rehidratare rapidă', href: '/iv-drip-therapy/deshidratare' },
     { title: 'ANTI-MAHMUREALĂ', subtitle: 'Reducerea greței și cefaleei' },
     { title: 'RECUPERARE', subtitle: 'Refacere accelerată' },
     { title: 'FERTILITY+', subtitle: 'Optimizare celulară' },
