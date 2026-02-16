@@ -75,7 +75,7 @@ const IV_DRIP_ITEMS: SubMenuItem[] = [
     { title: 'RECUPERARE', subtitle: 'Refacere accelerată' },
     { title: 'FERTILITY+', subtitle: 'Optimizare celulară' },
     { title: 'BOOST DE ENERGIE', subtitle: 'Vitalitate instantă', href: '/iv-drip-therapy/boost-de-energie' },
-    { title: 'BOOST DE IMUNITATE', subtitle: 'Susținere antivirală' },
+    { title: 'BOOST DE IMUNITATE', subtitle: 'Susținere antivirală', href: '/iv-drip-therapy/boost-de-imunitate' },
     { title: 'SUPER - BOOST DE IMUNITATE', subtitle: 'Protecție avansată' },
     { title: 'FRUMUSETE', subtitle: 'Regenerare celulară' },
     { title: 'MYERS-COCKTAIL', subtitle: 'Complex vitaminic total', href: '/iv-drip-therapy/myers-cocktail' },
