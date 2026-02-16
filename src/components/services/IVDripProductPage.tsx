@@ -280,22 +280,6 @@ export default function IVDripProductPage({
                                     intro={whyIntro}
                                     features={whyFeatures}
                                 />
-                                <h3 className="drez-tab-panel-title">{description.title}</h3>
-                                <p className="drez-tab-panel-text">{description.intro}</p>
-                                {description.sections.map((sec, i) => (
-                                    <React.Fragment key={i}>
-                                        <h4 className="drez-tab-panel-subtitle">{sec.heading}</h4>
-                                        {Array.isArray(sec.content) ? (
-                                            <ul className="drez-tab-panel-list">
-                                                {sec.content.map((item, j) => (
-                                                    <li key={j}>{item}</li>
-                                                ))}
-                                            </ul>
-                                        ) : (
-                                            <p className="drez-tab-panel-text">{sec.content}</p>
-                                        )}
-                                    </React.Fragment>
-                                ))}
                             </div>
                         ) : (
                             <div className="drez-tab-panel">
