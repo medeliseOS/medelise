@@ -314,7 +314,7 @@ export default function IVDripProductPage({
                 .drez-container {
                     width: 100%;
                     max-width: 1440px;
-                    padding: 0 64px;
+                    padding: 64px 64px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
