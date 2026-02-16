@@ -33,6 +33,7 @@ export default function CardScanner() {
       normal.className = 'cs-card cs-card-normal cs-card-fingerprint';
 
       // Generate SVG Fingerprint
+      // Generate SVG Fingerprint (Improved "Tech" Look)
       const ns = "http://www.w3.org/2000/svg";
       const svg = document.createElementNS(ns, "svg");
       svg.setAttribute("viewBox", "0 0 100 120");
@@ -41,36 +42,42 @@ export default function CardScanner() {
       // Group for ridges
       const g = document.createElementNS(ns, "g");
 
-      // Generate concentric irregular ridges
-      for (let r = 5; r < 50; r += 3.5) {
+      // Generate dense concentric ellipses for "Fingerprint" effect
+      // Center roughly at 50, 60
+      const cx = 50;
+      const cy = 60;
+
+      for (let i = 1; i <= 20; i++) {
         const path = document.createElementNS(ns, "path");
+        const rx = 3 + i * 2.2;  // Radius X - tighter spacing
+        const ry = 5 + i * 3.2;  // Radius Y - tall ellipse shape
 
-        // Simple arc logic to create fingerprint-like curves (arch shape)
-        // We use cubic bezier to create the arch
-        // Start low-left, go up-center, end low-right
-        const yStart = 60 + r * 0.5; // Offset start y
-        const yPeak = 60 - r * 0.8; // Peak height
-        const xLeft = 50 - r;
-        const xRight = 50 + r;
+        // Ellipse path command: M cx-rx cy A rx ry 0 1 1 cx+rx cy A rx ry 0 1 1 cx-rx cy
+        // But we want incomplete ellipses to look like ridges.
+        // Let's use two arcs to form the full ellipse.
 
-        // Gap logic: randomly break lines for natural look using stroke-dasharray
-        // We apply this via CSS or attribute? Attribute is easier for randomness here.
-        const dashLen = Math.random() * 20 + 10;
-        const gapLen = Math.random() * 5 + 2;
-
-        // Path Definition: M xL yS Q xC yP xR yS
-        // Using Quadratic Bezier for smooth arches
-        const d = `M ${xLeft} ${yStart} Q 50 ${yPeak} ${xRight} ${yStart}`;
+        const d = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx + rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx - rx} ${cy}`;
 
         path.setAttribute("d", d);
-        path.style.strokeDasharray = `${dashLen} ${gapLen}`;
-        path.style.strokeDashoffset = `${Math.random() * 10}`;
+
+        // Random "gap" logic using stroke-dasharray
+        // Dash length long (ridge), gap short (break)
+        // Add randomness to make it look organic
+        const dashBase = 15 + Math.random() * 20;
+        const gapBase = 3 + Math.random() * 5;
+        path.style.strokeDasharray = `${dashBase} ${gapBase}`;
+        path.style.strokeDashoffset = `${Math.random() * 100}`;
 
         g.appendChild(path);
       }
 
-      // Add a core loop or spiral center? 
-      // Simplified: Just the arches gives a good "fingerprint icon" look.
+      // Core whorl - simple spiral or circle?
+      // Just a few small circles/arcs in center
+      const core = document.createElementNS(ns, "path");
+      core.setAttribute("d", `M 48 60 Q 50 55 52 60 T 48 60`);
+      core.style.fill = "none";
+      core.style.stroke = "var(--color-primary)";
+      g.appendChild(core);
 
       svg.appendChild(g);
       normal.appendChild(svg);
