@@ -15,8 +15,6 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
             height: '452px',
             position: 'relative',
             overflow: 'hidden',
-            marginTop: '32px',
-            marginBottom: '32px',
         }}>
             <Image
                 src={splashImageSrc}
