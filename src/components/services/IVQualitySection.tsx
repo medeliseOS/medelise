@@ -77,8 +77,8 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
 
                 .quality-container {
                     width: 100%;
-                    max-width: 1312px;
-                    padding: 0 64px; /* Safety padding */
+                    max-width: 100%; /* Expanded to full width */
+                    padding: 32px 64px; /* Safety padding */
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -114,10 +114,10 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 .quality-text-group {
                     display: flex;
                     flex-direction: column;
-                    align-items: center; /* Centered based on snippets title center and mobile center, assuming center preference */
-                    gap: 8px; /* Reduced gap from 16 to 8 based on snippet */
+                    align-items: center; 
+                    gap: 8px; 
                     width: 100%;
-                    max-width: 1106px; /* From snippet max width on texts */
+                    max-width: 1106px; 
                 }
 
                 .quality-text {
@@ -126,7 +126,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 400;
                     line-height: 28px;
-                    text-align: center; /* Enforcing center alignment for clean look as per images usually */
+                    text-align: center; 
                     margin: 0;
                     width: 100%;
                 }
@@ -134,7 +134,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 /* ─── Images ─── */
                 .quality-images {
                     width: 100%;
-                    height: 350px; /* Reduced from 461px */
+                    height: 350px; 
                     position: relative;
                     display: flex;
                     justify-content: center;
@@ -146,19 +146,25 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 .quality-splash-wrapper {
                     position: absolute;
                     z-index: 1;
-                    width: 500px; /* Reduced from 642px */
+                    width: 500px;
                     max-width: 100%;
                     top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
                 }
 
                 .quality-bag-wrapper {
                     position: absolute;
                     z-index: 2;
-                    top: 10px; 
-                    width: 280px; /* Reduced from 380px */
-                    max-width: 100%;
+                    top: 0; 
+                    height: 100%; /* Constrain by height */
+                    width: auto;
+                    left: 50%;
+                    transform: translateX(-50%);
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    padding-bottom: 20px; /* Slight breathing room */
                 }
 
                 /* ── Footer ── */
@@ -196,7 +202,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 /* ── Tablet (max-width: 1024px) ── */
                 @media (max-width: 1024px) {
                     .quality-container {
-                        max-width: 768px;
+                        max-width: 100%; /* Full width */
                         padding: 0 32px;
                     }
 
@@ -216,16 +222,17 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                     }
 
                     .quality-images {
-                        height: 280px; /* Reduced from 340px */
+                        height: 280px;
                     }
 
                     .quality-splash-wrapper {
-                        width: 400px; /* Reduced from 480px */
+                        width: 400px;
                     }
                     
                     .quality-bag-wrapper {
-                        width: 220px; /* Reduced from 280px */
-                        top: 10px;
+                        height: 100%;
+                        width: auto;
+                        top: 0;
                     }
                 }
 
@@ -255,17 +262,18 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                     }
 
                     .quality-images {
-                        height: 240px; /* Reduced from 300px */
+                        height: 240px;
                         margin: 24px 0;
                     }
 
                     .quality-splash-wrapper {
-                        width: 300px; /* Reduced from 344px */
+                        width: 300px;
                     }
 
                     .quality-bag-wrapper {
-                        width: 160px; /* Reduced from 200px */
-                        top: 10px;
+                        height: 100%;
+                        width: auto;
+                        top: 0;
                     }
 
                     .desktop-break {

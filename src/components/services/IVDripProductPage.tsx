@@ -463,7 +463,7 @@ export default function IVDripProductPage({
 
                 /* ═══ Tabs ═══ */
                 .drez-tabs-section { width: 100%; max-width: 100%; padding: 16px 64px; }
-                .drez-tabs-bar { display: flex; align-items: flex-start; }
+                .drez-tabs-bar { display: flex; align-items: flex-start; justify-content: center; }
                 .drez-tab {
                     width: 240px; padding: 10px 20px; background: none; border: none;
                     border-bottom: 2px solid var(--color-secondary); color: var(--Color-Brand-Ocean-Blue, var(--color-primary));
