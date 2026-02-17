@@ -42,10 +42,11 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;
+                    align-items: stretch;
                     gap: 4px;
                     align-self: stretch;
                     padding: var(--space-8) 0;
+                    width: 100%;
                 }
 
                 .quality-text {
