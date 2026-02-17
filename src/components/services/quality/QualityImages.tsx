@@ -11,72 +11,48 @@ interface QualityImagesProps {
 export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityImagesProps) {
     return (
         <div className="quality-images">
-            <div className="quality-iso-group">
-                <div className="quality-splash-wrapper">
-                    <Image 
-                        src={splashImageSrc} 
-                        alt="Medvita Water Splash"
-                        width={700}
-                        height={503}
-                        className="quality-splash"
-                        style={{ width: '100%', height: '100%' }}
-                        priority
-                    />
-                </div>
-                <div className="quality-bag-wrapper">
-                    <Image 
-                        src={bagImageSrc} 
-                        alt="IV Drip Bag"
-                        width={228}
-                        height={238}
-                        className="quality-bag"
-                        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                    />
-                </div>
-            </div>
+            <Image 
+                src={splashImageSrc} 
+                alt="Medvita Water Splash"
+                width={642}
+                height={461}
+                className="quality-splash"
+            />
+            <Image 
+                src={bagImageSrc} 
+                alt="IV Drip Bag"
+                width={380}
+                height={397}
+                className="quality-bag"
+            />
 
             <style jsx>{`
-                /* ─── Images ─── */
                 .quality-images {
                     width: 100%;
-                    height: 490px; 
-                    display: flex;
-                    justify-content: center;
+                    height: 461px;
+                    position: relative;
+                    overflow: hidden;
                     margin-top: var(--space-8);
                     margin-bottom: var(--space-8);
                 }
 
-                .quality-iso-group {
-                    position: relative;
-                    width: 700px;
-                    max-width: 100%;
-                    height: 100%;
-                }
-
-                .quality-splash-wrapper {
+                .quality-splash {
+                    width: 641.71px;
+                    height: 461px;
                     position: absolute;
-                    z-index: 1;
-                    width: 100%;
-                    top: 0;
-                    left: 0;
-                }
-
-                .quality-bag-wrapper {
-                    position: absolute;
-                    z-index: 2;
-                    top: 0;
-                    left: 0; 
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding-bottom: 20px;
+                    left: 50%;
+                    margin-left: -155px;
+                    top: -20px;
+                    object-fit: contain;
                 }
 
                 .quality-bag {
-                    max-width: 228px;
-                    max-height: 100%;
+                    width: 380px;
+                    height: 397px;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -25px;
+                    top: -20px;
                     object-fit: contain;
                 }
 
@@ -85,9 +61,17 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     .quality-images {
                         height: 350px;
                     }
-
-                    .quality-iso-group {
-                        width: 500px;
+                    .quality-splash {
+                        width: 480px;
+                        height: 345px;
+                        margin-left: -120px;
+                        top: -15px;
+                    }
+                    .quality-bag {
+                        width: 285px;
+                        height: 298px;
+                        margin-left: -20px;
+                        top: -15px;
                     }
                 }
 
@@ -96,9 +80,17 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     .quality-images {
                         height: 250px;
                     }
-
-                    .quality-iso-group {
-                        width: 350px;
+                    .quality-splash {
+                        width: 340px;
+                        height: 245px;
+                        margin-left: -85px;
+                        top: -10px;
+                    }
+                    .quality-bag {
+                        width: 200px;
+                        height: 209px;
+                        margin-left: -15px;
+                        top: -10px;
                     }
                 }
             `}</style>
