@@ -234,6 +234,7 @@ export default function IVDripProductPage({
                     {/* Disclaimer (Moved inside container) */}
                     {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
                 </div>
+            </div>
 
             {/* Tabs Section (Full Width) */}
             <div className="drez-tabs-section">
