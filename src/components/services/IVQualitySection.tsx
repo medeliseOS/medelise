@@ -178,7 +178,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                     align-items: center;
                     gap: 12px;
                     text-align: center;
-                    max-width: 100%; /* Expanded to full width */
+                    width: 100%; /* Force full width */
                 }
 
                 .quality-subtitle {
