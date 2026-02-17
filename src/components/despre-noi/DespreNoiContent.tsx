@@ -428,16 +428,17 @@ export default function DespreNoiContent() {
                         <div className="dn-signed-right">
                             {/* Logo 1: Geometric Cross */}
                             <div className="dn-logo-container" style={{ width: 136, height: 44 }}>
-                                <div style={{ height: 24, display: 'flex', alignItems: 'center', gap: 8 }}>
-                                    <div style={{ width: 24, height: 11.08, transform: 'rotate(90deg)', transformOrigin: 'top left', background: 'var(--Color-Brand-Baby-Blue, #BCDFFF)' }} />
-                                    <div style={{ width: 24, height: 11.08, transform: 'rotate(-90deg)', transformOrigin: 'top left', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                    {/* Small bars */}
-                                    <div style={{ width: 16.15, height: 14, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                    <div style={{ width: 16.18, height: 14, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                    <div style={{ width: 11.57, height: 10.47, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                    <div style={{ width: 6.17, height: 10.23, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                    <div style={{ width: 11.19, height: 10.47, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                    <div style={{ width: 11.81, height: 10.47, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                <div style={{ height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <span style={{
+                                        fontFamily: 'var(--font-michroma), sans-serif',
+                                        fontSize: '14px',
+                                        fontWeight: '400',
+                                        color: 'var(--Color-Brand-Ocean-Blue, #213170)',
+                                        letterSpacing: '1px',
+                                        lineHeight: 1
+                                    }}>
+                                        careOS
+                                    </span>
                                 </div>
                             </div>
 
