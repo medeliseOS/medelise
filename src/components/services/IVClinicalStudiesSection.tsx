@@ -153,7 +153,7 @@ export default function IVClinicalStudiesSection({
 
                 .clinical-container {
                     width: 100%;
-                    max-width: 1152px; /* Matching the snippet width roughly */
+                    max-width: 100%;
                     padding: 0;
                     display: flex;
                     flex-direction: column;
