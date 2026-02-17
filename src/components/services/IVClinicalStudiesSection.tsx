@@ -51,10 +51,10 @@ export default function IVClinicalStudiesSection({
                 .clinical-header {
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: stretch;
                     text-align: center;
                     gap: var(--space-4);
-                    max-width: 900px;
+                    width: 100%;
                 }
 
                 .clinical-supertitle {
@@ -82,7 +82,7 @@ export default function IVClinicalStudiesSection({
                     font-weight: 500;
                     line-height: var(--lh-body);
                     text-align: center;
-                    max-width: 100%;
+                    max-width: none;
                     padding: var(--space-8) 0;
                 }
 
