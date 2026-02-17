@@ -21,7 +21,7 @@ interface StudyCardProps {
 }
 
 function StudyCardComponent({ study }: StudyCardProps) {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div

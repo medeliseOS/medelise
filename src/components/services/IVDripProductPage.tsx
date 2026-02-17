@@ -138,7 +138,7 @@ export default function IVDripProductPage({
                             fill
                             priority
                             className="drez-image"
-                            style={{ objectFit: 'contain' }}
+                            style={{ objectFit: 'cover' }}
                         />
                     </div>
 
@@ -366,7 +366,7 @@ export default function IVDripProductPage({
                     width: 50%;
                     max-width: 592px;
                     min-height: 600px;
-                    padding: 16px;
+                    padding: 0;
                     display: flex;
                     justify-content: center;
                     align-items: center;
