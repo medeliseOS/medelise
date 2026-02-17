@@ -729,8 +729,8 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                             variant="secondary"
                             type="button"
                             style={{
-                                '--btn-bg': '#ffffff',
-                                '--btn-bg-hover': '#f0f0f0',
+                                '--btn-bg': 'var(--color-white)',
+                                '--btn-bg-hover': 'var(--color-surface-card)',
                                 '--btn-text': 'var(--color-primary)',
                                 '--btn-border': 'transparent',
                             } as React.CSSProperties}

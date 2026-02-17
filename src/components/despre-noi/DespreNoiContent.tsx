@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import VisionSection from './VisionSection';
 
 export default function DespreNoiContent() {
     return (
@@ -442,7 +443,7 @@ export default function DespreNoiContent() {
                                         fontFamily: 'var(--font-michroma), sans-serif',
                                         fontSize: '24px', // Adjusted to match icon visually
                                         fontWeight: '400',
-                                        color: 'var(--Color-Brand-Ocean-Blue, #213170)',
+                                        color: 'var(--color-primary)',
                                         letterSpacing: '1px',
                                         lineHeight: 1
                                     }}>
@@ -459,7 +460,7 @@ export default function DespreNoiContent() {
                                         fontFamily: 'var(--font-michroma), sans-serif',
                                         fontSize: '48px',
                                         fontWeight: '400',
-                                        color: 'var(--Color-Brand-Ocean-Blue, #213170)',
+                                        color: 'var(--color-primary)',
                                         letterSpacing: '1px',
                                         textTransform: 'uppercase',
                                         lineHeight: 1
@@ -473,6 +474,9 @@ export default function DespreNoiContent() {
 
                 </div>
             </section>
+
+            {/* ── Vision Section ── */}
+            <VisionSection />
         </>
     );
 }

@@ -129,17 +129,17 @@ export default function IVDripProductPage({
     return (
         <div className="drez-page">
             <div className="drez-container">
-            <div className="drez-main-row">
+                <div className="drez-main-row">
                     {/* Image */}
                     <div className="drez-image-wrapper">
-                         <Image 
-                            src={imageSrc} 
-                            alt={imageAlt || title} 
+                        <Image
+                            src={imageSrc}
+                            alt={imageAlt || title}
                             fill
                             priority
                             className="drez-image"
                             style={{ objectFit: 'contain' }}
-                         />
+                        />
                     </div>
 
                     {/* Content */}
@@ -298,12 +298,12 @@ export default function IVDripProductPage({
                                 features={whyFeatures}
                             />
                             {idealForItems && idealForItems.length > 0 && (
-                                <IVIdealForSection 
-                                    items={idealForItems.map(text => ({ text }))} 
+                                <IVIdealForSection
+                                    items={idealForItems.map(text => ({ text }))}
                                 />
                             )}
                             {clinicalStudies && clinicalStudies.length > 0 && (
-                                <IVClinicalStudiesSection 
+                                <IVClinicalStudiesSection
                                     studies={clinicalStudies}
                                     description="Cercetările clinice confirmă faptul că hidratarea intravenoasă restabilește mai rapid echilibrul hidric și electrolitic decât administrarea orală. Terapia este sigură, eficientă și indicată în stările de deshidratare moderată sau severă."
                                 />
@@ -314,7 +314,7 @@ export default function IVDripProductPage({
                         </div>
                     ) : (
                         <div className="drez-tab-panel">
-                            <TestimonialsSection 
+                            <TestimonialsSection
                                 testimonials={reviews.map(r => ({
                                     rating: r.rating,
                                     text: r.text,
@@ -435,8 +435,8 @@ export default function IVDripProductPage({
                 .drez-price-group { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; }
                 .drez-price-row { display: inline-flex; align-items: flex-start; gap: 8px; }
                 .drez-price-current { color: var(--color-primary); font-size: 48px; font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 60px; }
-                .drez-price-old { color: #FE5D16; font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-decoration: line-through; line-height: 36px; }
-                .drez-discount-badge { align-self: stretch; color: #FE5D16; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 28px; }
+                .drez-price-old { color: var(--color-accent); font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-decoration: line-through; line-height: 36px; }
+                .drez-discount-badge { align-self: stretch; color: var(--color-accent); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 28px; }
                 .drez-economy-group { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; }
                 .drez-eco-label { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 28px; }
                 .drez-eco-value { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 28px; }

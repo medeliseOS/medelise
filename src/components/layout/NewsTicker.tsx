@@ -68,7 +68,7 @@ export default function NewsTicker() {
                     🎉 <Link href="/services" className="ticker-link">Oferte Speciale Octombrie: 20% Reducere la Prima Consultatie</Link>
                 </span>
                 <span className="ticker-item">
-                    💉 <Link href="/login" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
+                    💉 <Link href="/programare" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
                 </span>
                 <span className="ticker-item">
                     🏠 <Link href="/contact" className="ticker-link">Noi Zone de Acoperire in Bucuresti si Ilfov</Link>
@@ -77,7 +77,7 @@ export default function NewsTicker() {
                     🎉 <Link href="/services" className="ticker-link">Oferte Speciale Octombrie: 20% Reducere la Prima Consultatie</Link>
                 </span>
                 <span className="ticker-item">
-                    💉 <Link href="/login" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
+                    💉 <Link href="/programare" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
                 </span>
                 <span className="ticker-item">
                     🏠 <Link href="/contact" className="ticker-link">Noi Zone de Acoperire in Bucuresti si Ilfov</Link>
