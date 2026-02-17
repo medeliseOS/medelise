@@ -34,7 +34,6 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                     font-family: var(--font-heading);
                     font-weight: 600;
                     line-height: 44px;
-                    max-width: 1216px;
                     width: 100%;
                 }
 
