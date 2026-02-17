@@ -12,12 +12,14 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
     return (
         <div style={{
             width: '100%',
-            height: '452px',
+            display: 'grid',
+            placeItems: 'center',
             position: 'relative',
-            overflow: 'hidden',
             marginTop: '32px',
             marginBottom: '32px',
+            // No fixed height, let container hug content
         }}>
+            {/* Splash Image - Defines the natural height of the grid cell */}
             <Image
                 src={splashImageSrc}
                 alt="Medvita Water Splash"
@@ -25,31 +27,29 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                 height={461}
                 priority
                 style={{
+                    gridArea: '1 / 1', // Overlap in first cell
                     width: '641.71px',
-                    height: '461px',
-                    position: 'absolute',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    top: '-20px',
+                    height: 'auto', // Responsive height
+                    maxWidth: '100%',
                     objectFit: 'contain',
+                    // Slight negative margin if needed to pull up, but let's stick to center hug
                 }}
             />
+            {/* Bag Image - Overlaps splash */}
             <Image
                 src={bagImageSrc}
                 alt="IV Drip Bag"
                 width={380}
                 height={397}
                 style={{
-                    width: 'auto',
-                    height: '100%',
-                    position: 'absolute',
-                    left: '50%',
-                    // Scale up by 1.25 to make the bag appear larger/wider while maintaining aspect ratio
-                    transform: 'translateX(-50%) scale(1.25)',
-                    transformOrigin: 'center 40%', // Pivot scaling slightly higher to keep top visible
-                    top: '-20px',
-                    objectFit: 'contain',
+                    gridArea: '1 / 1', // Overlap in first cell
+                    width: 'auto', // Let aspect ratio drive width
+                    height: 'auto',
+                    maxWidth: '100%',
+                    transform: 'scale(1.25)', // Keep visual size boost
+                    transformOrigin: 'center 40%',
                     zIndex: 2,
+                    objectFit: 'contain',
                 }}
             />
         </div>
