@@ -154,7 +154,7 @@ export default function IVClinicalStudiesSection({
                 .clinical-container {
                     width: 100%;
                     max-width: 1152px; /* Matching the snippet width roughly */
-                    padding: 0 64px;
+                    padding: 0;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -208,7 +208,7 @@ export default function IVClinicalStudiesSection({
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {
                     .clinical-container {
-                        padding: 0 32px;
+                        padding: 0;
                     }
                     .clinical-supertitle {
                         font-size: 24px;
@@ -223,10 +223,10 @@ export default function IVClinicalStudiesSection({
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
                     .clinical-section {
-                        padding: 32px 0;
+                        padding: 0;
                     }
                     .clinical-container {
-                        padding: 0 16px;
+                        padding: 0;
                         gap: 24px;
                     }
                     .clinical-supertitle {
