@@ -38,6 +38,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                                 width={642}
                                 height={461}
                                 className="quality-splash"
+                                style={{ width: '100%', height: 'auto' }}
                                 priority
                             />
                         </div>
@@ -49,7 +50,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                                 width={380}
                                 height={397}
                                 className="quality-bag"
-                                style={{ objectFit: 'contain' }}
+                                style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
                             />
                         </div>
                     </div>
@@ -130,34 +131,31 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                     width: 100%;
                 }
 
-                /* ── Images ── */
+                /* ─── Images ─── */
                 .quality-images {
                     width: 100%;
-                    height: 461px;
+                    height: 350px; /* Reduced from 461px */
                     position: relative;
                     display: flex;
                     justify-content: center;
-                    overflow: visible; /* Allow splash to overflow if needed, but snippet has overflow hidden on container */
+                    overflow: visible;
                     margin-top: 32px;
                     margin-bottom: 32px;
                 }
 
                 .quality-splash-wrapper {
                     position: absolute;
-                    /* Positioning based on snippet relative logic */
-                    /* top: -20px; left: 335px etc is relative to 1312px width. 
-                       Let's center it using flex/absolute centering */
                     z-index: 1;
-                    width: 642px;
+                    width: 500px; /* Reduced from 642px */
                     max-width: 100%;
+                    top: 0;
                 }
 
                 .quality-bag-wrapper {
                     position: absolute;
                     z-index: 2;
-                    /* Offset slightly to match composition */
-                    top: 20px; 
-                    width: 380px;
+                    top: 10px; 
+                    width: 280px; /* Reduced from 380px */
                     max-width: 100%;
                     display: flex;
                     justify-content: center;
@@ -214,19 +212,19 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
 
                     .quality-subtitle {
                         font-size: 18px;
-                        line-height: 26px; /* Adjusted */
+                        line-height: 26px;
                     }
 
                     .quality-images {
-                        height: 340px;
+                        height: 280px; /* Reduced from 340px */
                     }
 
                     .quality-splash-wrapper {
-                        width: 480px;
+                        width: 400px; /* Reduced from 480px */
                     }
                     
                     .quality-bag-wrapper {
-                        width: 280px;
+                        width: 220px; /* Reduced from 280px */
                         top: 10px;
                     }
                 }
@@ -257,16 +255,16 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                     }
 
                     .quality-images {
-                        height: 300px;
+                        height: 240px; /* Reduced from 300px */
                         margin: 24px 0;
                     }
 
                     .quality-splash-wrapper {
-                        width: 344px;
+                        width: 300px; /* Reduced from 344px */
                     }
 
                     .quality-bag-wrapper {
-                        width: 200px;
+                        width: 160px; /* Reduced from 200px */
                         top: 10px;
                     }
 
