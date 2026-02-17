@@ -149,9 +149,9 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
                                 </div>
 
                                 <div className="contact-actions">
-                                    <Button
+                                <Button
                                         type="submit"
-                                        variant="accent"
+                                        variant="primary"
                                         isFullWidth
                                         disabled={isSubmitting}
                                         isLoading={isSubmitting}

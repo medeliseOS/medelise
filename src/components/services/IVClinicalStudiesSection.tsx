@@ -1,124 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import { StudyCard } from './clinical/StudyCard';
+import type { IVClinicalStudy, IVClinicalStudiesSectionProps } from './clinical/types';
 
-export interface IVClinicalStudy {
-    title: string;
-    content: string;
-}
-
-interface IVClinicalStudiesSectionProps {
-    title?: string;
-    heading?: string;
-    description?: string;
-    studies: IVClinicalStudy[];
-}
-
-function StudyCard({ study }: { study: IVClinicalStudy }) {
-    const [isOpen, setIsOpen] = useState(true);
-
-    return (
-        <div 
-            className={`study-card ${isOpen ? 'open' : ''}`}
-            data-state={isOpen ? 'Open' : 'Closed'}
-        >
-            <button 
-                className="study-header" 
-                onClick={() => setIsOpen(!isOpen)}
-                aria-expanded={isOpen}
-            >
-                <div className="study-icon-wrapper">
-                    {/* Minus Icon when open, Plus would be alternative but design shows Minus/Square logic */}
-                    <div className="study-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            {/* Simple Minus for Open state */}
-                            <path d="M5 12H19" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            {/* Vertical line for Plus if we wanted transition, but let's stick to simple minus for now or matching the design snippet imply "Outline" */}
-                            {!isOpen && <path d="M12 5V19" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>}
-                        </svg>
-                    </div>
-                </div>
-                <span className="study-title">{study.title}</span>
-            </button>
-            
-            {isOpen && (
-                <div className="study-content">
-                    <p>{study.content}</p>
-                </div>
-            )}
-
-            <style jsx>{`
-                .study-card {
-                    width: 100%;
-                    background: white;
-                    border: 1px solid var(--color-border-light);
-                    border-radius: 8px;
-                    overflow: hidden;
-                    transition: all 0.2s ease;
-                }
-                
-                .study-header {
-                    width: 100%;
-                    display: flex;
-                    align-items: flex-start; /* Align top for multi-line titles */
-                    gap: 16px;
-                    padding: 16px;
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    text-align: left;
-                }
-
-                .study-icon-wrapper {
-                    flex-shrink: 0;
-                    width: 24px;
-                    height: 24px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding-top: 2px; /* Visual optical alignment */
-                }
-
-                .study-title {
-                    color: var(--color-primary);
-                    font-size: 18px;
-                    font-family: var(--font-heading);
-                    font-weight: 500;
-                    line-height: 1.5;
-                    flex: 1;
-                }
-
-                .study-content {
-                    padding: 0 16px 16px 56px; /* Indent to align with text start (24px icon + 16px gap + 16px padding) */
-                }
-
-                .study-content p {
-                    color: var(--color-primary);
-                    font-size: 18px;
-                    font-family: var(--font-heading); /* Check if implied Montserrat */
-                    font-weight: 400;
-                    text-decoration: underline; /* As per design snippet */
-                    line-height: 1.5;
-                    margin: 0;
-                }
-
-                /* Mobile Adjustments */
-                @media (max-width: 767px) {
-                    .study-title {
-                        font-size: 16px;
-                    }
-                    .study-content p {
-                        font-size: 16px;
-                        text-decoration: none; /* Often underline is removed on mobile for readability, but snippet says underline. Keeping it. */
-                    }
-                    .study-content {
-                        padding: 0 16px 16px 16px; /* Reduce indent on mobile */
-                    }
-                }
-            `}</style>
-        </div>
-    );
-}
+// Re-export types for backward compatibility
+export type { IVClinicalStudy };
 
 export default function IVClinicalStudiesSection({
     title = 'Formulă bazată pe evidență clinică',
@@ -154,11 +41,11 @@ export default function IVClinicalStudiesSection({
                 .clinical-container {
                     width: 100%;
                     max-width: 100%;
-                    padding: 64px 0;
+                    padding: var(--space-16) 0;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 32px;
+                    gap: var(--space-8);
                 }
 
                 .clinical-header {
@@ -166,12 +53,12 @@ export default function IVClinicalStudiesSection({
                     flex-direction: column;
                     align-items: center;
                     text-align: center;
-                    gap: 16px;
+                    gap: var(--space-4);
                     max-width: 900px;
                 }
 
                 .clinical-supertitle {
-                    color: #97A1AF; /* Custom grey from design */
+                    color: #97A1AF;
                     font-size: 28px;
                     font-family: var(--font-heading);
                     font-weight: 600;
@@ -181,28 +68,29 @@ export default function IVClinicalStudiesSection({
 
                 .clinical-title {
                     color: var(--color-primary);
-                    font-size: 36px;
+                    font-size: var(--text-3xl);
                     font-family: var(--font-heading);
                     font-weight: 600;
-                    line-height: 44px;
+                    line-height: var(--lh-heading);
                     margin: 0;
                 }
 
                 .clinical-desc {
                     color: var(--color-primary);
-                    font-size: 18px;
+                    font-size: var(--text-body);
                     font-family: var(--font-heading);
                     font-weight: 500;
-                    line-height: 28px;
+                    line-height: var(--lh-body);
                     text-align: center;
                     max-width: 100%;
+                    padding: var(--space-8) 0;
                 }
 
                 .clinical-grid {
                     width: 100%;
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: var(--space-4);
                 }
 
                 /* ── Tablet ── */
@@ -227,18 +115,18 @@ export default function IVClinicalStudiesSection({
                     }
                     .clinical-container {
                         padding: 0;
-                        gap: 24px;
+                        gap: var(--space-6);
                     }
                     .clinical-supertitle {
-                        font-size: 20px; /* From snippet */
+                        font-size: 20px;
                         line-height: 28px;
                     }
                     .clinical-title {
-                        font-size: 20px; /* From snippet */
+                        font-size: 20px;
                         line-height: 28px;
                     }
                     .clinical-desc {
-                        font-size: 14px; /* From snippet */
+                        font-size: 14px;
                         line-height: 20px;
                     }
                 }
