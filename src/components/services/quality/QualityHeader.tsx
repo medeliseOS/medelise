@@ -29,10 +29,10 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                 .quality-title {
                     text-align: center;
                     color: var(--color-primary);
-                    font-size: var(--text-3xl);
+                    font-size: 36px;
                     font-family: var(--font-heading);
                     font-weight: 600;
-                    line-height: var(--lh-heading);
+                    line-height: 44px;
                     max-width: 100%;
                 }
 
@@ -40,17 +40,17 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                     display: flex;
                     flex-direction: column;
                     align-items: stretch; 
-                    gap: var(--space-2);
+                    gap: 4px;
                     width: 100%;
                     padding: var(--space-8) 0;
                 }
 
                 .quality-text {
                     color: var(--color-primary);
-                    font-size: var(--text-body);
+                    font-size: 18px;
                     font-family: var(--font-heading);
                     font-weight: 400;
-                    line-height: var(--lh-body);
+                    line-height: 28px;
                     text-align: center; 
                     margin: 0;
                     width: 100%;

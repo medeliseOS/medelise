@@ -1,6 +1,7 @@
 export const QUALITY_TITLE = "Administrare sigură și controlată";
 
 export const QUALITY_PARAGRAPHS = [
+    "Realizată exclusiv de personal medical Medvita autorizat, cu experiență în administrarea intravenoasă și protocoale de siguranță estetică.",
     "Fiecare perfuzie este preparată în condiții sterile, utilizând ingrediente de calitate farmaceutică, conforme cu standardele internaționale.",
     "Diluția, viteza de administrare și durata tratamentului sunt personalizate în funcție de greutate, status metabolic și obiectivele estetice ale pacientului."
 ];
