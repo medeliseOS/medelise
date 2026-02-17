@@ -131,6 +131,7 @@ export default function IVDripProductPage({
                             src={imageSrc} 
                             alt={imageAlt || title} 
                             fill
+                            priority
                             className="drez-image"
                             style={{ objectFit: 'contain' }}
                          />
