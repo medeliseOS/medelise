@@ -11,7 +11,7 @@ export default function DespreNoiContent() {
                  * ═══════════════════════════════════════ */
                 .dn-hero {
                     width: 100%;
-                    padding: var(--space-8) var(--space-section-px-lg);
+                    padding: 80px var(--space-section-px-lg) var(--space-8);
                     background: var(--color-white);
                     display: flex;
                     justify-content: center;
