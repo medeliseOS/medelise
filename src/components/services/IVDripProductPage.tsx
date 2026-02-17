@@ -7,6 +7,7 @@ import IVWhySection from './IVWhySection';
 import IVIdealForSection from './IVIdealForSection';
 import type { IVWhyFeature } from './IVWhySection';
 import IVClinicalStudiesSection, { IVClinicalStudy } from './IVClinicalStudiesSection';
+import TestimonialsSection from '../TestimonialsSection';
 
 /* ── Types ── */
 export interface IVDripReview {
@@ -306,17 +307,17 @@ export default function IVDripProductPage({
                         </div>
                     ) : (
                         <div className="drez-tab-panel">
-                            <h3 className="drez-tab-panel-title">Recenzii Clienți</h3>
-                            {reviews.map((review, i) => (
-                                <div key={i} className="drez-review-card">
-                                    <div className="drez-review-header">
-                                        <div className="drez-review-stars">{renderStars(review.rating)}</div>
-                                        <span className="drez-review-date">{review.date}</span>
-                                    </div>
-                                    <p className="drez-review-author">{review.author}</p>
-                                    <p className="drez-review-text">{review.text}</p>
-                                </div>
-                            ))}
+                            <TestimonialsSection 
+                                testimonials={reviews.map(r => ({
+                                    rating: r.rating,
+                                    text: r.text,
+                                    name: r.author,
+                                    company: r.date
+                                }))}
+                                title="Recenzii Clienți"
+                                hiddenSubtitle={true}
+                                compact={true}
+                            />
                         </div>
                     )}
                 </div>

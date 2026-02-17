@@ -5,50 +5,20 @@ import Image from 'next/image';
 import { ICONS } from '@/constants/icons';
 
 /* ─── Testimonial data ─── */
-const testimonials = [
-  {
-    rating: 3.75,
-    text: 'Medicul a ajuns exact la ora stabilită, a fost atent, calm și mi-a explicat totul cu răbdare. E prima dată când simt că sunt ascultat cu adevărat. Mulțumesc, Medelise!',
-    name: 'Mircea Popa',
-    company: 'Pacient Verificat',
-  },
-  {
-    rating: 5.0,
-    text: 'Am apelat la Medelise pentru o evaluare la domiciliu a tatălui meu. Echipa a fost impecabil organizată și empatică. Nu știam că se poate primi îngrijire medicală de calitate acasă!',
-    name: 'Elena Dumitrescu',
-    company: 'Pacient Verificat',
-  },
-  {
-    rating: 4.5,
-    text: 'Am programat o perfuzie IV pentru rehidratare după o viroză. Asistenta a fost profesionistă, m-a monitorizat constant și m-am simțit în siguranță pe tot parcursul procedurii.',
-    name: 'Andrei Marinescu',
-    company: 'Pacient Verificat',
-  },
-  {
-    rating: 5.0,
-    text: 'Serviciul de recoltare la domiciliu a fost rapid și fără stres. Rezultatele au ajuns pe e-mail în aceeași zi. Comod și eficient, exact ce aveam nevoie.',
-    name: 'Maria Ionescu',
-    company: 'Pacient Verificat',
-  },
-  {
-    rating: 5.0,
-    text: 'Mama mea are nevoie de îngrijiri regulate pentru escare. Echipa Medelise vine de trei ori pe săptămână și tratamentul a arătat progrese vizibile. Foarte recunoscătoare!',
-    name: 'Cristina Georgescu',
-    company: 'Pacient Verificat',
-  },
-  {
-    rating: 4.5,
-    text: 'După operația de genunchi, recuperarea cu kinetoterapistul de la Medelise a fost excelentă. Exercițiile personalizate și vizitele regulate m-au ajutat enorm.',
-    name: 'Alexandru Toma',
-    company: 'Pacient Verificat',
-  },
-  {
-    rating: 5.0,
-    text: 'Procesul de programare online e incredibil de simplu. În mai puțin de un minut am reușit să stabilesc o consultație pentru toată familia. Recomand cu încredere!',
-    name: 'Diana Moldovan',
-    company: 'Pacient Verificat',
-  },
-];
+export interface TestimonialItem {
+  rating: number;
+  text: string;
+  name: string;
+  company: string;
+}
+
+interface TestimonialsSectionProps {
+  testimonials?: TestimonialItem[];
+  title?: string;
+  subtitle?: string;
+  hiddenSubtitle?: boolean;
+  compact?: boolean; // Removes section padding if true
+}
 
 /* ─── SVG Star Shapes ─── */
 const STAR_PATH =
@@ -103,12 +73,64 @@ function renderStars(rating: number) {
   return stars;
 }
 
-export default function TestimonialsSection() {
+/* ─── Default Testimonials ─── */
+const defaultTestimonials: TestimonialItem[] = [
+  {
+    rating: 3.75,
+    text: 'Medicul a ajuns exact la ora stabilită, a fost atent, calm și mi-a explicat totul cu răbdare. E prima dată când simt că sunt ascultat cu adevărat. Mulțumesc, Medelise!',
+    name: 'Mircea Popa',
+    company: 'Pacient Verificat',
+  },
+  {
+    rating: 5.0,
+    text: 'Am apelat la Medelise pentru o evaluare la domiciliu a tatălui meu. Echipa a fost impecabil organizată și empatică. Nu știam că se poate primi îngrijire medicală de calitate acasă!',
+    name: 'Elena Dumitrescu',
+    company: 'Pacient Verificat',
+  },
+  {
+    rating: 4.5,
+    text: 'Am programat o perfuzie IV pentru rehidratare după o viroză. Asistenta a fost profesionistă, m-a monitorizat constant și m-am simțit în siguranță pe tot parcursul procedurii.',
+    name: 'Andrei Marinescu',
+    company: 'Pacient Verificat',
+  },
+  {
+    rating: 5.0,
+    text: 'Serviciul de recoltare la domiciliu a fost rapid și fără stres. Rezultatele au ajuns pe e-mail în aceeași zi. Comod și eficient, exact ce aveam nevoie.',
+    name: 'Maria Ionescu',
+    company: 'Pacient Verificat',
+  },
+  {
+    rating: 5.0,
+    text: 'Mama mea are nevoie de îngrijiri regulate pentru escare. Echipa Medelise vine de trei ori pe săptămână și tratamentul a arătat progrese vizibile. Foarte recunoscătoare!',
+    name: 'Cristina Georgescu',
+    company: 'Pacient Verificat',
+  },
+  {
+    rating: 4.5,
+    text: 'După operația de genunchi, recuperarea cu kinetoterapistul de la Medelise a fost excelentă. Exercițiile personalizate și vizitele regulate m-au ajutat enorm.',
+    name: 'Alexandru Toma',
+    company: 'Pacient Verificat',
+  },
+  {
+    rating: 5.0,
+    text: 'Procesul de programare online e incredibil de simplu. În mai puțin de un minut am reușit să stabilesc o consultație pentru toată familia. Recomand cu încredere!',
+    name: 'Diana Moldovan',
+    company: 'Pacient Verificat',
+  },
+];
+
+export default function TestimonialsSection({
+  testimonials = defaultTestimonials,
+  title = 'Testimoniale',
+  subtitle = 'Secțiunea noastră de testimoniale reflectă experiențele și satisfacția clienților și utilizatorilor noștri.',
+  hiddenSubtitle = false,
+  compact = false,
+}: TestimonialsSectionProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = useCallback((direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
-    const cardWidth = 380 + 16; // card width + gap
+    const cardWidth = 380 + 16; // card width + gap (matches CSS)
     scrollRef.current.scrollBy({
       left: direction === 'left' ? -cardWidth : cardWidth,
       behavior: 'smooth',
@@ -117,17 +139,16 @@ export default function TestimonialsSection() {
 
   return (
     <>
-      <section className="tm-section">
+      <section className={`tm-section ${compact ? 'tm-compact' : ''}`}>
         <div className="tm-inner">
           <div className="tm-content">
             {/* ─── Header Row ─── */}
             <div className="tm-header-row">
               <div className="tm-header-text">
-                <h2 className="tm-title">Testimoniale</h2>
-                <p className="tm-subtitle">
-                  Secțiunea noastră de testimoniale reflectă experiențele și
-                  satisfacția clienților și utilizatorilor noștri.
-                </p>
+                {title && <h2 className="tm-title">{title}</h2>}
+                {!hiddenSubtitle && subtitle && (
+                  <p className="tm-subtitle">{subtitle}</p>
+                )}
               </div>
               <div className="tm-nav-buttons">
                 <button
@@ -202,6 +223,11 @@ export default function TestimonialsSection() {
           align-items: flex-start;
         }
 
+        .tm-section.tm-compact {
+          padding-left: 0;
+          background: transparent;
+        }
+
         .tm-inner {
           align-self: stretch;
           padding-top: var(--space-section-py);
@@ -211,6 +237,20 @@ export default function TestimonialsSection() {
           flex-direction: column;
           justify-content: flex-start;
           align-items: center;
+        }
+        
+        .tm-compact .tm-inner {
+            padding-top: 0;
+            padding-bottom: 0;
+            background: transparent;
+        }
+        
+        .tm-compact .tm-header-row {
+            padding-right: 0; /* Remove right padding in compact/embedded mode */
+        }
+        
+        .tm-compact .tm-cards-track {
+            padding-right: 0; /* Remove right padding in compact/embedded mode */
         }
 
         .tm-content {
