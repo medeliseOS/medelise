@@ -427,20 +427,20 @@ export default function DespreNoiContent() {
 
                         <div className="dn-signed-right">
                             {/* Logo 1: Geometric Cross */}
-                            <div className="dn-logo-container" style={{ width: 136, height: 44 }}>
-                                <div style={{ height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                    <div style={{ width: 24, height: 24, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div className="dn-logo-container" style={{ width: 'auto', height: 'auto', minHeight: 44 }}>
+                                <div style={{ height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                    <div style={{ width: 48, height: 48, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                         <Image
                                             src="/images/logo/icon_logo/icon_os+_indigo.png"
                                             alt=""
-                                            width={24}
-                                            height={24}
+                                            width={48}
+                                            height={48}
                                             style={{ objectFit: 'contain' }}
                                         />
                                     </div>
                                     <span style={{
                                         fontFamily: 'var(--font-michroma), sans-serif',
-                                        fontSize: '14px',
+                                        fontSize: '24px', // Adjusted to match icon visually
                                         fontWeight: '400',
                                         color: 'var(--Color-Brand-Ocean-Blue, #213170)',
                                         letterSpacing: '1px',
@@ -451,22 +451,21 @@ export default function DespreNoiContent() {
                                 </div>
                             </div>
 
+
                             {/* Logo 2: Medvita Text/Shape Construction */}
-                            <div className="dn-logo-container" style={{ width: 193, height: 44 }}>
-                                <div style={{ width: 157, height: 28, position: 'relative' }}>
-                                    <div style={{ width: 147, height: 18, left: 5, top: 5, position: 'absolute', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-                                        <span style={{
-                                            fontFamily: 'var(--font-michroma), sans-serif',
-                                            fontSize: '16px',
-                                            fontWeight: '400',
-                                            color: 'var(--Color-Brand-Ocean-Blue, #213170)',
-                                            letterSpacing: '1px',
-                                            textTransform: 'uppercase',
-                                            lineHeight: 1
-                                        }}>
-                                            MEDELISE
-                                        </span>
-                                    </div>
+                            <div className="dn-logo-container" style={{ width: 'auto', height: 'auto', minHeight: 44 }}>
+                                <div style={{ width: 'auto', height: 48, position: 'relative', display: 'flex', alignItems: 'center' }}>
+                                    <span style={{
+                                        fontFamily: 'var(--font-michroma), sans-serif',
+                                        fontSize: '48px',
+                                        fontWeight: '400',
+                                        color: 'var(--Color-Brand-Ocean-Blue, #213170)',
+                                        letterSpacing: '1px',
+                                        textTransform: 'uppercase',
+                                        lineHeight: 1
+                                    }}>
+                                        MEDELISE
+                                    </span>
                                 </div>
                             </div>
                         </div>
