@@ -31,6 +31,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     left: '50%',
                     transform: 'translateX(-50%)',
                     top: '-20px',
+                    objectFit: 'contain',
                 }}
             />
             <Image
@@ -39,12 +40,15 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                 width={380}
                 height={397}
                 style={{
-                    width: '380px',
-                    height: '397px',
+                    width: 'auto',
+                    height: '100%',
                     position: 'absolute',
                     left: '50%',
-                    transform: 'translateX(-50%)',
+                    // Scale up by 1.25 to make the bag appear larger/wider while maintaining aspect ratio
+                    transform: 'translateX(-50%) scale(1.25)',
+                    transformOrigin: 'center 40%', // Pivot scaling slightly higher to keep top visible
                     top: '-20px',
+                    objectFit: 'contain',
                     zIndex: 2,
                 }}
             />
