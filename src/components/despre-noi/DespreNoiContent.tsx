@@ -304,6 +304,74 @@ export default function DespreNoiContent() {
                         padding-top: var(--space-4);
                     }
                 }
+                /* ── New Signature Styles ── */
+                .dn-signed-row {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: var(--space-4);
+                    flex-wrap: wrap;
+                }
+                .dn-signed-left {
+                    flex: 1;
+                    min-width: 280px;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+                .dn-signed-avatar {
+                    width: 56px; 
+                    height: 56px;
+                    border-radius: 300px;
+                    overflow: hidden;
+                    position: relative;
+                    background: linear-gradient(0deg, rgba(16, 24, 40, 0.10) 0%, rgba(16, 24, 40, 0.10) 100%);
+                }
+                .dn-signed-avatar img {
+                    width: 100%; height: 100%; object-fit: cover;
+                }
+                .dn-signed-info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 4px;
+                }
+                .dn-signed-name {
+                    color: var(--color-primary);
+                    font-size: 16px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    line-height: 24px;
+                    word-wrap: break-word;
+                }
+                .dn-signed-right {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
+                .dn-logo-container {
+                    padding: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    position: relative;
+                }
+                
+                @media (max-width: 768px) {
+                    .dn-signed-row {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 24px;
+                    }
+                    .dn-signed-right {
+                        width: 100%;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                    }
+                }
             `}</style>
 
             {/* ── Hero Section ── */}
@@ -339,20 +407,55 @@ export default function DespreNoiContent() {
                     {/* Divider */}
                     <div className="dn-quote-divider" aria-hidden="true" />
 
-                    {/* Author */}
-                    <div className="dn-quote-author">
-                        <div className="dn-quote-avatar">
-                            <Image
-                                src="/images/owner/owner.jpeg"
-                                alt="Mircea Popa — Fondator Medelise"
-                                width={56}
-                                height={56}
-                            />
+                    {/* Signature Row */}
+                    <div className="dn-signed-row">
+                        <div className="dn-signed-left">
+                            <div className="dn-signed-avatar">
+                                <Image
+                                    src="/images/owner/owner.jpeg"
+                                    alt="Mircea Popa"
+                                    width={56}
+                                    height={56}
+                                />
+                            </div>
+                            <div className="dn-signed-info">
+                                <div className="dn-signed-name">
+                                    Mircea Popa <br /> Founder Medvita
+                                </div>
+                            </div>
                         </div>
-                        <p className="dn-quote-name">
-                            Mircea Popa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founder{' '}
-                            <span className="dn-quote-name-brand">MEDELISE</span>
-                        </p>
+
+                        <div className="dn-signed-right">
+                            {/* Logo 1: Geometric Cross */}
+                            <div className="dn-logo-container" style={{ width: 136, height: 44 }}>
+                                <div style={{ height: 24, display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <div style={{ width: 24, height: 11.08, transform: 'rotate(90deg)', transformOrigin: 'top left', background: 'var(--Color-Brand-Baby-Blue, #BCDFFF)' }} />
+                                    <div style={{ width: 24, height: 11.08, transform: 'rotate(-90deg)', transformOrigin: 'top left', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    {/* Small bars */}
+                                    <div style={{ width: 16.15, height: 14, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    <div style={{ width: 16.18, height: 14, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    <div style={{ width: 11.57, height: 10.47, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    <div style={{ width: 6.17, height: 10.23, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    <div style={{ width: 11.19, height: 10.47, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    <div style={{ width: 11.81, height: 10.47, background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                </div>
+                            </div>
+
+                            {/* Logo 2: Medvita Text/Shape Construction */}
+                            <div className="dn-logo-container" style={{ width: 193, height: 44 }}>
+                                <div style={{ width: 157, height: 28, position: 'relative' }}>
+                                    <div style={{ width: 147, height: 18, left: 5, top: 5, position: 'absolute', overflow: 'hidden' }}>
+                                        <div style={{ width: 25.61, height: 17.75, left: 0.06, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                        <div style={{ width: 16.29, height: 17.76, left: 31.41, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                        <div style={{ width: 19.96, height: 17.75, left: 52.09, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                        <div style={{ width: 20.24, height: 17.75, left: 75.76, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                        <div style={{ width: 2.04, height: 17.75, left: 100.42, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                        <div style={{ width: 18.32, height: 17.76, left: 107.12, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                        <div style={{ width: 21.71, height: 17.75, left: 125.29, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
