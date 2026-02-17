@@ -218,7 +218,7 @@ export default function IVDripProductPage({
                         {/* CTA */}
                         <div className="drez-cta-row">
                             <Button variant="primary" onClick={handleAddToCart} style={{ flex: 1 }}>
-                                Adaugă în coș - {totalPrice} Lei
+                                Programează
                             </Button>
                             <button
                                 className={`drez-btn-fav ${isFavorite ? 'drez-btn-fav-active' : ''}`}
@@ -381,14 +381,15 @@ export default function IVDripProductPage({
                     font-size: 28px;
                     font-family: 'Inter', sans-serif;
                     font-weight: 600;
-                    line-height: 1.2;
+                    line-height: 36px;
                     margin: 0;
                 }
                 .drez-subtitle {
                     color: var(--Color-Brand-Ocean-Blue, var(--color-primary));
                     font-size: 18px;
+                    font-family: 'Montserrat', sans-serif;
                     font-weight: 600;
-                    line-height: 1.5;
+                    line-height: 28px;
                     margin: 0;
                 }
                 .drez-rating-row { display: flex; align-items: center; gap: 8px; }
@@ -406,7 +407,7 @@ export default function IVDripProductPage({
                 .drez-review-count { color: var(--color-primary); font-size: 18px; font-weight: 500; }
                 .drez-price-group { display: flex; flex-direction: column; gap: 8px; }
                 .drez-price-row { display: flex; align-items: flex-start; gap: 8px; }
-                .drez-price-current { color: var(--color-primary); font-size: 48px; font-weight: 600; line-height: 1.2; }
+                .drez-price-current { color: var(--color-primary); font-size: 48px; font-weight: 600; line-height: 60px; }
                 .drez-price-old { color: var(--color-accent); font-size: 28px; font-weight: 700; text-decoration: line-through; align-self: center; }
                 .drez-discount-badge { color: var(--color-accent); font-size: 18px; font-weight: 500; }
                 .drez-economy-group { display: flex; flex-direction: column; }
@@ -415,7 +416,7 @@ export default function IVDripProductPage({
                 .drez-benefits-group { display: flex; flex-direction: column; gap: 8px; }
                 .drez-benefits-title { color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; margin: 0; }
                 .drez-benefits-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
-                .drez-benefits-list li { color: var(--color-primary); font-size: 18px; font-weight: 400; line-height: 1.5; }
+                .drez-benefits-list li { color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 28px; }
                 .drez-benefits-list li::before { content: "• "; margin-right: 4px; }
                 .drez-selectors { display: flex; flex-direction: column; gap: 24px; }
                 .drez-selector-block { display: flex; flex-direction: column; gap: 12px; }
