@@ -17,9 +17,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
             position: 'relative',
             marginTop: '32px',
             marginBottom: '32px',
-            // No fixed height, let container hug content
         }}>
-            {/* Splash Image - Defines the natural height of the grid cell */}
             <Image
                 src={splashImageSrc}
                 alt="Medvita Water Splash"
@@ -27,27 +25,24 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                 height={461}
                 priority
                 style={{
-                    gridArea: '1 / 1', // Overlap in first cell
+                    gridArea: '1 / 1',
                     width: '641.71px',
-                    height: 'auto', // Responsive height
+                    height: 'auto',
                     maxWidth: '100%',
                     objectFit: 'contain',
-                    // Slight negative margin if needed to pull up, but let's stick to center hug
                 }}
             />
-            {/* Bag Image - Overlaps splash */}
             <Image
                 src={bagImageSrc}
                 alt="IV Drip Bag"
                 width={380}
                 height={397}
                 style={{
-                    gridArea: '1 / 1', // Overlap in first cell
-                    width: 'auto', // Let aspect ratio drive width
-                    height: 'auto',
+                    gridArea: '1 / 1',
+                    // User requested strict 100% width/height to match placeholder behavior
+                    width: '100%',
+                    height: '100%',
                     maxWidth: '100%',
-                    transform: 'scale(1.25)', // Keep visual size boost
-                    transformOrigin: 'center 40%',
                     zIndex: 2,
                     objectFit: 'contain',
                 }}
