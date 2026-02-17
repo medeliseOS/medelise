@@ -437,7 +437,7 @@ export default function IVDripProductPage({
                 }
 
                 /* ═══ Tabs ═══ */
-                .drez-tabs-section { width: 100%; max-width: 100%; padding: 16px 0; }
+                .drez-tabs-section { width: 100%; max-width: 100%; padding: 16px 64px; }
                 .drez-tabs-bar { display: flex; align-items: flex-start; }
                 .drez-tab {
                     width: 240px; padding: 10px 20px; background: none; border: none;
@@ -494,7 +494,7 @@ export default function IVDripProductPage({
                     .drez-price-old { font-size: 24px; }
                     .drez-benefits-list li { font-size: 16px; }
                     .drez-tab { font-size: 16px; font-family: 'Montserrat', sans-serif; line-height: 24px; }
-                    .drez-tabs-section { padding: 16px 0; }
+                    .drez-tabs-section { padding: 16px 32px; }
                     .drez-disclaimer { padding: 10px 32px; }
                 }
 
@@ -520,7 +520,7 @@ export default function IVDripProductPage({
                     .drez-disclaimer { font-size: 12px; }
                     .drez-tabs-bar { display: none; }
                     .drez-accordion { display: block; }
-                    .drez-tabs-section { padding: 16px 0; }
+                    .drez-tabs-section { padding: 16px 16px; }
                     .drez-disclaimer { padding: 10px 16px; }
                     .drez-tab-content { padding: 16px 0; }
                     .drez-tab-panel-title { font-size: 18px; }
