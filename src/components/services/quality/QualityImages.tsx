@@ -27,8 +27,8 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     <Image 
                         src={bagImageSrc} 
                         alt="IV Drip Bag"
-                        width={380}
-                        height={397}
+                        width={228}
+                        height={238}
                         className="quality-bag"
                         style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                     />
@@ -75,7 +75,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                 }
 
                 .quality-bag {
-                    max-width: 380px;
+                    max-width: 228px;
                     max-height: 100%;
                     object-fit: contain;
                 }
