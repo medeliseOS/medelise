@@ -127,14 +127,14 @@ export default function IVDripProductPage({
             <div className="drez-container">
             <div className="drez-main-row">
                     {/* Image */}
-                    <div className="drez-image-wrapper" style={{ position: 'relative', width: '100%', minHeight: '600px' }}>
+                    <div className="drez-image-wrapper">
                          <Image 
                             src={imageSrc} 
                             alt={imageAlt || title} 
-                            fill
+                            width={592}
+                            height={816}
                             priority
                             className="drez-image"
-                            style={{ objectFit: 'contain' }}
                          />
                     </div>
 
@@ -339,41 +339,51 @@ export default function IVDripProductPage({
                 .drez-container {
                     width: 100%;
                     max-width: 100%;
-                    padding: 0 64px;
-                    display: flex;
+                    padding: 64px;
+                    display: inline-flex;
                     flex-direction: column;
-                    align-items: center;
-                    gap: 32px;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 10px;
+                    overflow: hidden;
                 }
                 .drez-main-row {
-                    display: flex;
-                    flex-direction: row;
+                    display: inline-flex;
                     width: 100%;
-                    max-width: 100%;
                     gap: 32px;
+                    justify-content: flex-start;
                     align-items: flex-start;
                 }
                 .drez-image-wrapper {
-                    flex: 1;
-                    width: auto;
+                    padding: 16px;
                     display: flex;
                     justify-content: center;
-                    align-items: flex-start;
+                    align-items: center;
+                    gap: 32px;
+                    flex-shrink: 0;
                 }
                 .drez-image {
-                    width: 100%;
+                    width: 592px;
+                    height: 816px;
                     border-radius: 8px;
                     object-fit: contain;
                 }
                 .drez-content {
-                    flex: 1;
-                    display: flex;
+                    flex: 1 1 0;
+                    align-self: stretch;
+                    padding: 16px;
+                    display: inline-flex;
                     flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
                     gap: 32px;
                 }
                 .drez-header-group {
+                    align-self: stretch;
                     display: flex;
                     flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
                     gap: 16px;
                 }
                 .drez-title {
@@ -392,74 +402,89 @@ export default function IVDripProductPage({
                     line-height: 28px;
                     margin: 0;
                 }
-                .drez-rating-row { display: flex; align-items: center; gap: 8px; }
-                .drez-stars { display: flex; gap: 4px; }
+                .drez-rating-row { align-self: stretch; display: inline-flex; align-items: center; gap: 8px; }
+                .drez-stars { display: flex; gap: 0; width: 120px; height: 24px; position: relative; }
                 .drez-star-icon {
-                    width: 20px; height: 20px;
+                    width: 24px; height: 24px;
+                    display: flex; align-items: center; justify-content: center;
+                }
+                .drez-star-icon::after {
+                    content: '';
+                    width: 20px; height: 19px;
                     background: var(--Color-Brand-Vivid-Orange, var(--color-accent));
                     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
                 }
                 .drez-star-icon-empty {
-                    width: 20px; height: 20px;
+                    width: 24px; height: 24px;
+                    display: flex; align-items: center; justify-content: center;
+                }
+                .drez-star-icon-empty::after {
+                    content: '';
+                    width: 20px; height: 19px;
                     background: var(--color-border-light);
                     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
                 }
-                .drez-review-count { color: var(--color-primary); font-size: 18px; font-weight: 500; }
-                .drez-price-group { display: flex; flex-direction: column; gap: 8px; }
-                .drez-price-row { display: flex; align-items: flex-start; gap: 8px; }
-                .drez-price-current { color: var(--color-primary); font-size: 48px; font-weight: 600; line-height: 60px; }
-                .drez-price-old { color: var(--color-accent); font-size: 28px; font-weight: 700; text-decoration: line-through; align-self: center; }
-                .drez-discount-badge { color: var(--color-accent); font-size: 18px; font-weight: 500; }
-                .drez-economy-group { display: flex; flex-direction: column; }
-                .drez-eco-label { color: var(--color-primary); font-size: 18px; font-weight: 500; }
-                .drez-eco-value { color: var(--color-primary); font-size: 18px; font-weight: 700; }
-                .drez-benefits-group { display: flex; flex-direction: column; gap: 8px; }
-                .drez-benefits-title { color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; margin: 0; }
+                .drez-review-count { flex: 1 1 0; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 28px; }
+                .drez-price-group { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; }
+                .drez-price-row { display: inline-flex; align-items: flex-start; gap: 8px; }
+                .drez-price-current { color: var(--color-primary); font-size: 48px; font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 60px; }
+                .drez-price-old { color: #FE5D16; font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-decoration: line-through; line-height: 36px; }
+                .drez-discount-badge { align-self: stretch; color: #FE5D16; font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 28px; }
+                .drez-economy-group { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; }
+                .drez-eco-label { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 28px; }
+                .drez-eco-value { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 28px; }
+                .drez-benefits-group { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; }
+                .drez-benefits-title { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; line-height: 28px; margin: 0; }
                 .drez-benefits-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
-                .drez-benefits-list li { color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 28px; }
+                .drez-benefits-list li { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 28px; }
                 .drez-benefits-list li::before { content: "• "; margin-right: 4px; }
-                .drez-selectors { display: flex; flex-direction: column; gap: 24px; }
-                .drez-selector-block { display: flex; flex-direction: column; gap: 12px; }
-                .drez-selector-label { color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; text-align: left; }
-                .drez-volume-options { display: flex; gap: 32px; }
+                .drez-selectors { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; }
+                .drez-selector-block { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; }
+                .drez-selector-label { text-align: center; color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; line-height: 28px; }
+                .drez-volume-options { align-self: stretch; display: inline-flex; justify-content: flex-start; align-items: center; gap: 32px; }
                 .drez-vol-btn {
-                    width: 154px; padding: 10px 20px; border-radius: 8px; border: 1px solid var(--color-border-light);
-                    display: flex; justify-content: center; align-items: center; cursor: pointer;
-                    font-weight: 500; font-size: 18px; background: white; color: var(--color-primary); transition: all 0.2s;
+                    width: 154px; padding: 10px 20px; border-radius: 8px; border: 1px solid #CED2DA;
+                    display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+                    font-weight: 500; font-size: 18px; font-family: 'Montserrat', sans-serif; line-height: 28px;
+                    background: white; color: var(--color-primary); transition: all 0.2s;
                 }
-                .drez-vol-btn-active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+                .drez-vol-btn-active { background: var(--color-primary); color: white; border-color: #CED2DA; }
                 .drez-vol-btn-inactive { background: white; color: var(--color-primary); }
                 .drez-vol-btn:hover { border-color: var(--color-primary); }
                 .drez-qty-control {
-                    display: inline-flex; width: fit-content; border: 1px solid var(--color-border-light); border-radius: 8px; overflow: hidden;
+                    display: inline-flex; width: fit-content; border: 1px solid #CED2DA; border-radius: 8px; overflow: hidden;
+                    justify-content: center; align-items: center;
                 }
                 .drez-qty-btn {
-                    background: white; border: none; border-right: 1px solid var(--color-border-light); padding: 0 20px;
-                    width: 60px; height: 44px; cursor: pointer; display: flex; align-items: center;
-                    justify-content: center; transition: background 0.1s;
+                    background: white; border: none; border-right: 1px solid #CED2DA; padding: 10px 20px;
+                    cursor: pointer; display: flex; align-items: center; justify-content: flex-start;
+                    gap: 8px; transition: background 0.1s;
                 }
                 .drez-qty-btn:active { background-color: var(--color-surface); }
                 .drez-qty-btn:last-child { border-right: none; }
                 .drez-qty-display {
-                    width: 60px; height: 44px; font-size: 18px; font-weight: 600; color: var(--color-primary);
-                    border-right: 1px solid var(--color-border-light); display: flex; align-items: center; justify-content: center;
+                    padding: 10px 20px; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600;
+                    line-height: 28px; color: var(--color-primary);
+                    border-right: 1px solid #CED2DA; display: flex; align-items: center; justify-content: center;
                 }
                 .drez-qty-minus { width: 20px; height: 2px; background: var(--color-primary); }
                 .drez-qty-plus { width: 20px; height: 20px; position: relative; }
                 .bar-h { position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: var(--color-primary); }
                 .bar-v { position: absolute; top: 0; left: 9px; width: 2px; height: 20px; background: var(--color-primary); }
-                .drez-cta-row { display: flex; gap: 32px; align-items: center; }
+                .drez-cta-row { align-self: stretch; display: inline-flex; justify-content: flex-start; align-items: center; gap: 32px; }
                 .drez-btn-fav {
-                    width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--color-input-border);
+                    width: 44px; height: 44px; border-radius: 8px; border: 1px solid #97A1AF;
                     background: white; display: flex; align-items: center; justify-content: center;
                     cursor: pointer; flex-shrink: 0; transition: border-color 0.2s, transform 0.15s;
+                    position: relative;
                 }
                 .drez-btn-fav:active { transform: scale(0.9); }
                 .drez-btn-fav-active { border-color: var(--color-error); }
                 .drez-disclaimer {
-                    width: 100%; background: #F2F4F7; padding: 16px 32px;
-                    border-radius: 8px; color: var(--color-primary); font-size: 14px; text-align: center; line-height: 1.4;
-                    margin-top: 32px;
+                    width: 100%; background: #F2F4F7; padding: 10px 20px;
+                    border-radius: 8px; color: var(--color-primary); font-size: 14px;
+                    font-family: 'Montserrat', sans-serif; font-weight: 400;
+                    text-align: center; line-height: 20px;
                 }
 
                 /* ═══ Tabs ═══ */
