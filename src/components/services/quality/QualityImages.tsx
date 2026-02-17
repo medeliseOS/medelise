@@ -23,7 +23,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    top: '-20px',
+                    top: '118px',
                     objectFit: 'contain',
                 }}
             />
@@ -47,7 +47,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
             <style jsx>{`
                 .quality-images {
                     width: 100%;
-                    height: 461px;
+                    height: 580px;
                     position: relative;
                     overflow: hidden;
                     margin-top: var(--space-8);
