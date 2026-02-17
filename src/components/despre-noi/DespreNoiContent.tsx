@@ -444,14 +444,18 @@ export default function DespreNoiContent() {
                             {/* Logo 2: Medvita Text/Shape Construction */}
                             <div className="dn-logo-container" style={{ width: 193, height: 44 }}>
                                 <div style={{ width: 157, height: 28, position: 'relative' }}>
-                                    <div style={{ width: 147, height: 18, left: 5, top: 5, position: 'absolute', overflow: 'hidden' }}>
-                                        <div style={{ width: 25.61, height: 17.75, left: 0.06, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                        <div style={{ width: 16.29, height: 17.76, left: 31.41, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                        <div style={{ width: 19.96, height: 17.75, left: 52.09, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                        <div style={{ width: 20.24, height: 17.75, left: 75.76, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                        <div style={{ width: 2.04, height: 17.75, left: 100.42, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                        <div style={{ width: 18.32, height: 17.76, left: 107.12, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
-                                        <div style={{ width: 21.71, height: 17.75, left: 125.29, top: 0.19, position: 'absolute', background: 'var(--Color-Brand-Ocean-Blue, #213170)' }} />
+                                    <div style={{ width: 147, height: 18, left: 5, top: 5, position: 'absolute', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+                                        <span style={{
+                                            fontFamily: 'var(--font-michroma), sans-serif',
+                                            fontSize: '16px',
+                                            fontWeight: '400',
+                                            color: 'var(--Color-Brand-Ocean-Blue, #213170)',
+                                            letterSpacing: '1px',
+                                            textTransform: 'uppercase',
+                                            lineHeight: 1
+                                        }}>
+                                            MEDELISE
+                                        </span>
                                     </div>
                                 </div>
                             </div>
