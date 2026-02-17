@@ -21,8 +21,9 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                 .quality-header {
                     display: flex;
                     flex-direction: column;
-                    align-items: stretch;
-                    gap: var(--space-8);
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 16px;
                     width: 100%;
                 }
 
@@ -33,15 +34,17 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                     font-family: var(--font-heading);
                     font-weight: 600;
                     line-height: 44px;
-                    max-width: 100%;
+                    max-width: 1216px;
+                    width: 100%;
                 }
 
                 .quality-text-group {
                     display: flex;
                     flex-direction: column;
-                    align-items: stretch; 
+                    justify-content: center;
+                    align-items: flex-start;
                     gap: 4px;
-                    width: 100%;
+                    align-self: stretch;
                     padding: var(--space-8) 0;
                 }
 
@@ -51,9 +54,9 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                     font-family: var(--font-heading);
                     font-weight: 400;
                     line-height: 28px;
-                    text-align: center; 
+                    text-align: center;
                     margin: 0;
-                    width: 100%;
+                    align-self: stretch;
                 }
             `}</style>
         </div>
