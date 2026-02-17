@@ -15,6 +15,8 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
             height: '452px',
             position: 'relative',
             overflow: 'hidden',
+            marginTop: '32px',
+            marginBottom: '32px',
         }}>
             <Image
                 src={splashImageSrc}
@@ -36,10 +38,10 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                 src={bagImageSrc}
                 alt="IV Drip Bag"
                 width={380}
-                height={397}
+                height={452}
                 style={{
-                    width: '380px',
-                    height: '397px',
+                    width: 'auto',
+                    height: '100%',
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
