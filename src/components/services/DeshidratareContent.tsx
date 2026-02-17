@@ -81,6 +81,24 @@ export default function DeshidratareContent() {
                 'Profesioniști expuși stresului, lipsei de somn sau alimentației neregulate.',
                 'Pacienți cu stare generală de oboseală, amețeală sau dureri de cap cauzate de deficitul de lichide.',
             ]}
+            clinicalStudies={[
+                {
+                    title: 'Intravenous Rehydration Therapy in Adults with Dehydration: Clinical Effectiveness and Safety',
+                    content: 'Terapia IV corectează deshidratarea în medie cu 40–60% mai rapid decât rehidratarea orală și reduce riscul de hiponatremie la pacienții spitalizați.',
+                },
+                {
+                    title: 'Comparison of Oral and Intravenous Rehydration in Mild to Moderate Dehydration',
+                    content: 'Administrarea IV asigură o reumplere vasculară mai eficientă și o recuperare mai rapidă a tensiunii arteriale și a nivelului energetic.',
+                },
+                {
+                    title: 'Effects of Electrolyte Replacement on Cellular Recovery in Dehydrated Adults',
+                    content: 'Electroliții administrați intravenos (Na⁺, K⁺, Mg²⁺) accelerează refacerea osmolarității celulare și reduc simptomele neurologice ale deshidratării.',
+                },
+                {
+                    title: 'Intravenous Fluid Resuscitation for Exercise-Induced Dehydration',
+                    content: 'La sportivi, perfuziile IV cu electroliți reduc timpul de recuperare musculară și nivelul de cortizol post-efort, îmbunătățind performanța globală.',
+                },
+            ]}
         />
     );
 }

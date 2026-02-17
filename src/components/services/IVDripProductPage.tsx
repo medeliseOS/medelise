@@ -6,6 +6,7 @@ import Button from '../ui/Button';
 import IVWhySection from './IVWhySection';
 import IVIdealForSection from './IVIdealForSection';
 import type { IVWhyFeature } from './IVWhySection';
+import IVClinicalStudiesSection, { IVClinicalStudy } from './IVClinicalStudiesSection';
 
 /* ── Types ── */
 export interface IVDripReview {
@@ -61,6 +62,8 @@ export interface IVDripProductProps {
     whyFeatures?: IVWhyFeature[];
     /** Ideal for section items */
     idealForItems?: string[];
+    /** Clinical studies data */
+    clinicalStudies?: IVClinicalStudy[];
 }
 
 /* ── Component ── */
@@ -84,6 +87,7 @@ export default function IVDripProductPage({
     whyIntro,
     whyFeatures,
     idealForItems,
+    clinicalStudies,
 }: IVDripProductProps) {
     const [selectedVolume, setSelectedVolume] = useState(volumeOptions[0]);
     const [quantity, setQuantity] = useState(1);
@@ -290,6 +294,12 @@ export default function IVDripProductPage({
                             {idealForItems && idealForItems.length > 0 && (
                                 <IVIdealForSection 
                                     items={idealForItems.map(text => ({ text }))} 
+                                />
+                            )}
+                            {clinicalStudies && clinicalStudies.length > 0 && (
+                                <IVClinicalStudiesSection 
+                                    studies={clinicalStudies}
+                                    description="Cercetările clinice confirmă faptul că hidratarea intravenoasă restabilește mai rapid echilibrul hidric și electrolitic decât administrarea orală. Terapia este sigură, eficientă și indicată în stările de deshidratare moderată sau severă."
                                 />
                             )}
                         </div>
