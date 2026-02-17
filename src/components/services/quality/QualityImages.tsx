@@ -23,7 +23,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    top: '20px',
+                    top: '-20px',
                     objectFit: 'contain',
                 }}
             />
@@ -38,7 +38,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    top: '52px',
+                    top: '-20px',
                     objectFit: 'contain',
                     zIndex: 2,
                 }}
@@ -47,7 +47,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
             <style jsx>{`
                 .quality-images {
                     width: 100%;
-                    height: 500px;
+                    height: 452px;
                     position: relative;
                     overflow: hidden;
                     margin-top: var(--space-8);
@@ -57,14 +57,14 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {
                     .quality-images {
-                        height: 380px;
+                        height: 340px;
                     }
                 }
 
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
                     .quality-images {
-                        height: 280px;
+                        height: 250px;
                     }
                 }
             `}</style>
