@@ -506,7 +506,7 @@ export default function IVDripProductPage({
                 }
                 .drez-tab-active { border-bottom: 2px solid var(--color-accent); }
                 .drez-accordion { display: none; }
-                .drez-tab-content { padding: 32px 0; }
+                .drez-tab-content { padding: 32px 64px; }
                 .drez-tab-panel { display: flex; flex-direction: column; gap: 16px; }
                 .drez-tab-panel-title { color: var(--color-primary); font-size: 24px; font-weight: 600; margin: 0; }
                 .drez-tab-panel-subtitle { color: var(--color-primary); font-size: 18px; font-weight: 600; margin: 16px 0 0; }
