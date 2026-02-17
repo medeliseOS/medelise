@@ -229,6 +229,7 @@ export default function IVWhySection({
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    padding: 32px 0;
                 }
                 .iv-why__stack-image {
                     border-radius: 8px;
