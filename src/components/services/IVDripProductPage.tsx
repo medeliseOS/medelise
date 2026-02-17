@@ -221,82 +221,79 @@ export default function IVDripProductPage({
                     </div>
                 </div>
 
-                {/* Disclaimer */}
-                {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
 
-                {/* Tabs Section */}
-                <div className="drez-tabs-section">
-                    {/* Desktop + Tablet: Underline Tabs */}
-                    <div className="drez-tabs-bar">
-                        <button
-                            className={`drez-tab ${activeTab === 'descriere' ? 'drez-tab-active' : ''}`}
-                            onClick={() => setActiveTab('descriere')}
-                        >
-                            Descriere
-                        </button>
-                        <button
-                            className={`drez-tab ${activeTab === 'recenzii' ? 'drez-tab-active' : ''}`}
-                            onClick={() => setActiveTab('recenzii')}
-                        >
-                            Recenzii clienți
-                        </button>
-                    </div>
+            </div>
 
-                    {/* Mobile: Accordion */}
-                    <div className="drez-accordion">
-                        <button
-                            className="drez-accordion-header"
-                            onClick={() => setMobileAccordionOpen(!mobileAccordionOpen)}
-                        >
-                            <span>{activeTab === 'descriere' ? 'Descriere' : 'Recenzii clienți'}</span>
-                            <div className={`drez-accordion-arrow ${mobileAccordionOpen ? 'drez-accordion-arrow-open' : ''}`} />
-                        </button>
-                        {mobileAccordionOpen && (
-                            <div className="drez-accordion-dropdown">
-                                <button
-                                    className={`drez-accordion-option ${activeTab === 'descriere' ? 'drez-accordion-option-active' : ''}`}
-                                    onClick={() => { setActiveTab('descriere'); setMobileAccordionOpen(false); }}
-                                >
-                                    Descriere
-                                </button>
-                                <button
-                                    className={`drez-accordion-option ${activeTab === 'recenzii' ? 'drez-accordion-option-active' : ''}`}
-                                    onClick={() => { setActiveTab('recenzii'); setMobileAccordionOpen(false); }}
-                                >
-                                    Recenzii clienți
-                                </button>
-                            </div>
-                        )}
-                    </div>
+            {/* Disclaimer (Full Width) */}
+            {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
 
-                    {/* Tab Content */}
-                    <div className="drez-tab-content">
-                        {activeTab === 'descriere' ? (
-                            <div className="drez-tab-panel">
-                                <IVWhySection
-                                    imageSrc={imageSrc}
-                                    imageAlt={imageAlt}
-                                    heading={whyHeading}
-                                    intro={whyIntro}
-                                    features={whyFeatures}
-                                />
-                            </div>
-                        ) : (
-                            <div className="drez-tab-panel">
-                                <h3 className="drez-tab-panel-title">Recenzii Clienți</h3>
-                                {reviews.map((review, i) => (
-                                    <div key={i} className="drez-review-card">
-                                        <div className="drez-review-header">
-                                            <div className="drez-review-stars">{renderStars(review.rating)}</div>
-                                            <span className="drez-review-date">{review.date}</span>
-                                        </div>
-                                        <p className="drez-review-author">{review.author}</p>
-                                        <p className="drez-review-text">{review.text}</p>
+            {/* Tabs Section (Full Width) */}
+            <div className="drez-tabs-section">
+                <div className="drez-tabs-bar">
+                    <button
+                        className={`drez-tab ${activeTab === 'descriere' ? 'drez-tab-active' : ''}`}
+                        onClick={() => setActiveTab('descriere')}
+                    >
+                        Descriere
+                    </button>
+                    <button
+                        className={`drez-tab ${activeTab === 'recenzii' ? 'drez-tab-active' : ''}`}
+                        onClick={() => setActiveTab('recenzii')}
+                    >
+                        Recenzii clienți
+                    </button>
+                </div>
+                <div className="drez-accordion">
+                    <button
+                        className="drez-accordion-header"
+                        onClick={() => setMobileAccordionOpen(!mobileAccordionOpen)}
+                    >
+                        <span>{activeTab === 'descriere' ? 'Descriere' : 'Recenzii clienți'}</span>
+                        <div className={`drez-accordion-arrow ${mobileAccordionOpen ? 'drez-accordion-arrow-open' : ''}`} />
+                    </button>
+                    {mobileAccordionOpen && (
+                        <div className="drez-accordion-dropdown">
+                            <button
+                                className={`drez-accordion-option ${activeTab === 'descriere' ? 'drez-accordion-option-active' : ''}`}
+                                onClick={() => { setActiveTab('descriere'); setMobileAccordionOpen(false); }}
+                            >
+                                Descriere
+                            </button>
+                            <button
+                                className={`drez-accordion-option ${activeTab === 'recenzii' ? 'drez-accordion-option-active' : ''}`}
+                                onClick={() => { setActiveTab('recenzii'); setMobileAccordionOpen(false); }}
+                            >
+                                Recenzii clienți
+                            </button>
+                        </div>
+                    )}
+                </div>
+                <div className="drez-tab-content">
+                    {activeTab === 'descriere' ? (
+                        <div className="drez-tab-panel">
+                            <IVWhySection
+                                imageSrc={imageSrc}
+                                imageAlt={imageAlt}
+                                heading={whyHeading}
+                                intro={whyIntro}
+                                features={whyFeatures}
+                            />
+                        </div>
+                    ) : (
+                        <div className="drez-tab-panel">
+                            <h3 className="drez-tab-panel-title">Recenzii Clienți</h3>
+                            {reviews.map((review, i) => (
+                                <div key={i} className="drez-review-card">
+                                    <div className="drez-review-header">
+                                        <div className="drez-review-stars">{renderStars(review.rating)}</div>
+                                        <span className="drez-review-date">{review.date}</span>
                                     </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                                    <p className="drez-review-author">{review.author}</p>
+                                    <p className="drez-review-text">{review.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -307,7 +304,9 @@ export default function IVDripProductPage({
                     min-height: 100vh;
                     background: white;
                     display: flex;
-                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
                     padding: 0;
                     font-family: 'Montserrat', sans-serif;
                 }
