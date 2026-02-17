@@ -121,16 +121,19 @@ export default function IVDripProductPage({
         <div className="drez-page">
             <div className="drez-container">
                 <div className="drez-main-row">
-                    {/* Image */}
-                    <div className="drez-image-wrapper">
-                        <Image
-                            src={imageSrc}
-                            alt={imageAlt || title}
-                            fill
-                            priority
-                            className="drez-image"
-                            style={{ objectFit: 'contain', objectPosition: 'center' }}
-                        />
+                    {/* Left Column: Image + Disclaimer */}
+                    <div className="drez-left-column">
+                        <div className="drez-image-wrapper">
+                            <Image
+                                src={imageSrc}
+                                alt={imageAlt || title}
+                                fill
+                                priority
+                                className="drez-image"
+                                style={{ objectFit: 'contain', objectPosition: 'center' }}
+                            />
+                        </div>
+                        {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
                     </div>
 
                     {/* Content */}
@@ -233,8 +236,7 @@ export default function IVDripProductPage({
                         </div>
                     </div>
 
-                    {/* Disclaimer - below both sections */}
-                    {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
+
                 </div>
 
                 {/* Tabs Section (Full Width) */}
@@ -354,14 +356,24 @@ export default function IVDripProductPage({
                 }
                 .drez-image-wrapper {
                     position: relative;
-                    width: 50%;
-                    max-width: 592px;
+                    width: 100%;
+                    /* max-width removed, handled by parent column */
                     /* min-height removed to let it adapt, but stretch will force it */
                     padding: 0;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                     /* flex-shrink: 0; removed, now it grows/shrinks in column */
+                     flex: 1;
+                }
+                .drez-left-column {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    max-width: 592px;
+                    gap: 16px;
                     flex-shrink: 0;
+                    align-self: stretch; /* Match height of content column */
                 }
                 .drez-image {
                     border-radius: 8px;
@@ -528,7 +540,8 @@ export default function IVDripProductPage({
                     .drez-page { padding: 0; }
                     .drez-container { max-width: 704px; padding: 0 32px; gap: 32px; }
                     .drez-main-row { flex-direction: column; align-items: center; gap: 32px; }
-                    .drez-image-wrapper { width: 100%; max-width: 704px; max-height: 500px; }
+                    .drez-left-column { width: 100%; max-width: 704px; }
+                    .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 500px; }
                     .drez-image { max-height: 500px; }
                     .drez-content { width: 100%; align-items: flex-start; }
                     .drez-title { font-family: 'Montserrat', sans-serif; font-size: 24px; }
@@ -546,6 +559,7 @@ export default function IVDripProductPage({
                     .drez-page { padding: 0; }
                     .drez-container { max-width: 100%; padding: 0 16px; gap: 32px; }
                     .drez-main-row { gap: 32px; }
+                    .drez-left-column { width: 100%; max-width: 100%; }
                     .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 360px; }
                     .drez-image { width: 100%; max-height: 360px; object-fit: contain; }
                     .drez-title { font-size: 16px; font-weight: 600; }

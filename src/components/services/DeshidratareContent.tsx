@@ -11,7 +11,7 @@ export default function DeshidratareContent() {
                 id="deshidratare-iv"
                 title="DESHIDRATARE"
                 subtitle="Revitalizează și Rehidratează"
-                imageSrc="/images/iv-drip/recovery.png"
+                imageSrc="/images/iv-drip/dehydration.png"
                 imageAlt="Deshidratare IV Drip"
                 price={300}
                 oldPrice={450}
