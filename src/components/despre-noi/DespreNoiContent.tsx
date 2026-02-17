@@ -428,7 +428,16 @@ export default function DespreNoiContent() {
                         <div className="dn-signed-right">
                             {/* Logo 1: Geometric Cross */}
                             <div className="dn-logo-container" style={{ width: 136, height: 44 }}>
-                                <div style={{ height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div style={{ height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                    <div style={{ width: 24, height: 24, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <Image
+                                            src="/images/logo/icon_logo/icon_os+_indigo.png"
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            style={{ objectFit: 'contain' }}
+                                        />
+                                    </div>
                                     <span style={{
                                         fontFamily: 'var(--font-michroma), sans-serif',
                                         fontSize: '14px',
