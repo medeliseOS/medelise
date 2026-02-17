@@ -38,7 +38,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    top: '-20px',
+                    top: '-48px',
                     objectFit: 'contain',
                     zIndex: 2,
                 }}
