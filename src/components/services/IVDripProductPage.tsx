@@ -126,7 +126,7 @@ export default function IVDripProductPage({
             <div className="drez-container">
             <div className="drez-main-row">
                     {/* Image */}
-                    <div className="drez-image-wrapper" style={{ position: 'relative', width: '100%', minHeight: '400px' }}>
+                    <div className="drez-image-wrapper" style={{ position: 'relative', width: '100%', minHeight: '600px' }}>
                          <Image 
                             src={imageSrc} 
                             alt={imageAlt || title} 
@@ -337,7 +337,7 @@ export default function IVDripProductPage({
                 }
                 .drez-container {
                     width: 100%;
-                    max-width: 100%;
+                    max-width: 1440px;
                     padding: 0 64px;
                     display: flex;
                     flex-direction: column;
@@ -355,14 +355,12 @@ export default function IVDripProductPage({
                 .drez-image-wrapper {
                     flex: 1;
                     width: auto;
-                    max-height: 620px;
                     display: flex;
                     justify-content: center;
                     align-items: flex-start;
                 }
                 .drez-image {
                     width: 100%;
-                    max-height: 620px;
                     border-radius: 8px;
                     object-fit: contain;
                 }
@@ -457,8 +455,8 @@ export default function IVDripProductPage({
                 .drez-btn-fav:active { transform: scale(0.9); }
                 .drez-btn-fav-active { border-color: var(--color-error); }
                 .drez-disclaimer {
-                    width: 100%; background: var(--color-surface); padding: 16px 32px;
-                    border-radius: 100px; color: var(--color-primary); font-size: 14px; text-align: center; line-height: 1.4;
+                    width: 100%; background: #F2F4F7; padding: 16px 32px;
+                    border-radius: 8px; color: var(--color-primary); font-size: 14px; text-align: center; line-height: 1.4;
                     margin-top: 32px;
                 }
 
