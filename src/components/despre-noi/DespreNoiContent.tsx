@@ -343,7 +343,7 @@ export default function DespreNoiContent() {
                     <div className="dn-quote-author">
                         <div className="dn-quote-avatar">
                             <Image
-                                src="/images/despre-noi/founder-avatar.jpg"
+                                src="/images/owner/owner.jpeg"
                                 alt="Mircea Popa — Fondator Medelise"
                                 width={56}
                                 height={56}
