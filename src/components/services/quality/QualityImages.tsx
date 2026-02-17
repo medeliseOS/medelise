@@ -11,93 +11,83 @@ interface QualityImagesProps {
 export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityImagesProps) {
     return (
         <div className="quality-images">
-            <div className="quality-images-inner">
-                <Image 
-                    src={splashImageSrc} 
-                    alt="Medvita Water Splash"
-                    width={642}
-                    height={461}
-                    className="quality-splash"
-                    priority
-                />
-                <Image 
-                    src={bagImageSrc} 
-                    alt="IV Drip Bag"
-                    width={380}
-                    height={397}
-                    className="quality-bag"
-                />
-            </div>
+            <Image 
+                src={splashImageSrc} 
+                alt="Medvita Water Splash"
+                width={642}
+                height={461}
+                className="quality-splash"
+                priority
+            />
+            <Image 
+                src={bagImageSrc} 
+                alt="IV Drip Bag"
+                width={380}
+                height={397}
+                className="quality-bag"
+            />
 
             <style jsx>{`
                 .quality-images {
                     width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    margin-top: var(--space-8);
-                    margin-bottom: var(--space-8);
-                }
-
-                .quality-images-inner {
-                    width: 977px;
-                    max-width: 100%;
                     height: 461px;
                     position: relative;
                     overflow: hidden;
+                    margin-top: var(--space-8);
+                    margin-bottom: var(--space-8);
                 }
 
                 .quality-splash {
                     width: 641.71px;
                     height: 461px;
-                    left: 0;
-                    top: -20px;
                     position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: -20px;
                     object-fit: contain;
                 }
 
                 .quality-bag {
                     width: 380px;
                     height: 397px;
-                    left: 130.85px;
-                    top: -20px;
                     position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: -20px;
                     object-fit: contain;
+                    z-index: 2;
                 }
 
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {
-                    .quality-images-inner {
-                        width: 700px;
-                        height: 340px;
+                    .quality-images {
+                        height: 350px;
                     }
                     .quality-splash {
-                        width: 460px;
-                        height: 330px;
-                        top: -14px;
+                        width: 490px;
+                        height: 352px;
+                        top: -15px;
                     }
                     .quality-bag {
-                        width: 272px;
-                        height: 284px;
-                        left: 94px;
-                        top: -14px;
+                        width: 290px;
+                        height: 303px;
+                        top: -15px;
                     }
                 }
 
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
-                    .quality-images-inner {
-                        width: 100%;
-                        height: 250px;
+                    .quality-images {
+                        height: 260px;
                     }
                     .quality-splash {
-                        width: 330px;
-                        height: 237px;
+                        width: 360px;
+                        height: 259px;
                         top: -10px;
                     }
                     .quality-bag {
-                        width: 195px;
-                        height: 204px;
-                        left: 67px;
+                        width: 213px;
+                        height: 223px;
                         top: -10px;
                     }
                 }
