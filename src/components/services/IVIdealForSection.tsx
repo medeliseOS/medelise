@@ -51,7 +51,7 @@ export default function IVIdealForSection({
                 .ideal-section {
                     width: 100%;
                     background: white;
-                    padding: 64px;
+                    padding: 64px 0;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
