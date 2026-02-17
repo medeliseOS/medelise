@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Button from '../ui/Button';
 import IVWhySection from './IVWhySection';
+import IVIdealForSection from './IVIdealForSection';
 import type { IVWhyFeature } from './IVWhySection';
 
 /* ── Types ── */
@@ -57,6 +59,8 @@ export interface IVDripProductProps {
     whyIntro?: string;
     /** Override "Why it works" feature cards */
     whyFeatures?: IVWhyFeature[];
+    /** Ideal for section items */
+    idealForItems?: string[];
 }
 
 /* ── Component ── */
@@ -79,6 +83,7 @@ export default function IVDripProductPage({
     whyHeading,
     whyIntro,
     whyFeatures,
+    idealForItems,
 }: IVDripProductProps) {
     const [selectedVolume, setSelectedVolume] = useState(volumeOptions[0]);
     const [quantity, setQuantity] = useState(1);
@@ -115,10 +120,16 @@ export default function IVDripProductPage({
     return (
         <div className="drez-page">
             <div className="drez-container">
-                <div className="drez-main-row">
+            <div className="drez-main-row">
                     {/* Image */}
-                    <div className="drez-image-wrapper">
-                        <img src={imageSrc} alt={imageAlt || title} className="drez-image" />
+                    <div className="drez-image-wrapper" style={{ position: 'relative', width: '100%', minHeight: '400px' }}>
+                         <Image 
+                            src={imageSrc} 
+                            alt={imageAlt || title} 
+                            fill
+                            className="drez-image"
+                            style={{ objectFit: 'contain' }}
+                         />
                     </div>
 
                     {/* Content */}
@@ -209,8 +220,8 @@ export default function IVDripProductPage({
                                 onClick={() => setIsFavorite(!isFavorite)}
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24"
-                                    fill={isFavorite ? '#E53935' : 'none'}
-                                    stroke={isFavorite ? '#E53935' : '#213170'}
+                                    fill={isFavorite ? 'var(--color-error)' : 'none'}
+                                    stroke={isFavorite ? 'var(--color-error)' : 'var(--color-primary)'}
                                     strokeWidth="1.5"
                                     style={{ transition: 'fill 0.2s, stroke 0.2s' }}
                                 >
@@ -219,13 +230,10 @@ export default function IVDripProductPage({
                             </button>
                         </div>
                     </div>
+
+                    {/* Disclaimer (Moved inside container) */}
+                    {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
                 </div>
-
-
-            </div>
-
-            {/* Disclaimer (Full Width) */}
-            {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
 
             {/* Tabs Section (Full Width) */}
             <div className="drez-tabs-section">
@@ -278,6 +286,11 @@ export default function IVDripProductPage({
                                 intro={whyIntro}
                                 features={whyFeatures}
                             />
+                            {idealForItems && idealForItems.length > 0 && (
+                                <IVIdealForSection 
+                                    items={idealForItems.map(text => ({ text }))} 
+                                />
+                            )}
                         </div>
                     ) : (
                         <div className="drez-tab-panel">
@@ -353,7 +366,7 @@ export default function IVDripProductPage({
                     gap: 16px;
                 }
                 .drez-title {
-                    color: var(--Color-Brand-Ocean-Blue, #213170);
+                    color: var(--Color-Brand-Ocean-Blue, var(--color-primary));
                     font-size: 28px;
                     font-family: 'Inter', sans-serif;
                     font-weight: 600;
@@ -361,7 +374,7 @@ export default function IVDripProductPage({
                     margin: 0;
                 }
                 .drez-subtitle {
-                    color: var(--Color-Brand-Ocean-Blue, #213170);
+                    color: var(--Color-Brand-Ocean-Blue, var(--color-primary));
                     font-size: 18px;
                     font-weight: 600;
                     line-height: 1.5;
@@ -371,69 +384,70 @@ export default function IVDripProductPage({
                 .drez-stars { display: flex; gap: 4px; }
                 .drez-star-icon {
                     width: 20px; height: 20px;
-                    background: var(--Color-Brand-Vivid-Orange, #FD5D16);
+                    background: var(--Color-Brand-Vivid-Orange, var(--color-accent));
                     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
                 }
                 .drez-star-icon-empty {
                     width: 20px; height: 20px;
-                    background: #CED2DA;
+                    background: var(--color-border-light);
                     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
                 }
-                .drez-review-count { color: #213170; font-size: 18px; font-weight: 500; }
+                .drez-review-count { color: var(--color-primary); font-size: 18px; font-weight: 500; }
                 .drez-price-group { display: flex; flex-direction: column; gap: 8px; }
                 .drez-price-row { display: flex; align-items: flex-start; gap: 8px; }
-                .drez-price-current { color: #213170; font-size: 48px; font-weight: 600; line-height: 1.2; }
-                .drez-price-old { color: #FE5D16; font-size: 28px; font-weight: 700; text-decoration: line-through; align-self: center; }
-                .drez-discount-badge { color: #FE5D16; font-size: 18px; font-weight: 500; }
+                .drez-price-current { color: var(--color-primary); font-size: 48px; font-weight: 600; line-height: 1.2; }
+                .drez-price-old { color: var(--color-accent); font-size: 28px; font-weight: 700; text-decoration: line-through; align-self: center; }
+                .drez-discount-badge { color: var(--color-accent); font-size: 18px; font-weight: 500; }
                 .drez-economy-group { display: flex; flex-direction: column; }
-                .drez-eco-label { color: #213170; font-size: 18px; font-weight: 500; }
-                .drez-eco-value { color: #213170; font-size: 18px; font-weight: 700; }
+                .drez-eco-label { color: var(--color-primary); font-size: 18px; font-weight: 500; }
+                .drez-eco-value { color: var(--color-primary); font-size: 18px; font-weight: 700; }
                 .drez-benefits-group { display: flex; flex-direction: column; gap: 8px; }
-                .drez-benefits-title { color: #213170; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; margin: 0; }
+                .drez-benefits-title { color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; margin: 0; }
                 .drez-benefits-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
-                .drez-benefits-list li { color: #213170; font-size: 18px; font-weight: 400; line-height: 1.5; }
+                .drez-benefits-list li { color: var(--color-primary); font-size: 18px; font-weight: 400; line-height: 1.5; }
                 .drez-benefits-list li::before { content: "• "; margin-right: 4px; }
                 .drez-selectors { display: flex; flex-direction: column; gap: 24px; }
                 .drez-selector-block { display: flex; flex-direction: column; gap: 12px; }
-                .drez-selector-label { color: #213170; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; text-align: left; }
+                .drez-selector-label { color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; text-align: left; }
                 .drez-volume-options { display: flex; gap: 32px; }
                 .drez-vol-btn {
-                    width: 154px; padding: 10px 20px; border-radius: 8px; border: 1px solid #CED2DA;
+                    width: 154px; padding: 10px 20px; border-radius: 8px; border: 1px solid var(--color-border-light);
                     display: flex; justify-content: center; align-items: center; cursor: pointer;
-                    font-weight: 500; font-size: 18px; background: white; color: #213170; transition: all 0.2s;
+                    font-weight: 500; font-size: 18px; background: white; color: var(--color-primary); transition: all 0.2s;
                 }
-                .drez-vol-btn-active { background: #213170; color: white; border-color: #213170; }
-                .drez-vol-btn-inactive { background: white; color: #213170; }
-                .drez-vol-btn:hover { border-color: #213170; }
+                .drez-vol-btn-active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+                .drez-vol-btn-inactive { background: white; color: var(--color-primary); }
+                .drez-vol-btn:hover { border-color: var(--color-primary); }
                 .drez-qty-control {
-                    display: inline-flex; width: fit-content; border: 1px solid #CED2DA; border-radius: 8px; overflow: hidden;
+                    display: inline-flex; width: fit-content; border: 1px solid var(--color-border-light); border-radius: 8px; overflow: hidden;
                 }
                 .drez-qty-btn {
-                    background: white; border: none; border-right: 1px solid #CED2DA; padding: 0 20px;
+                    background: white; border: none; border-right: 1px solid var(--color-border-light); padding: 0 20px;
                     width: 60px; height: 44px; cursor: pointer; display: flex; align-items: center;
                     justify-content: center; transition: background 0.1s;
                 }
-                .drez-qty-btn:active { background-color: #f2f4f7; }
+                .drez-qty-btn:active { background-color: var(--color-surface); }
                 .drez-qty-btn:last-child { border-right: none; }
                 .drez-qty-display {
-                    width: 60px; height: 44px; font-size: 18px; font-weight: 600; color: #213170;
-                    border-right: 1px solid #CED2DA; display: flex; align-items: center; justify-content: center;
+                    width: 60px; height: 44px; font-size: 18px; font-weight: 600; color: var(--color-primary);
+                    border-right: 1px solid var(--color-border-light); display: flex; align-items: center; justify-content: center;
                 }
-                .drez-qty-minus { width: 20px; height: 2px; background: #213170; }
+                .drez-qty-minus { width: 20px; height: 2px; background: var(--color-primary); }
                 .drez-qty-plus { width: 20px; height: 20px; position: relative; }
-                .bar-h { position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: #213170; }
-                .bar-v { position: absolute; top: 0; left: 9px; width: 2px; height: 20px; background: #213170; }
+                .bar-h { position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: var(--color-primary); }
+                .bar-v { position: absolute; top: 0; left: 9px; width: 2px; height: 20px; background: var(--color-primary); }
                 .drez-cta-row { display: flex; gap: 32px; align-items: center; }
                 .drez-btn-fav {
-                    width: 44px; height: 44px; border-radius: 8px; border: 1px solid #97A1AF;
+                    width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--color-input-border);
                     background: white; display: flex; align-items: center; justify-content: center;
                     cursor: pointer; flex-shrink: 0; transition: border-color 0.2s, transform 0.15s;
                 }
                 .drez-btn-fav:active { transform: scale(0.9); }
-                .drez-btn-fav-active { border-color: #E53935; }
+                .drez-btn-fav-active { border-color: var(--color-error); }
                 .drez-disclaimer {
-                    width: 100%; max-width: 100%; background: #F2F4F7; padding: 10px 64px;
-                    border-radius: 8px; color: #213170; font-size: 14px; text-align: center; line-height: 1.4;
+                    width: 100%; background: var(--color-surface); padding: 16px 32px;
+                    border-radius: 100px; color: var(--color-primary); font-size: 14px; text-align: center; line-height: 1.4;
+                    margin-top: 32px;
                 }
 
                 /* ═══ Tabs ═══ */
@@ -441,44 +455,44 @@ export default function IVDripProductPage({
                 .drez-tabs-bar { display: flex; align-items: flex-start; }
                 .drez-tab {
                     width: 240px; padding: 10px 20px; background: none; border: none;
-                    border-bottom: 2px solid #BDE0FF; color: var(--Color-Brand-Ocean-Blue, #213170);
+                    border-bottom: 2px solid var(--color-secondary); color: var(--Color-Brand-Ocean-Blue, var(--color-primary));
                     font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600;
                     line-height: 28px; cursor: pointer; display: flex; justify-content: space-between;
                     align-items: center; transition: border-color 0.2s;
                 }
-                .drez-tab-active { border-bottom: 2px solid #FE5D16; }
+                .drez-tab-active { border-bottom: 2px solid var(--color-accent); }
                 .drez-accordion { display: none; }
                 .drez-tab-content { padding: 32px 0; }
                 .drez-tab-panel { display: flex; flex-direction: column; gap: 16px; }
-                .drez-tab-panel-title { color: #213170; font-size: 24px; font-weight: 600; margin: 0; }
-                .drez-tab-panel-subtitle { color: #213170; font-size: 18px; font-weight: 600; margin: 16px 0 0; }
-                .drez-tab-panel-text { color: #213170; font-size: 16px; font-weight: 400; line-height: 1.6; margin: 0; }
-                .drez-tab-panel-list { list-style: disc; padding-left: 24px; margin: 0; color: #213170; font-size: 16px; line-height: 1.8; }
-                .drez-review-card { padding: 24px; background: #F8F9FB; border-radius: 8px; display: flex; flex-direction: column; gap: 8px; }
+                .drez-tab-panel-title { color: var(--color-primary); font-size: 24px; font-weight: 600; margin: 0; }
+                .drez-tab-panel-subtitle { color: var(--color-primary); font-size: 18px; font-weight: 600; margin: 16px 0 0; }
+                .drez-tab-panel-text { color: var(--color-primary); font-size: 16px; font-weight: 400; line-height: 1.6; margin: 0; }
+                .drez-tab-panel-list { list-style: disc; padding-left: 24px; margin: 0; color: var(--color-primary); font-size: 16px; line-height: 1.8; }
+                .drez-review-card { padding: 24px; background: var(--color-surface-card); border-radius: 8px; display: flex; flex-direction: column; gap: 8px; }
                 .drez-review-header { display: flex; justify-content: space-between; align-items: center; }
                 .drez-review-stars { display: flex; gap: 4px; }
-                .drez-review-date { color: #97A1AF; font-size: 14px; font-weight: 400; }
-                .drez-review-author { margin: 0; color: #213170; font-size: 16px; font-weight: 600; }
-                .drez-review-text { margin: 0; color: #213170; font-size: 15px; font-weight: 400; line-height: 1.6; }
+                .drez-review-date { color: var(--color-input-border); font-size: 14px; font-weight: 400; }
+                .drez-review-author { margin: 0; color: var(--color-primary); font-size: 16px; font-weight: 600; }
+                .drez-review-text { margin: 0; color: var(--color-primary); font-size: 15px; font-weight: 400; line-height: 1.6; }
                 .drez-accordion-header {
-                    width: 100%; padding: 12px; background: white; border: 1px solid #213170;
+                    width: 100%; padding: 12px; background: white; border: 1px solid var(--color-primary);
                     border-radius: 5px; display: flex; justify-content: space-between; align-items: center;
-                    cursor: pointer; color: #213170; font-size: 14px; font-family: 'Montserrat', sans-serif;
+                    cursor: pointer; color: var(--color-primary); font-size: 14px; font-family: 'Montserrat', sans-serif;
                     font-weight: 600; line-height: 20px;
                 }
                 .drez-accordion-arrow {
-                    width: 12px; height: 7px; background: #213170;
+                    width: 12px; height: 7px; background: var(--color-primary);
                     clip-path: polygon(0 0, 100% 0, 50% 100%); transition: transform 0.2s;
                 }
                 .drez-accordion-arrow-open { transform: rotate(180deg); }
-                .drez-accordion-dropdown { border: 1px solid #CED2DA; border-top: none; border-radius: 0 0 5px 5px; overflow: hidden; }
+                .drez-accordion-dropdown { border: 1px solid var(--color-border-light); border-top: none; border-radius: 0 0 5px 5px; overflow: hidden; }
                 .drez-accordion-option {
                     width: 100%; padding: 12px; background: white; border: none; text-align: left;
-                    cursor: pointer; color: #213170; font-size: 14px; font-family: 'Montserrat', sans-serif;
+                    cursor: pointer; color: var(--color-primary); font-size: 14px; font-family: 'Montserrat', sans-serif;
                     font-weight: 500; line-height: 20px;
                 }
-                .drez-accordion-option:hover { background: #F2F4F7; }
-                .drez-accordion-option-active { font-weight: 600; background: #F2F4F7; }
+                .drez-accordion-option:hover { background: var(--color-surface); }
+                .drez-accordion-option-active { font-weight: 600; background: var(--color-surface); }
 
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {

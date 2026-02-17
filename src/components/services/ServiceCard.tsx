@@ -1,8 +1,8 @@
-'use client';
-
+// ... imports ...
 import React from 'react';
 import Link from 'next/link';
 import { IVDripService } from '@/data/ivDripServices';
+import Button from '@/components/ui/Button';
 
 interface ServiceCardProps {
     service: IVDripService;
@@ -26,9 +26,11 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     <p className="card-price">{service.price} RON</p>
                     <p className="card-desc">{service.shortDescription}</p>
 
-                    <button className="book-btn">
-                        VEZI DETALII
-                    </button>
+                    <div className="btn-wrapper">
+                        <Button variant="primary">
+                            VEZI DETALII
+                        </Button>
+                    </div>
                 </div>
             </Link>
 
@@ -41,12 +43,12 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     padding: 24px;
                     border-radius: 12px;
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    background: #fff; /* Ensure card has background */
+                    background: var(--color-white);
                 }
 
                 .service-card:hover {
                     transform: translateY(-5px);
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                    box-shadow: var(--shadow-md);
                 }
 
                 .card-link {
@@ -80,8 +82,8 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                 .bag-shape {
                     width: 100px;
                     height: 160px;
-                    background: #f0fdf4; /* Very light tint */
-                    border: 1px solid #e0e0e0;
+                    background: var(--color-surface); /* Very light tint */
+                    border: 1px solid var(--color-border-light);
                     border-radius: 16px 16px 40px 40px;
                     display: flex;
                     justify-content: center;
@@ -99,7 +101,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     transform: translateX(-50%);
                     width: 40px;
                     height: 10px;
-                    background: #e0e0e0;
+                    background: var(--color-border-light);
                     border-radius: 4px;
                 }
 
@@ -111,13 +113,13 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     transform: translateX(-50%);
                     width: 4px;
                     height: 20px;
-                    background: #e0e0e0;
+                    background: var(--color-border-light);
                 }
 
                 .bag-label {
                     font-size: 10px;
                     font-weight: 600;
-                    color: #888;
+                    color: var(--color-text-muted);
                     text-transform: uppercase;
                     text-align: center;
                     line-height: 1.2;
@@ -135,7 +137,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     font-family: var(--font-heading, "Inter", sans-serif);
                     font-size: 1.125rem;
                     font-weight: 700;
-                    color: #111;
+                    color: var(--color-text);
                     margin: 0;
                 }
 
@@ -143,14 +145,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     font-family: var(--font-body, "Inter", sans-serif);
                     font-size: 1rem;
                     font-weight: 600;
-                    color: #111;
+                    color: var(--color-text);
                     margin: 0;
                 }
 
                 .card-desc {
                     font-family: var(--font-body, "Inter", sans-serif);
                     font-size: 0.875rem;
-                    color: #666;
+                    color: var(--color-text-muted);
                     line-height: 1.5;
                     margin-bottom: 16px;
                     height: 42px; /* Limit height for uniform look */
@@ -160,23 +162,10 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     -webkit-box-orient: vertical;
                 }
 
-                .book-btn {
-                    padding: 10px 24px;
-                    background-color: #1a1a1a;
-                    color: #ffffff;
-                    font-size: 0.875rem;
-                    font-weight: 600;
-                    border: none;
-                    border-radius: 9999px; /* Pill shape */
-                    cursor: pointer;
-                    transition: all 0.2s ease;
-                    text-transform: uppercase;
-                    letter-spacing: 0.05em;
-                }
-
-                .group:hover .book-btn {
-                    background-color: #333;
-                    transform: translateY(-1px);
+                .btn-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    width: auto;
                 }
             `}</style>
         </div>

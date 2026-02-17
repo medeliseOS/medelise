@@ -65,22 +65,22 @@ export default function NewsTicker() {
             <div className="ticker-content">
 
                 <span className="ticker-item">
-                    🎉 <Link href="#" className="ticker-link">Oferte Speciale Octombrie: 20% Reducere la Prima Consultatie</Link>
+                    🎉 <Link href="/services" className="ticker-link">Oferte Speciale Octombrie: 20% Reducere la Prima Consultatie</Link>
                 </span>
                 <span className="ticker-item">
-                    💉 <Link href="#" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
+                    💉 <Link href="/login" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
                 </span>
                 <span className="ticker-item">
-                    🏠 <Link href="#" className="ticker-link">Noi Zone de Acoperire in Bucuresti si Ilfov</Link>
+                    🏠 <Link href="/contact" className="ticker-link">Noi Zone de Acoperire in Bucuresti si Ilfov</Link>
                 </span>
                 <span className="ticker-item">
-                    🎉 <Link href="#" className="ticker-link">Oferte Speciale Octombrie: 20% Reducere la Prima Consultatie</Link>
+                    🎉 <Link href="/services" className="ticker-link">Oferte Speciale Octombrie: 20% Reducere la Prima Consultatie</Link>
                 </span>
                 <span className="ticker-item">
-                    💉 <Link href="#" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
+                    💉 <Link href="/login" className="ticker-link">Campanie Vaccinare Antigripala - Programeaza Acum</Link>
                 </span>
                 <span className="ticker-item">
-                    🏠 <Link href="#" className="ticker-link">Noi Zone de Acoperire in Bucuresti si Ilfov</Link>
+                    🏠 <Link href="/contact" className="ticker-link">Noi Zone de Acoperire in Bucuresti si Ilfov</Link>
                 </span>
             </div>
         </div>

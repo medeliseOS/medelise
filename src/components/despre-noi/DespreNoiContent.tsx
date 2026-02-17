@@ -12,7 +12,7 @@ export default function DespreNoiContent() {
                 .dn-hero {
                     width: 100%;
                     padding: var(--space-8) var(--space-section-px-lg);
-                    background: #ffffff;
+                    background: var(--color-white);
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -103,7 +103,7 @@ export default function DespreNoiContent() {
                 .dn-quote-divider {
                     width: 100%;
                     height: 1px;
-                    background: var(--color-primary, #213170);
+                    background: var(--color-primary, var(--color-primary));
                 }
 
                 .dn-quote-author {
@@ -119,7 +119,7 @@ export default function DespreNoiContent() {
                     overflow: hidden;
                     flex-shrink: 0;
                     background: linear-gradient(0deg, rgba(16, 24, 40, 0.10) 0%, rgba(16, 24, 40, 0.10) 100%),
-                                var(--color-surface, #F8F9FA);
+                                var(--color-surface, var(--color-surface));
                 }
 
                 .dn-quote-avatar img {
@@ -129,7 +129,7 @@ export default function DespreNoiContent() {
                 }
 
                 .dn-quote-name {
-                    color: var(--color-primary, #213170);
+                    color: var(--color-primary, var(--color-primary));
                     font-family: var(--font-heading);
                     font-size: 16px;
                     font-weight: 400;
@@ -188,7 +188,7 @@ export default function DespreNoiContent() {
                         left: -32px;
                         right: -32px;
                         bottom: -32px;
-                        border: 1.5px solid #FE5D16;
+                        border: 1.5px solid var(--color-accent);
                         opacity: 0.18;
                         pointer-events: none;
                     }
@@ -262,7 +262,7 @@ export default function DespreNoiContent() {
                         left: -16px;
                         right: -16px;
                         bottom: -16px;
-                        border: 1px solid #FE5D16;
+                        border: 1px solid var(--color-accent);
                         opacity: 0.18;
                         pointer-events: none;
                     }

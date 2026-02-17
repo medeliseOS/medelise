@@ -75,6 +75,12 @@ export default function DeshidratareContent() {
             ]}
             reviewCount={46}
             averageRating={5}
+            idealForItems={[
+                'Sportivi sau persoane active care pierd lichide prin transpirație intensă.',
+                'Participanți la evenimente în aer liber, festivaluri, competiții sau călătorii lungi.',
+                'Profesioniști expuși stresului, lipsei de somn sau alimentației neregulate.',
+                'Pacienți cu stare generală de oboseală, amețeală sau dureri de cap cauzate de deficitul de lichide.',
+            ]}
         />
     );
 }

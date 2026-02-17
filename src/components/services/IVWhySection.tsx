@@ -133,7 +133,7 @@ export default function IVWhySection({
                     max-width: 998px;
                 }
                 .iv-why__heading {
-                    color: #213170;
+                    color: var(--color-primary);
                     font-size: 36px;
                     font-weight: 700;
                     line-height: 44px;
@@ -141,7 +141,7 @@ export default function IVWhySection({
                     text-align: left;
                 }
                 .iv-why__intro {
-                    color: #213170;
+                    color: var(--color-primary);
                     font-size: 20px;
                     font-weight: 500;
                     line-height: 28px;
@@ -185,22 +185,22 @@ export default function IVWhySection({
                 /* ── Feature Cards ── */
                 .iv-why__card {
                     padding: 24px;
-                    background: white;
+                    background: var(--color-white);
                     border-radius: 20px;
-                    border: 1px solid #E4E7EC;
+                    border: 1px solid var(--color-border-light);
                     display: flex;
                     flex-direction: column;
                     gap: 12px;
                 }
                 .iv-why__card-title {
-                    color: var(--Color-Brand-Ocean-Blue, #213170);
+                    color: var(--color-primary);
                     font-size: 18px;
                     font-weight: 600;
                     line-height: 28px;
                     margin: 0;
                 }
                 .iv-why__card-text {
-                    color: var(--Color-Brand-Ocean-Blue, #213170);
+                    color: var(--color-primary);
                     font-size: 18px;
                     font-weight: 400;
                     line-height: 28px;
@@ -213,7 +213,7 @@ export default function IVWhySection({
                 }
                 .iv-why__stack-image-container {
                     width: 100%;
-                    background: white;
+                    background: var(--color-white);
                     border-radius: 20px;
                     overflow: hidden;
                     display: flex;

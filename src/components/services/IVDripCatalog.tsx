@@ -28,7 +28,7 @@ export default function IVDripCatalog() {
             <style jsx>{`
                 .iv-drip-catalog-page {
                     min-height: 100vh;
-                    background-color: #f8f9fa; /* Light grey background for catalog */
+                    background-color: var(--color-surface); /* Light grey background for catalog */
                     padding: 60px 20px;
                 }
 
@@ -49,7 +49,7 @@ export default function IVDripCatalog() {
                 .page-title {
                     font-family: var(--font-heading, "Inter", sans-serif);
                     font-size: 2.5rem;
-                    color: #111;
+                    color: var(--color-text);
                     margin: 0;
                     font-weight: 300; /* Thin part */
                 }
@@ -61,7 +61,7 @@ export default function IVDripCatalog() {
                 .page-subtitle {
                     font-family: var(--font-body, "Inter", sans-serif);
                     font-size: 1rem;
-                    color: #666;
+                    color: var(--color-text-muted);
                     max-width: 600px;
                     line-height: 1.6;
                 }
