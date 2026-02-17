@@ -79,18 +79,18 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
 
                 .quality-container {
                     width: 100%;
-                    max-width: 100%; /* Expanded to full width */
+                    max-width: 100%;
                     padding: 32px 64px; /* Safety padding */
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: stretch;
                 }
 
                 .quality-content {
                     width: 100%;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: stretch;
                     gap: 32px;
                 }
 
@@ -98,7 +98,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 .quality-header {
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: stretch;
                     gap: 32px;
                     width: 100%;
                 }
@@ -135,7 +135,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 /* ─── Images ─── */
                 .quality-images {
                     width: 100%;
-                    height: 350px; 
+                    height: 490px; 
                     display: flex;
                     justify-content: center;
                     margin-top: 32px;
@@ -144,7 +144,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
 
                 .quality-iso-group {
                     position: relative;
-                    width: 500px;
+                    width: 700px;
                     max-width: 100%;
                     height: 100%;
                 }

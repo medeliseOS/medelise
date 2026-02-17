@@ -3,6 +3,7 @@
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
 import IVQualitySection from './IVQualitySection';
+import ContactFormSection from '../contact/ContactFormSection';
 
 export default function DeshidratareContent() {
     return (
@@ -106,6 +107,8 @@ export default function DeshidratareContent() {
             <IVQualitySection 
                 bagImageSrc="/images/iv-drip/recovery.png"
             />
+
+            <ContactFormSection />
         </>
     );
 }
