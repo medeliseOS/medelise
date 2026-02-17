@@ -46,6 +46,7 @@ export default function QualityFooter({ subtitle, description }: QualityFooterPr
                     text-align: center;
                     margin: 0;
                     align-self: stretch;
+                    max-width: none;
                 }
             `}</style>
         </div>

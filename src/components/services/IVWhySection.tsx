@@ -155,6 +155,7 @@ export default function IVWhySection({
                     text-align: center;
                     align-self: stretch;
                     width: 100%;
+                    max-width: none;
                 }
 
                 /* ── Desktop 3-Column Grid ── */

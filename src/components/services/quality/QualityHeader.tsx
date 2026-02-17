@@ -58,6 +58,7 @@ export default function QualityHeader({ title, paragraphs }: QualityHeaderProps)
                     text-align: center;
                     margin: 0;
                     align-self: stretch;
+                    max-width: none;
                 }
             `}</style>
         </div>
