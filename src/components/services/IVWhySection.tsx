@@ -122,6 +122,7 @@ export default function IVWhySection({
                     display: flex;
                     flex-direction: column;
                     gap: 64px;
+                    padding: var(--space-16) 0;
                     font-family: 'Montserrat', sans-serif;
                 }
 
