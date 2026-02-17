@@ -53,7 +53,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     width: 100%;
                     height: auto;
                     max-width: 380px; /* Mobile behavior defaulting */
-                    transform: translateY(-40%);
+                    transform: translateY(-30%);
                 }
 
                 @media (min-width: 1024px) {
