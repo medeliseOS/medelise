@@ -131,7 +131,7 @@ export default function IVWhySection({
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;
+                    align-items: stretch;
                     gap: 36px;
                     width: 100%;
                 }
@@ -144,6 +144,7 @@ export default function IVWhySection({
                     text-align: center;
                     width: 998px;
                     max-width: 100%;
+                    align-self: center;
                 }
                 .iv-why__intro {
                     color: var(--color-primary);
