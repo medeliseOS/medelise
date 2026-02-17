@@ -324,13 +324,13 @@ export default function IVDripProductPage({
                     display: flex;
                     flex-direction: row;
                     width: 100%;
-                    max-width: 1312px;
+                    max-width: 100%;
                     gap: 32px;
                     align-items: flex-start;
                 }
                 .drez-image-wrapper {
-                    flex-shrink: 0;
-                    width: 592px;
+                    flex: 1;
+                    width: auto;
                     max-height: 620px;
                     display: flex;
                     justify-content: center;
