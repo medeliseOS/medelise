@@ -36,8 +36,8 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                                 <Image 
                                     src="/images/quality/splash-iv.png" 
                                     alt="Medvita Water Splash"
-                                    width={642}
-                                    height={461}
+                                    width={700}
+                                    height={503}
                                     className="quality-splash"
                                     style={{ width: '100%', height: '100%' }}
                                     priority
@@ -116,10 +116,9 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 .quality-text-group {
                     display: flex;
                     flex-direction: column;
-                    align-items: center; 
+                    align-items: stretch; 
                     gap: 8px; 
                     width: 100%;
-                    max-width: 100%; /* Expanded to full width */
                 }
 
                 .quality-text {
@@ -128,7 +127,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 400;
                     line-height: 28px;
-                    text-align: center; 
+                    text-align: left; 
                     margin: 0;
                     width: 100%;
                 }
