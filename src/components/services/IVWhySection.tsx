@@ -183,6 +183,7 @@ export default function IVWhySection({
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    margin-top: 32px;
                 }
                 .iv-why__image {
                     width: 384px;
