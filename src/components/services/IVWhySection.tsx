@@ -130,8 +130,10 @@ export default function IVWhySection({
                 .iv-why__header {
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                     gap: 36px;
-                    max-width: 998px;
+                    width: 100%;
                 }
                 .iv-why__heading {
                     color: var(--color-primary);
@@ -139,7 +141,9 @@ export default function IVWhySection({
                     font-weight: 700;
                     line-height: 44px;
                     margin: 0;
-                    text-align: left;
+                    text-align: center;
+                    width: 998px;
+                    max-width: 100%;
                 }
                 .iv-why__intro {
                     color: var(--color-primary);
@@ -147,6 +151,8 @@ export default function IVWhySection({
                     font-weight: 500;
                     line-height: 28px;
                     margin: 0;
+                    text-align: center;
+                    align-self: stretch;
                 }
 
                 /* ── Desktop 3-Column Grid ── */
