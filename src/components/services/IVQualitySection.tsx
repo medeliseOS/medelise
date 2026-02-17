@@ -50,7 +50,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                                 width={380}
                                 height={397}
                                 className="quality-bag"
-                                style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+                                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                             />
                         </div>
                     </div>
