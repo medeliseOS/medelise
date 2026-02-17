@@ -148,7 +148,7 @@ export default function IVClinicalStudiesSection({
                     background: white;
                     display: flex;
                     justify-content: center;
-                    padding: 64px 0;
+                    padding: 0;
                 }
 
                 .clinical-container {
