@@ -2,7 +2,6 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
-import IVQualitySection from './IVQualitySection';
 import ContactFormSection from '../contact/ContactFormSection';
 
 export default function DeshidratareContent() {
@@ -102,10 +101,7 @@ export default function DeshidratareContent() {
                         content: 'La sportivi, perfuziile IV cu electroliți reduc timpul de recuperare musculară și nivelul de cortizol post-efort, îmbunătățind performanța globală.',
                     },
                 ]}
-            />
-            
-            <IVQualitySection 
-                bagImageSrc="/images/iv-drip/recovery.png"
+                qualityBagImageSrc="/images/iv-drip/recovery.png"
             />
 
             <ContactFormSection />
