@@ -2,7 +2,19 @@
 
 import React, { useState, memo } from 'react';
 import type { IVClinicalStudy } from './types';
-import { MinusIcon, PlusIcon } from './icons';
+
+const MinusIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12H19" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+const PlusIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 5V19" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5 12H19" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
 
 interface StudyCardProps {
     study: IVClinicalStudy;
@@ -12,12 +24,12 @@ function StudyCardComponent({ study }: StudyCardProps) {
     const [isOpen, setIsOpen] = useState(true);
 
     return (
-        <div 
+        <div
             className={`study-card ${isOpen ? 'open' : ''}`}
             data-state={isOpen ? 'Open' : 'Closed'}
         >
-            <button 
-                className="study-header" 
+            <button
+                className="study-header"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-expanded={isOpen}
             >
@@ -28,7 +40,7 @@ function StudyCardComponent({ study }: StudyCardProps) {
                 </div>
                 <span className="study-title">{study.title}</span>
             </button>
-            
+
             {isOpen && (
                 <div className="study-content">
                     <p>{study.content}</p>

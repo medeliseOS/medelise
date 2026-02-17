@@ -11,8 +11,8 @@ interface QualityImagesProps {
 export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityImagesProps) {
     return (
         <div className="quality-images">
-            <Image 
-                src={splashImageSrc} 
+            <Image
+                src={splashImageSrc}
                 alt="Medvita Water Splash"
                 width={642}
                 height={461}
@@ -27,8 +27,8 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     objectFit: 'contain',
                 }}
             />
-            <Image 
-                src={bagImageSrc} 
+            <Image
+                src={bagImageSrc}
                 alt="IV Drip Bag"
                 width={380}
                 height={397}
@@ -38,7 +38,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    top: '-48px',
+                    top: '-20px',
                     objectFit: 'contain',
                     zIndex: 2,
                 }}
