@@ -31,22 +31,20 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     left: '50%',
                     transform: 'translateX(-50%)',
                     top: '-20px',
-                    objectFit: 'contain',
                 }}
             />
             <Image
                 src={bagImageSrc}
                 alt="IV Drip Bag"
                 width={380}
-                height={452}
+                height={397}
                 style={{
-                    width: 'auto',
-                    height: '100%',
+                    width: '380px',
+                    height: '397px',
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
                     top: '-20px',
-                    objectFit: 'contain',
                     zIndex: 2,
                 }}
             />
