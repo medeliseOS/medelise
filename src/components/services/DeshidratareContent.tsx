@@ -16,7 +16,11 @@ export default function DeshidratareContent() {
                 price={300}
                 oldPrice={450}
                 volumeOptions={['500ml', '1000ml']}
-                economyPerMl={['0,50 Lei/ml', '0,25 Lei/ml']}
+                // economyPerMl={['0,50 Lei/ml', '0,25 Lei/ml']} // Deprecated by dynamic calculator
+                pricingVariants={{
+                    '500ml': { price: 300, oldPrice: 450 },
+                    '1000ml': { price: 550, oldPrice: 800 },
+                }}
                 benefits={[
                     'Rehidratare rapidă și eficientă',
                     'Restabilirea echilibrului de electroliți',

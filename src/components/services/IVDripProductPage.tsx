@@ -10,65 +10,13 @@ import IVClinicalStudiesSection, { IVClinicalStudy } from './IVClinicalStudiesSe
 import TestimonialsSection from '../TestimonialsSection';
 import IVQualitySection from './IVQualitySection';
 
-/* ── Types ── */
-export interface IVDripReview {
-    author: string;
-    date: string;
-    rating: number; // 1-5
-    text: string;
-}
+// Removed inline IVDripReview interface as it should be enhancing, but for now I'm augmenting the existing component.
+// Actually I will continue to use local interfaces if I don't import them, BUT
+// I should import from types.ts to use the new PricingVariants support.
+import { IVDripProductProps } from './iv-drip/types';
 
-export interface IVDripProductProps {
-    /** Unique product ID for cart */
-    id: string;
-    /** Product title (uppercase) */
-    title: string;
-    /** Short subtitle / tagline */
-    subtitle: string;
-    /** Image path (SVG or PNG) */
-    imageSrc: string;
-    /** Image alt text */
-    imageAlt?: string;
-    /** Current price in Lei */
-    price: number;
-    /** Old (strikethrough) price in Lei */
-    oldPrice?: number;
-    /** Volume options e.g. ['500ml', '1000ml'] */
-    volumeOptions?: string[];
-    /** Per-ml economy text per volume, indexed same as volumeOptions */
-    economyPerMl?: string[];
-    /** List of benefit strings */
-    benefits: string[];
-    /** Description paragraphs for "Descriere" tab */
-    description: {
-        title: string;
-        intro: string;
-        sections: {
-            heading: string;
-            content: string | string[]; // string = paragraph, string[] = list
-        }[];
-    };
-    /** Customer reviews for "Recenzii" tab */
-    reviews: IVDripReview[];
-    /** Total review count shown next to stars */
-    reviewCount: number;
-    /** Average rating (1-5) for the star display */
-    averageRating?: number;
-    /** Disclaimer text */
-    disclaimer?: string;
-    /** Override "Why it works" section heading */
-    whyHeading?: string;
-    /** Override "Why it works" section intro text */
-    whyIntro?: string;
-    /** Override "Why it works" feature cards */
-    whyFeatures?: IVWhyFeature[];
-    /** Ideal for section items */
-    idealForItems?: string[];
-    /** Clinical studies data */
-    clinicalStudies?: IVClinicalStudy[];
-    /** Quality section bag image */
-    qualityBagImageSrc?: string;
-}
+
+
 
 /* ── Component ── */
 export default function IVDripProductPage({
@@ -93,6 +41,7 @@ export default function IVDripProductPage({
     idealForItems,
     clinicalStudies,
     qualityBagImageSrc,
+    pricingVariants,
 }: IVDripProductProps) {
     const [selectedVolume, setSelectedVolume] = useState(volumeOptions[0]);
     const [quantity, setQuantity] = useState(1);
@@ -100,9 +49,51 @@ export default function IVDripProductPage({
     const [mobileAccordionOpen, setMobileAccordionOpen] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
 
-    const totalPrice = price * quantity;
-    const discountPercent = oldPrice ? Math.round((1 - price / oldPrice) * 100) : 0;
+    // Determine current price based on selected volume
+    const currentVariant = pricingVariants ? pricingVariants[selectedVolume] : null;
+    const currentPrice = currentVariant ? currentVariant.price : price;
+    const currentOldPrice = currentVariant ? currentVariant.oldPrice : oldPrice;
+
+    const totalPrice = currentPrice * quantity;
+    const discountPercent = currentOldPrice ? Math.round((1 - currentPrice / currentOldPrice) * 100) : 0;
     const volumeIndex = volumeOptions.indexOf(selectedVolume);
+
+    // Dynamic Economy Calculation
+    // Logic: Economy/ml = (OldPrice/ml) - (NewPrice/ml)
+    // OR just display savings per ml if requested.
+    // The previous hardcoded value "0,50 Lei/ml" for 500ml (300 vs 450)
+    // 450/500 = 0.9; 300/500 = 0.6; Diff = 0.3. The user asked for "correct calculator".
+    // I will use strict math: (Old - New) / Volume.
+
+    // Helper to parse volume string to number (e.g. "500ml" -> 500)
+    const parseVolume = (vol: string) => parseInt(vol.replace(/\D/g, ''), 10) || 0;
+    const volNum = parseVolume(selectedVolume);
+
+    let calculatedEconomyText = null;
+
+    // Only calculate if input has old price and we have a valid volume number
+    if (currentOldPrice && volNum > 0) {
+        // Calculate savings based on (Old Price - New Price)
+        const savings = currentOldPrice - currentPrice;
+
+        // Calculate savings per ml
+        const economyPerMlValue = savings / volNum;
+
+        if (economyPerMlValue > 0) {
+            // Format to 2 decimals, replace dot with comma for Romanian locale style
+            const formattedEco = economyPerMlValue.toFixed(2).replace('.', ',');
+            calculatedEconomyText = `${formattedEco} Lei/ml`;
+        }
+    }
+
+    // Display string: prefer calculated, fall back to props
+    const displayEconomy = calculatedEconomyText
+        ? `${calculatedEconomyText} vs prețul standard`
+        : (economyPerMl && economyPerMl[volumeIndex] ? `${economyPerMl[volumeIndex]} vs prețul standard` : null);
+
+
+
+
 
     const handleIncrement = () => setQuantity(q => q + 1);
     const handleDecrement = () => setQuantity(q => Math.max(1, q - 1));
@@ -113,7 +104,7 @@ export default function IVDripProductPage({
             name: title,
             volume: selectedVolume,
             quantity,
-            price,
+            price: currentPrice,
             total: totalPrice,
         };
         console.log('Added to cart:', item);
@@ -157,181 +148,180 @@ export default function IVDripProductPage({
                         {/* Price */}
                         <div className="drez-price-group">
                             <div className="drez-price-row">
-                                <span className="drez-price-current">{price} Lei</span>
-                                {oldPrice && <span className="drez-price-old">{oldPrice} Lei</span>}
+                                <span className="drez-price-current">{currentPrice} Lei</span>
+                                {currentOldPrice && <span className="drez-price-old">{currentOldPrice} Lei</span>}
                             </div>
-                            {oldPrice && (
+                            {currentOldPrice && (
                                 <div className="drez-discount-badge">Reducere de {discountPercent}%!</div>
                             )}
-                            {economyPerMl && economyPerMl[volumeIndex] && (
+                            {displayEconomy && (
                                 <div className="drez-economy-group">
                                     <span className="drez-eco-label">Economisește acum!</span>
                                     <span className="drez-eco-value">
-                                        {economyPerMl[volumeIndex]} vs prețul standard
+                                        {displayEconomy}
                                     </span>
                                 </div>
                             )}
-                        </div>
 
-                        {/* Benefits */}
-                        <div className="drez-benefits-group">
-                            <h3 className="drez-benefits-title">Beneficii:</h3>
-                            <ul className="drez-benefits-list">
-                                {benefits.map((b, i) => (
-                                    <li key={i}>{b}</li>
-                                ))}
-                            </ul>
-                        </div>
+                            {/* Benefits */}
+                            <div className="drez-benefits-group">
+                                <h3 className="drez-benefits-title">Beneficii:</h3>
+                                <ul className="drez-benefits-list">
+                                    {benefits.map((b, i) => (
+                                        <li key={i}>{b}</li>
+                                    ))}
+                                </ul>
+                            </div>
 
-                        {/* Selectors */}
-                        <div className="drez-selectors">
-                            {volumeOptions.length > 1 && (
+                            {/* Selectors */}
+                            <div className="drez-selectors">
+                                {volumeOptions.length > 1 && (
+                                    <div className="drez-selector-block">
+                                        <span className="drez-selector-label">Selectează volumul :</span>
+                                        <div className="drez-volume-options">
+                                            {volumeOptions.map(vol => (
+                                                <Button
+                                                    key={vol}
+                                                    variant={selectedVolume === vol ? 'primary' : 'outline'}
+                                                    onClick={() => setSelectedVolume(vol)}
+                                                    className="drez-vol-btn" // Custom width class
+                                                >
+                                                    {vol}
+                                                </Button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div className="drez-selector-block">
-                                    <span className="drez-selector-label">Selectează volumul :</span>
-                                    <div className="drez-volume-options">
-                                        {volumeOptions.map(vol => (
-                                            <Button
-                                                key={vol}
-                                                variant={selectedVolume === vol ? 'primary' : 'outline'}
-                                                onClick={() => setSelectedVolume(vol)}
-                                                className="drez-vol-btn" // Custom width class
-                                            >
-                                                {vol}
-                                            </Button>
-                                        ))}
+                                    <span className="drez-selector-label">Selectează Cantitatea :</span>
+                                    <div className="drez-qty-control">
+                                        <button className="drez-qty-btn" onClick={handleDecrement} aria-label="Scade cantitatea">
+                                            <div className="drez-qty-minus" />
+                                        </button>
+                                        <div className="drez-qty-display">{quantity}</div>
+                                        <button className="drez-qty-btn" onClick={handleIncrement} aria-label="Creste cantitatea">
+                                            <div className="drez-qty-plus">
+                                                <div className="bar-h" />
+                                                <div className="bar-v" />
+                                            </div>
+                                        </button>
                                     </div>
                                 </div>
-                            )}
+                            </div>
 
-                            <div className="drez-selector-block">
-                                <span className="drez-selector-label">Selectează Cantitatea :</span>
-                                <div className="drez-qty-control">
-                                    <button className="drez-qty-btn" onClick={handleDecrement} aria-label="Scade cantitatea">
-                                        <div className="drez-qty-minus" />
-                                    </button>
-                                    <div className="drez-qty-display">{quantity}</div>
-                                    <button className="drez-qty-btn" onClick={handleIncrement} aria-label="Creste cantitatea">
-                                        <div className="drez-qty-plus">
-                                            <div className="bar-h" />
-                                            <div className="bar-v" />
-                                        </div>
-                                    </button>
-                                </div>
+                            {/* CTA */}
+                            <div className="drez-cta-row">
+                                <Button variant="primary" onClick={handleAddToCart} style={{ flex: 1 }}>
+                                    Programează
+                                </Button>
+                                <button
+                                    className={`drez-btn-fav ${isFavorite ? 'drez-btn-fav-active' : ''}`}
+                                    aria-label={isFavorite ? 'Elimina de la favorite' : 'Adauga la favorite'}
+                                    onClick={() => setIsFavorite(!isFavorite)}
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24"
+                                        fill={isFavorite ? 'var(--color-error)' : 'none'}
+                                        stroke={isFavorite ? 'var(--color-error)' : 'var(--color-primary)'}
+                                        strokeWidth="1.5"
+                                        style={{ transition: 'fill 0.2s, stroke 0.2s' }}
+                                    >
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
+                    </div>
 
-                        {/* CTA */}
-                        <div className="drez-cta-row">
-                            <Button variant="primary" onClick={handleAddToCart} style={{ flex: 1 }}>
-                                Programează
-                            </Button>
-                            <button
-                                className={`drez-btn-fav ${isFavorite ? 'drez-btn-fav-active' : ''}`}
-                                aria-label={isFavorite ? 'Elimina de la favorite' : 'Adauga la favorite'}
-                                onClick={() => setIsFavorite(!isFavorite)}
-                            >
-                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                    fill={isFavorite ? 'var(--color-error)' : 'none'}
-                                    stroke={isFavorite ? 'var(--color-error)' : 'var(--color-primary)'}
-                                    strokeWidth="1.5"
-                                    style={{ transition: 'fill 0.2s, stroke 0.2s' }}
+                    {/* Disclaimer - below both sections */}
+                    {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
+                </div>
+
+                {/* Tabs Section (Full Width) */}
+                <div className="drez-tabs-section">
+                    <div className="drez-tabs-bar">
+                        <button
+                            className={`drez-tab ${activeTab === 'descriere' ? 'drez-tab-active' : ''}`}
+                            onClick={() => setActiveTab('descriere')}
+                        >
+                            Descriere
+                        </button>
+                        <button
+                            className={`drez-tab ${activeTab === 'recenzii' ? 'drez-tab-active' : ''}`}
+                            onClick={() => setActiveTab('recenzii')}
+                        >
+                            Recenzii clienți
+                        </button>
+                    </div>
+                    <div className="drez-accordion">
+                        <button
+                            className="drez-accordion-header"
+                            onClick={() => setMobileAccordionOpen(!mobileAccordionOpen)}
+                        >
+                            <span>{activeTab === 'descriere' ? 'Descriere' : 'Recenzii clienți'}</span>
+                            <div className={`drez-accordion-arrow ${mobileAccordionOpen ? 'drez-accordion-arrow-open' : ''}`} />
+                        </button>
+                        {mobileAccordionOpen && (
+                            <div className="drez-accordion-dropdown">
+                                <button
+                                    className={`drez-accordion-option ${activeTab === 'descriere' ? 'drez-accordion-option-active' : ''}`}
+                                    onClick={() => { setActiveTab('descriere'); setMobileAccordionOpen(false); }}
                                 >
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                </svg>
-                            </button>
-                        </div>
+                                    Descriere
+                                </button>
+                                <button
+                                    className={`drez-accordion-option ${activeTab === 'recenzii' ? 'drez-accordion-option-active' : ''}`}
+                                    onClick={() => { setActiveTab('recenzii'); setMobileAccordionOpen(false); }}
+                                >
+                                    Recenzii clienți
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                    <div className="drez-tab-content">
+                        {activeTab === 'descriere' ? (
+                            <div className="drez-tab-panel">
+                                <IVWhySection
+                                    imageSrc={imageSrc}
+                                    imageAlt={imageAlt}
+                                    heading={whyHeading}
+                                    intro={whyIntro}
+                                    features={whyFeatures}
+                                />
+                                {idealForItems && idealForItems.length > 0 && (
+                                    <IVIdealForSection
+                                        items={idealForItems.map(text => ({ text }))}
+                                    />
+                                )}
+                                {clinicalStudies && clinicalStudies.length > 0 && (
+                                    <IVClinicalStudiesSection
+                                        studies={clinicalStudies}
+                                        description="Cercetările clinice confirmă faptul că hidratarea intravenoasă restabilește mai rapid echilibrul hidric și electrolitic decât administrarea orală. Terapia este sigură, eficientă și indicată în stările de deshidratare moderată sau severă."
+                                    />
+                                )}
+                                {qualityBagImageSrc && (
+                                    <IVQualitySection bagImageSrc={qualityBagImageSrc} />
+                                )}
+                            </div>
+                        ) : (
+                            <div className="drez-tab-panel">
+                                <TestimonialsSection
+                                    testimonials={reviews.map(r => ({
+                                        rating: r.rating,
+                                        text: r.text,
+                                        name: r.author,
+                                        company: r.date
+                                    }))}
+                                    title="Recenzii Clienți"
+                                    hiddenSubtitle={true}
+                                    compact={true}
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                {/* Disclaimer - below both sections */}
-                {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
-            </div>
-
-            {/* Tabs Section (Full Width) */}
-            <div className="drez-tabs-section">
-                <div className="drez-tabs-bar">
-                    <button
-                        className={`drez-tab ${activeTab === 'descriere' ? 'drez-tab-active' : ''}`}
-                        onClick={() => setActiveTab('descriere')}
-                    >
-                        Descriere
-                    </button>
-                    <button
-                        className={`drez-tab ${activeTab === 'recenzii' ? 'drez-tab-active' : ''}`}
-                        onClick={() => setActiveTab('recenzii')}
-                    >
-                        Recenzii clienți
-                    </button>
-                </div>
-                <div className="drez-accordion">
-                    <button
-                        className="drez-accordion-header"
-                        onClick={() => setMobileAccordionOpen(!mobileAccordionOpen)}
-                    >
-                        <span>{activeTab === 'descriere' ? 'Descriere' : 'Recenzii clienți'}</span>
-                        <div className={`drez-accordion-arrow ${mobileAccordionOpen ? 'drez-accordion-arrow-open' : ''}`} />
-                    </button>
-                    {mobileAccordionOpen && (
-                        <div className="drez-accordion-dropdown">
-                            <button
-                                className={`drez-accordion-option ${activeTab === 'descriere' ? 'drez-accordion-option-active' : ''}`}
-                                onClick={() => { setActiveTab('descriere'); setMobileAccordionOpen(false); }}
-                            >
-                                Descriere
-                            </button>
-                            <button
-                                className={`drez-accordion-option ${activeTab === 'recenzii' ? 'drez-accordion-option-active' : ''}`}
-                                onClick={() => { setActiveTab('recenzii'); setMobileAccordionOpen(false); }}
-                            >
-                                Recenzii clienți
-                            </button>
-                        </div>
-                    )}
-                </div>
-                <div className="drez-tab-content">
-                    {activeTab === 'descriere' ? (
-                        <div className="drez-tab-panel">
-                            <IVWhySection
-                                imageSrc={imageSrc}
-                                imageAlt={imageAlt}
-                                heading={whyHeading}
-                                intro={whyIntro}
-                                features={whyFeatures}
-                            />
-                            {idealForItems && idealForItems.length > 0 && (
-                                <IVIdealForSection
-                                    items={idealForItems.map(text => ({ text }))}
-                                />
-                            )}
-                            {clinicalStudies && clinicalStudies.length > 0 && (
-                                <IVClinicalStudiesSection
-                                    studies={clinicalStudies}
-                                    description="Cercetările clinice confirmă faptul că hidratarea intravenoasă restabilește mai rapid echilibrul hidric și electrolitic decât administrarea orală. Terapia este sigură, eficientă și indicată în stările de deshidratare moderată sau severă."
-                                />
-                            )}
-                            {qualityBagImageSrc && (
-                                <IVQualitySection bagImageSrc={qualityBagImageSrc} />
-                            )}
-                        </div>
-                    ) : (
-                        <div className="drez-tab-panel">
-                            <TestimonialsSection
-                                testimonials={reviews.map(r => ({
-                                    rating: r.rating,
-                                    text: r.text,
-                                    name: r.author,
-                                    company: r.date
-                                }))}
-                                title="Recenzii Clienți"
-                                hiddenSubtitle={true}
-                                compact={true}
-                            />
-                        </div>
-                    )}
-                </div>
-            </div>
-
-            <style jsx>{`
+                <style jsx>{`
                 /* ══ All styles from DeshidratareContent — unchanged ══ */
                 .drez-page {
                     width: 100%;
@@ -583,6 +573,7 @@ export default function IVDripProductPage({
                     .drez-tab-panel-text, .drez-tab-panel-list { font-size: 14px; }
                 }
             `}</style>
+            </div>
         </div>
     );
 }

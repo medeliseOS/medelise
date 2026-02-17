@@ -57,4 +57,13 @@ export interface IVDripProductProps {
     idealForItems?: string[];
     /** Clinical studies data */
     clinicalStudies?: any[]; // IVClinicalStudy imported from IVClinicalStudiesSection
+    /** Quality section bag image */
+    qualityBagImageSrc?: string;
+    /** Pricing variants for dynamic volume price calculation */
+    pricingVariants?: {
+        [volume: string]: {
+            price: number;
+            oldPrice?: number;
+        };
+    };
 }
