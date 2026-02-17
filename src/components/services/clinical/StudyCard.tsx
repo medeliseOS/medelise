@@ -85,13 +85,13 @@ function StudyCardComponent({ study }: StudyCardProps) {
                 .study-content {
                     padding: 0 var(--space-4) var(--space-4) var(--space-4);
                     border-top: 1px solid var(--color-border-light);
-                    background: var(--color-surface-card);
+                    background: white;
                 }
 
                 .study-content p {
                     margin: 0;
                     padding-top: var(--space-4);
-                    color: var(--color-text);
+                    color: var(--color-primary);
                     font-family: var(--font-body);
                     font-size: var(--text-body);
                     line-height: var(--lh-body);
