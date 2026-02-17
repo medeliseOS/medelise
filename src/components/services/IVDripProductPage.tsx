@@ -131,10 +131,10 @@ export default function IVDripProductPage({
                          <Image 
                             src={imageSrc} 
                             alt={imageAlt || title} 
-                            width={592}
-                            height={816}
+                            fill
                             priority
                             className="drez-image"
+                            style={{ objectFit: 'contain' }}
                          />
                     </div>
 
@@ -355,18 +355,18 @@ export default function IVDripProductPage({
                     align-items: flex-start;
                 }
                 .drez-image-wrapper {
+                    position: relative;
+                    width: 50%;
+                    max-width: 592px;
+                    min-height: 600px;
                     padding: 16px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    gap: 32px;
                     flex-shrink: 0;
                 }
                 .drez-image {
-                    width: 592px;
-                    height: 816px;
                     border-radius: 8px;
-                    object-fit: contain;
                 }
                 .drez-content {
                     flex: 1 1 0;
