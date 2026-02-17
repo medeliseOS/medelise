@@ -47,7 +47,7 @@ export default function IVQualitySection({ bagImageSrc }: IVQualitySectionProps)
                 .quality-container {
                     width: 100%;
                     max-width: 100%;
-                    padding: var(--space-8) var(--space-16);
+                    padding: var(--space-8) 0;
                     display: flex;
                     flex-direction: column;
                     align-items: stretch;
