@@ -10,7 +10,14 @@ interface QualityImagesProps {
 
 export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityImagesProps) {
     return (
-        <div className="quality-images">
+        <div style={{
+            width: '100%',
+            height: '452px',
+            position: 'relative',
+            overflow: 'hidden',
+            marginTop: '32px',
+            marginBottom: '32px',
+        }}>
             <Image
                 src={splashImageSrc}
                 alt="Medvita Water Splash"
@@ -43,31 +50,6 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
                     zIndex: 2,
                 }}
             />
-
-            <style jsx>{`
-                .quality-images {
-                    width: 100%;
-                    height: 452px;
-                    position: relative;
-                    overflow: hidden;
-                    margin-top: var(--space-8);
-                    margin-bottom: var(--space-8);
-                }
-
-                /* ── Tablet ── */
-                @media (max-width: 1024px) {
-                    .quality-images {
-                        height: 340px;
-                    }
-                }
-
-                /* ── Mobile ── */
-                @media (max-width: 767px) {
-                    .quality-images {
-                        height: 250px;
-                    }
-                }
-            `}</style>
         </div>
     );
 }
