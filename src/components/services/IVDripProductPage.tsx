@@ -138,7 +138,7 @@ export default function IVDripProductPage({
                             fill
                             priority
                             className="drez-image"
-                            style={{ objectFit: 'cover' }}
+                            style={{ objectFit: 'cover', objectPosition: 'center' }}
                         />
                     </div>
 
@@ -190,13 +190,14 @@ export default function IVDripProductPage({
                                     <span className="drez-selector-label">Selectează volumul :</span>
                                     <div className="drez-volume-options">
                                         {volumeOptions.map(vol => (
-                                            <button
+                                            <Button
                                                 key={vol}
+                                                variant={selectedVolume === vol ? 'primary' : 'outline'}
                                                 onClick={() => setSelectedVolume(vol)}
-                                                className={`drez-vol-btn ${selectedVolume === vol ? 'drez-vol-btn-active' : 'drez-vol-btn-inactive'}`}
+                                                className="drez-vol-btn" // Custom width class
                                             >
                                                 {vol}
-                                            </button>
+                                            </Button>
                                         ))}
                                     </div>
                                 </div>
@@ -359,13 +360,13 @@ export default function IVDripProductPage({
                     width: 100%;
                     gap: 32px;
                     justify-content: flex-start;
-                    align-items: flex-start;
+                    align-items: stretch; /* Image height matches content */
                 }
                 .drez-image-wrapper {
                     position: relative;
                     width: 50%;
                     max-width: 592px;
-                    min-height: 600px;
+                    min-height: 600px; /* Keep minimum, but stretch if content is taller */
                     padding: 0;
                     display: flex;
                     justify-content: center;
@@ -449,15 +450,9 @@ export default function IVDripProductPage({
                 .drez-selector-block { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; }
                 .drez-selector-label { text-align: center; color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; line-height: 28px; }
                 .drez-volume-options { align-self: stretch; display: inline-flex; justify-content: flex-start; align-items: center; gap: 32px; }
-                .drez-vol-btn {
-                    width: 154px; padding: 10px 20px; border-radius: 8px; border: 1px solid #CED2DA;
-                    display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-                    font-weight: 500; font-size: 18px; font-family: 'Montserrat', sans-serif; line-height: 28px;
-                    background: white; color: var(--color-primary); transition: all 0.2s;
-                }
-                .drez-vol-btn-active { background: var(--color-primary); color: white; border-color: #CED2DA; }
-                .drez-vol-btn-inactive { background: white; color: var(--color-primary); }
-                .drez-vol-btn:hover { border-color: var(--color-primary); }
+                /* Custom width for volume button */
+                .drez-vol-btn { width: 154px; }
+
                 .drez-qty-control {
                     display: inline-flex; width: fit-content; border: 1px solid #CED2DA; border-radius: 8px; overflow: hidden;
                     justify-content: center; align-items: center;
@@ -573,7 +568,9 @@ export default function IVDripProductPage({
                     .drez-benefits-title { font-size: 16px; }
                     .drez-benefits-list li { font-size: 14px; }
                     .drez-selector-label { font-size: 16px; }
-                    .drez-vol-btn { font-size: 14px; padding: 10px; width: 100%; flex: 1; }
+                    /* Full width on mobile */
+                    .drez-vol-btn { width: 100% !important; flex: 1; }
+
                     .drez-volume-options { gap: 16px; }
                     .drez-disclaimer { font-size: 12px; }
                     .drez-tabs-bar { display: none; }
