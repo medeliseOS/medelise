@@ -60,7 +60,7 @@ export default function HowItWorksSection() {
                 .hiw {
                     width: 100%;
                     background: var(--color-white);
-                    padding: 32px var(--space-section-px);
+                    padding: 32px 16px;
                     overflow: hidden;
                 }
 
