@@ -31,8 +31,8 @@ export default function MissionStatsSection() {
 
                 .mission-inner {
                     align-self: stretch;
-                    padding-top: var(--space-section-py);
-                    padding-bottom: var(--space-section-py);
+                    padding-top: 64px;
+                    padding-bottom: 64px;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: center;
