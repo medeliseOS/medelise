@@ -90,9 +90,9 @@ export default function HowItWorksSection() {
                 }
 
                 /* ── Steps grid ── */
-                .hiw-steps {
-                    display: grid;
-                    grid-template-columns: 1fr;
+                .hiw-steps-wrapper {
+                    display: flex;
+                    flex-direction: column;
                     gap: 48px;
                 }
 
@@ -145,8 +145,9 @@ export default function HowItWorksSection() {
                     margin: 0;
                 }
 
-                /* ── Divider between steps grid columns ── */
-                .hiw-divider {
+                /* ── Dividers (hidden on mobile) ── */
+                .hiw-divider-v,
+                .hiw-divider-h {
                     display: none;
                 }
 
@@ -204,11 +205,6 @@ export default function HowItWorksSection() {
                     .hiw-title {
                         font-size: 38px;
                     }
-
-                    .hiw-steps {
-                        grid-template-columns: 1fr 1fr;
-                        gap: 48px 40px;
-                    }
                 }
 
                 /* ═══════════════════════════════════════
@@ -232,25 +228,36 @@ export default function HowItWorksSection() {
                         padding: 24px 0;
                     }
 
-                    /* ── Steps: 2 columns with vertical divider ── */
+                    /* ── Steps: 2×2 grid with cross dividers ── */
                     .hiw-steps-wrapper {
-                        display: flex;
-                        gap: 40px;
+                        display: grid;
+                        grid-template-columns: 1fr auto 1fr;
+                        grid-template-rows: auto auto auto;
+                        gap: 0;
                         flex: 1;
                     }
 
-                    .hiw-steps {
-                        grid-template-columns: 1fr;
-                        gap: 80px;
-                        flex: 1;
-                    }
+                    .hiw-step--1 { grid-column: 1; grid-row: 1; padding: 0 40px 40px 0; }
+                    .hiw-step--2 { grid-column: 3; grid-row: 1; padding: 0 0 40px 40px; }
+                    .hiw-step--3 { grid-column: 1; grid-row: 3; padding: 40px 40px 0 0; }
+                    .hiw-step--4 { grid-column: 3; grid-row: 3; padding: 40px 0 0 40px; }
 
-                    .hiw-divider {
+                    /* Vertical divider — full height */
+                    .hiw-divider-v {
                         display: block;
+                        grid-column: 2;
+                        grid-row: 1 / 4;
                         width: 1px;
                         background: var(--color-surface-border);
-                        align-self: stretch;
-                        flex-shrink: 0;
+                    }
+
+                    /* Horizontal divider — full width */
+                    .hiw-divider-h {
+                        display: block;
+                        grid-column: 1 / 4;
+                        grid-row: 2;
+                        height: 1px;
+                        background: var(--color-surface-border);
                     }
 
                     .hiw-step-title {
@@ -281,54 +288,30 @@ export default function HowItWorksSection() {
 
                     {/* ── Content: Steps + Why ── */}
                     <div className="hiw-content">
-                        {/* ── Steps Grid (2 columns on desktop) ── */}
+                        {/* ── Steps Grid (2×2 with cross dividers on desktop) ── */}
                         <div className="hiw-steps-wrapper">
-                            {/* Left column: Step 1 & 3 */}
-                            <div className="hiw-steps">
-                                {[STEPS[0], STEPS[2]].map((s) => (
-                                    <article key={s.step} className="hiw-step">
-                                        <p className="hiw-step-label">{s.step}</p>
-                                        <div className="hiw-step-icon">
-                                            <Image
-                                                src={s.icon}
-                                                alt=""
-                                                width={24}
-                                                height={24}
-                                                className="hiw-step-icon-img"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h3 className="hiw-step-title">{s.title}</h3>
-                                            <p className="hiw-step-desc">{s.description}</p>
-                                        </div>
-                                    </article>
-                                ))}
-                            </div>
-
+                            {STEPS.map((s, i) => (
+                                <article key={s.step} className={`hiw-step hiw-step--${i + 1}`}>
+                                    <p className="hiw-step-label">{s.step}</p>
+                                    <div className="hiw-step-icon">
+                                        <Image
+                                            src={s.icon}
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            className="hiw-step-icon-img"
+                                        />
+                                    </div>
+                                    <div>
+                                        <h3 className="hiw-step-title">{s.title}</h3>
+                                        <p className="hiw-step-desc">{s.description}</p>
+                                    </div>
+                                </article>
+                            ))}
                             {/* Vertical divider */}
-                            <div className="hiw-divider" aria-hidden="true" />
-
-                            {/* Right column: Step 2 & 4 */}
-                            <div className="hiw-steps">
-                                {[STEPS[1], STEPS[3]].map((s) => (
-                                    <article key={s.step} className="hiw-step">
-                                        <p className="hiw-step-label">{s.step}</p>
-                                        <div className="hiw-step-icon">
-                                            <Image
-                                                src={s.icon}
-                                                alt=""
-                                                width={24}
-                                                height={24}
-                                                className="hiw-step-icon-img"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h3 className="hiw-step-title">{s.title}</h3>
-                                            <p className="hiw-step-desc">{s.description}</p>
-                                        </div>
-                                    </article>
-                                ))}
-                            </div>
+                            <div className="hiw-divider-v" aria-hidden="true" />
+                            {/* Horizontal divider */}
+                            <div className="hiw-divider-h" aria-hidden="true" />
                         </div>
 
                         {/* ── Why Section (left sidebar on desktop) ── */}
