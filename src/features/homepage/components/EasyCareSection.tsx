@@ -77,7 +77,7 @@ export default function EasyCareSection() {
                  * ═══════════════════════════════════════ */
                 .easycare {
                     width: 100%;
-                    background: var(--color-surface);
+                    background: var(--color-white);
                     padding: var(--space-12) var(--space-section-px);
                 }
 
@@ -193,7 +193,7 @@ export default function EasyCareSection() {
                 /* ── Single Card (mobile/tablet view) ── */
                 .easycare-single-card {
                     padding: var(--space-6);
-                    background: var(--color-white);
+                    background: var(--color-surface);
                     border-radius: var(--radius-main);
                 }
 
@@ -397,7 +397,7 @@ export default function EasyCareSection() {
                         border: 1px solid var(--color-surface);
 
                         /* Smooth color & order transitions */
-                        background: var(--color-white);
+                        background: var(--color-surface);
                         transition:
                             background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
                             border-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
