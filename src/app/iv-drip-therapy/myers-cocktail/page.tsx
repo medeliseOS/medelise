@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import MyersCocktailContent from '@/components/services/MyersCocktailContent';
+import MyersCocktailContent from '@features/iv-therapy/components/MyersCocktailContent';
 
 export const metadata: Metadata = {
     title: 'IV Drip Myers-Cocktail | Medelise',

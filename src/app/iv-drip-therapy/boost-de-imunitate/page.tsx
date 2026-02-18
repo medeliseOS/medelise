@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import BoostImunitateContent from '@/components/services/BoostImunitateContent';
+import BoostImunitateContent from '@features/iv-therapy/components/BoostImunitateContent';
 
 export const metadata: Metadata = {
     title: 'IV Drip Boost de Imunitate | Medelise',

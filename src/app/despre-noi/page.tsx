@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import DespreNoiContent from '@/components/despre-noi/DespreNoiContent';
+import DespreNoiContent from '@features/about/components/DespreNoiContent';
 
 export const metadata: Metadata = {
     title: 'Despre Noi',

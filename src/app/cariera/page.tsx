@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CarieraContent from '@/components/cariera/CarieraContent';
+import CarieraContent from '@features/cariera/components/CarieraContent';
 
 export const metadata: Metadata = {
     title: 'Carieră',

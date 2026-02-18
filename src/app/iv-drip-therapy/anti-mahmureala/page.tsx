@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import AntiMahmurealaContent from '@/components/services/AntiMahmurealaContent';
+import AntiMahmurealaContent from '@features/iv-therapy/components/AntiMahmurealaContent';
 
 export const metadata: Metadata = {
     title: 'IV Drip Anti-Mahmureală | Medelise',

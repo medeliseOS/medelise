@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ICONS } from '@/constants/icons';
+import { ICONS } from '@shared/constants/icons';
 
 export default function NewsTicker() {
     return (

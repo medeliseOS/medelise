@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ICONS } from '@/constants/icons';
+import { ICONS } from '@shared/constants/icons';
 import Logo from './Logo';
 import MenuButton from './MenuButton';
 import BookNowButton from './BookNowButton';
@@ -13,7 +13,7 @@ import {
     NAV_LINKS,
     MEGA_MENUS,
     type MegaMenuKey,
-} from '@/data/navigation';
+} from '@shared/data/navigation';
 
 type SubMenu = MegaMenuKey | null;
 

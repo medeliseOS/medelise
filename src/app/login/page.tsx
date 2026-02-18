@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import LoginPageContent from '@/components/login/LoginPageContent';
+import LoginPageContent from '@features/auth/components/LoginPageContent';
 
 export const metadata: Metadata = {
     title: 'Autentificare',

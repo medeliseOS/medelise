@@ -1,0 +1,9 @@
+export { default as HeroSection } from './HeroSection';
+export { default as JourneySection } from './JourneySection';
+export { default as MissionStatsSection } from './MissionStatsSection';
+export { default as NewsletterSection } from './NewsletterSection';
+export { default as PatientPortalSection } from './PatientPortalSection';
+export { default as QualitySection } from './QualitySection';
+export { default as ServiciiSection } from './ServiciiSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as WhyChooseUsSection } from './WhyChooseUsSection';

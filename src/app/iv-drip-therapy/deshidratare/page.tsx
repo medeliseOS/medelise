@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import DeshidratareContent from '@/components/services/DeshidratareContent';
+import DeshidratareContent from '@features/iv-therapy/components/DeshidratareContent';
 
 export const metadata: Metadata = {
     title: 'IV Drip Deshidratare | Medelise',

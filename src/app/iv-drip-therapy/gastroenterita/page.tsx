@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import GastroenteritaContent from '@/components/services/GastroenteritaContent';
+import GastroenteritaContent from '@features/iv-therapy/components/GastroenteritaContent';
 
 export const metadata: Metadata = {
     title: 'IV Drip Gastroenterită | Medelise',

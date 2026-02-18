@@ -15,7 +15,7 @@ import {
     MENU_KEY_MAP,
     MEGA_MENUS,
     type MegaMenuKey,
-} from '@/data/navigation';
+} from '@shared/data/navigation';
 
 type MegaMenu = MegaMenuKey | null;
 

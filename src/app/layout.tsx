@@ -25,8 +25,9 @@ const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
 });
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@layout/Navbar";
+import Footer from "@layout/Footer";
+import Providers from "./Providers";
 
 export const metadata: Metadata = {
   title: {
@@ -52,9 +53,11 @@ export default function RootLayout({
   return (
     <html lang="ro" className={`${dmSans.variable} ${poppins.variable} ${michroma.variable} ${montserrat.variable}`}>
       <body className="antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

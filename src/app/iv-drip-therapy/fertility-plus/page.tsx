@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import FertilityPlusContent from '@/components/services/FertilityPlusContent';
+import FertilityPlusContent from '@features/iv-therapy/components/FertilityPlusContent';
 
 export const metadata: Metadata = {
     title: 'IV Drip Fertility+ | Medelise',

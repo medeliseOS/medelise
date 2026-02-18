@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import RecuperareContent from '@/components/services/RecuperareContent';
+import RecuperareContent from '@features/iv-therapy/components/RecuperareContent';
 
 export const metadata: Metadata = {
     title: 'IV Drip Recuperare | Medelise',

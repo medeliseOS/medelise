@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ICONS } from '@/constants/icons';
+import { ICONS } from '@shared/constants/icons';
 
 interface MenuButtonProps {
     size?: 'medium' | 'small';

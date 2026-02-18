@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Button from '@/components/ui/Button';
-import { useCart } from '@/context/CartContext';
+import Button from '@ui/Button';
+import { useCart } from '@features/scheduling/context/CartContext';
 import Image from 'next/image';
 
 export default function ProgramarePage() {

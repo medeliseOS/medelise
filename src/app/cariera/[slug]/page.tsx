@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import JobDetailContent from '@/components/cariera/JobDetailContent';
-import { JOBS, JOB_SLUGS } from '@/components/cariera/jobData';
+import JobDetailContent from '@features/cariera/components/JobDetailContent';
+import { JOBS, JOB_SLUGS } from '@features/cariera/data/jobData';
 
 type Props = {
     params: Promise<{ slug: string }>;

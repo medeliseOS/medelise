@@ -1,12 +1,12 @@
-import HeroSection from '@/components/HeroSection';
-import MissionStatsSection from '@/components/MissionStatsSection';
-import WhyChooseUsSection from '@/components/WhyChooseUsSection';
-import QualitySection from '@/components/QualitySection';
-import PatientPortalSection from '@/components/PatientPortalSection';
-import ServiciiSection from '@/components/ServiciiSection';
-import JourneySection from '@/components/JourneySection';
-import NewsletterSection from '@/components/NewsletterSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+import HeroSection from '@features/homepage/components/HeroSection';
+import MissionStatsSection from '@features/homepage/components/MissionStatsSection';
+import WhyChooseUsSection from '@features/homepage/components/WhyChooseUsSection';
+import QualitySection from '@features/homepage/components/QualitySection';
+import PatientPortalSection from '@features/homepage/components/PatientPortalSection';
+import ServiciiSection from '@features/homepage/components/ServiciiSection';
+import JourneySection from '@features/homepage/components/JourneySection';
+import NewsletterSection from '@features/homepage/components/NewsletterSection';
+import TestimonialsSection from '@features/homepage/components/TestimonialsSection';
 
 export default function Home() {
   return (
