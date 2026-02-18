@@ -5,8 +5,6 @@ import {
   QualitySection,
   PatientPortalSection,
   ServiciiSection,
-  JourneySection,
-  NewsletterSection,
   TestimonialsSection,
 } from '@features/homepage/components';
 
@@ -27,8 +25,6 @@ export default function Home() {
       <TestimonialsSection />
       <PatientPortalSection />
       <ServiciiSection />
-      <JourneySection />
-      <NewsletterSection />
     </main>
   );
 }
