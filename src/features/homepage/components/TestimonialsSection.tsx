@@ -230,8 +230,8 @@ export default function TestimonialsSection({
 
         .tm-inner {
           align-self: stretch;
-          padding-top: var(--space-section-py);
-          padding-bottom: var(--space-section-py);
+          padding-top: 64px;
+          padding-bottom: 64px;
           background: var(--color-white);
           display: flex;
           flex-direction: column;
