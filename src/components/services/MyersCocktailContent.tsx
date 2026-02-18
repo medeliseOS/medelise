@@ -9,7 +9,7 @@ export default function MyersCocktailContent() {
             id="myers-cocktail-iv"
             title="MYERS COCKTAIL"
             subtitle="Complex Vitaminic Total și Echilibru Complet"
-            imageSrc="/images/iv-drip/myers-cocktail.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-myers-cocktail.webp"
             imageAlt="Myers Cocktail IV Drip"
             price={750}
             oldPrice={850}

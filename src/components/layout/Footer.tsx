@@ -11,17 +11,17 @@ const COMPANY_LINKS = [
 
 const CONTACT_ITEMS = [
     {
-        icon: '/images/quality/Email.svg',
+        icon: '/images-medelise/md-quality/md-img-email-icon.webp',
         text: 'office@medelise.ro',
         href: 'mailto:office@medelise.ro',
     },
     {
-        icon: '/images/quality/Phone.svg',
+        icon: '/images-medelise/md-quality/md-img-phone-icon.webp',
         text: '+40 (784) 414 555',
         href: 'tel:+40784414555',
     },
     {
-        icon: '/images/quality/Location Point.svg',
+        icon: '/images-medelise/md-quality/md-img-location-icon.webp',
         text: 'București & Ilfov',
         href: '#',
     },
@@ -36,10 +36,10 @@ const LEGAL_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-    { icon: '/images/quality/instagram.svg', href: 'https://instagram.com', label: 'Instagram' },
-    { icon: '/images/quality/Facebook.svg', href: 'https://facebook.com', label: 'Facebook', round: true },
-    { icon: '/images/quality/twitter.svg', href: 'https://x.com', label: 'X / Twitter' },
-    { icon: '/images/quality/linkedin.svg', href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: '/images-medelise/md-quality/md-img-instagram-icon.webp', href: 'https://instagram.com', label: 'Instagram' },
+    { icon: '/images-medelise/md-quality/md-img-facebook-icon.webp', href: 'https://facebook.com', label: 'Facebook', round: true },
+    { icon: '/images-medelise/md-quality/md-img-twitter-icon.webp', href: 'https://x.com', label: 'X / Twitter' },
+    { icon: '/images-medelise/md-quality/md-img-linkedin-icon.webp', href: 'https://linkedin.com', label: 'LinkedIn' },
 ];
 
 /* ── Footer Component ─────────────────────────────────────────── */
@@ -133,9 +133,9 @@ export default function Footer() {
                 {/* ── Regulatory Bar ── */}
                 <div className="footer-regulatory">
                     <div className="footer-regulatory-logos">
-                        <Image src="/images/quality/anpc-sal1-1.svg" alt="ANPC SAL" width={201} height={50} />
-                        <Image src="/images/quality/ea9cadf167f41d73b0c8d437bff884168863a42c.png" alt="ANPC" width={50} height={50} />
-                        <Image src="/images/quality/anpc-sal1-1.1.svg" alt="ANPC SOL" width={195} height={50} />
+                        <Image src="/images-medelise/md-quality/md-img-anpc-badge.webp" alt="ANPC SAL" width={201} height={50} />
+                        <Image src="/images-medelise/md-quality/md-img-quality-large.webp" alt="ANPC" width={50} height={50} />
+                        <Image src="/images-medelise/md-quality/md-img-anpc-badge-alt.webp" alt="ANPC SOL" width={195} height={50} />
                     </div>
                 </div>
             </footer>

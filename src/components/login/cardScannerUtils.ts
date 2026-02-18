@@ -111,4 +111,4 @@ export function calcCodeDims(cardW: number, cardH: number) {
 }
 
 /* ─── Card images config ─── */
-export const CARD_IMAGES = ['/images/security/Touch ID.png'];
+export const CARD_IMAGES = ['/images-medelise/md-security/md-img-security-touch-id.webp'];

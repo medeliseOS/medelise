@@ -118,7 +118,7 @@ export default function JobDetailContent({ slug }: { slug: string }) {
                                         className="job-social-btn"
                                     >
                                         <Image
-                                            src="/icons/icon employee/Facebook.svg"
+                                            src="/icons-medelise/md-social/md-ico-facebook.webp"
                                             alt="Facebook"
                                             width={20}
                                             height={20}
@@ -132,7 +132,7 @@ export default function JobDetailContent({ slug }: { slug: string }) {
                                         className="job-social-btn"
                                     >
                                         <Image
-                                            src="/icons/icon employee/twitter.svg"
+                                            src="/icons-medelise/md-social/md-ico-twitter.webp"
                                             alt="Twitter"
                                             width={20}
                                             height={20}
@@ -144,7 +144,7 @@ export default function JobDetailContent({ slug }: { slug: string }) {
                                         onClick={handleCopy}
                                     >
                                         <Image
-                                            src="/icons/icon employee/Copy.svg"
+                                            src="/icons-medelise/md-system/md-ico-copy.webp"
                                             alt="Copy"
                                             width={20}
                                             height={20}

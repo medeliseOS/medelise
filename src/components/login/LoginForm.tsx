@@ -56,7 +56,7 @@ export default function LoginForm({
                     <div className="login-social-row">
                         <button className="login-social-btn" type="button">
                             <Image
-                                src="/images/quality/Login/Social icon-1.svg"
+                                src="/images-medelise/md-login/md-img-login-social-02.webp"
                                 alt="Google"
                                 width={24}
                                 height={24}
@@ -65,7 +65,7 @@ export default function LoginForm({
                         </button>
                         <button className="login-social-btn" type="button">
                             <Image
-                                src="/images/quality/Login/Social icon.svg"
+                                src="/images-medelise/md-login/md-img-login-social-01.webp"
                                 alt="Apple"
                                 width={24}
                                 height={24}
@@ -88,7 +88,7 @@ export default function LoginForm({
                             <label className="login-label">Email</label>
                             <div className="login-input-wrapper">
                                 <Image
-                                    src="/images/quality/Login/remix-icons/line/business/mail-line.svg"
+                                    src="/images-medelise/md-login/md-img-login-ico-mail.webp"
                                     alt=""
                                     width={24}
                                     height={24}
@@ -108,7 +108,7 @@ export default function LoginForm({
                             <label className="login-label">Parolă</label>
                             <div className="login-input-wrapper">
                                 <Image
-                                    src="/images/quality/Login/remix-icons/line/system/lock-line.svg"
+                                    src="/images-medelise/md-login/md-img-login-ico-lock.webp"
                                     alt=""
                                     width={24}
                                     height={24}

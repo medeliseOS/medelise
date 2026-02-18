@@ -9,7 +9,7 @@ export default function GastroenteritaContent() {
             id="gastroenterita-iv"
             title="GASTROENTERITĂ"
             subtitle="Hidratare Corectivă și Refacere Digestivă"
-            imageSrc="/images/iv-drip/gastroenteritis.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-gastroenteritis.webp"
             imageAlt="Gastroenterită IV Drip"
             price={450}
             oldPrice={650}

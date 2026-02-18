@@ -97,7 +97,7 @@ export default function CarieraContent() {
                                                     <h3 className="job-name">{job.title}</h3>
                                                     <span className="job-type">
                                                         <Image
-                                                            src="/icons/icon employee/Flag.svg"
+                                                            src="/icons-medelise/md-system/md-ico-flag.webp"
                                                             alt=""
                                                             width={20}
                                                             height={20}
@@ -111,7 +111,7 @@ export default function CarieraContent() {
                                                 <div className="job-meta">
                                                     <span className="job-meta-item">
                                                         <Image
-                                                            src="/icons/icon employee/Location Point.svg"
+                                                            src="/icons-medelise/md-system/md-ico-location-emp.webp"
                                                             alt=""
                                                             width={20}
                                                             height={20}
@@ -121,7 +121,7 @@ export default function CarieraContent() {
                                                     </span>
                                                     <span className="job-meta-item">
                                                         <Image
-                                                            src="/icons/icon employee/Money Dollar.svg"
+                                                            src="/icons-medelise/md-system/md-ico-money-dollar.webp"
                                                             alt=""
                                                             width={20}
                                                             height={20}
@@ -131,7 +131,7 @@ export default function CarieraContent() {
                                                     </span>
                                                     <span className="job-meta-item">
                                                         <Image
-                                                            src="/icons/icon employee/Suitcase.svg"
+                                                            src="/icons-medelise/md-system/md-ico-suitcase.webp"
                                                             alt=""
                                                             width={20}
                                                             height={20}
@@ -148,7 +148,7 @@ export default function CarieraContent() {
                                                 <div className="job-footer">
                                                     <span className={`job-meta-item ${isExpired ? 'job-expired' : ''}`}>
                                                         <Image
-                                                            src="/icons/icon employee/Calendar.svg"
+                                                            src="/icons-medelise/md-system/md-ico-calendar-emp.webp"
                                                             alt=""
                                                             width={20}
                                                             height={20}
@@ -159,7 +159,7 @@ export default function CarieraContent() {
                                                             : `${daysLeft} ${daysLeft === 1 ? 'zi rămasă' : 'zile rămase'}`}
                                                     </span>
                                                     <Image
-                                                        src="/icons/icon employee/logo-medvita/Black Solid/icon 1.svg"
+                                                        src="/brand-medelise/md-logo-medvita-black.webp"
                                                         alt="Logo Medelise Health Solutions"
                                                         width={36}
                                                         height={20}

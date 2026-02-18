@@ -413,7 +413,7 @@ export default function DespreNoiContent() {
                         <div className="dn-signed-left">
                             <div className="dn-signed-avatar">
                                 <Image
-                                    src="/images/owner/owner.jpeg"
+                                    src="/images-medelise/md-owner/md-img-owner.webp"
                                     alt="Mircea Popa"
                                     width={56}
                                     height={56}
@@ -432,7 +432,7 @@ export default function DespreNoiContent() {
                                 <div style={{ height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                                     <div style={{ width: 48, height: 48, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                         <Image
-                                            src="/images/logo/icon_logo/icon_os+_indigo.png"
+                                            src="/brand-medelise/md-logo-icon-indigo.webp"
                                             alt=""
                                             width={48}
                                             height={48}

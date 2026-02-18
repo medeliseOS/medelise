@@ -9,7 +9,7 @@ export default function AllInclusiveContent() {
             id="all-inclusive-iv"
             title="ALL-INCLUSIVE"
             subtitle="Suport Complet VIP – Toate Beneficiile într-o Singură Perfuzie"
-            imageSrc="/images/iv-drip/all-inclusive.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-all-inclusive.webp"
             imageAlt="All-Inclusive IV Drip"
             price={1500}
             oldPrice={2500}

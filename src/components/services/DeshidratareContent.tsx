@@ -11,7 +11,7 @@ export default function DeshidratareContent() {
                 id="deshidratare-iv"
                 title="DESHIDRATARE"
                 subtitle="Revitalizează și Rehidratează"
-                imageSrc="/images/iv-drip/dehydration.png"
+                imageSrc="/images-medelise/md-iv-drip/md-img-drip-dehydration.webp"
                 imageAlt="Deshidratare IV Drip"
                 price={300}
                 oldPrice={450}
@@ -105,7 +105,7 @@ export default function DeshidratareContent() {
                         content: 'La sportivi, perfuziile IV cu electroliți reduc timpul de recuperare musculară și nivelul de cortizol post-efort, îmbunătățind performanța globală.',
                     },
                 ]}
-                qualityBagImageSrc="/images/iv-drip/recovery.png"
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-recovery.webp"
             />
 
             <ContactFormSection />

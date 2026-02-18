@@ -9,7 +9,7 @@ export default function AntiMahmurealaContent() {
             id="anti-mahmureala-iv"
             title="ANTI-MAHMUREALĂ"
             subtitle="Recuperare Rapidă după Petrecere"
-            imageSrc="/images/iv-drip/hangover.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-hangover.webp"
             imageAlt="Anti-Mahmureală IV Drip"
             price={350}
             oldPrice={500}

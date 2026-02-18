@@ -271,7 +271,7 @@ export default function VisionSection() {
                                     </div>
                                     <div className="dn-vision-line-container">
                                         <Image
-                                            src="/icons/about_us_icon/underline-marker.svg"
+                                            src="/icons-medelise/md-about/md-ico-underline-marker.webp"
                                             alt=""
                                             layout="fill"
                                             objectFit="contain"
@@ -286,7 +286,7 @@ export default function VisionSection() {
                                 <div className="dn-feature-row">
                                     <div className="dn-feature-header">
                                         <div className="dn-feature-icon-box">
-                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons/about_us_icon/dollar-coin.svg')", WebkitMaskImage: "url('/icons/about_us_icon/dollar-coin.svg')" }} />
+                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-dollar-coin.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-dollar-coin.webp')" }} />
                                         </div>
                                         <div className="dn-feature-title">Gestionare inteligentă a intervențiilor</div>
                                     </div>
@@ -297,7 +297,7 @@ export default function VisionSection() {
                                 <div className="dn-feature-row">
                                     <div className="dn-feature-header">
                                         <div className="dn-feature-icon-box">
-                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons/about_us_icon/timer.svg')", WebkitMaskImage: "url('/icons/about_us_icon/timer.svg')" }} />
+                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-timer.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-timer.webp')" }} />
                                         </div>
                                         <div className="dn-feature-title">Intervenții rapide, fără bariere</div>
                                     </div>
@@ -308,7 +308,7 @@ export default function VisionSection() {
                                 <div className="dn-feature-row">
                                     <div className="dn-feature-header">
                                         <div className="dn-feature-icon-box">
-                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons/about_us_icon/pie-chart-line.svg')", WebkitMaskImage: "url('/icons/about_us_icon/pie-chart-line.svg')" }} />
+                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-pie-chart.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-pie-chart.webp')" }} />
                                         </div>
                                         <div className="dn-feature-title">Decizii bazate pe date reale</div>
                                     </div>
@@ -319,7 +319,7 @@ export default function VisionSection() {
                                 <div className="dn-feature-row">
                                     <div className="dn-feature-header">
                                         <div className="dn-feature-icon-box">
-                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons/about_us_icon/user-group.svg')", WebkitMaskImage: "url('/icons/about_us_icon/user-group.svg')" }} />
+                                            <div className="dn-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-user-group.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-user-group.webp')" }} />
                                         </div>
                                         <div className="dn-feature-title">Colaborare reală între echipe</div>
                                     </div>
@@ -338,7 +338,7 @@ export default function VisionSection() {
                                     <div className="dn-card-icon">
                                         <div className="dn-card-icon-inner">
                                             <Image
-                                                src="/icons/about_us_icon/user-group.svg"
+                                                src="/icons-medelise/md-about/md-ico-user-group.webp"
                                                 alt=""
                                                 width={24}
                                                 height={24}
@@ -358,7 +358,7 @@ export default function VisionSection() {
                                     <div className="dn-card-icon">
                                         <div className="dn-card-icon-inner">
                                             <Image
-                                                src="/icons/about_us_icon/email-open.svg"
+                                                src="/icons-medelise/md-about/md-ico-email-open.webp"
                                                 alt=""
                                                 width={24}
                                                 height={24}
@@ -381,7 +381,7 @@ export default function VisionSection() {
                                     <div className="dn-card-icon">
                                         <div className="dn-card-icon-inner">
                                             <Image
-                                                src="/icons/about_us_icon/mobile.svg"
+                                                src="/icons-medelise/md-about/md-ico-mobile.webp"
                                                 alt=""
                                                 width={24}
                                                 height={24}
@@ -402,7 +402,7 @@ export default function VisionSection() {
                                         <div className="dn-card-icon-inner">
                                             {/* Using check-folder.svg for Tech/Process */}
                                             <Image
-                                                src="/icons/about_us_icon/check-folder.svg"
+                                                src="/icons-medelise/md-about/md-ico-check-folder.webp"
                                                 alt=""
                                                 width={24}
                                                 height={24}

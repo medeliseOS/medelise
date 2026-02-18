@@ -37,7 +37,7 @@ export default function NewsletterSection() {
                   {/* Girl illustration */}
                   <div className="newsletter-illustration">
                     <Image
-                      src="/images/quality/girl 2.svg"
+                      src="/images-medelise/md-quality/md-img-girl-model.webp"
                       alt="Medelise community"
                       width={174}
                       height={87}

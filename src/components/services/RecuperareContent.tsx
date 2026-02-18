@@ -9,7 +9,7 @@ export default function RecuperareContent() {
             id="recuperare-iv"
             title="RECUPERARE"
             subtitle="Refacere Accelerată a Organismului"
-            imageSrc="/images/iv-drip/recovery.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-recovery.webp"
             imageAlt="Recuperare IV Drip"
             price={500}
             oldPrice={700}

@@ -10,4 +10,4 @@ export const QUALITY_FOOTER_SUBTITLE = "Medvita înseamnă încredere:";
 
 export const QUALITY_FOOTER_TEXT = "Fiecare tratament este adaptat nevoilor reale ale pacientului – nu administrăm formule standardizate fără o evaluare prealabilă. În echipa noastră, siguranța este la fel de importantă ca eficiența.";
 
-export const SPLASH_IMAGE_SRC = "/images/quality/splash-iv.png";
+export const SPLASH_IMAGE_SRC = "/images-medelise/md-quality/md-img-splash-iv.webp";

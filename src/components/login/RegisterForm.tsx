@@ -111,7 +111,7 @@ export default function RegisterForm({
                     <div className="register-social-row">
                         <button className="register-social-btn" type="button">
                             <Image
-                                src="/images/quality/Login/Social icon-1.svg"
+                                src="/images-medelise/md-login/md-img-login-social-02.webp"
                                 alt="Google"
                                 width={24}
                                 height={24}
@@ -120,7 +120,7 @@ export default function RegisterForm({
                         </button>
                         <button className="register-social-btn" type="button">
                             <Image
-                                src="/images/quality/Login/Social icon.svg"
+                                src="/images-medelise/md-login/md-img-login-social-01.webp"
                                 alt="Apple"
                                 width={24}
                                 height={24}
@@ -230,7 +230,7 @@ export default function RegisterForm({
                             <label className="register-label">Email</label>
                             <div className="register-input-wrapper">
                                 <Image
-                                    src="/images/quality/Login/remix-icons/line/business/mail-line.svg"
+                                    src="/images-medelise/md-login/md-img-login-ico-mail.webp"
                                     alt=""
                                     width={24}
                                     height={24}
@@ -250,7 +250,7 @@ export default function RegisterForm({
                             <label className="register-label">Parolă</label>
                             <div className="register-input-wrapper">
                                 <Image
-                                    src="/images/quality/Login/remix-icons/line/system/lock-line.svg"
+                                    src="/images-medelise/md-login/md-img-login-ico-lock.webp"
                                     alt=""
                                     width={24}
                                     height={24}
@@ -299,7 +299,7 @@ export default function RegisterForm({
                             <label className="register-label">Confirmă parola</label>
                             <div className={`register-input-wrapper ${passwordsMismatch ? 'register-input-error' : ''} ${passwordsMatch ? 'register-input-success' : ''}`}>
                                 <Image
-                                    src="/images/quality/Login/remix-icons/line/system/lock-line.svg"
+                                    src="/images-medelise/md-login/md-img-login-ico-lock.webp"
                                     alt=""
                                     width={24}
                                     height={24}

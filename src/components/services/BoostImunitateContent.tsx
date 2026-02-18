@@ -9,7 +9,7 @@ export default function BoostImunitateContent() {
             id="boost-imunitate-iv"
             title="BOOST DE IMUNITATE"
             subtitle="Protecție Naturală și Susținere Antivirală"
-            imageSrc="/images/iv-drip/immune-boost.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-immune-boost.webp"
             imageAlt="Boost de Imunitate IV Drip"
             price={400}
             oldPrice={650}

@@ -9,7 +9,7 @@ export default function FrumuseteContent() {
             id="frumusete-iv"
             title="FRUMUSEȚE"
             subtitle="Regenerare Celulară și Strălucire Naturală"
-            imageSrc="/images/iv-drip/beauty.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-beauty.webp"
             imageAlt="Frumusețe IV Drip"
             price={700}
             oldPrice={1500}

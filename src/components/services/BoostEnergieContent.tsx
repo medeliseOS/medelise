@@ -9,7 +9,7 @@ export default function BoostEnergieContent() {
             id="boost-energie-iv"
             title="BOOST DE ENERGIE"
             subtitle="Vitalitate Instantă și Rezistență"
-            imageSrc="/images/iv-drip/boost-energy.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-boost-energy.webp"
             imageAlt="Boost de Energie IV Drip"
             price={600}
             oldPrice={650}

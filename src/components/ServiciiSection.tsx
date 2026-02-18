@@ -8,12 +8,12 @@ import Image from 'next/image';
  * Medicină de Prevenție, Analize Medicale
  * ═══════════════════════════════════════════════════════════ */
 
-/* ─── Icon paths from public/icons ─── */
+/* ─── Icon paths from public/icons-medelise (All-WebP) ─── */
 const ICON_MAP: Record<string, string> = {
-  stethoscope: '/icons/icon-stethoscope.svg',
-  check: '/icons/check.svg',
-  dna: '/icons/adn.svg',
-  atom: '/icons/Atom.svg',
+  stethoscope: '/icons-medelise/md-medical/md-ico-stethoscope.webp',
+  check: '/icons-medelise/md-system/md-ico-check.webp',
+  dna: '/icons-medelise/md-medical/md-ico-adn.webp',
+  atom: '/icons-medelise/md-medical/md-ico-atom.webp',
 };
 
 const services = [

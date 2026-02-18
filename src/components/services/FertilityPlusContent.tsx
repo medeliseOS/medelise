@@ -9,7 +9,7 @@ export default function FertilityPlusContent() {
             id="fertility-plus-iv"
             title="FERTILITY+"
             subtitle="Optimizare Celulară și Suport Reproductiv"
-            imageSrc="/images/iv-drip/fertility+.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-fertility.webp"
             imageAlt="Fertility+ IV Drip"
             price={900}
             oldPrice={1600}

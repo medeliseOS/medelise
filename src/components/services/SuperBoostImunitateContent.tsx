@@ -9,7 +9,7 @@ export default function SuperBoostImunitateContent() {
             id="super-boost-imunitate-iv"
             title="SUPER-BOOST DE IMUNITATE"
             subtitle="Protecție Avansată și Regenerare Celulară"
-            imageSrc="/images/iv-drip/super-immune-boost.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-super-immune.webp"
             imageAlt="Super-Boost de Imunitate IV Drip"
             price={800}
             oldPrice={1200}

@@ -9,7 +9,7 @@ export default function CalmareaMigrenelorContent() {
             id="calmarea-migrenelor-iv"
             title="CALMAREA MIGRENELOR"
             subtitle="Relaxare Neurovasculară și Ameliorare Rapidă"
-            imageSrc="/images/iv-drip/headache-relif.png"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-headache-relief.webp"
             imageAlt="Calmarea Migrenelor IV Drip"
             price={550}
             oldPrice={750}
