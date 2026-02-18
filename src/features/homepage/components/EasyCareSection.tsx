@@ -57,18 +57,7 @@ const PLANS = [
     },
 ] as const;
 
-/* ═══════════════════════════════════════════════════════════════════════════
- * HELPERS — compute CSS order so the selected card is always in the center
- * ═══════════════════════════════════════════════════════════════════════════ */
-function getCardOrder(cardIndex: number, selectedIndex: number): number {
-    // We want the selected card in position 1 (center of 0,1,2)
-    // The other two cards flank it on left (0) and right (2)
-    if (cardIndex === selectedIndex) return 1; // center
-    // Cards before selected → left side
-    if (cardIndex < selectedIndex) return 0;
-    // Cards after selected → right side
-    return 2;
-}
+
 
 /* ═══════════════════════════════════════════════════════════════════════════
  * COMPONENT
@@ -412,19 +401,19 @@ export default function EasyCareSection() {
                             transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
-                    /* First card gets left rounded corners */
-                    .easycare-card[data-order="0"] {
+                    /* First card — left rounded corners */
+                    .easycare-card:first-child {
                         border-radius: var(--radius-lg) 0 0 var(--radius-lg);
                         border-right: none;
                     }
 
-                    /* Center card (selected) — full border */
-                    .easycare-card[data-order="1"] {
+                    /* Middle card */
+                    .easycare-card:nth-child(2) {
                         border-radius: 0;
                     }
 
-                    /* Last card gets right rounded corners */
-                    .easycare-card[data-order="2"] {
+                    /* Last card — right rounded corners */
+                    .easycare-card:last-child {
                         border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
                         border-left: none;
                     }
@@ -646,14 +635,11 @@ export default function EasyCareSection() {
                     <div className="easycare-grid">
                         {PLANS.map((plan, idx) => {
                             const isSelected = selectedDesktop === idx;
-                            const order = getCardOrder(idx, selectedDesktop);
 
                             return (
                                 <article
                                     key={plan.id}
                                     className={`easycare-card ${isSelected ? 'highlighted' : ''}`}
-                                    style={{ order }}
-                                    data-order={order}
                                     onClick={() => setSelectedDesktop(idx)}
                                     role="button"
                                     tabIndex={0}
