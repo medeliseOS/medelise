@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import AllInclusiveContent from '@features/iv-therapy/components/AllInclusiveContent';
+import { AllInclusiveContent } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
     title: 'IV Drip All-Inclusive | Medelise',

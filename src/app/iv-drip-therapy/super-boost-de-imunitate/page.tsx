@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import SuperBoostImunitateContent from '@features/iv-therapy/components/SuperBoostImunitateContent';
+import { SuperBoostImunitateContent } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
     title: 'IV Drip Super - Boost de Imunitate | Medelise',

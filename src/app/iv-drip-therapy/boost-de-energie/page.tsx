@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import BoostEnergieContent from '@features/iv-therapy/components/BoostEnergieContent';
+import { BoostEnergieContent } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
     title: 'IV Drip Boost de Energie | Medelise',

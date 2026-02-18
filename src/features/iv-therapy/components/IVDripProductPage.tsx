@@ -1,120 +1,64 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Button from '@ui/Button';
 import IVWhySection from './IVWhySection';
 import IVIdealForSection from './IVIdealForSection';
 import type { IVWhyFeature } from './IVWhySection';
 import IVClinicalStudiesSection, { IVClinicalStudy } from './IVClinicalStudiesSection';
-import TestimonialsSection from '@features/homepage/components/TestimonialsSection';
+import { TestimonialsSection } from '@features/homepage/components';
 import IVQualitySection from './IVQualitySection';
-
-// Removed inline IVDripReview interface as it should be enhancing, but for now I'm augmenting the existing component.
-// Actually I will continue to use local interfaces if I don't import them, BUT
-// I should import from types.ts to use the new PricingVariants support.
 import { IVDripProductProps } from './iv-drip/types';
-
-
-
+import { useIVDripProduct } from '../hooks/useIVDripProduct';
 
 /* ── Component ── */
-export default function IVDripProductPage({
-    id,
-    title,
-    subtitle,
-    imageSrc,
-    imageAlt,
-    price,
-    oldPrice,
-    volumeOptions = ['500ml', '1000ml'],
-    economyPerMl,
-    benefits,
-    description,
-    reviews,
-    reviewCount,
-    averageRating = 5,
-    disclaimer = 'Imaginea are rol exclusiv ilustrativ, iar culorile soluției prezentate nu reflectă neapărat culoarea reală a tratamentului. Pigmentarea este folosită în scopuri de marketing și diferențiere vizuală între produse. Efectele medicale menționate sunt reale și susținute de ingredientele active din compoziție.',
-    whyHeading,
-    whyIntro,
-    whyFeatures,
-    idealForItems,
-    clinicalStudies,
-    qualityBagImageSrc,
-    pricingVariants,
-}: IVDripProductProps) {
-    const [selectedVolume, setSelectedVolume] = useState(volumeOptions[0]);
-    const [quantity, setQuantity] = useState(1);
-    const [activeTab, setActiveTab] = useState<'descriere' | 'recenzii'>('descriere');
-    const [mobileAccordionOpen, setMobileAccordionOpen] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(false);
+export default function IVDripProductPage(props: IVDripProductProps) {
+    const {
+        title,
+        subtitle,
+        imageSrc,
+        imageAlt,
+        volumeOptions = ['500ml', '1000ml'],
+        benefits,
+        description,
+        reviews,
+        reviewCount,
+        averageRating = 5,
+        disclaimer = 'Imaginea are rol exclusiv ilustrativ, iar culorile soluției prezentate nu reflectă neapărat culoarea reală a tratamentului. Pigmentarea este folosită în scopuri de marketing și diferențiere vizuală între produse. Efectele medicale menționate sunt reale și susținute de ingredientele active din compoziție.',
+        whyHeading,
+        whyIntro,
+        whyFeatures,
+        idealForItems,
+        clinicalStudies,
+        qualityBagImageSrc,
+    } = props;
 
-    // Determine current price based on selected volume
-    const currentVariant = pricingVariants ? pricingVariants[selectedVolume] : null;
-    const currentPrice = currentVariant ? currentVariant.price : price;
-    const currentOldPrice = currentVariant ? currentVariant.oldPrice : oldPrice;
+    const {
+        currentPrice,
+        currentOldPrice,
+        totalPrice,
+        discountPercent,
+        displayEconomy,
+        selectedVolume,
+        setSelectedVolume,
+        quantity,
+        activeTab,
+        setActiveTab,
+        mobileAccordionOpen,
+        isFavorite,
+        handleIncrement,
+        handleDecrement,
+        toggleFavorite,
+        toggleAccordion,
+        handleAddToCart,
+        renderStars,
+    } = useIVDripProduct(props);
 
-    const totalPrice = currentPrice * quantity;
-    const discountPercent = currentOldPrice ? Math.round((1 - currentPrice / currentOldPrice) * 100) : 0;
-    const volumeIndex = volumeOptions.indexOf(selectedVolume);
-
-    // Dynamic Economy Calculation
-    // Logic: Economy/ml = (OldPrice/ml) - (NewPrice/ml)
-    // OR just display savings per ml if requested.
-    // The previous hardcoded value "0,50 Lei/ml" for 500ml (300 vs 450)
-    // 450/500 = 0.9; 300/500 = 0.6; Diff = 0.3. The user asked for "correct calculator".
-    // I will use strict math: (Old - New) / Volume.
-
-    // Helper to parse volume string to number (e.g. "500ml" -> 500)
-    const parseVolume = (vol: string) => parseInt(vol.replace(/\D/g, ''), 10) || 0;
-    const volNum = parseVolume(selectedVolume);
-
-    let calculatedEconomyText = null;
-
-    // Only calculate if input has old price and we have a valid volume number
-    if (currentOldPrice && volNum > 0) {
-        // Calculate savings based on (Old Price - New Price)
-        const savings = currentOldPrice - currentPrice;
-
-        // Calculate savings per ml
-        const economyPerMlValue = savings / volNum;
-
-        if (economyPerMlValue > 0) {
-            // Format to 2 decimals, replace dot with comma for Romanian locale style
-            const formattedEco = economyPerMlValue.toFixed(2).replace('.', ',');
-            calculatedEconomyText = `${formattedEco} Lei/ml`;
-        }
-    }
-
-    // Display string: prefer calculated, fall back to props
-    const displayEconomy = calculatedEconomyText
-        ? `${calculatedEconomyText} vs prețul standard`
-        : (economyPerMl && economyPerMl[volumeIndex] ? `${economyPerMl[volumeIndex]} vs prețul standard` : null);
-
-
-
-
-
-    const handleIncrement = () => setQuantity(q => q + 1);
-    const handleDecrement = () => setQuantity(q => Math.max(1, q - 1));
-
-    const handleAddToCart = () => {
-        const item = {
-            id,
-            name: title,
-            volume: selectedVolume,
-            quantity,
-            price: currentPrice,
-            total: totalPrice,
-        };
-        console.log('Added to cart:', item);
-        alert(`Adăugat în coș:\n${item.name} (${item.volume})\nCantitate: ${item.quantity}\nTotal: ${item.total} Lei`);
-    };
-
-    /* Star rendering helper */
-    const renderStars = (rating: number) =>
-        [1, 2, 3, 4, 5].map(i => (
-            <div key={i} className={i <= rating ? 'drez-star-icon' : 'drez-star-icon-empty'} />
+    /* Star rendering helper — converts hook data to JSX */
+    const renderStarIcons = (rating: number) =>
+        renderStars(rating).map(s => (
+            <div key={s.key} className={s.filled ? 'drez-star-icon' : 'drez-star-icon-empty'} />
         ));
 
     return (
@@ -143,7 +87,7 @@ export default function IVDripProductPage({
                             <h1 className="drez-title">{title}</h1>
                             <h2 className="drez-subtitle">{subtitle}</h2>
                             <div className="drez-rating-row">
-                                <div className="drez-stars">{renderStars(averageRating)}</div>
+                                <div className="drez-stars">{renderStarIcons(averageRating)}</div>
                                 <span className="drez-review-count">{reviewCount} Recenzii</span>
                             </div>
                         </div>
@@ -221,7 +165,7 @@ export default function IVDripProductPage({
                                 <button
                                     className={`drez-btn-fav ${isFavorite ? 'drez-btn-fav-active' : ''}`}
                                     aria-label={isFavorite ? 'Elimina de la favorite' : 'Adauga la favorite'}
-                                    onClick={() => setIsFavorite(!isFavorite)}
+                                    onClick={toggleFavorite}
                                 >
                                     <svg width="24" height="24" viewBox="0 0 24 24"
                                         fill={isFavorite ? 'var(--color-error)' : 'none'}
@@ -258,7 +202,7 @@ export default function IVDripProductPage({
                     <div className="drez-accordion">
                         <button
                             className="drez-accordion-header"
-                            onClick={() => setMobileAccordionOpen(!mobileAccordionOpen)}
+                            onClick={toggleAccordion}
                         >
                             <span>{activeTab === 'descriere' ? 'Descriere' : 'Recenzii clienți'}</span>
                             <div className={`drez-accordion-arrow ${mobileAccordionOpen ? 'drez-accordion-arrow-open' : ''}`} />
@@ -267,13 +211,13 @@ export default function IVDripProductPage({
                             <div className="drez-accordion-dropdown">
                                 <button
                                     className={`drez-accordion-option ${activeTab === 'descriere' ? 'drez-accordion-option-active' : ''}`}
-                                    onClick={() => { setActiveTab('descriere'); setMobileAccordionOpen(false); }}
+                                    onClick={() => { setActiveTab('descriere'); toggleAccordion(); }}
                                 >
                                     Descriere
                                 </button>
                                 <button
                                     className={`drez-accordion-option ${activeTab === 'recenzii' ? 'drez-accordion-option-active' : ''}`}
-                                    onClick={() => { setActiveTab('recenzii'); setMobileAccordionOpen(false); }}
+                                    onClick={() => { setActiveTab('recenzii'); toggleAccordion(); }}
                                 >
                                     Recenzii clienți
                                 </button>

@@ -10,7 +10,7 @@
  * ║   1. CTA principal → Indigo (#213170) cu text alb                     ║
  * ║   2. Orange (#FE5D16) pentru highlights, eyebrow, accente vizuale     ║
  * ║   3. Pe Indigo (#213170) DOAR alb sau Baby Blue (#BDE0FF)             ║
- * ║   4. Michroma pt brand, Montserrat pt headings, Poppins pt display   ║
+ * ║   4. Michroma pt brand, Montserrat pt headings, Inter pt display     ║
  * ║      DM Sans pt body + CTA text                                      ║
  * ║   5. GRID: Strict 8pt — every value = N × var(--base-unit)           ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
@@ -95,7 +95,7 @@
   /* ─── Typography Families ─────────────────────────────────────────── */
   --font-brand: var(--font-michroma), Michroma, sans-serif;
   --font-heading: var(--font-montserrat), Montserrat, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: var(--font-poppins), Poppins, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   --font-cta: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, sans-serif;
 

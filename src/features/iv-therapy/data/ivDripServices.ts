@@ -1,11 +1,6 @@
-export interface IVDripService {
-    id: string;
-    title: string;
-    slug: string;
-    price: number;
-    shortDescription: string;
-    imagePlaceholder: string;
-}
+import type { IVDripService } from '../types';
+
+export type { IVDripService };
 
 export const IV_DRIP_SERVICES: IVDripService[] = [
     {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CalmareaMigrenelorContent from '@features/iv-therapy/components/CalmareaMigrenelorContent';
+import { CalmareaMigrenelorContent } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
     title: 'IV Drip Calmarea Migrenelor | Medelise',

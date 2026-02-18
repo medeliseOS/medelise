@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import IVDripCatalog from '@features/iv-therapy/components/IVDripCatalog';
+import { IVDripCatalog } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
     title: 'IV Drip Therapy | Medelise',

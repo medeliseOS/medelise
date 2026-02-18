@@ -1,7 +1,7 @@
 // ... imports ...
 import React from 'react';
 import Link from 'next/link';
-import { IVDripService } from '@features/iv-therapy/data/ivDripServices';
+import { IVDripService } from '../types';
 import Button from '@ui/Button';
 
 interface ServiceCardProps {

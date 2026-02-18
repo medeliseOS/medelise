@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
-import ApplicationJourney from '@features/cariera/components/ApplicationJourney';
-import { JOBS, JOB_SLUGS } from '@features/cariera/data/jobData';
+import { ApplicationJourney } from '@features/cariera/components';
+import { getJobSlugs, getJobBySlug } from '@services/cariera.service';
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
 /* Pre-render all known job application pages at build time */
-export function generateStaticParams() {
-    return JOB_SLUGS.map((slug) => ({ slug }));
+export async function generateStaticParams() {
+    const slugs = await getJobSlugs();
+    return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
-    const job = JOBS[slug];
+    const job = await getJobBySlug(slug);
 
     const title = job
         ? job.title

@@ -1,1 +1,3 @@
-// Shared hooks — add below as created
+// Shared Hooks — Public API
+export { useMediaQuery } from './useMediaQuery';
+export { useDebounce } from './useDebounce';

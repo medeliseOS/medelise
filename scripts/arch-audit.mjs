@@ -77,6 +77,13 @@ const RULES = [
         from: /^src\/(?!app\/)/,
         toForbidden: /^(src\/app\/|@\/app\/)/,
     },
+    {
+        id: 'R9',
+        name: 'services-no-components',
+        desc: 'services/ must NOT import from components/',
+        from: /^src\/services\//,
+        toForbidden: /^(src\/components\/|@ui\/|@layout\/)/,
+    },
 ];
 
 // ═══════════════════════════════════════════════════════════════
@@ -104,6 +111,8 @@ function resolveImportPath(importPath) {
         '@layout/': 'src/components/layout/',
         '@shared/': 'src/shared/',
         '@lib/': 'src/lib/',
+        '@services/': 'src/services/',
+        '@services': 'src/services/index.ts',
         '@/': 'src/',
     };
 

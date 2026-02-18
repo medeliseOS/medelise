@@ -1,6 +1,6 @@
 'use client';
 
-import { CartProvider } from '@features/scheduling/context/CartContext';
+import { CartProvider } from '@features/scheduling';
 
 /**
  * Client-side Providers wrapper.

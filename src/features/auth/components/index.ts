@@ -1,3 +1,4 @@
+'use client';
 // Public API — Auth Feature
 export { default as LoginPageContent } from './LoginPageContent';
 export { default as LoginForm } from './LoginForm';

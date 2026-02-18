@@ -1,10 +1,17 @@
 'use client';
 
-import React from 'react';
-import ServiceCard from '@features/iv-therapy/components/ServiceCard';
-import { IV_DRIP_SERVICES } from '@features/iv-therapy/data/ivDripServices';
+import React, { useState, useEffect } from 'react';
+import ServiceCard from './ServiceCard';
+import { getIVProducts } from '@services/iv-therapy.service';
+import type { IVDripService } from '@features/iv-therapy/types';
 
 export default function IVDripCatalog() {
+    const [services, setServices] = useState<IVDripService[]>([]);
+
+    useEffect(() => {
+        getIVProducts().then(setServices);
+    }, []);
+
     return (
         <main className="iv-drip-catalog-page">
             <div className="container">
@@ -19,7 +26,7 @@ export default function IVDripCatalog() {
                 </header>
 
                 <div className="services-grid">
-                    {IV_DRIP_SERVICES.map((service) => (
+                    {services.map((service) => (
                         <ServiceCard key={service.id} service={service} />
                     ))}
                 </div>

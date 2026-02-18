@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import FrumuseteContent from '@features/iv-therapy/components/FrumuseteContent';
+import { FrumuseteContent } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
     title: 'IV Drip Frumusețe | Medelise',

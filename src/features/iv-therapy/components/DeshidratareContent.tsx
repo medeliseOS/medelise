@@ -2,7 +2,7 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
-import ContactFormSection from '@features/contact/components/ContactFormSection';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function DeshidratareContent() {
     return (

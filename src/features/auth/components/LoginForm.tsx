@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
-import AnimatedEyeToggle from '@features/auth/components/AnimatedEyeToggle';
+import AnimatedEyeToggle from './AnimatedEyeToggle';
 
 interface LoginFormProps {
     /** Override the title text */

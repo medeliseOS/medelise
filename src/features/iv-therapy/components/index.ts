@@ -1,3 +1,4 @@
+'use client';
 // Public API — IV Therapy Feature
 export { default as IVDripCatalog } from './IVDripCatalog';
 export { default as IVDripProductPage } from './IVDripProductPage';

@@ -7,46 +7,9 @@
 export const COMPANY_BRAND = 'Medelise Health Solutions';
 export const COMPANY_WEBSITE = 'www.medelise.ro';
 
-/* ─── Interfaces ─── */
-export interface JobDetail {
-    /* Listing-level (cards on /cariera) */
-    category: string;
-    title: string;
-    type: string;
-    location: string;
-    salary: string;
-    experience: string;
-    deadline: string; /* ISO 8601 date, e.g. '2026-03-15' */
-
-    /* Detail-level (full page /cariera/[slug]) */
-    overviewTitle: string;
-    overviewBody: string;
-    profileTitle: string;
-    profileBody: string;
-    tasksTitle: string;
-    tasksBody: string;
-    benefitsTitle: string;
-    benefitsBody: string;
-    closingText: string;
-
-    sidebar: {
-        companyName: string;
-        locations: string[];
-        website: string;
-        jobType: string;
-        salary: string;
-        workLocation: string;
-        datePosted: string;
-    };
-}
-
-/* ─── Helper: compute days remaining from a deadline ─── */
-export function getDaysRemaining(deadline: string): number {
-    const now = new Date();
-    const end = new Date(deadline);
-    const diff = Math.ceil((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-    return Math.max(0, diff);
-}
+import type { JobDetail } from '../types';
+export type { JobDetail };
+export { getDaysRemaining } from '../types';
 
 /* ─── Data ─── */
 export const JOBS: Record<string, JobDetail> = {

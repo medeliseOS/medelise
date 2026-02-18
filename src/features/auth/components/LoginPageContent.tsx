@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import CardScanner from '@features/auth/components/CardScanner';
-import LoginForm from '@features/auth/components/LoginForm';
-import RegisterForm from '@features/auth/components/RegisterForm';
+import CardScanner from './CardScanner';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 export default function LoginPageContent() {
     const [isFlipped, setIsFlipped] = useState(false);

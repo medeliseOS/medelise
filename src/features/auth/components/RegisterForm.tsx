@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef, useMemo } from 'react';
-import AnimatedEyeToggle from '@features/auth/components/AnimatedEyeToggle';
+import AnimatedEyeToggle from './AnimatedEyeToggle';
 
 interface RegisterFormProps {
     onSwitchToLogin?: () => void;

@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Button from '@ui/Button';
-import { JOBS } from '@features/cariera/data/jobData';
+import { getJobBySlug } from '@services/cariera.service';
+import type { JobDetail } from '@features/cariera/types';
 
 /* ── Step Components ── */
 import Step1_DatePersonale, { validateStep1 } from './steps/Step1_DatePersonale';
@@ -50,8 +51,12 @@ interface ApplicationJourneyProps {
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
-    const job = JOBS[slug];
+    const [job, setJob] = useState<JobDetail | undefined>(undefined);
     const jobTitle = job?.title ?? slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+    useEffect(() => {
+        getJobBySlug(slug).then(setJob);
+    }, [slug]);
 
     /* ── State ── */
     const [currentStep, setCurrentStep] = useState(1);
