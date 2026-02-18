@@ -5,14 +5,12 @@ interface LogoProps {
   variant?: 'full' | 'wordmark';
   white?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
-export default function Logo({ variant = 'full', white = false, className = '' }: LogoProps) {
-  // If variant is 'wordmark', usually distinct, but for Michroma text logo we might just 
-  // use the full text. The user request specific "MEDELISE".
-
+export default function Logo({ variant = 'full', white = false, className = '', onClick }: LogoProps) {
   return (
-    <Link href="/" className={`flex-shrink-0 flex items-center ${className}`}>
+    <Link href="/" className={`flex-shrink-0 flex items-center ${className}`} onClick={onClick}>
       <span style={{
         fontFamily: 'var(--font-brand)',
         fontSize: '24px',

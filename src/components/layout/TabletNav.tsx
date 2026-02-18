@@ -53,7 +53,7 @@ export default function TabletNav() {
                     <div className="flex w-full flex-col" style={{ paddingLeft: 'var(--space-section-px)', paddingRight: 'var(--space-section-px)', paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
                         {/* Row 1: Logo + Close × */}
                         <div className="flex w-full items-center justify-between">
-                            <Logo variant="full" white />
+                            <Logo variant="full" white onClick={handleClose} />
                             <button
                                 onClick={handleClose}
                                 className="flex cursor-pointer items-center justify-center transition-opacity hover:opacity-80"
@@ -167,7 +167,7 @@ export default function TabletNav() {
                     <div className="flex w-full flex-col items-center pt-8 pb-8" style={{ paddingLeft: 'var(--space-section-px)', paddingRight: 'var(--space-section-px)' }}>
                         {/* Header: Logo + Close */}
                         <div className="flex w-full items-center justify-between">
-                            <Logo variant="full" white />
+                            <Logo variant="full" white onClick={handleClose} />
                             <button
                                 onClick={handleClose}
                                 className="flex cursor-pointer items-center justify-center"

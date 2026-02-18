@@ -108,7 +108,7 @@ export default function DesktopNav({ isHomePage = true }: { isHomePage?: boolean
                 {/* Main Navigation Bar */}
                 <div className="flex items-center justify-between pt-4 pb-4" style={{ paddingLeft: 'var(--space-nav-x)', paddingRight: 'var(--space-nav-x)' }}>
                     <div className="flex flex-1 items-center gap-16">
-                        <Logo variant="full" white={isFullIndigo} />
+                        <Logo variant="full" white={isFullIndigo} onClick={() => setActiveMenu(null)} />
 
                         {/* Floating Pill-Shaped Nav Container */}
                         <div className="relative">
