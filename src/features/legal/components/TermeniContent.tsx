@@ -322,14 +322,13 @@ export default function TermeniContent() {
                 .termeni-hero {
                     width: 100%;
                     background: #213170;
-                    padding: 96px 32px;
+                    padding: 96px var(--space-section-px-lg);
                     display: flex;
                     justify-content: center;
                 }
 
                 .termeni-hero-inner {
                     width: 100%;
-                    max-width: 1280px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -442,14 +441,13 @@ export default function TermeniContent() {
                    ═══════════════════════════════════════════════════ */
                 .termeni-body {
                     width: 100%;
-                    padding: 0 64px;
+                    padding: 0 var(--space-section-px-lg);
                     display: flex;
                     justify-content: center;
                 }
 
                 .termeni-body-inner {
                     width: 100%;
-                    max-width: 1280px;
                     display: flex;
                     align-items: flex-start;
                     gap: 32px;
@@ -621,10 +619,7 @@ export default function TermeniContent() {
                 /* ── Tablet ──────────────────────────────────────── */
                 @media (max-width: 1024px) {
                     .termeni-hero {
-                        padding: 48px 32px;
-                    }
-                    .termeni-hero-inner {
-                        max-width: 704px;
+                        padding: 48px var(--space-section-px-md);
                     }
                     .termeni-date {
                         font-size: 16px;
@@ -636,12 +631,10 @@ export default function TermeniContent() {
                     }
 
                     .termeni-body {
-                        padding: 32px 0;
+                        padding: 32px var(--space-section-px-md);
                         background: white;
                     }
                     .termeni-body-inner {
-                        max-width: 704px;
-                        margin: 0 auto;
                         flex-direction: column;
                         gap: 24px;
                     }
@@ -653,7 +646,6 @@ export default function TermeniContent() {
                     .termeni-dropdown-wrap {
                         display: block;
                         width: 100%;
-                        max-width: 640px;
                         position: relative;
                     }
                     .termeni-dropdown-toggle {
@@ -733,7 +725,7 @@ export default function TermeniContent() {
                 @media (max-width: 480px) {
                     /* Hero */
                     .termeni-hero {
-                        padding: 32px 16px;
+                        padding: 32px var(--space-section-px-sm);
                     }
                     .termeni-hero-inner {
                         gap: 32px;
@@ -756,7 +748,7 @@ export default function TermeniContent() {
 
                     /* Body */
                     .termeni-body {
-                        padding: 16px 16px 48px;
+                        padding: 16px var(--space-section-px-sm) 48px;
                     }
                     .termeni-body-inner {
                         gap: 16px;
