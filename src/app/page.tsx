@@ -8,9 +8,9 @@ import {
   QualitySection,
   PatientPortalSection,
   ServiciiSection,
-  TestimonialsSection,
 } from '@features/homepage/components';
 import CTASection from '@ui/CTASection';
+import TestimonialsSection from '@ui/TestimonialsSection';
 
 export default function Home() {
   return (

@@ -7,7 +7,7 @@ import IVWhySection from './IVWhySection';
 import IVIdealForSection from './IVIdealForSection';
 import type { IVWhyFeature } from './IVWhySection';
 import IVClinicalStudiesSection, { IVClinicalStudy } from './IVClinicalStudiesSection';
-import { TestimonialsSection } from '@features/homepage/components';
+import TestimonialsSection from '@ui/TestimonialsSection';
 import IVQualitySection from './IVQualitySection';
 import { IVDripProductProps } from './iv-drip/types';
 import { useIVDripProduct } from '../hooks/useIVDripProduct';
