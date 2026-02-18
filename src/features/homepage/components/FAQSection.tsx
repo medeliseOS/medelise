@@ -278,7 +278,7 @@ export default function FAQSection() {
                  * ═══════════════════════════════════════ */
                 @media (min-width: 1024px) {
                     .faq {
-                        padding: 32px 112px;
+                        padding: 32px 64px;
                     }
 
                     .faq-surtitle,
