@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import NewsletterSection from '@features/homepage/components/NewsletterSection';
 
 /* ── Sidebar items ──────────────────────────────────────────────── */
 const SECTIONS = [
@@ -22,6 +23,7 @@ const SECTIONS = [
 export default function TermeniContent() {
     const [searchQuery, setSearchQuery] = useState('');
     const [activeId, setActiveId] = useState('introducere');
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
 
     /* ── Scroll-spy ──────────────────────────────────────────── */
@@ -49,8 +51,11 @@ export default function TermeniContent() {
         if (el) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             setActiveId(id);
+            setDropdownOpen(false);
         }
     };
+
+    const activeLabel = SECTIONS.find((s) => s.id === activeId)?.label ?? 'Introducere';
 
     return (
         <>
@@ -106,7 +111,7 @@ export default function TermeniContent() {
                 {/* ── Body ─────────────────────────────────────── */}
                 <section className="termeni-body">
                     <div className="termeni-body-inner">
-                        {/* Sidebar */}
+                        {/* Sidebar — desktop */}
                         <aside className="termeni-sidebar">
                             <p className="termeni-sidebar-greeting">Bine ai venit!</p>
                             <nav className="termeni-sidebar-nav">
@@ -121,6 +126,42 @@ export default function TermeniContent() {
                                 ))}
                             </nav>
                         </aside>
+
+                        {/* Dropdown — tablet/mobile */}
+                        <div className="termeni-dropdown-wrap">
+                            <button
+                                className="termeni-dropdown-toggle"
+                                onClick={() => setDropdownOpen(!dropdownOpen)}
+                            >
+                                <span className="termeni-dropdown-label">{activeLabel}</span>
+                                <svg
+                                    className={`termeni-dropdown-chevron${dropdownOpen ? ' open' : ''}`}
+                                    width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                >
+                                    <path
+                                        d="M5 7.5L10 12.5L15 7.5"
+                                        stroke="#213170"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            {dropdownOpen && (
+                                <div className="termeni-dropdown-menu">
+                                    {SECTIONS.map(({ id, label }) => (
+                                        <button
+                                            key={id}
+                                            className={`termeni-dropdown-item${activeId === id ? ' active' : ''}`}
+                                            onClick={() => scrollTo(id)}
+                                        >
+                                            {label}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
 
                         {/* Content */}
                         <div className="termeni-content" ref={contentRef}>
@@ -262,6 +303,9 @@ export default function TermeniContent() {
                         </div>
                     </div>
                 </section>
+
+                {/* ── Newsletter ───────────────────────────────── */}
+                <NewsletterSection />
             </main>
 
             <style jsx>{`
@@ -569,6 +613,11 @@ export default function TermeniContent() {
                    RESPONSIVE
                    ═══════════════════════════════════════════════════ */
 
+                /* ── Dropdown (hidden on desktop) ────────────────── */
+                .termeni-dropdown-wrap {
+                    display: none;
+                }
+
                 /* ── Tablet ──────────────────────────────────────── */
                 @media (max-width: 1024px) {
                     .termeni-hero {
@@ -587,18 +636,102 @@ export default function TermeniContent() {
                     }
 
                     .termeni-body {
-                        padding: 0 32px;
+                        padding: 32px 0;
+                        background: white;
+                    }
+                    .termeni-body-inner {
+                        max-width: 704px;
+                        margin: 0 auto;
+                        flex-direction: column;
+                        gap: 24px;
                     }
                     .termeni-sidebar {
                         display: none;
                     }
+
+                    /* Show dropdown nav */
+                    .termeni-dropdown-wrap {
+                        display: block;
+                        width: 100%;
+                        max-width: 640px;
+                        position: relative;
+                    }
+                    .termeni-dropdown-toggle {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 8px 8px 8px 12px;
+                        background: #fff;
+                        border-radius: 8px;
+                        border: 1px solid #CED2DA;
+                        cursor: pointer;
+                        font-family: var(--font-heading);
+                    }
+                    .termeni-dropdown-label {
+                        flex: 1;
+                        text-align: left;
+                        color: #213170;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 24px;
+                    }
+                    .termeni-dropdown-chevron {
+                        transition: transform 0.2s;
+                    }
+                    .termeni-dropdown-chevron.open {
+                        transform: rotate(180deg);
+                    }
+                    .termeni-dropdown-menu {
+                        position: absolute;
+                        top: calc(100% + 4px);
+                        left: 0;
+                        right: 0;
+                        background: #fff;
+                        border: 1px solid #CED2DA;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 16px rgba(33, 49, 112, 0.12);
+                        z-index: 20;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 4px 0;
+                    }
+                    .termeni-dropdown-item {
+                        background: none;
+                        border: none;
+                        text-align: left;
+                        padding: 10px 16px;
+                        cursor: pointer;
+                        font-family: var(--font-heading);
+                        font-size: 15px;
+                        font-weight: 500;
+                        line-height: 22px;
+                        color: #213170;
+                        transition: background 0.15s;
+                    }
+                    .termeni-dropdown-item:hover {
+                        background: #F2F4F7;
+                    }
+                    .termeni-dropdown-item.active {
+                        color: #FE5D16;
+                        font-weight: 600;
+                    }
+
                     .termeni-content {
-                        padding: 48px 0;
+                        padding: 48px 0 48px 0;
+                    }
+
+                    /* Callout text → 16px on tablet */
+                    .termeni-callout-warning p,
+                    .termeni-callout-dark p {
+                        font-size: 16px;
+                        line-height: 24px;
                     }
                 }
 
                 /* ── Mobile ──────────────────────────────────────── */
                 @media (max-width: 480px) {
+                    /* Hero */
                     .termeni-hero {
                         padding: 32px 16px;
                     }
@@ -621,32 +754,40 @@ export default function TermeniContent() {
                         line-height: 20px;
                     }
 
+                    /* Body */
                     .termeni-body {
-                        padding: 0 16px;
+                        padding: 16px 16px 48px;
                     }
-                    .termeni-content {
-                        padding: 32px 0;
-                        gap: 24px;
+                    .termeni-body-inner {
+                        gap: 16px;
                     }
 
+                    /* Dropdown label → 14px */
+                    .termeni-dropdown-label {
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
+
+                    /* Content */
+                    .termeni-content {
+                        padding: 16px 8px;
+                        gap: 32px;
+                    }
+
+                    /* Welcome & section-title-lg → 16px */
                     .termeni-welcome,
                     .termeni-section-title-lg {
-                        font-size: 18px;
-                        line-height: 26px;
+                        font-size: 16px;
+                        line-height: 24px;
                     }
+
+                    /* Section titles → 16px */
                     .termeni-section-title {
                         font-size: 16px;
                         line-height: 24px;
                     }
-                    .termeni-callout-warning,
-                    .termeni-callout-dark {
-                        padding: 16px;
-                    }
-                    .termeni-callout-warning p,
-                    .termeni-callout-dark p {
-                        font-size: 15px;
-                        line-height: 24px;
-                    }
+
+
                 }
             `}</style>
 
