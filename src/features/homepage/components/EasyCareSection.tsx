@@ -697,10 +697,10 @@ export default function EasyCareSection() {
                                             style={
                                                 isSelected
                                                     ? {
-                                                        '--btn-border': 'var(--color-primary)',
-                                                        '--btn-text': 'var(--color-primary)',
+                                                        '--btn-border': 'var(--color-white)',
+                                                        '--btn-text': 'var(--color-white)',
                                                         '--btn-bg': 'transparent',
-                                                        '--btn-bg-hover': 'rgba(33, 49, 112, 0.06)',
+                                                        '--btn-bg-hover': 'transparent',
                                                     } as React.CSSProperties
                                                     : undefined
                                             }
