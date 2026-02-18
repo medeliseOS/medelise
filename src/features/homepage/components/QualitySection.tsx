@@ -140,8 +140,8 @@ export default function QualitySection() {
          * ═══════════════════════════════════════════════ */
         .quality-row {
           width: 100%;
-          padding-top: var(--space-section-py);
-          padding-bottom: var(--space-section-py);
+          padding-top: 64px;
+          padding-bottom: 64px;
           display: flex;
           flex-direction: column;
           align-items: stretch;
