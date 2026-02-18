@@ -150,6 +150,7 @@ export default function Footer() {
                     display: flex;
                     flex-direction: column;
                     font-family: var(--font-body);
+                    color: var(--color-primary);
                 }
 
                 .footer-container {
