@@ -280,7 +280,7 @@ export default function CarieraContent() {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: var(--space-6);
+                    gap: 32px;
                 }
 
                 .jobs-header {
