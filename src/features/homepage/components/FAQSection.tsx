@@ -58,7 +58,6 @@ export default function FAQSection() {
                 }
 
                 .faq-inner {
-                    max-width: 1216px;
                     margin: 0 auto;
                     display: flex;
                     flex-direction: column;
