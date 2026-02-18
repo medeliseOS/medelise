@@ -305,7 +305,10 @@ export default function TermeniContent() {
                 </section>
 
                 {/* ── Newsletter ───────────────────────────────── */}
-                <NewsletterSection />
+                <NewsletterSection
+                    heading="Alătură-te comunității Medelise!"
+                    description="Abonează-te pentru a primi protocoale de sănătate, noutăți despre medicina viitorului și acces la servicii personalizate direct în inbox-ul tău. Sănătatea ta este o călătorie, nu o destinație – hai să o parcurgem împreună!"
+                />
             </main>
 
             <style jsx>{`

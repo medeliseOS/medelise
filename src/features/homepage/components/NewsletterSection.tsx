@@ -10,7 +10,15 @@ import Button from '@ui/Button';
  * Email subscription CTA — side-by-side layout on desktop.
  * ═══════════════════════════════════════════════════════════ */
 
-export default function NewsletterSection() {
+interface NewsletterSectionProps {
+  heading?: string;
+  description?: string;
+}
+
+export default function NewsletterSection({
+  heading = 'Intră în comunitatea Medelise, a celor care văd sănătatea altfel.',
+  description = 'Viitorul sănătății este personalizat, digital și uman. Noi construim acest viitor pas cu pas, alături de cei care cred că medicina înseamnă mai mult decât rețete și protocoale.',
+}: NewsletterSectionProps) {
   const [email, setEmail] = useState('');
 
   return (
@@ -23,12 +31,10 @@ export default function NewsletterSection() {
                 {/* ─── LEFT — Text ─── */}
                 <div className="newsletter-text">
                   <h2 id="newsletter-heading" className="newsletter-heading">
-                    Intră în comunitatea Medelise, a celor care văd sănătatea altfel.
+                    {heading}
                   </h2>
                   <p className="newsletter-description">
-                    Viitorul sănătății este personalizat, digital și uman. Noi construim acest viitor
-                    pas cu pas, alături de cei care cred că medicina înseamnă mai mult decât rețete
-                    și protocoale.
+                    {description}
                   </p>
                 </div>
 
