@@ -60,7 +60,7 @@ export default function HowItWorksSection() {
                 .hiw {
                     width: 100%;
                     background: var(--color-white);
-                    padding: var(--space-12) var(--space-section-px);
+                    padding: 32px var(--space-section-px);
                     overflow: hidden;
                 }
 
@@ -68,14 +68,14 @@ export default function HowItWorksSection() {
                     margin: 0 auto;
                     display: flex;
                     flex-direction: column;
-                    gap: 48px;
+                    gap: 32px;
                 }
 
                 /* ── Title ── */
                 .hiw-title {
                     color: var(--color-primary);
                     font-family: var(--font-heading);
-                    font-size: 28px;
+                    font-size: 26px;
                     font-weight: 500;
                     line-height: 1.3;
                     margin: 0;
@@ -85,35 +85,59 @@ export default function HowItWorksSection() {
                 .hiw-content {
                     display: flex;
                     flex-direction: column;
-                    gap: 48px;
+                    gap: 32px;
                 }
 
-                /* ── Steps grid ── */
+                /* ── Steps: 2×2 grid with cross dividers ── */
                 .hiw-steps-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 48px;
+                    display: grid;
+                    grid-template-columns: 1fr auto 1fr;
+                    grid-template-rows: auto auto auto;
+                    gap: 0;
+                }
+
+                .hiw-step--1 { grid-column: 1; grid-row: 1; padding: 0 12px 16px 0; }
+                .hiw-step--2 { grid-column: 3; grid-row: 1; padding: 0 0 16px 12px; }
+                .hiw-step--3 { grid-column: 1; grid-row: 3; padding: 16px 12px 0 0; }
+                .hiw-step--4 { grid-column: 3; grid-row: 3; padding: 16px 0 0 12px; }
+
+                /* Vertical divider */
+                .hiw-divider-v {
+                    display: block;
+                    grid-column: 2;
+                    grid-row: 1 / 4;
+                    width: 1px;
+                    background: var(--color-surface-border);
+                }
+
+                /* Horizontal divider */
+                .hiw-divider-h {
+                    display: block;
+                    grid-column: 1 / 4;
+                    grid-row: 2;
+                    height: 1px;
+                    background: var(--color-surface-border);
                 }
 
                 /* ── Individual step ── */
                 .hiw-step {
                     display: flex;
                     flex-direction: column;
-                    gap: 24px;
+                    gap: 16px;
                 }
 
                 .hiw-step-label {
                     color: var(--color-primary);
                     font-family: var(--font-body);
-                    font-size: 20px;
+                    font-size: 12px;
                     font-weight: 500;
-                    line-height: 28px;
+                    line-height: 18px;
                     margin: 0;
                 }
 
                 .hiw-step-icon {
-                    width: 48px;
-                    height: 48px;
+                    width: 32px;
+                    height: 32px;
                     background: var(--color-primary);
                     border-radius: 100px;
                     display: flex;
@@ -129,25 +153,19 @@ export default function HowItWorksSection() {
                 .hiw-step-title {
                     color: var(--color-primary);
                     font-family: var(--font-heading);
-                    font-size: 22px;
+                    font-size: 14px;
                     font-weight: 500;
-                    line-height: 1.4;
+                    line-height: 19.6px;
                     margin: 0;
                 }
 
                 .hiw-step-desc {
                     color: var(--color-primary);
                     font-family: var(--font-body);
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 24px;
-                    margin: 0;
-                }
-
-                /* ── Dividers (hidden on mobile) ── */
-                .hiw-divider-v,
-                .hiw-divider-h {
-                    display: none;
+                    font-size: 10px;
+                    font-weight: 300;
+                    line-height: 15px;
+                    margin: 4px 0 0;
                 }
 
                 /* ── Why Section ── */
@@ -201,8 +219,41 @@ export default function HowItWorksSection() {
                  * §2 TABLET ≥768px
                  * ═══════════════════════════════════════ */
                 @media (min-width: 768px) {
+                    .hiw {
+                        padding: 48px var(--space-section-px);
+                    }
+
+                    .hiw-inner {
+                        gap: 40px;
+                    }
+
                     .hiw-title {
                         font-size: 38px;
+                    }
+
+                    .hiw-step--1 { padding: 0 24px 24px 0; }
+                    .hiw-step--2 { padding: 0 0 24px 24px; }
+                    .hiw-step--3 { padding: 24px 24px 0 0; }
+                    .hiw-step--4 { padding: 24px 0 0 24px; }
+
+                    .hiw-step-label {
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
+
+                    .hiw-step-icon {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    .hiw-step-title {
+                        font-size: 18px;
+                        line-height: 25px;
+                    }
+
+                    .hiw-step-desc {
+                        font-size: 13px;
+                        line-height: 20px;
                     }
                 }
 
@@ -212,6 +263,10 @@ export default function HowItWorksSection() {
                 @media (min-width: 1024px) {
                     .hiw {
                         padding: 64px var(--space-section-px);
+                    }
+
+                    .hiw-inner {
+                        gap: 48px;
                     }
 
                     .hiw-title {
@@ -227,41 +282,38 @@ export default function HowItWorksSection() {
                         padding: 24px 0;
                     }
 
-                    /* ── Steps: 2×2 grid with cross dividers ── */
                     .hiw-steps-wrapper {
-                        display: grid;
-                        grid-template-columns: 1fr auto 1fr;
-                        grid-template-rows: auto auto auto;
-                        gap: 0;
                         flex: 1;
                     }
 
-                    .hiw-step--1 { grid-column: 1; grid-row: 1; padding: 0 40px 40px 0; }
-                    .hiw-step--2 { grid-column: 3; grid-row: 1; padding: 0 0 40px 40px; }
-                    .hiw-step--3 { grid-column: 1; grid-row: 3; padding: 40px 40px 0 0; }
-                    .hiw-step--4 { grid-column: 3; grid-row: 3; padding: 40px 0 0 40px; }
+                    .hiw-step--1 { padding: 0 40px 40px 0; }
+                    .hiw-step--2 { padding: 0 0 40px 40px; }
+                    .hiw-step--3 { padding: 40px 40px 0 0; }
+                    .hiw-step--4 { padding: 40px 0 0 40px; }
 
-                    /* Vertical divider — full height */
-                    .hiw-divider-v {
-                        display: block;
-                        grid-column: 2;
-                        grid-row: 1 / 4;
-                        width: 1px;
-                        background: var(--color-surface-border);
+                    .hiw-step {
+                        gap: 24px;
                     }
 
-                    /* Horizontal divider — full width */
-                    .hiw-divider-h {
-                        display: block;
-                        grid-column: 1 / 4;
-                        grid-row: 2;
-                        height: 1px;
-                        background: var(--color-surface-border);
+                    .hiw-step-label {
+                        font-size: 20px;
+                        line-height: 28px;
+                    }
+
+                    .hiw-step-icon {
+                        width: 48px;
+                        height: 48px;
                     }
 
                     .hiw-step-title {
                         font-size: 24px;
                         line-height: 33.6px;
+                    }
+
+                    .hiw-step-desc {
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 24px;
                     }
 
                     /* ── Why: left sidebar ── */
