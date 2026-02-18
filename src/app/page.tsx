@@ -1,4 +1,5 @@
 import {
+  CTAScheduleSection,
   EasyCareSection,
   FAQSection,
   HeroSection,
@@ -31,6 +32,7 @@ export default function Home() {
       <EasyCareSection />
       <HowItWorksSection />
       <FAQSection />
+      <CTAScheduleSection />
     </main>
   );
 }
