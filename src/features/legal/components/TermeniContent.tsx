@@ -1,253 +1,217 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function TermeniContent() {
+    const [searchQuery, setSearchQuery] = useState('');
+
     return (
         <>
-            <main className="legal-page">
-                <div className="legal-inner">
-                    {/* Hero */}
-                    <section className="legal-hero">
-                        <p className="legal-surtitle">Legal</p>
-                        <h1 className="legal-title">Termeni și Condiții</h1>
-                        <p className="legal-updated">Ultima actualizare: 18 februarie 2026</p>
-                    </section>
-
-                    {/* Content */}
-                    <section className="legal-content">
-                        <div className="legal-section">
-                            <h2>1. Informații generale</h2>
-                            <p>
-                                Prezentul document stabilește termenii și condițiile de utilizare a platformei
-                                <strong> medelise.ro</strong>, operată de <strong>MEDELISE HEALTH SOLUTIONS S.R.L.</strong>,
-                                societate înregistrată în România, cu sediul social în București.
-                            </p>
-                            <p>
-                                Prin accesarea și utilizarea platformei, confirmați că ați citit, înțeles și acceptat
-                                acești termeni în integralitatea lor. Dacă nu sunteți de acord cu oricare dintre
-                                prevederile de mai jos, vă rugăm să nu utilizați platforma.
-                            </p>
+            <main className="termeni-page">
+                {/* ── Hero ─────────────────────────────────────────── */}
+                <section className="termeni-hero">
+                    <div className="termeni-hero-inner">
+                        <div className="termeni-hero-text">
+                            <p className="termeni-date">Ultima actualizare: 12 mai 2025</p>
+                            <h1 className="termeni-title">Termeni și condiții</h1>
                         </div>
 
-                        <div className="legal-section">
-                            <h2>2. Definiții</h2>
-                            <ul>
-                                <li><strong>Platforma</strong> — site-ul web medelise.ro și toate serviciile digitale asociate.</li>
-                                <li><strong>Utilizator</strong> — orice persoană care accesează sau utilizează platforma.</li>
-                                <li><strong>Servicii</strong> — serviciile medicale la domiciliu, programările online, IV Drip Therapy și orice alte servicii oferite prin platformă.</li>
-                                <li><strong>Profesionist medical</strong> — medic, asistent medical sau alt profesionist din domeniul sănătății care colaborează cu Medelise.</li>
-                            </ul>
-                        </div>
+                        <p className="termeni-desc">
+                            Acești termeni stabilesc regulile de utilizare a serviciilor Medelise
+                            și condițiile legale aplicabile utilizatorilor platformei noastre.
+                            Îți recomandăm să-i parcurgi cu atenție pentru a înțelege drepturile
+                            și responsabilitățile tale ca utilizator.
+                        </p>
 
-                        <div className="legal-section">
-                            <h2>3. Serviciile oferite</h2>
-                            <p>
-                                Medelise oferă o platformă digitală care conectează pacienții cu profesioniști medicali
-                                pentru servicii la domiciliu. Serviciile includ, fără a se limita la:
-                            </p>
-                            <ul>
-                                <li>Consultații medicale la domiciliu</li>
-                                <li>Terapie intravenoasă (IV Drip Therapy)</li>
-                                <li>Recoltări și analize de laborator</li>
-                                <li>Administrarea tratamentelor prescrise</li>
-                                <li>Monitorizare și follow-up post-tratament</li>
-                            </ul>
-                            <p>
-                                Serviciile medicale sunt furnizate exclusiv de profesioniști autorizați, conform
-                                legislației în vigoare din România.
-                            </p>
-                        </div>
+                        {/* Search */}
+                        <div className="termeni-search-wrap">
+                            <div className="termeni-search-label">
+                                <span>Căutare în document</span>
+                                <span className="termeni-search-star">*</span>
+                            </div>
 
-                        <div className="legal-section">
-                            <h2>4. Înregistrare și cont</h2>
-                            <p>
-                                Pentru a beneficia de anumite servicii, este posibil să fie necesară crearea unui cont.
-                                Sunteți responsabil pentru menținerea confidențialității datelor de autentificare și
-                                pentru toate activitățile care au loc prin intermediul contului dumneavoastră.
-                            </p>
-                        </div>
+                            <div className="termeni-search-box">
+                                <div className="termeni-search-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
+                                            stroke="#213170"
+                                            strokeWidth="1.67"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                </div>
+                                <input
+                                    type="text"
+                                    className="termeni-search-input"
+                                    placeholder="Caută cuvinte cheie…"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
 
-                        <div className="legal-section">
-                            <h2>5. Programări și anulări</h2>
-                            <p>
-                                Programările pot fi efectuate prin platformă sau telefonic. Anularea gratuită este
-                                posibilă cu cel puțin <strong>24 de ore</strong> înainte de data programării. Anulările
-                                tardive pot fi supuse unei taxe administrative.
+                            <p className="termeni-search-hint">
+                                Exemplu: GDPR, confidențialitate, date personale
                             </p>
                         </div>
-
-                        <div className="legal-section">
-                            <h2>6. Prețuri și plăți</h2>
-                            <p>
-                                Prețurile serviciilor sunt afișate pe platformă și includ TVA, unde este cazul.
-                                Medelise își rezervă dreptul de a modifica prețurile, cu notificarea prealabilă a
-                                utilizatorilor. Plățile se pot efectua online sau la fața locului, conform opțiunilor
-                                disponibile.
-                            </p>
-                        </div>
-
-                        <div className="legal-section">
-                            <h2>7. Proprietate intelectuală</h2>
-                            <p>
-                                Toate conținuturile platformei (texte, imagini, logo-uri, design, software) sunt
-                                proprietatea Medelise Health Solutions S.R.L. sau a licențiatorilor săi și sunt protejate
-                                de legislația privind drepturile de autor și proprietatea intelectuală.
-                            </p>
-                        </div>
-
-                        <div className="legal-section">
-                            <h2>8. Limitarea răspunderii</h2>
-                            <p>
-                                Medelise depune eforturi rezonabile pentru a asigura acuratețea informațiilor de pe
-                                platformă. Cu toate acestea, nu garantăm că platforma va funcționa fără întreruperi sau
-                                erori. Informațiile prezentate nu substituie consultul medical profesional.
-                            </p>
-                        </div>
-
-                        <div className="legal-section">
-                            <h2>9. Modificări ale termenilor</h2>
-                            <p>
-                                Ne rezervăm dreptul de a modifica acești termeni în orice moment. Modificările vor fi
-                                publicate pe această pagină, iar continuarea utilizării platformei constituie acceptarea
-                                noilor termeni.
-                            </p>
-                        </div>
-
-                        <div className="legal-section">
-                            <h2>10. Contact</h2>
-                            <p>
-                                Pentru orice întrebări legate de acești termeni, ne puteți contacta la:
-                            </p>
-                            <ul>
-                                <li>Email: <a href="mailto:office@medelise.ro">office@medelise.ro</a></li>
-                                <li>Telefon: <a href="tel:+40784414555">+40 (784) 414 555</a></li>
-                            </ul>
-                        </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
             </main>
 
             <style jsx>{`
-                .legal-page {
+                /* ── Page ────────────────────────────────────────── */
+                .termeni-page {
                     font-family: var(--font-heading);
                     min-height: 100vh;
                     background: var(--color-white);
                 }
 
-                .legal-inner {
-                    max-width: 800px;
-                    margin: 0 auto;
-                    padding: 64px var(--space-section-px);
+                /* ── Hero ────────────────────────────────────────── */
+                .termeni-hero {
+                    width: 100%;
+                    background: #213170;
+                    padding: 96px 32px;
+                    display: flex;
+                    justify-content: center;
                 }
 
-                .legal-hero {
+                .termeni-hero-inner {
+                    width: 100%;
+                    max-width: 1280px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 48px;
+                }
+
+                /* ── Text block ──────────────────────────────────── */
+                .termeni-hero-text {
+                    max-width: 768px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 12px;
+                }
+
+                .termeni-date {
                     text-align: center;
-                    padding: 48px 0 64px;
-                    border-bottom: 1px solid var(--color-surface-border);
-                    margin-bottom: 48px;
-                }
-
-                .legal-surtitle {
-                    color: var(--color-accent);
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    margin: 0 0 12px;
-                }
-
-                .legal-title {
-                    color: var(--color-primary);
-                    font-size: 40px;
-                    font-weight: 700;
-                    line-height: 1.2;
-                    margin: 0 0 16px;
-                }
-
-                .legal-updated {
-                    color: var(--color-surface-border);
-                    font-size: 14px;
-                    font-weight: 400;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 28px;
                     margin: 0;
                 }
 
-                .legal-content {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 40px;
-                }
-
-                .legal-section h2 {
-                    color: var(--color-primary);
-                    font-size: 22px;
+                .termeni-title {
+                    text-align: center;
+                    color: #fff;
+                    font-size: 36px;
                     font-weight: 600;
-                    line-height: 1.3;
-                    margin: 0 0 16px;
+                    line-height: 44px;
+                    margin: 0;
                 }
 
-                .legal-section p {
-                    color: var(--color-primary);
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 1.7;
-                    margin: 0 0 12px;
+                .termeni-desc {
+                    max-width: 768px;
+                    text-align: center;
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 28px;
+                    margin: 0;
                 }
 
-                .legal-section p:last-child {
-                    margin-bottom: 0;
-                }
-
-                .legal-section ul {
-                    list-style: disc;
-                    padding-left: 24px;
-                    margin: 8px 0 0;
+                /* ── Search ──────────────────────────────────────── */
+                .termeni-search-wrap {
+                    width: 100%;
+                    max-width: 640px;
                     display: flex;
                     flex-direction: column;
+                    gap: 6px;
+                }
+
+                .termeni-search-label {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 2px;
+                    color: #fff;
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 16px;
+                }
+
+                .termeni-search-star {
+                    color: #fff;
+                    font-family: var(--font-body);
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 20px;
+                }
+
+                .termeni-search-box {
+                    display: flex;
+                    align-items: center;
                     gap: 8px;
+                    padding: 10px 14px;
+                    background: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 1px 2px rgba(10, 13, 18, 0.05);
+                    border: 1px solid #D5D7DA;
                 }
 
-                .legal-section li {
-                    color: var(--color-primary);
-                    font-size: 16px;
+                .termeni-search-icon {
+                    width: 20px;
+                    height: 20px;
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .termeni-search-input {
+                    flex: 1;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    font-family: var(--font-heading);
+                    font-size: 14px;
                     font-weight: 400;
-                    line-height: 1.7;
+                    line-height: 20px;
+                    color: #213170;
                 }
 
-                .legal-section a {
-                    color: var(--color-accent);
-                    text-decoration: underline;
-                    transition: opacity 0.2s ease;
+                .termeni-search-input::placeholder {
+                    color: rgba(33, 49, 112, 0.7);
                 }
 
-                .legal-section a:hover {
-                    opacity: 0.7;
+                .termeni-search-hint {
+                    color: #BDE0FF;
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    margin: 0;
                 }
 
+                /* ── Responsive ──────────────────────────────────── */
                 @media (max-width: 768px) {
-                    .legal-inner {
-                        padding: 32px var(--space-section-px-md);
+                    .termeni-hero {
+                        padding: 64px 20px;
                     }
 
-                    .legal-hero {
-                        padding: 32px 0 40px;
-                        margin-bottom: 32px;
-                    }
-
-                    .legal-title {
+                    .termeni-title {
                         font-size: 28px;
+                        line-height: 36px;
                     }
 
-                    .legal-section h2 {
-                        font-size: 18px;
-                    }
-                }
-
-                @media (max-width: 480px) {
-                    .legal-inner {
-                        padding: 24px var(--space-section-px-sm);
+                    .termeni-desc {
+                        font-size: 16px;
+                        line-height: 24px;
                     }
 
-                    .legal-title {
-                        font-size: 24px;
+                    .termeni-hero-inner {
+                        gap: 32px;
                     }
                 }
             `}</style>
