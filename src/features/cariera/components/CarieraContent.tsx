@@ -275,7 +275,7 @@ export default function CarieraContent() {
                    ═══════════════════════════════════ */
                 .jobs-section {
                     width: 100%;
-                    padding: var(--space-4) 48px var(--space-16);
+                    padding: var(--space-4) 64px var(--space-16);
                     background: white;
                     display: flex;
                     flex-direction: column;
