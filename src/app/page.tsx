@@ -27,8 +27,8 @@ export default function Home() {
       <TestimonialsSection />
       <PatientPortalSection />
       <ServiciiSection />
-      <HowItWorksSection />
       <EasyCareSection />
+      <HowItWorksSection />
     </main>
   );
 }
