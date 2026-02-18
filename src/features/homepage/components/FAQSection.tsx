@@ -53,7 +53,7 @@ export default function FAQSection() {
                 .faq {
                     width: 100%;
                     background: var(--color-white);
-                    padding: 32px 16px;
+                    padding: 64px 16px;
                     overflow: hidden;
                 }
 
