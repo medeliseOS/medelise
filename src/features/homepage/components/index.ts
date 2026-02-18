@@ -1,6 +1,7 @@
 'use client';
 // Public API — Homepage Feature
 export { default as EasyCareSection } from './EasyCareSection';
+export { default as FAQSection } from './FAQSection';
 export { default as HeroSection } from './HeroSection';
 export { default as HowItWorksSection } from './HowItWorksSection';
 export { default as MissionStatsSection } from './MissionStatsSection';

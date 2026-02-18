@@ -1,5 +1,6 @@
 import {
   EasyCareSection,
+  FAQSection,
   HeroSection,
   HowItWorksSection,
   MissionStatsSection,
@@ -29,6 +30,7 @@ export default function Home() {
       <ServiciiSection />
       <EasyCareSection />
       <HowItWorksSection />
+      <FAQSection />
     </main>
   );
 }
