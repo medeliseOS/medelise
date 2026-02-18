@@ -58,11 +58,25 @@ const PLANS = [
 ] as const;
 
 /* ═══════════════════════════════════════════════════════════════════════════
+ * HELPERS — compute CSS order so the selected card is always in the center
+ * ═══════════════════════════════════════════════════════════════════════════ */
+function getCardOrder(cardIndex: number, selectedIndex: number): number {
+    // We want the selected card in position 1 (center of 0,1,2)
+    // The other two cards flank it on left (0) and right (2)
+    if (cardIndex === selectedIndex) return 1; // center
+    // Cards before selected → left side
+    if (cardIndex < selectedIndex) return 0;
+    // Cards after selected → right side
+    return 2;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
  * COMPONENT
  * ═══════════════════════════════════════════════════════════════════════════ */
 export default function EasyCareSection() {
     const [isYearly, setIsYearly] = useState(false);
     const [activeTab, setActiveTab] = useState(1); // default: Standard Protect
+    const [selectedDesktop, setSelectedDesktop] = useState(1); // default: Standard Protect
 
     const activePlan = PLANS[activeTab];
 
@@ -373,11 +387,11 @@ export default function EasyCareSection() {
                         display: none;
                     }
 
-                    /* Show 3-card grid */
+                    /* ── 3-card grid — full width, no gaps ── */
                     .easycare-grid {
                         display: grid;
                         grid-template-columns: repeat(3, 1fr);
-                        gap: var(--space-16);
+                        gap: 0;
                     }
 
                     /* ── Card (desktop) ── */
@@ -385,22 +399,48 @@ export default function EasyCareSection() {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
-                        padding: var(--space-6);
-                        background: var(--color-white);
-                        border-radius: var(--radius-lg);
+                        padding: var(--space-8);
+                        cursor: pointer;
                         border: 1px solid #E7EBF6;
-                        box-shadow: 4px 6px 64px rgba(0, 0, 0, 0.08);
-                        transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+                        /* Smooth color & order transitions */
+                        background: var(--color-white);
+                        transition:
+                            background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                            border-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                            box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                            transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
-                    .easycare-card:hover {
-                        transform: translateY(-4px);
-                        box-shadow: 4px 6px 64px rgba(0, 0, 0, 0.14);
+                    /* First card gets left rounded corners */
+                    .easycare-card[data-order="0"] {
+                        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+                        border-right: none;
                     }
 
+                    /* Center card (selected) — full border */
+                    .easycare-card[data-order="1"] {
+                        border-radius: 0;
+                    }
+
+                    /* Last card gets right rounded corners */
+                    .easycare-card[data-order="2"] {
+                        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+                        border-left: none;
+                    }
+
+                    .easycare-card:hover:not(.highlighted) {
+                        background: #F5F7FC;
+                    }
+
+                    /* ── Selected / highlighted card ── */
                     .easycare-card.highlighted {
                         background: var(--color-primary);
                         border-color: var(--color-primary);
+                        transform: scaleY(1.03);
+                        box-shadow: 0 20px 60px rgba(33, 49, 112, 0.28);
+                        z-index: 2;
+                        border-radius: var(--radius-lg);
                     }
 
                     .easycare-card-header {
@@ -416,6 +456,7 @@ export default function EasyCareSection() {
                         font-size: 20px;
                         line-height: 28px;
                         color: var(--color-primary);
+                        transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
                     .highlighted .easycare-plan-name {
@@ -432,6 +473,12 @@ export default function EasyCareSection() {
                         font-size: 14px;
                         line-height: 20px;
                         color: var(--color-primary);
+                        transition: opacity 0.3s ease;
+                    }
+
+                    .highlighted .easycare-badge {
+                        background: rgba(255, 255, 255, 0.2);
+                        color: var(--color-white);
                     }
 
                     .easycare-price {
@@ -441,6 +488,7 @@ export default function EasyCareSection() {
                         line-height: 60px;
                         color: var(--color-primary);
                         margin: 0;
+                        transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
                     .highlighted .easycare-price {
@@ -454,10 +502,11 @@ export default function EasyCareSection() {
                         line-height: 24px;
                         color: var(--color-text-muted);
                         margin: 0 0 var(--space-6);
+                        transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
                     .highlighted .easycare-period {
-                        color: #E4E7EC;
+                        color: rgba(255, 255, 255, 0.7);
                     }
 
                     .easycare-desc {
@@ -468,10 +517,11 @@ export default function EasyCareSection() {
                         color: var(--color-primary);
                         margin: 0 0 var(--space-6);
                         max-width: none;
+                        transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
                     .highlighted .easycare-desc {
-                        color: var(--color-white);
+                        color: rgba(255, 255, 255, 0.9);
                     }
 
                     .easycare-features {
@@ -481,6 +531,10 @@ export default function EasyCareSection() {
                         padding: var(--space-2) 0;
                         margin-bottom: var(--space-8);
                         flex: 1;
+                    }
+
+                    .highlighted .easycare-feature-icon {
+                        background: rgba(255, 255, 255, 0.2);
                     }
 
                     .highlighted .easycare-feature-text {
@@ -586,71 +640,89 @@ export default function EasyCareSection() {
                     </div>
 
                     {/* ═══════════════════════════════════════
-                     *  DESKTOP — 3-card grid
+                     *  DESKTOP — Full-width cards with
+                     *  click-to-select animation
                      * ═══════════════════════════════════════ */}
                     <div className="easycare-grid">
-                        {PLANS.map((plan) => (
-                            <article
-                                key={plan.id}
-                                className={`easycare-card ${plan.id === 'standard' ? 'highlighted' : ''}`}
-                            >
-                                <div>
-                                    <div className="easycare-card-header">
-                                        <span className="easycare-plan-name">{plan.name}</span>
-                                        {plan.badge && (
-                                            <span className="easycare-badge">{plan.badge}</span>
-                                        )}
+                        {PLANS.map((plan, idx) => {
+                            const isSelected = selectedDesktop === idx;
+                            const order = getCardOrder(idx, selectedDesktop);
+
+                            return (
+                                <article
+                                    key={plan.id}
+                                    className={`easycare-card ${isSelected ? 'highlighted' : ''}`}
+                                    style={{ order }}
+                                    data-order={order}
+                                    onClick={() => setSelectedDesktop(idx)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            setSelectedDesktop(idx);
+                                        }
+                                    }}
+                                    aria-pressed={isSelected}
+                                >
+                                    <div>
+                                        <div className="easycare-card-header">
+                                            <span className="easycare-plan-name">{plan.name}</span>
+                                            {plan.badge && (
+                                                <span className="easycare-badge">{plan.badge}</span>
+                                            )}
+                                        </div>
+
+                                        <p className="easycare-price">
+                                            {isYearly ? plan.yearlyPrice : plan.monthlyPrice}€
+                                        </p>
+                                        <p className="easycare-period">Pe luna</p>
+                                        <p className="easycare-desc">{plan.description}</p>
+
+                                        <ul className="easycare-features">
+                                            {plan.features.map((feat) => (
+                                                <li key={feat} className="easycare-feature">
+                                                    <span className="easycare-feature-icon">
+                                                        <Image
+                                                            src="/icons-medelise/md-system/md-ico-check.webp"
+                                                            alt=""
+                                                            width={12}
+                                                            height={12}
+                                                        />
+                                                    </span>
+                                                    <span className="easycare-feature-text">{feat}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
 
-                                    <p className="easycare-price">
-                                        {isYearly ? plan.yearlyPrice : plan.monthlyPrice}€
-                                    </p>
-                                    <p className="easycare-period">Pe luna</p>
-                                    <p className="easycare-desc">{plan.description}</p>
-
-                                    <ul className="easycare-features">
-                                        {plan.features.map((feat) => (
-                                            <li key={feat} className="easycare-feature">
-                                                <span className="easycare-feature-icon">
-                                                    <Image
-                                                        src="/icons-medelise/md-system/md-ico-check.webp"
-                                                        alt=""
-                                                        width={12}
-                                                        height={12}
-                                                    />
-                                                </span>
-                                                <span className="easycare-feature-text">{feat}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <div className="easycare-actions">
-                                    <Button
-                                        variant={plan.id === 'standard' ? 'secondary' : 'primary'}
-                                        isFullWidth
-                                    >
-                                        Activează planul
-                                    </Button>
-                                    <Button
-                                        variant="outline"
-                                        isFullWidth
-                                        style={
-                                            plan.id === 'standard'
-                                                ? {
-                                                    '--btn-border': 'white',
-                                                    '--btn-text': 'white',
-                                                    '--btn-bg': 'transparent',
-                                                    '--btn-bg-hover': 'rgba(255,255,255,0.1)',
-                                                } as React.CSSProperties
-                                                : undefined
-                                        }
-                                    >
-                                        Află toate detaliile
-                                    </Button>
-                                </div>
-                            </article>
-                        ))}
+                                    <div className="easycare-actions">
+                                        <Button
+                                            variant={isSelected ? 'secondary' : 'primary'}
+                                            isFullWidth
+                                        >
+                                            Activează planul
+                                        </Button>
+                                        <Button
+                                            variant="outline"
+                                            isFullWidth
+                                            style={
+                                                isSelected
+                                                    ? {
+                                                        '--btn-border': 'white',
+                                                        '--btn-text': 'white',
+                                                        '--btn-bg': 'transparent',
+                                                        '--btn-bg-hover': 'rgba(255,255,255,0.1)',
+                                                    } as React.CSSProperties
+                                                    : undefined
+                                            }
+                                        >
+                                            Află toate detaliile
+                                        </Button>
+                                    </div>
+                                </article>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
