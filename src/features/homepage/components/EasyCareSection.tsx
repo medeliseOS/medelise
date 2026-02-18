@@ -367,6 +367,10 @@ export default function EasyCareSection() {
                         margin-bottom: var(--space-10);
                     }
 
+                    .easycare-inner {
+                        max-width: none;
+                    }
+
                     /* Hide tab-based view */
                     .easycare-tabs {
                         display: none;
@@ -376,11 +380,11 @@ export default function EasyCareSection() {
                         display: none;
                     }
 
-                    /* ── 3-card grid — full width, no gaps ── */
+                    /* ── 3-card grid — 32px gaps ── */
                     .easycare-grid {
                         display: grid;
                         grid-template-columns: repeat(3, 1fr);
-                        gap: 0;
+                        gap: 32px;
                     }
 
                     /* ── Card (desktop) ── */
@@ -401,21 +405,9 @@ export default function EasyCareSection() {
                             transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
-                    /* First card — left rounded corners */
-                    .easycare-card:first-child {
-                        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
-                        border-right: none;
-                    }
-
-                    /* Middle card */
-                    .easycare-card:nth-child(2) {
-                        border-radius: 0;
-                    }
-
-                    /* Last card — right rounded corners */
-                    .easycare-card:last-child {
-                        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-                        border-left: none;
+                    /* All cards get full rounded corners */
+                    .easycare-card {
+                        border-radius: var(--radius-lg);
                     }
 
                     .easycare-card:hover:not(.highlighted) {
