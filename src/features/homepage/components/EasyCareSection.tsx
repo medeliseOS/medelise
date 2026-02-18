@@ -77,7 +77,7 @@ export default function EasyCareSection() {
                  * ═══════════════════════════════════════ */
                 .easycare {
                     width: 100%;
-                    background: var(--color-white);
+                    background: var(--color-surface);
                     padding: var(--space-12) var(--space-section-px);
                 }
 
@@ -123,10 +123,10 @@ export default function EasyCareSection() {
                 .easycare-toggle {
                     display: inline-flex;
                     align-items: center;
-                    background: #F9FAFB;
+                    background: var(--color-surface);
                     border-radius: 12px;
                     padding: 6px 8px;
-                    border: 1px solid #F2F4F7;
+                    border: 1px solid var(--color-surface);
                 }
 
                 .easycare-toggle-btn {
@@ -140,7 +140,7 @@ export default function EasyCareSection() {
                     cursor: pointer;
                     transition: all 0.25s ease;
                     background: transparent;
-                    color: var(--color-text-muted);
+                    color: var(--color-primary);
                     line-height: 24px;
                     min-width: 100px;
                 }
@@ -155,7 +155,7 @@ export default function EasyCareSection() {
                     font-family: var(--font-body);
                     font-size: 16px;
                     font-weight: 300;
-                    color: var(--color-text);
+                    color: var(--color-primary);
                     line-height: 24px;
                     display: none;
                 }
@@ -180,7 +180,7 @@ export default function EasyCareSection() {
                     font-weight: 500;
                     font-size: 12px;
                     line-height: 16px;
-                    color: var(--color-text-muted);
+                    color: var(--color-primary);
                     text-align: center;
                 }
 
@@ -215,7 +215,7 @@ export default function EasyCareSection() {
                 .easycare-single-badge {
                     display: inline-flex;
                     padding: 2px 10px;
-                    background: #F0F6FF;
+                    background: var(--color-surface);
                     border-radius: var(--radius-main);
                     font-family: var(--font-heading);
                     font-weight: 500;
@@ -238,7 +238,7 @@ export default function EasyCareSection() {
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 24px;
-                    color: var(--color-text-muted);
+                    color: var(--color-primary);
                     margin: 0 0 var(--space-4);
                 }
 
@@ -280,7 +280,7 @@ export default function EasyCareSection() {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background: #F0F6FF;
+                    background: var(--color-surface);
                     border-radius: 50%;
                     overflow: hidden;
                 }
@@ -394,7 +394,7 @@ export default function EasyCareSection() {
                         justify-content: space-between;
                         padding: var(--space-8);
                         cursor: pointer;
-                        border: 1px solid #E7EBF6;
+                        border: 1px solid var(--color-surface);
 
                         /* Smooth color & order transitions */
                         background: var(--color-white);
@@ -411,7 +411,7 @@ export default function EasyCareSection() {
                     }
 
                     .easycare-card:hover:not(.highlighted) {
-                        background: #F5F7FC;
+                        background: var(--color-surface);
                     }
 
                     /* ── Selected / highlighted card ── */
@@ -458,8 +458,8 @@ export default function EasyCareSection() {
                     }
 
                     .highlighted .easycare-badge {
-                        background: rgba(255, 255, 255, 0.2);
-                        color: var(--color-white);
+                        background: var(--color-white);
+                        color: var(--color-primary);
                     }
 
                     .easycare-price {
@@ -481,13 +481,13 @@ export default function EasyCareSection() {
                         font-weight: 400;
                         font-size: 16px;
                         line-height: 24px;
-                        color: var(--color-text-muted);
+                        color: var(--color-primary);
                         margin: 0 0 var(--space-6);
                         transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
                     }
 
                     .highlighted .easycare-period {
-                        color: rgba(255, 255, 255, 0.7);
+                        color: var(--color-white);
                     }
 
                     .easycare-desc {
@@ -502,7 +502,7 @@ export default function EasyCareSection() {
                     }
 
                     .highlighted .easycare-desc {
-                        color: rgba(255, 255, 255, 0.9);
+                        color: var(--color-white);
                     }
 
                     .easycare-features {
@@ -515,7 +515,7 @@ export default function EasyCareSection() {
                     }
 
                     .highlighted .easycare-feature-icon {
-                        background: rgba(255, 255, 255, 0.2);
+                        background: var(--color-white);
                     }
 
                     .highlighted .easycare-feature-text {
@@ -687,10 +687,10 @@ export default function EasyCareSection() {
                                             style={
                                                 isSelected
                                                     ? {
-                                                        '--btn-border': 'white',
-                                                        '--btn-text': 'white',
+                                                        '--btn-border': 'var(--color-white)',
+                                                        '--btn-text': 'var(--color-white)',
                                                         '--btn-bg': 'transparent',
-                                                        '--btn-bg-hover': 'rgba(255,255,255,0.1)',
+                                                        '--btn-bg-hover': 'transparent',
                                                     } as React.CSSProperties
                                                     : undefined
                                             }
