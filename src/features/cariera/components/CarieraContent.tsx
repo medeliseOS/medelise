@@ -194,6 +194,172 @@ export default function CarieraContent() {
                         </>
                     )}
                 </section>
+
+                {/* ── Benefits Section ── */}
+                <section className="benefits-section">
+                    <div className="benefits-inner">
+                        <div className="benefits-content">
+                            {/* LEFT SIDE: Title + Features */}
+                            <div className="benefits-left">
+                                <div className="benefits-text-group">
+                                    <div className="benefits-header">
+                                        <div className="benefits-title-group">
+                                            <div className="benefits-title">Beneficiile colaborării cu Medvita</div>
+                                            <div className="benefits-desc">
+                                                Viziunea noastră pentru colaboratori<br />
+                                                Colaborarea cu Medvita înseamnă libertate profesională, recunoaștere reală și acces la un ecosistem digital care te ajută să lucrezi eficient, sigur și predictibil. Ne dorim ca fiecare specialist să aibă control asupra programului, a veniturilor și a modului în care își construiește cariera.
+                                            </div>
+                                            <div className="benefits-line-container">
+                                                <Image
+                                                    src="/icons-medelise/md-about/md-ico-underline-marker.webp"
+                                                    alt=""
+                                                    fill
+                                                    sizes="160px"
+                                                    style={{ objectFit: 'contain', objectPosition: 'left center' }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="benefits-features">
+                                        {/* Feature 1 */}
+                                        <div className="benefits-feature-row">
+                                            <div className="benefits-feature-header">
+                                                <div className="benefits-feature-icon-box">
+                                                    <div className="benefits-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-dollar-coin.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-dollar-coin.webp')" }} />
+                                                </div>
+                                                <div className="benefits-feature-title">Flexibilitate adevărată</div>
+                                            </div>
+                                            <div className="benefits-feature-desc">Poți lucra în intervalele care ți se potrivesc. Alegi zonele, numărul de vizite și ritmul de lucru. Te ajutăm să îți construiești un program personalizat, fără presiunea unui orar rigid.</div>
+                                        </div>
+
+                                        {/* Feature 2 */}
+                                        <div className="benefits-feature-row">
+                                            <div className="benefits-feature-header">
+                                                <div className="benefits-feature-icon-box">
+                                                    <div className="benefits-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-timer.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-timer.webp')" }} />
+                                                </div>
+                                                <div className="benefits-feature-title">Echilibru între viață și profesie</div>
+                                            </div>
+                                            <div className="benefits-feature-desc">Lucrezi atât cât îți dorești, fără ture forțate. Ai libertatea de a-ți organiza timpul astfel încât să fii prezent pentru familie, studii sau activități personale. Medvita îți oferă control și predictibilitate.</div>
+                                        </div>
+
+                                        {/* Feature 3 */}
+                                        <div className="benefits-feature-row">
+                                            <div className="benefits-feature-header">
+                                                <div className="benefits-feature-icon-box">
+                                                    <div className="benefits-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-pie-chart.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-pie-chart.webp')" }} />
+                                                </div>
+                                                <div className="benefits-feature-title">Venituri competitive și transparente</div>
+                                            </div>
+                                            <div className="benefits-feature-desc">Plata se face corect, rapid și complet transparent: per vizită, per procedură sau în sistem mixt – în funcție de rol. Oferim bonusuri pentru disponibilitate, performanță și feedback pozitiv din partea pacienților.</div>
+                                        </div>
+
+                                        {/* Feature 4 */}
+                                        <div className="benefits-feature-row">
+                                            <div className="benefits-feature-header">
+                                                <div className="benefits-feature-icon-box">
+                                                    <div className="benefits-icon-mask" style={{ maskImage: "url('/icons-medelise/md-about/md-ico-check-folder.webp')", WebkitMaskImage: "url('/icons-medelise/md-about/md-ico-check-folder.webp')" }} />
+                                                </div>
+                                                <div className="benefits-feature-title">Suport și dezvoltare continuă</div>
+                                            </div>
+                                            <div className="benefits-feature-desc">Primești sprijin logistic, mentori, protocoale clare și acces la cursurile interne Medvita. Îți oferim un mediu real în care poți crește profesional, poți construi autoritate și poți avansa în roluri coordonatoare.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* RIGHT SIDE: 2×2 Cards */}
+                            <div className="benefits-right">
+                                {/* Row 1 */}
+                                <div className="benefits-cards-row">
+                                    <div className="benefits-card">
+                                        <div className="benefits-card-header">
+                                            <div className="benefits-card-icon">
+                                                <div className="benefits-card-icon-inner">
+                                                    <Image
+                                                        src="/icons-medelise/md-about/md-ico-user-group.webp"
+                                                        alt=""
+                                                        width={24}
+                                                        height={24}
+                                                        style={{ filter: 'brightness(0) invert(1)' }}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="benefits-card-content">
+                                                <div className="benefits-card-title">Echipă multidisciplinară unită</div>
+                                                <div className="benefits-card-desc">Lucrezi alături de medici, asistenți, kinetoterapeuți și terapeuți cu experiență reală. Învățăm unii de la alții și construim împreună intervenții sigure și eficiente.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="benefits-card">
+                                        <div className="benefits-card-header">
+                                            <div className="benefits-card-icon">
+                                                <div className="benefits-card-icon-inner">
+                                                    <Image
+                                                        src="/icons-medelise/md-about/md-ico-email-open.webp"
+                                                        alt=""
+                                                        width={24}
+                                                        height={24}
+                                                        style={{ filter: 'brightness(0) invert(1)' }}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="benefits-card-content">
+                                                <div className="benefits-card-title">Comunicare simplă și directă</div>
+                                                <div className="benefits-card-desc">Ai acces rapid la coordonatori, suport logistic și feedback constant. Fără birocrație, fără platforme complicate, fără ierarhii opace.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Row 2 */}
+                                <div className="benefits-cards-row">
+                                    <div className="benefits-card">
+                                        <div className="benefits-card-header">
+                                            <div className="benefits-card-icon">
+                                                <div className="benefits-card-icon-inner">
+                                                    <Image
+                                                        src="/icons-medelise/md-about/md-ico-mobile.webp"
+                                                        alt=""
+                                                        width={24}
+                                                        height={24}
+                                                        style={{ filter: 'brightness(0) invert(1)' }}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="benefits-card-content">
+                                                <div className="benefits-card-title">HomeCare fără limite artificiale</div>
+                                                <div className="benefits-card-desc">Îți alegi zonele preferate. Poți lucra local, în Ilfov, sau în extindere (diaspora &amp; piețe noi). Ai libertatea de a te implica în proiecte speciale sau campanii medicale.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="benefits-card">
+                                        <div className="benefits-card-header">
+                                            <div className="benefits-card-icon">
+                                                <div className="benefits-card-icon-inner">
+                                                    <Image
+                                                        src="/icons-medelise/md-about/md-ico-check-folder.webp"
+                                                        alt=""
+                                                        width={24}
+                                                        height={24}
+                                                        style={{ filter: 'brightness(0) invert(1)' }}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="benefits-card-content">
+                                                <div className="benefits-card-title">Tehnologie care îți simplifică munca</div>
+                                                <div className="benefits-card-desc">careOS îți gestionează rutele, programările și triajul inteligent. Mai puține apeluri, mai puțină confuzie, mai mult timp pentru pacient și pentru tine.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
 
             <style jsx>{`
@@ -564,6 +730,267 @@ export default function CarieraContent() {
                         align-items: flex-start;
                         gap: var(--space-2);
                     }
+                }
+
+                /* ═══════════════════════════════════
+                   §5  BENEFITS SECTION — DESKTOP
+                   ═══════════════════════════════════ */
+                .benefits-section {
+                    width: 100%;
+                    background: var(--color-white, #fff);
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .benefits-inner {
+                    width: 100%;
+                    padding: 64px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .benefits-content {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: stretch;
+                    gap: 64px;
+                }
+
+                /* ── LEFT COLUMN ── */
+                .benefits-left {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 24px;
+                }
+
+                .benefits-text-group {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                }
+
+                .benefits-header {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+
+                .benefits-title-group {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    padding-bottom: 24px;
+                }
+
+                .benefits-title {
+                    color: var(--color-primary);
+                    font-size: 28px;
+                    font-family: var(--font-heading);
+                    font-weight: 600;
+                    line-height: 36px;
+                }
+
+                .benefits-desc {
+                    color: var(--color-primary);
+                    font-size: 16px;
+                    font-family: var(--font-heading);
+                    font-weight: 400;
+                    line-height: 24px;
+                }
+
+                .benefits-line-container {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 160px;
+                    height: 12px;
+                }
+
+                .benefits-features {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .benefits-feature-row {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+
+                .benefits-feature-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+
+                .benefits-feature-icon-box {
+                    width: 24px;
+                    height: 24px;
+                    position: relative;
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .benefits-icon-mask {
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--color-accent, #005BCC);
+                    -webkit-mask-size: contain;
+                    mask-size: contain;
+                    -webkit-mask-repeat: no-repeat;
+                    mask-repeat: no-repeat;
+                    -webkit-mask-position: center;
+                    mask-position: center;
+                }
+
+                .benefits-feature-title {
+                    flex: 1;
+                    color: var(--color-primary);
+                    font-size: 16px;
+                    font-family: var(--font-heading);
+                    font-weight: 500;
+                    line-height: 24px;
+                }
+
+                .benefits-feature-desc {
+                    color: var(--color-primary);
+                    font-size: 16px;
+                    font-family: var(--font-heading);
+                    font-weight: 400;
+                    line-height: 24px;
+                }
+
+                /* ── RIGHT COLUMN (CARDS) ── */
+                .benefits-right {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                }
+
+                .benefits-cards-row {
+                    display: flex;
+                    flex: 1;
+                    gap: 32px;
+                }
+
+                .benefits-card {
+                    flex: 1;
+                    padding: 24px;
+                    background: white;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 10px;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 28px;
+                }
+
+                .benefits-card-header {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    align-items: flex-start;
+                    flex: 1;
+                }
+
+                .benefits-card-icon {
+                    width: 40px;
+                    height: 40px;
+                    background: var(--color-primary);
+                    border-radius: 10px;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .benefits-card-icon-inner {
+                    position: relative;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .benefits-card-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+
+                .benefits-card-title {
+                    color: var(--color-primary);
+                    font-size: 20px;
+                    font-family: var(--font-heading);
+                    font-weight: 600;
+                    line-height: 28px;
+                }
+
+                .benefits-card-desc {
+                    color: var(--color-primary);
+                    font-size: 16px;
+                    font-family: var(--font-heading);
+                    font-weight: 400;
+                    line-height: 24px;
+                }
+
+                /* ── Benefits TABLET (max 1024px) ── */
+                @media (max-width: 1024px) {
+                    .benefits-inner {
+                        padding: 48px 32px;
+                    }
+
+                    .benefits-content {
+                        flex-direction: column;
+                        gap: 48px;
+                    }
+
+                    .benefits-left {
+                        width: 100%;
+                    }
+
+                    .benefits-right {
+                        width: 100%;
+                        gap: 24px;
+                    }
+
+                    .benefits-cards-row {
+                        flex-direction: column;
+                        gap: 24px;
+                    }
+
+                    .benefits-title { font-size: 24px; line-height: 32px; }
+                    .benefits-desc { font-size: 14px; line-height: 20px; }
+                    .benefits-feature-title { font-size: 14px; line-height: 20px; }
+                    .benefits-feature-desc { font-size: 14px; line-height: 20px; }
+                    .benefits-card-title { font-size: 18px; line-height: 28px; }
+                    .benefits-card-desc { font-size: 14px; line-height: 20px; }
+
+                    .benefits-line-container { width: 140px; }
+                }
+
+                /* ── Benefits MOBILE (max 480px) ── */
+                @media (max-width: 480px) {
+                    .benefits-inner {
+                        padding: 32px 16px;
+                    }
+
+                    .benefits-content {
+                        gap: 32px;
+                    }
+
+                    .benefits-title { font-size: 20px; line-height: 28px; }
+                    .benefits-feature-desc { font-size: 12px; line-height: 16px; }
+                    .benefits-card-desc { font-size: 12px; line-height: 16px; }
                 }
             `}</style>
         </>
