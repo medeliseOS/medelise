@@ -2,7 +2,7 @@
 // Public API — Homepage Feature
 export { default as EasyCareSection } from './EasyCareSection';
 export { default as HeroSection } from './HeroSection';
-export { default as JourneySection } from './JourneySection';
+export { default as HowItWorksSection } from './HowItWorksSection';
 export { default as MissionStatsSection } from './MissionStatsSection';
 export { default as NewsletterSection } from './NewsletterSection';
 export { default as PatientPortalSection } from './PatientPortalSection';

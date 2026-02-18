@@ -1,6 +1,7 @@
 import {
   EasyCareSection,
   HeroSection,
+  HowItWorksSection,
   MissionStatsSection,
   WhyChooseUsSection,
   QualitySection,
@@ -26,6 +27,7 @@ export default function Home() {
       <TestimonialsSection />
       <PatientPortalSection />
       <ServiciiSection />
+      <HowItWorksSection />
       <EasyCareSection />
     </main>
   );
