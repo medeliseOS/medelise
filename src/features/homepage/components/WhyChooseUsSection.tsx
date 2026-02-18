@@ -59,8 +59,8 @@ export default function WhyChooseUsSection() {
 
                 .why-section {
                     width: 100%;
-                    padding-top: var(--space-section-py);
-                    padding-bottom: var(--space-section-py);
+                    padding-top: 64px;
+                    padding-bottom: 64px;
                     background: var(--color-white);
                     flex-direction: column;
                     justify-content: flex-start;
