@@ -162,9 +162,9 @@ export default function HowItWorksSection() {
                 .hiw-step-desc {
                     color: var(--color-primary);
                     font-family: var(--font-body);
-                    font-size: 10px;
+                    font-size: 16px;
                     font-weight: 300;
-                    line-height: 15px;
+                    line-height: 24px;
                     margin: 4px 0 0;
                 }
 
