@@ -482,7 +482,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {
                     .drez-page { padding: 0; }
-                    .drez-container { max-width: 704px; padding: 0 32px; gap: 32px; }
+                    .drez-container { max-width: 704px; padding: 0 32px 64px; gap: 32px; }
                     .drez-main-row { flex-direction: column; align-items: center; gap: 32px; }
                     .drez-left-column { width: 100%; max-width: 704px; }
                     .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 500px; }
@@ -501,7 +501,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
                     .drez-page { padding: 0; }
-                    .drez-container { max-width: 100%; padding: 0 16px; gap: 32px; }
+                    .drez-container { max-width: 100%; padding: 0 16px 64px; gap: 32px; }
                     .drez-main-row { gap: 32px; }
                     .drez-left-column { width: 100%; max-width: 100%; }
                     .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 360px; }
