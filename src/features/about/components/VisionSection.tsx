@@ -20,7 +20,7 @@ export default function VisionSection() {
 
                 .dn-vision-inner {
                     width: 100%;
-                    padding: 64px 112px;
+                    padding: 64px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
