@@ -29,10 +29,10 @@ const CONTACT_ITEMS = [
 
 const LEGAL_LINKS = [
     { label: 'Asistență clienți', href: '/contact' },
-    { label: 'Termeni și condiții', href: '#' },
-    { label: 'Politica cookies', href: '#' },
-    { label: 'Întrebări frecvente (FAQ)', href: '#' },
-    { label: 'Politica de confidențialitate GDPR', href: '#' },
+    { label: 'Termeni și condiții', href: '/termeni-si-conditii' },
+    { label: 'Politica cookies', href: '/politica-cookies' },
+    { label: 'Întrebări frecvente (FAQ)', href: '/faq' },
+    { label: 'Politica de confidențialitate GDPR', href: '/politica-confidentialitate' },
 ];
 
 const SOCIAL_LINKS = [

@@ -32,7 +32,7 @@ export const TOP_LINKS: NavLink[] = [
     { label: 'Despre noi', href: '/despre-noi' },
     { label: 'Cariera', href: '/cariera' },
     { label: 'Contact', href: '/contact' },
-    { label: 'FAQs', href: '#' },
+    { label: 'FAQs', href: '/faq' },
 ];
 
 /* ── Main Menu Items ────────────────────────────────────────────── */
