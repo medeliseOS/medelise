@@ -410,9 +410,6 @@ export default function EasyCareSection() {
                         border-radius: var(--radius-lg);
                     }
 
-                    .easycare-card:hover:not(.highlighted) {
-                        background: var(--color-surface);
-                    }
 
                     /* ── Selected / highlighted card ── */
                     .easycare-card.highlighted {
