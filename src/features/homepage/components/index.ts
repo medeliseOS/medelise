@@ -1,6 +1,5 @@
 'use client';
 // Public API — Homepage Feature
-export { default as CTAScheduleSection } from './CTAScheduleSection';
 export { default as EasyCareSection } from './EasyCareSection';
 export { default as FAQSection } from './FAQSection';
 export { default as HeroSection } from './HeroSection';

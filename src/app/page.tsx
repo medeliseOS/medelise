@@ -1,5 +1,4 @@
 import {
-  CTAScheduleSection,
   EasyCareSection,
   FAQSection,
   HeroSection,
@@ -11,6 +10,7 @@ import {
   ServiciiSection,
   TestimonialsSection,
 } from '@features/homepage/components';
+import CTASection from '@ui/CTASection';
 
 export default function Home() {
   return (
@@ -32,7 +32,8 @@ export default function Home() {
       <EasyCareSection />
       <HowItWorksSection />
       <FAQSection />
-      <CTAScheduleSection />
+      <CTASection />
     </main>
   );
 }
+
