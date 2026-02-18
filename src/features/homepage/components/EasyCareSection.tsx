@@ -416,8 +416,24 @@ export default function EasyCareSection() {
 
                     /* ── Selected / highlighted card ── */
                     .easycare-card.highlighted {
-                        background: var(--color-primary);
-                        border-color: var(--color-primary);
+                        border: 2px solid transparent;
+                        background-image:
+                            linear-gradient(var(--color-primary), var(--color-primary)),
+                            conic-gradient(
+                                from var(--gradient-angle),
+                                var(--color-primary-hover) 0%,
+                                var(--color-primary) 37%,
+                                var(--color-secondary) 40%,
+                                var(--color-primary) 43%,
+                                var(--color-primary-hover) 50%,
+                                var(--color-primary) 77%,
+                                var(--color-secondary) 80%,
+                                var(--color-primary) 83%,
+                                var(--color-primary-hover) 90%
+                            );
+                        background-clip: padding-box, border-box;
+                        background-origin: padding-box, border-box;
+                        animation: gradient-angle 2.5s linear infinite;
                         transform: scaleY(1.03);
                         box-shadow: 0 20px 60px rgba(33, 49, 112, 0.28);
                         z-index: 2;
@@ -526,6 +542,20 @@ export default function EasyCareSection() {
                         display: flex;
                         flex-direction: column;
                         gap: var(--space-3);
+                    }
+                }
+            `}</style>
+
+            <style jsx global>{`
+                @property --gradient-angle {
+                    syntax: "<angle>";
+                    initial-value: 0turn;
+                    inherits: false;
+                }
+
+                @keyframes gradient-angle {
+                    to {
+                        --gradient-angle: 1turn;
                     }
                 }
             `}</style>
