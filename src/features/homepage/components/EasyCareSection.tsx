@@ -245,8 +245,8 @@ export default function EasyCareSection() {
                 .easycare-single-desc {
                     font-family: var(--font-heading);
                     font-weight: 400;
-                    font-size: 14px;
-                    line-height: 20px;
+                    font-size: 16px;
+                    line-height: 24px;
                     color: var(--color-primary);
                     margin: 0 0 var(--space-4);
                     max-width: none;
@@ -493,8 +493,8 @@ export default function EasyCareSection() {
                     .easycare-desc {
                         font-family: var(--font-heading);
                         font-weight: 400;
-                        font-size: 14px;
-                        line-height: 20px;
+                        font-size: 18px;
+                        line-height: 26px;
                         color: var(--color-primary);
                         margin: 0 0 var(--space-6);
                         max-width: none;
