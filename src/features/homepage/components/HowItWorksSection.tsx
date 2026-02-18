@@ -123,7 +123,7 @@ export default function HowItWorksSection() {
                     flex-shrink: 0;
                 }
 
-                .hiw-step-icon-img {
+                .hiw-step-icon :global(.hiw-step-icon-img) {
                     filter: brightness(0) invert(1);
                 }
 
