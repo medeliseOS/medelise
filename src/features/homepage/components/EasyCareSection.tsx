@@ -678,6 +678,16 @@ export default function EasyCareSection() {
                                         <Button
                                             variant={isSelected ? 'secondary' : 'primary'}
                                             isFullWidth
+                                            style={
+                                                isSelected
+                                                    ? {
+                                                        '--btn-bg': 'var(--color-white)',
+                                                        '--btn-bg-hover': 'var(--color-white)',
+                                                        '--btn-text': 'var(--color-primary)',
+                                                        '--btn-border': 'transparent',
+                                                    } as React.CSSProperties
+                                                    : undefined
+                                            }
                                         >
                                             Activează planul
                                         </Button>
@@ -687,10 +697,10 @@ export default function EasyCareSection() {
                                             style={
                                                 isSelected
                                                     ? {
-                                                        '--btn-border': 'var(--color-white)',
-                                                        '--btn-text': 'var(--color-white)',
+                                                        '--btn-border': 'var(--color-primary)',
+                                                        '--btn-text': 'var(--color-primary)',
                                                         '--btn-bg': 'transparent',
-                                                        '--btn-bg-hover': 'transparent',
+                                                        '--btn-bg-hover': 'rgba(33, 49, 112, 0.06)',
                                                     } as React.CSSProperties
                                                     : undefined
                                             }
