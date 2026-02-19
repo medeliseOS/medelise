@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import NewsletterSection from '@features/homepage/components/NewsletterSection';
 
@@ -24,7 +24,98 @@ export default function TermeniContent() {
     const [searchQuery, setSearchQuery] = useState('');
     const [activeId, setActiveId] = useState('introducere');
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [matchCount, setMatchCount] = useState(0);
     const contentRef = useRef<HTMLDivElement>(null);
+    const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    /* ── Highlight helper ────────────────────────────────────── */
+    const clearHighlights = useCallback(() => {
+        if (!contentRef.current) return;
+        const marks = contentRef.current.querySelectorAll('mark.termeni-highlight');
+        marks.forEach((mark) => {
+            const parent = mark.parentNode;
+            if (parent) {
+                parent.replaceChild(document.createTextNode(mark.textContent || ''), mark);
+                parent.normalize();
+            }
+        });
+    }, []);
+
+    const applyHighlights = useCallback((query: string) => {
+        clearHighlights();
+        if (!contentRef.current || query.length < 2) {
+            setMatchCount(0);
+            return;
+        }
+
+        const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escapedQuery})`, 'gi');
+        let count = 0;
+
+        const walker = document.createTreeWalker(
+            contentRef.current,
+            NodeFilter.SHOW_TEXT,
+            null
+        );
+
+        const textNodes: Text[] = [];
+        let node: Node | null;
+        while ((node = walker.nextNode())) {
+            if (node.textContent && regex.test(node.textContent)) {
+                textNodes.push(node as Text);
+            }
+            regex.lastIndex = 0;
+        }
+
+        textNodes.forEach((textNode) => {
+            const text = textNode.textContent || '';
+            const parts = text.split(regex);
+            if (parts.length <= 1) return;
+
+            const frag = document.createDocumentFragment();
+            parts.forEach((part) => {
+                if (regex.test(part)) {
+                    const mark = document.createElement('mark');
+                    mark.className = 'termeni-highlight';
+                    if (count === 0) mark.classList.add('termeni-highlight-first');
+                    mark.textContent = part;
+                    frag.appendChild(mark);
+                    count++;
+                } else {
+                    frag.appendChild(document.createTextNode(part));
+                }
+                regex.lastIndex = 0;
+            });
+
+            textNode.parentNode?.replaceChild(frag, textNode);
+        });
+
+        setMatchCount(count);
+
+        if (count > 0) {
+            const first = contentRef.current.querySelector('.termeni-highlight-first');
+            if (first) {
+                first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }, [clearHighlights]);
+
+    /* ── Debounced search ─────────────────────────────────────── */
+    useEffect(() => {
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        debounceRef.current = setTimeout(() => {
+            applyHighlights(searchQuery.trim());
+        }, 300);
+        return () => {
+            if (debounceRef.current) clearTimeout(debounceRef.current);
+        };
+    }, [searchQuery, applyHighlights]);
+
+    const clearSearch = useCallback(() => {
+        setSearchQuery('');
+        clearHighlights();
+        setMatchCount(0);
+    }, [clearHighlights]);
 
     /* ── Scroll-spy ──────────────────────────────────────────── */
     useEffect(() => {
@@ -100,9 +191,31 @@ export default function TermeniContent() {
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                 />
+                                {searchQuery && (
+                                    <>
+                                        {matchCount > 0 && (
+                                            <span className="termeni-search-badge">
+                                                {matchCount} {matchCount === 1 ? 'rezultat' : 'rezultate'}
+                                            </span>
+                                        )}
+                                        <button
+                                            type="button"
+                                            className="termeni-search-clear"
+                                            onClick={clearSearch}
+                                            aria-label="Șterge căutarea"
+                                        >
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </>
+                                )}
                             </div>
                             <p className="termeni-search-hint">
-                                Exemplu: GDPR, confidențialitate, date personale
+                                {searchQuery.length >= 2 && matchCount === 0
+                                    ? 'Niciun rezultat găsit'
+                                    : 'Exemplu: GDPR, confidențialitate, date personale'
+                                }
                             </p>
                         </div>
                     </div>
@@ -437,6 +550,40 @@ export default function TermeniContent() {
                     font-weight: 500;
                     line-height: 16px;
                     margin: 0;
+                }
+
+                /* ── Search badge + clear ──────────────────────── */
+                .termeni-search-badge {
+                    flex-shrink: 0;
+                    padding: 2px 8px;
+                    border-radius: 10px;
+                    background: #FE5D16;
+                    color: #fff;
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 16px;
+                    white-space: nowrap;
+                }
+
+                .termeni-search-clear {
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 24px;
+                    height: 24px;
+                    border: none;
+                    background: transparent;
+                    color: rgba(33, 49, 112, 0.5);
+                    cursor: pointer;
+                    border-radius: 4px;
+                    transition: color 0.2s, background 0.2s;
+                    padding: 0;
+                }
+
+                .termeni-search-clear:hover {
+                    color: #213170;
+                    background: rgba(33, 49, 112, 0.08);
                 }
 
                 /* ═══════════════════════════════════════════════════
@@ -790,6 +937,29 @@ export default function TermeniContent() {
                 .termeni-link-underline {
                     color: #FE5D16 !important;
                     text-decoration: underline;
+                }
+
+                /* ── Search highlights (DOM-injected) ──────────── */
+                mark.termeni-highlight {
+                    background: #FFF3CD;
+                    color: #213170;
+                    padding: 1px 3px;
+                    border-radius: 3px;
+                    font-weight: inherit;
+                    animation: highlightFadeIn 0.3s ease;
+                }
+
+                mark.termeni-highlight-first {
+                    background: #FE5D16;
+                    color: #fff;
+                    padding: 2px 4px;
+                    border-radius: 4px;
+                    box-shadow: 0 0 0 2px rgba(254, 93, 22, 0.25);
+                }
+
+                @keyframes highlightFadeIn {
+                    from { background: transparent; }
+                    to { background: #FFF3CD; }
                 }
             `}</style>
         </>

@@ -91,12 +91,11 @@ export default function NewsletterSection({
 
         .newsletter-outer {
           width: 100%;
-          padding: 48px 16px;
+          padding: 48px var(--space-section-px-sm);
         }
 
         .newsletter-container {
-          max-width: 343px;
-          margin: 0 auto;
+          width: 100%;
         }
 
         .newsletter-card {
@@ -181,11 +180,7 @@ export default function NewsletterSection({
          * ═══════════════════════════════════════ */
         @media (min-width: 641px) {
           .newsletter-outer {
-            padding: 64px 16px;
-          }
-
-          .newsletter-container {
-            max-width: 704px;
+            padding: 64px var(--space-section-px-md);
           }
 
           .newsletter-row {
@@ -233,11 +228,7 @@ export default function NewsletterSection({
          * ═══════════════════════════════════════ */
         @media (min-width: 1025px) {
           .newsletter-outer {
-            padding: 64px;
-          }
-
-          .newsletter-container {
-            max-width: 1312px;
+            padding: 64px var(--space-section-px-lg);
           }
 
           .newsletter-card {
