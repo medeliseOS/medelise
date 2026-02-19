@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import LegalSearchHero from './LegalSearchHero';
+import useLegalSearch from '../hooks/useLegalSearch';
 
 /* ─── FAQ Categories & Data ─── */
 const FAQ_CATEGORIES = [
@@ -109,6 +111,7 @@ const FAQ_ITEMS: Record<CategoryKey, { question: string; answer: string }[]> = {
 };
 
 export default function FAQContent() {
+    const { searchQuery, setSearchQuery, matchCount, contentRef, clearSearch } = useLegalSearch();
     const [activeCategory, setActiveCategory] = useState<CategoryKey>('general');
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -122,16 +125,18 @@ export default function FAQContent() {
     return (
         <>
             <main className="faq-page">
-                <div className="faq-inner">
-                    {/* Hero */}
-                    <section className="faq-hero">
-                        <p className="faq-surtitle">Suport</p>
-                        <h1 className="faq-title">Întrebări Frecvente</h1>
-                        <p className="faq-desc">
-                            Găsește rapid răspunsuri la cele mai frecvente întrebări despre Medelise, serviciile
-                            noastre, programări și plăți.
-                        </p>
-                    </section>
+                {/* ── Hero ──────────────────────────────────────── */}
+                <LegalSearchHero
+                    title="Întrebări Frecvente"
+                    date="Suport"
+                    description="Găsește rapid răspunsuri la cele mai frecvente întrebări despre Medelise, serviciile noastre, programări și plăți."
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    matchCount={matchCount}
+                    clearSearch={clearSearch}
+                />
+
+                <div className="faq-inner" ref={contentRef}>
 
                     {/* Category Tabs */}
                     <section className="faq-tabs">
@@ -218,40 +223,6 @@ export default function FAQContent() {
                     max-width: 800px;
                     margin: 0 auto;
                     padding: 64px var(--space-section-px);
-                }
-
-                /* ── Hero ── */
-                .faq-hero {
-                    text-align: center;
-                    padding: 48px 0 48px;
-                }
-
-                .faq-surtitle {
-                    color: var(--color-accent);
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    margin: 0 0 12px;
-                }
-
-                .faq-title {
-                    color: var(--color-primary);
-                    font-size: 40px;
-                    font-weight: 700;
-                    line-height: 1.2;
-                    margin: 0 0 16px;
-                }
-
-                .faq-desc {
-                    color: var(--color-primary);
-                    font-size: 18px;
-                    font-weight: 400;
-                    line-height: 1.6;
-                    margin: 0;
-                    max-width: 560px;
-                    margin: 0 auto;
-                    opacity: 0.7;
                 }
 
                 /* ── Category Tabs ── */
@@ -439,14 +410,6 @@ export default function FAQContent() {
                         padding: 32px var(--space-section-px-md);
                     }
 
-                    .faq-title {
-                        font-size: 28px;
-                    }
-
-                    .faq-desc {
-                        font-size: 16px;
-                    }
-
                     .faq-tabs {
                         gap: 6px;
                     }
@@ -460,10 +423,6 @@ export default function FAQContent() {
                 @media (max-width: 480px) {
                     .faq-inner {
                         padding: 24px var(--space-section-px-sm);
-                    }
-
-                    .faq-title {
-                        font-size: 24px;
                     }
 
                     .faq-item {
