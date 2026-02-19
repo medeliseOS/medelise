@@ -13,11 +13,11 @@ export default function CookiesContent() {
                 <LegalSearchHero
                     title="Politica privind modulele cookie"
                     date="Ultima actualizare: [04 mai 2025]"
-                    description="Această politică explică modul în care MEDVITA HEALTH SOLUTIONS S.R.L. („Medvita", „noi") utilizează modulele cookie și tehnologii similare pe website-ul nostru [www.medvita.ro] și în platformele noastre digitale (inclusiv careOS)."
-                searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
-                matchCount={matchCount}
-                clearSearch={clearSearch}
+                    description={`Această politică explică modul în care MEDVITA HEALTH SOLUTIONS S.R.L. („Medvita", „noi") utilizează modulele cookie și tehnologii similare pe website-ul nostru [www.medvita.ro] și în platformele noastre digitale (inclusiv careOS).`}
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    matchCount={matchCount}
+                    clearSearch={clearSearch}
                 />
 
                 {/* ── Content ──────────────────────────────────── */}
