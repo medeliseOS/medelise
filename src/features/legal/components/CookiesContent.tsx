@@ -1,18 +1,27 @@
 'use client';
 
+import LegalSearchHero from './LegalSearchHero';
+import useLegalSearch from '../hooks/useLegalSearch';
+
 export default function CookiesContent() {
+    const { searchQuery, setSearchQuery, matchCount, contentRef, clearSearch } = useLegalSearch();
+
     return (
         <>
             <main className="legal-page">
-                <div className="legal-inner">
-                    {/* Hero */}
-                    <section className="legal-hero">
-                        <p className="legal-surtitle">Legal</p>
-                        <h1 className="legal-title">Politica de Cookies</h1>
-                        <p className="legal-updated">Ultima actualizare: 18 februarie 2026</p>
-                    </section>
+                {/* ── Hero ──────────────────────────────────────── */}
+                <LegalSearchHero
+                    title="Politica privind modulele cookie"
+                    date="Ultima actualizare: [04 mai 2025]"
+                    description="Această politică explică modul în care MEDVITA HEALTH SOLUTIONS S.R.L. („Medvita", „noi") utilizează modulele cookie și tehnologii similare pe website-ul nostru [www.medvita.ro] și în platformele noastre digitale (inclusiv careOS)."
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                matchCount={matchCount}
+                clearSearch={clearSearch}
+                />
 
-                    {/* Content */}
+                {/* ── Content ──────────────────────────────────── */}
+                <div className="legal-inner" ref={contentRef}>
                     <section className="legal-content">
                         <div className="legal-section">
                             <h2>1. Ce sunt cookie-urile?</h2>
@@ -140,38 +149,7 @@ export default function CookiesContent() {
                 .legal-inner {
                     max-width: 800px;
                     margin: 0 auto;
-                    padding: 64px var(--space-section-px);
-                }
-
-                .legal-hero {
-                    text-align: center;
-                    padding: 48px 0 64px;
-                    border-bottom: 1px solid var(--color-surface-border);
-                    margin-bottom: 48px;
-                }
-
-                .legal-surtitle {
-                    color: var(--color-accent);
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    margin: 0 0 12px;
-                }
-
-                .legal-title {
-                    color: var(--color-primary);
-                    font-size: 40px;
-                    font-weight: 700;
-                    line-height: 1.2;
-                    margin: 0 0 16px;
-                }
-
-                .legal-updated {
-                    color: var(--color-surface-border);
-                    font-size: 14px;
-                    font-weight: 400;
-                    margin: 0;
+                    padding: 64px var(--space-section-px-lg);
                 }
 
                 .legal-content {
@@ -261,15 +239,6 @@ export default function CookiesContent() {
                         padding: 32px var(--space-section-px-md);
                     }
 
-                    .legal-hero {
-                        padding: 32px 0 40px;
-                        margin-bottom: 32px;
-                    }
-
-                    .legal-title {
-                        font-size: 28px;
-                    }
-
                     .legal-section h2 {
                         font-size: 18px;
                     }
@@ -278,10 +247,6 @@ export default function CookiesContent() {
                 @media (max-width: 480px) {
                     .legal-inner {
                         padding: 24px var(--space-section-px-sm);
-                    }
-
-                    .legal-title {
-                        font-size: 24px;
                     }
                 }
             `}</style>

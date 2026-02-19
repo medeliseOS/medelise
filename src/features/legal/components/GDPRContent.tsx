@@ -1,18 +1,27 @@
 'use client';
 
+import LegalSearchHero from './LegalSearchHero';
+import useLegalSearch from '../hooks/useLegalSearch';
+
 export default function GDPRContent() {
+    const { searchQuery, setSearchQuery, matchCount, contentRef, clearSearch } = useLegalSearch();
+
     return (
         <>
             <main className="legal-page">
-                <div className="legal-inner">
-                    {/* Hero */}
-                    <section className="legal-hero">
-                        <p className="legal-surtitle">Legal</p>
-                        <h1 className="legal-title">Politica de Confidențialitate GDPR</h1>
-                        <p className="legal-updated">Ultima actualizare: 18 februarie 2026</p>
-                    </section>
+                {/* ── Hero ──────────────────────────────────────── */}
+                <LegalSearchHero
+                    title="POLITICA PRIVIND CONFIDENȚIALITATEA ȘI PRELUCRAREA DATELOR CU CARACTER PERSONAL"
+                    date="Ultima actualizare: [09 mai 2025]"
+                    description="Conform Regulamentului General privind Protecția Datelor cu Caracter Personal (GDPR – UE 2016/679), Medvita Health Solutions S.R.L. respectă confidențialitatea datelor personale ale pacienților, utilizatorilor și partenerilor săi. Prezenta politică descrie modul în care colectăm, folosim și protejăm datele dvs."
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    matchCount={matchCount}
+                    clearSearch={clearSearch}
+                />
 
-                    {/* Content */}
+                {/* ── Content ──────────────────────────────────── */}
+                <div className="legal-inner" ref={contentRef}>
                     <section className="legal-content">
                         <div className="legal-section">
                             <h2>1. Introducere</h2>
@@ -147,38 +156,7 @@ export default function GDPRContent() {
                 .legal-inner {
                     max-width: 800px;
                     margin: 0 auto;
-                    padding: 64px var(--space-section-px);
-                }
-
-                .legal-hero {
-                    text-align: center;
-                    padding: 48px 0 64px;
-                    border-bottom: 1px solid var(--color-surface-border);
-                    margin-bottom: 48px;
-                }
-
-                .legal-surtitle {
-                    color: var(--color-accent);
-                    font-size: 14px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    margin: 0 0 12px;
-                }
-
-                .legal-title {
-                    color: var(--color-primary);
-                    font-size: 40px;
-                    font-weight: 700;
-                    line-height: 1.2;
-                    margin: 0 0 16px;
-                }
-
-                .legal-updated {
-                    color: var(--color-surface-border);
-                    font-size: 14px;
-                    font-weight: 400;
-                    margin: 0;
+                    padding: 64px var(--space-section-px-lg);
                 }
 
                 .legal-content {
@@ -238,15 +216,6 @@ export default function GDPRContent() {
                         padding: 32px var(--space-section-px-md);
                     }
 
-                    .legal-hero {
-                        padding: 32px 0 40px;
-                        margin-bottom: 32px;
-                    }
-
-                    .legal-title {
-                        font-size: 28px;
-                    }
-
                     .legal-section h2 {
                         font-size: 18px;
                     }
@@ -255,10 +224,6 @@ export default function GDPRContent() {
                 @media (max-width: 480px) {
                     .legal-inner {
                         padding: 24px var(--space-section-px-sm);
-                    }
-
-                    .legal-title {
-                        font-size: 24px;
                     }
                 }
             `}</style>
