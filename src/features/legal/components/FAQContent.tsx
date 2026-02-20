@@ -36,6 +36,30 @@ const FAQ_ITEMS: Record<CategoryKey, { question: string; answer: string }[]> = {
             question: 'Medelise oferă servicii de urgență?',
             answer: 'Nu, Medelise nu este un serviciu de urgență. Pentru urgențe medicale, apelați 112. Serviciile noastre sunt programate și destinate îngrijirii medicale planificate.',
         },
+        {
+            question: 'Cum pot contacta echipa Medelise?',
+            answer: 'Ne poți contacta telefonic la +40 (784) 414 555, prin email la office@medelise.ro sau prin formularul de contact de pe site. Răspundem în maximum 24 de ore.',
+        },
+        {
+            question: 'Medelise este disponibil și pentru companii?',
+            answer: 'Da, oferim pachete corporate personalizate pentru companii care doresc să ofere angajaților lor acces la servicii medicale la birou sau la domiciliu. Contactează-ne pentru o ofertă dedicată.',
+        },
+        {
+            question: 'Ce garanții oferă Medelise?',
+            answer: 'Garantăm profesioniști medicali autorizați, echipamente sterile certificate și respectarea tuturor normelor sanitare în vigoare. Dacă nu ești mulțumit de un serviciu, ne poți contacta pentru soluționare.',
+        },
+        {
+            question: 'Cum pot lăsa un feedback despre experiența mea?',
+            answer: 'După fiecare vizită, vei primi un email cu un formular scurt de evaluare. Poți lăsa feedback și direct din contul tău de pe platformă sau prin email la office@medelise.ro.',
+        },
+        {
+            question: 'Medelise are o aplicație mobilă?',
+            answer: 'Aplicația mobilă Medelise este în dezvoltare și va fi disponibilă pe iOS și Android. Până atunci, platforma web este optimizată pentru utilizare pe orice dispozitiv mobil.',
+        },
+        {
+            question: 'Ce limbă este disponibilă pe platformă?',
+            answer: 'Platforma Medelise este disponibilă în limba română. Suport bilingv (română și engleză) este planificat pentru viitoarele versiuni.',
+        },
     ],
     servicii: [
         {
@@ -54,11 +78,35 @@ const FAQ_ITEMS: Record<CategoryKey, { question: string; answer: string }[]> = {
             question: 'Pot solicita un serviciu pentru altcineva?',
             answer: 'Da, puteți programa o vizită medicală pentru un membru al familiei sau o altă persoană. Datele pacientului vor fi necesare la momentul programării.',
         },
+        {
+            question: 'Ce formule IV Drip Therapy sunt disponibile?',
+            answer: 'Avem 12 formule: Boost de Energie, Boost de Imunitate, Super Boost de Imunitate, Anti-Mahmureală, Recuperare Sportivă, Frumusețe, Myers Cocktail, All-Inclusive, Deshidratare, Calmarea Migrenelor, Gastroenterită și Fertility Plus.',
+        },
+        {
+            question: 'Cât durează o sesiune de IV Drip Therapy?',
+            answer: 'O sesiune durează între 30 și 60 de minute, în funcție de formula aleasă și de recomandarea medicului. În acest timp, te poți relaxa confortabil acasă.',
+        },
+        {
+            question: 'Există contraindicații pentru IV Drip Therapy?',
+            answer: 'Da, anumite afecțiuni medicale (boli renale severe, insuficiență cardiacă, alergii la componente) pot constitui contraindicații. De aceea, fiecare pacient beneficiază de o evaluare medicală înainte de tratament.',
+        },
+        {
+            question: 'Ce analize de laborator pot fi recoltate la domiciliu?',
+            answer: 'Acoperim o gamă largă: hemoleucogramă completă, profil lipidic, glicemie, funcție hepatică și renală, markeri tiroidieni, teste hormonale, markeri tumorali și multe altele. Lista completă este disponibilă pe platformă.',
+        },
+        {
+            question: 'Cum primesc rezultatele analizelor?',
+            answer: 'Rezultatele sunt disponibile în contul tău de pe platformă în 24-72 de ore, în funcție de tipul analizei. Primești și o notificare pe email când rezultatele sunt gata.',
+        },
+        {
+            question: 'Serviciile medicale sunt personalizate?',
+            answer: 'Da, fiecare plan de tratament este adaptat nevoilor individuale ale pacientului. Medicul evaluează starea de sănătate, istoricul medical și obiectivele de wellness pentru a recomanda cel mai potrivit serviciu.',
+        },
     ],
     programari: [
         {
             question: 'Cum pot face o programare?',
-            answer: 'Programările se pot face direct de pe platformă (medelise.ro), prin butonul "Book Now" sau telefonic la +40 (784) 414 555. Procesul durează sub 2 minute.',
+            answer: 'Programările se pot face direct de pe platformă (medelise.ro), prin butonul „Book Now" sau telefonic la +40 (784) 414 555. Procesul durează sub 2 minute.',
         },
         {
             question: 'Pot anula sau reprograma o vizită?',
@@ -71,6 +119,30 @@ const FAQ_ITEMS: Record<CategoryKey, { question: string; answer: string }[]> = {
         {
             question: 'Ce intervale orare sunt disponibile?',
             answer: 'Oferim programări de luni până vineri, între 08:00 și 20:00, cu posibilitatea de programări în weekend pentru cazuri speciale. Intervalele exacte depind de disponibilitatea echipei din zona ta.',
+        },
+        {
+            question: 'Pot alege un anumit profesionist medical?',
+            answer: 'Da, dacă ai o preferință, poți solicita un anumit profesionist medical la momentul programării. Disponibilitatea depinde de agenda acestuia.',
+        },
+        {
+            question: 'Ce se întâmplă dacă nu sunt acasă la ora programării?',
+            answer: 'Echipa noastră te va contacta telefonic cu 30 de minute înainte de vizită. Dacă nu ești disponibil, programarea poate fi reprogramată gratuit o singură dată.',
+        },
+        {
+            question: 'Cum primesc confirmarea programării?',
+            answer: 'Primești confirmare instant pe email și SMS imediat după finalizarea programării. Cu 24 de ore și cu 1 oră înainte, primești și un reminder automat.',
+        },
+        {
+            question: 'Pot programa mai multe servicii în aceeași vizită?',
+            answer: 'Da, poți combina servicii compatibile în aceeași vizită (de exemplu, recoltare de analize și IV Drip Therapy). Menționează acest lucru la momentul programării.',
+        },
+        {
+            question: 'Există o limită de programări pe lună?',
+            answer: 'Nu, poți face oricâte programări dorești. Pentru tratamente recurente (cum ar fi IV Drip Therapy), medicul îți va recomanda frecvența optimă.',
+        },
+        {
+            question: 'Ce adresă trebuie să furnizez pentru vizita la domiciliu?',
+            answer: 'Furnizează adresa completă (stradă, număr, bloc, scară, etaj, apartament) și orice indicații suplimentare de acces. Vizitele se fac la adresa specificată, fie acasă, fie la birou.',
         },
     ],
     plati: [
@@ -90,6 +162,30 @@ const FAQ_ITEMS: Record<CategoryKey, { question: string; answer: string }[]> = {
             question: 'Serviciile sunt decontate de asigurarea de sănătate?',
             answer: 'Momentan, serviciile Medelise nu sunt decontate de Casa de Asigurări de Sănătate. Lucrăm la parteneriate cu asigurări private pentru a oferi această opțiune în viitor.',
         },
+        {
+            question: 'Există taxe suplimentare de deplasare?',
+            answer: 'Nu, prețul afișat include deplasarea în zona acoperită (București și Ilfov). Nu există costuri ascunse sau taxe suplimentare.',
+        },
+        {
+            question: 'Oferiți pachete sau abonamente?',
+            answer: 'Da, oferim pachete de mai multe sesiuni IV Drip Therapy cu reduceri de până la 20%. De asemenea, pregătim abonamente lunare pentru companii și persoane fizice.',
+        },
+        {
+            question: 'Pot obține rambursare dacă nu sunt mulțumit?',
+            answer: 'Dacă serviciul nu a fost livrat conform standardelor, analizăm fiecare caz individual. Contactează-ne în 48 de ore de la vizită pentru a iniția o solicitare de rambursare.',
+        },
+        {
+            question: 'Plata online este sigură?',
+            answer: 'Da, utilizăm sisteme de plată cu criptare SSL/TLS și conformitate PCI-DSS. Datele cardului tău nu sunt stocate pe serverele noastre — sunt procesate securizat de partenerul nostru de plăți.',
+        },
+        {
+            question: 'Pot plăti în rate?',
+            answer: 'Momentan nu oferim plata în rate, dar planificăm integrarea cu servicii de tip „buy now, pay later" în viitor. Urmărește actualizările noastre.',
+        },
+        {
+            question: 'Există reduceri pentru programări recurente?',
+            answer: 'Da, pacienții care programează sesiuni recurente de IV Drip Therapy sau pachete de analize beneficiază de reduceri progresive. Detaliile sunt disponibile pe pagina fiecărui serviciu.',
+        },
     ],
     cont: [
         {
@@ -106,7 +202,31 @@ const FAQ_ITEMS: Record<CategoryKey, { question: string; answer: string }[]> = {
         },
         {
             question: 'Am uitat parola. Ce fac?',
-            answer: 'Pe pagina de login, apasă "Am uitat parola" și urmează instrucțiunile primite pe email. Resetarea durează sub 1 minut.',
+            answer: 'Pe pagina de login, apasă „Am uitat parola" și urmează instrucțiunile primite pe email. Resetarea durează sub 1 minut.',
+        },
+        {
+            question: 'Pot modifica datele din profilul meu?',
+            answer: 'Da, poți actualiza oricând numele, adresa de email, numărul de telefon și adresa de domiciliu din secțiunea „Profilul meu" din contul tău.',
+        },
+        {
+            question: 'Ce date personale stochează Medelise?',
+            answer: 'Stocăm doar datele necesare furnizării serviciilor: nume, email, telefon, adresă, istoric programări și datedate medicale relevante. Toate sunt protejate conform GDPR.',
+        },
+        {
+            question: 'Pot descărca datele mele personale?',
+            answer: 'Da, conform GDPR ai dreptul la portabilitatea datelor. Poți solicita o copie a datelor tale personale din setările contului sau prin email la office@medelise.ro.',
+        },
+        {
+            question: 'Cum funcționează autentificarea pe platformă?',
+            answer: 'Poți te autentifica cu email și parolă sau prin login social (Google). Recomandăm activarea autentificării în doi pași (2FA) pentru securitate suplimentară.',
+        },
+        {
+            question: 'Ce se întâmplă cu datele mele dacă îmi șterg contul?',
+            answer: 'La ștergerea contului, datele personale sunt anonimizate sau șterse în 30 de zile. Datele medicale și facturile sunt păstrate conform obligațiilor legale (minimum 5 ani pentru documente fiscale).',
+        },
+        {
+            question: 'Pot avea mai multe adrese salvate în cont?',
+            answer: 'Da, poți salva mai multe adrese de vizită (acasă, birou, altă locație) și alege rapid la fiecare programare adresa dorită.',
         },
     ],
 };
@@ -226,9 +346,21 @@ export default function FAQContent() {
                 }
 
                 .faq-inner {
-                    max-width: 800px;
-                    margin: 0 auto;
-                    padding: 64px var(--space-section-px);
+                    width: 100%;
+                    padding: 64px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                    align-items: stretch;
+                }
+
+                /* Force ALL children to stretch full width */
+                .faq-inner > *,
+                .faq-list > * {
+                    width: 100%;
+                    align-self: stretch;
+                    box-sizing: border-box;
                 }
 
                 /* ── Category Tabs ── */
@@ -239,7 +371,7 @@ export default function FAQContent() {
                     justify-content: center;
                     padding-bottom: 40px;
                     border-bottom: 1px solid var(--color-surface-border);
-                    margin-bottom: 32px;
+                    width: 100%;
                 }
 
                 .faq-tab {
@@ -270,15 +402,8 @@ export default function FAQContent() {
                     display: flex;
                     flex-direction: column;
                     gap: 16px;
-                    margin-bottom: 48px;
                     align-items: stretch;
-                }
-
-                /* Force ALL children to stretch full width */
-                .faq-list > * {
                     width: 100%;
-                    align-self: stretch;
-                    box-sizing: border-box;
                 }
 
                 .faq-item {
@@ -288,6 +413,7 @@ export default function FAQContent() {
                     border: 1px solid var(--color-surface-border);
                     cursor: pointer;
                     transition: border-color 0.2s ease;
+                    box-sizing: border-box;
                 }
 
                 .faq-item:hover {
@@ -298,6 +424,7 @@ export default function FAQContent() {
                     display: flex;
                     align-items: center;
                     gap: 16px;
+                    width: 100%;
                 }
 
                 .faq-chevron {
@@ -330,6 +457,7 @@ export default function FAQContent() {
                     opacity: 0;
                     transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.35s ease;
                     margin-top: 0;
+                    width: 100%;
                 }
 
                 .faq-answer.open {
@@ -345,6 +473,7 @@ export default function FAQContent() {
                     font-weight: 400;
                     line-height: 1.7;
                     margin: 0;
+                    width: 100%;
                 }
 
                 /* ── CTA ── */
@@ -358,6 +487,7 @@ export default function FAQContent() {
                     align-items: center;
                     gap: 24px;
                     text-align: center;
+                    box-sizing: border-box;
                 }
 
                 .faq-cta-content {
@@ -365,6 +495,7 @@ export default function FAQContent() {
                     flex-direction: column;
                     align-items: center;
                     gap: 12px;
+                    width: 100%;
                 }
 
                 .faq-cta-title {
@@ -421,7 +552,7 @@ export default function FAQContent() {
                 /* ── Responsive ── */
                 @media (max-width: 768px) {
                     .faq-inner {
-                        padding: 32px var(--space-section-px-md);
+                        padding: 32px 24px;
                     }
 
                     .faq-tabs {
@@ -436,7 +567,7 @@ export default function FAQContent() {
 
                 @media (max-width: 480px) {
                     .faq-inner {
-                        padding: 24px var(--space-section-px-sm);
+                        padding: 24px 16px;
                     }
 
                     .faq-item {
