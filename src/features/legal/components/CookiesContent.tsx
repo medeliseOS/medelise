@@ -248,6 +248,8 @@ export default function CookiesContent() {
                     border-radius: 8px;
                     padding: 24px;
                     margin-top: 0;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
 
                 .legal-card p {
@@ -292,6 +294,8 @@ export default function CookiesContent() {
                     padding: 24px;
                     background: #F2F4F7;
                     border-radius: 8px;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
 
                 .legal-callout-warning p {

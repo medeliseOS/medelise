@@ -392,6 +392,7 @@ export default function GDPRContent() {
                     flex-direction: column;
                     gap: 16px;
                     scroll-margin-top: 120px;
+                    width: 100%;
                 }
 
                 .gdpr-section-title {
@@ -408,6 +409,7 @@ export default function GDPRContent() {
                     font-weight: 400;
                     line-height: 28px;
                     margin: 0;
+                    width: 100%;
                 }
 
                 .gdpr-text--bold {
@@ -435,11 +437,11 @@ export default function GDPRContent() {
                     text-decoration: underline;
                 }
 
-                /* Email row with icon */
                 .gdpr-email-row {
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    width: 100%;
                 }
 
                 .gdpr-email-icon {
@@ -452,7 +454,6 @@ export default function GDPRContent() {
                     flex-shrink: 0;
                 }
 
-                /* Icon list for sections 6 and 9 */
                 .gdpr-icon-list {
                     list-style: none;
                     padding: 0;
@@ -460,6 +461,7 @@ export default function GDPRContent() {
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
+                    width: 100%;
                 }
 
                 .gdpr-icon-list li {
@@ -482,11 +484,12 @@ export default function GDPRContent() {
                     line-height: 24px;
                 }
 
-                /* Callout: dark blue bg + white text */
                 .gdpr-callout-dark {
                     padding: 24px;
                     background: #213170;
                     border-radius: 8px;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
 
                 .gdpr-callout-dark p {
@@ -497,11 +500,12 @@ export default function GDPRContent() {
                     margin: 0;
                 }
 
-                /* Callout: gray bg */
                 .gdpr-callout-gray {
                     padding: 24px;
                     background: #F2F4F7;
                     border-radius: 8px;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
 
                 .gdpr-callout-gray p {
@@ -512,10 +516,10 @@ export default function GDPRContent() {
                     margin: 0;
                 }
 
-                /* Footer disclaimer */
                 .gdpr-footer-disclaimer {
                     padding-top: 32px;
                     border-top: none;
+                    width: 100%;
                 }
 
                 .gdpr-footer-disclaimer p {
