@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import NewsletterSection from '@features/homepage/components/NewsletterSection';
 import LegalSearchHero from './LegalSearchHero';
 import useLegalSearch from '../hooks/useLegalSearch';
 
@@ -210,6 +211,11 @@ export default function FAQContent() {
                         </Link>
                     </section>
                 </div>
+                {/* ── Newsletter ───────────────────────────────── */}
+                <NewsletterSection
+                    heading="Alătură-te comunității Medelise!"
+                    description="Abonează-te pentru a primi protocoale de sănătate, noutăți despre medicina viitorului și acces la servicii personalizate direct în inbox-ul tău. Sănătatea ta este o călătorie, nu o destinație – hai să o parcurgem împreună!"
+                />
             </main>
 
             <style jsx>{`

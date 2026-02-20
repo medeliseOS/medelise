@@ -1,5 +1,6 @@
 'use client';
 
+import NewsletterSection from '@features/homepage/components/NewsletterSection';
 import LegalSearchHero from './LegalSearchHero';
 import useLegalSearch from '../hooks/useLegalSearch';
 
@@ -12,7 +13,7 @@ export default function GDPRContent() {
                 {/* ── Hero ──────────────────────────────────────── */}
                 <LegalSearchHero
                     title="POLITICA PRIVIND CONFIDENȚIALITATEA ȘI PRELUCRAREA DATELOR CU CARACTER PERSONAL"
-                    date="Ultima actualizare: [09 mai 2025]"
+                    date="Ultima actualizare: [01 martie 2026]"
                     description="Conform Regulamentului General privind Protecția Datelor cu Caracter Personal (GDPR – UE 2016/679), Medvita Health Solutions S.R.L. respectă confidențialitatea datelor personale ale pacienților, utilizatorilor și partenerilor săi. Prezenta politică descrie modul în care colectăm, folosim și protejăm datele dvs."
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
@@ -144,6 +145,11 @@ export default function GDPRContent() {
                         </div>
                     </section>
                 </div>
+                {/* ── Newsletter ───────────────────────────────── */}
+                <NewsletterSection
+                    heading="Alătură-te comunității Medelise!"
+                    description="Abonează-te pentru a primi protocoale de sănătate, noutăți despre medicina viitorului și acces la servicii personalizate direct în inbox-ul tău. Sănătatea ta este o călătorie, nu o destinație – hai să o parcurgem împreună!"
+                />
             </main>
 
             <style jsx>{`
