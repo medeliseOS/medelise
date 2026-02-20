@@ -35,7 +35,7 @@ export default function IVDripCatalog() {
             <style jsx>{`
                 .iv-drip-catalog-page {
                     min-height: 100vh;
-                    background-color: var(--color-surface); /* Light grey background for catalog */
+                    background-color: white;
                     padding: 60px 20px;
                 }
 

@@ -110,7 +110,7 @@ function StudyCardComponent({ study }: StudyCardProps) {
                 }
 
                 .study-header:hover {
-                    background: var(--color-surface);
+                    background: white;
                 }
 
                 @media (max-width: 767px) {

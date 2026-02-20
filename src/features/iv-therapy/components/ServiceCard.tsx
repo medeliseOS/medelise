@@ -82,7 +82,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                 .bag-shape {
                     width: 100px;
                     height: 160px;
-                    background: var(--color-surface); /* Very light tint */
+                    background: white; /* Pure white */
                     border: 1px solid var(--color-border-light);
                     border-radius: 16px 16px 40px 40px;
                     display: flex;

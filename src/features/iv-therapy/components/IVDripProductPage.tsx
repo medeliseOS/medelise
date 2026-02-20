@@ -408,7 +408,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                     cursor: pointer; display: flex; align-items: center; justify-content: flex-start;
                     gap: 8px; transition: background 0.1s;
                 }
-                .drez-qty-btn:active { background-color: var(--color-surface); }
+                .drez-qty-btn:active { background-color: white; }
                 .drez-qty-btn:last-child { border-right: none; }
                 .drez-qty-display {
                     padding: 10px 20px; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600;
@@ -429,7 +429,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 .drez-btn-fav:active { transform: scale(0.9); }
                 .drez-btn-fav-active { border-color: var(--color-error); }
                 .drez-disclaimer {
-                    width: 100%; background: #F2F4F7; padding: 10px 20px;
+                    width: 100%; background: white; padding: 10px 20px;
                     border-radius: 8px; color: var(--color-primary); font-size: 14px;
                     font-family: 'Montserrat', sans-serif; font-weight: 400;
                     text-align: center; line-height: 20px;
@@ -453,7 +453,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 .drez-tab-panel-subtitle { color: var(--color-primary); font-size: 18px; font-weight: 600; margin: 16px 0 0; }
                 .drez-tab-panel-text { color: var(--color-primary); font-size: 16px; font-weight: 400; line-height: 1.6; margin: 0; }
                 .drez-tab-panel-list { list-style: disc; padding-left: 24px; margin: 0; color: var(--color-primary); font-size: 16px; line-height: 1.8; }
-                .drez-review-card { padding: 24px; background: var(--color-surface-card); border-radius: 8px; display: flex; flex-direction: column; gap: 8px; }
+                .drez-review-card { padding: 24px; background: white; border-radius: 8px; display: flex; flex-direction: column; gap: 8px; }
                 .drez-review-header { display: flex; justify-content: space-between; align-items: center; }
                 .drez-review-stars { display: flex; gap: 4px; }
                 .drez-review-date { color: var(--color-input-border); font-size: 14px; font-weight: 400; }
@@ -476,8 +476,8 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                     cursor: pointer; color: var(--color-primary); font-size: 14px; font-family: 'Montserrat', sans-serif;
                     font-weight: 500; line-height: 20px;
                 }
-                .drez-accordion-option:hover { background: var(--color-surface); }
-                .drez-accordion-option-active { font-weight: 600; background: var(--color-surface); }
+                .drez-accordion-option:hover { background: white; }
+                .drez-accordion-option-active { font-weight: 600; background: white; }
 
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {
