@@ -350,11 +350,11 @@ export default function ServiceCard({
 
                 .svc-card__cnas-badge {
                     padding: 8px 16px;
-                    background: #F9FAFB;
+                    background: transparent;
                     border-radius: 8px;
                     display: inline-flex;
                     justify-content: flex-end;
-                    align-items: flex-start;
+                    align-items: center;
                     gap: 8px;
                 }
 
