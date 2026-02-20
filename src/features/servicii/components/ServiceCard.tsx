@@ -668,10 +668,11 @@ export default function ServiceCard({
                 }
 
                 .svc-card__bottom-cta {
-                    display: flex;
+                    align-self: stretch;
+                    display: inline-flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 16px 0;
+                    padding: 16px 32px 16px 16px;
                 }
 
                 /* ── Tablet (≤1024px) ── */
