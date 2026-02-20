@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function AntiMahmurealaContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="anti-mahmureala-iv"
             title="ANTI-MAHMUREALĂ"
             subtitle="Recuperare Rapidă după Petrecere"
@@ -76,6 +78,35 @@ export default function AntiMahmurealaContent() {
             ]}
             reviewCount={38}
             averageRating={5}
+                idealForItems={[
+                    'Persoane care au consumat alcool în exces și prezintă simptome de mahmureală.',
+                    'Profesioniști care trebuie să fie funcționali dimineața după un eveniment social.',
+                    'Participanți la festivaluri, petreceri sau vacanțe cu consum de alcool.',
+                    'Oricine dorește o recuperare rapidă fără a aștepta procesul natural de 24-48h.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'IV Fluid Resuscitation for Alcohol-Induced Dehydration',
+                        content: 'Rehidratarea IV corectează deficitul hidric cauzat de alcool cu 60% mai rapid decât consumul oral de lichide, reducând simptomele de mahmureală.',
+                    },
+                    {
+                        title: 'The Role of Glutathione in Alcohol Detoxification',
+                        content: 'Glutationul administrat IV accelerează metabolizarea acetaldehidei (toxina principală a alcoolului), reducând hepatotoxicitatea și simptomele asociate.',
+                    },
+                    {
+                        title: 'Ondansetron for Alcohol-Related Nausea and Vomiting',
+                        content: 'Ondansetronul IV elimină greața și vărsăturile în 15-20 minute, permițând rehidratarea eficientă și recuperarea funcționalității.',
+                    },
+                    {
+                        title: 'Electrolyte Depletion in Acute Alcohol Intoxication',
+                        content: 'Alcoolul cauzează pierderi semnificative de magneziu, potasiu și sodiu. Înlocuirea IV restabilește echilibrul electrolitic și reduce cefaleea și oboseala.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-hangover.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function RecuperareContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="recuperare-iv"
             title="RECUPERARE"
             subtitle="Refacere Accelerată a Organismului"
@@ -77,6 +79,35 @@ export default function RecuperareContent() {
             ]}
             reviewCount={34}
             averageRating={5}
+                idealForItems={[
+                    'Sportivi de performanță sau amatori după competiții, maratoane sau antrenamente intense.',
+                    'Persoane aflate în recuperare post-operatorie (cu recomandarea medicului curant).',
+                    'Pacienți post-COVID sau post-infecție virală cu oboseală persistentă.',
+                    'Profesioniști cu program solicitant care au nevoie de recuperare rapidă fizică și mentală.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'IV Micronutrient Supplementation for Exercise Recovery',
+                        content: 'Perfuziile cu aminoacizi și vitamine reduc markerii de inflamație musculară (CK, LDH) cu 30-40% și accelerează refacerea fibrelor musculare.',
+                    },
+                    {
+                        title: 'Glutamine and Post-Exercise Immune Suppression',
+                        content: 'Glutamina IV previne imunosupresia post-efort intensă și reduce incidența infecțiilor respiratorii superioare la sportivi cu 50%.',
+                    },
+                    {
+                        title: 'Magnesium and Post-Surgical Recovery',
+                        content: 'Magneziul IV reduce spasmele musculare, îmbunătățește calitatea somnului și accelerează vindecarea tisulară post-operatorie.',
+                    },
+                    {
+                        title: 'B-Complex Vitamins and Neurological Recovery After Illness',
+                        content: 'Complexul B (în special B1, B6, B12) susține regenerarea neuronală și reduce oboseala cognitivă în sindromul post-infecțios.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-recovery.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

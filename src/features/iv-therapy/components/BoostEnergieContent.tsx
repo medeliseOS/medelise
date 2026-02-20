@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function BoostEnergieContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="boost-energie-iv"
             title="BOOST DE ENERGIE"
             subtitle="Vitalitate Instantă și Rezistență"
@@ -77,6 +79,35 @@ export default function BoostEnergieContent() {
             ]}
             reviewCount={52}
             averageRating={5}
+                idealForItems={[
+                    'Profesioniști cu program încărcat și nivel crescut de stres sau burnout.',
+                    'Studenți în perioadele de examene și sesiuni intensive.',
+                    'Sportivi care au nevoie de energie sustenabilă fără stimulente artificiale.',
+                    'Persoane cu oboseală cronică, insomnie sau deficit de vitamine B.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'B Vitamins and the Brain: Mechanisms, Dose and Efficacy',
+                        content: 'Suplimentarea cu doze mari de complex B îmbunătățește funcția cognitivă, reduce stresul oxidativ cerebral și susține metabolismul energetic celular.',
+                    },
+                    {
+                        title: 'Intravenous Vitamin C in Fatigue Reduction: A Double-Blind RCT',
+                        content: 'Administrarea IV de vitamina C a redus semnificativ nivelurile de oboseală la subiecții cu deficit subclinic, cu efecte persistente până la 2 săptămâni.',
+                    },
+                    {
+                        title: 'Magnesium Supplementation and Exercise Performance',
+                        content: 'Magneziul intravenos optimizează producția de ATP și reduce acumularea de lactat, îmbunătățind rezistența fizică și timpul de recuperare.',
+                    },
+                    {
+                        title: 'Coenzyme Q10 and Cellular Energy Metabolism',
+                        content: 'CoQ10 crește producția mitocondrială de energie și reduce oboseala la pacienții cu deficit energetic cronic.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-boost-energy.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

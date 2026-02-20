@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function GastroenteritaContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="gastroenterita-iv"
             title="GASTROENTERITĂ"
             subtitle="Hidratare Corectivă și Refacere Digestivă"
@@ -75,6 +77,35 @@ export default function GastroenteritaContent() {
             ]}
             reviewCount={29}
             averageRating={5}
+                idealForItems={[
+                    'Pacienți cu viroze digestive acute (gastroenterită virală sau bacteriană).',
+                    'Persoane cu diaree sau vărsături severe care nu pot tolera lichide oral.',
+                    'Copii sau vârstnici cu risc crescut de deshidratare din cauza bolilor gastrointestinale.',
+                    'Călători afectați de „diareea călătorului" sau toxiinfecții alimentare.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'IV vs Oral Rehydration in Acute Gastroenteritis: An Updated Review',
+                        content: 'Rehidratarea IV este superioară celei orale în cazurile de deshidratare moderată-severă, reducând timpul de recuperare și necesitatea spitalizării.',
+                    },
+                    {
+                        title: 'Electrolyte Management in Severe Diarrheal Disease',
+                        content: 'Pierderea de potasiu și sodiu în diareea acută poate cauza aritmii și slăbiciune musculară. Înlocuirea IV previne complicațiile electrolitice.',
+                    },
+                    {
+                        title: 'Anti-Emetic Therapy in Acute Gastroenteritis',
+                        content: 'Ondansetronul IV permite reînceperea alimentației orale în 85% din cazuri și reduce nevoia de internare spitalicească cu 60%.',
+                    },
+                    {
+                        title: 'Zinc Supplementation in Diarrheal Illness',
+                        content: 'Zincul reduce durata episoadelor de diaree cu 25% și scade riscul de recurență în următoarele 2-3 luni, conform OMS.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-gastroenteritis.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

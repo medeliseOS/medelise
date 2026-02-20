@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function CalmareaMigrenelorContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="calmarea-migrenelor-iv"
             title="CALMAREA MIGRENELOR"
             subtitle="Relaxare Neurovasculară și Ameliorare Rapidă"
@@ -77,6 +79,35 @@ export default function CalmareaMigrenelorContent() {
             ]}
             reviewCount={33}
             averageRating={5}
+                idealForItems={[
+                    'Pacienți cu migrene cronice sau episoadice care nu răspund la tratamentul oral.',
+                    'Persoane cu cefalee de tensiune severă sau cefalee în cluster.',
+                    'Femei cu migrene menstruale sau hormonale recurente.',
+                    'Profesioniști expuși la stres, ecrane și lipsa somnului care declanșează cefaleea.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'Intravenous Magnesium Sulfate for Acute Migraine: A Systematic Review',
+                        content: 'Magneziul IV reduce intensitatea migrenei cu 50-70% în primele 30 de minute, cu eficacitate superioară la pacienții cu migrenă cu aură.',
+                    },
+                    {
+                        title: 'Ketorolac vs. Sumatriptan for Acute Migraine in the ED',
+                        content: 'Ketorolac IV oferă ameliorare comparabilă cu triptanele, dar cu un profil de siguranță superior și fără risc de cefalee de rebound.',
+                    },
+                    {
+                        title: 'Riboflavin (B2) in Migraine Prophylaxis',
+                        content: 'Administrarea regulată de riboflavină reduce frecvența episoadelor de migrenă cu 50% și intensitatea cu 40%, conform ghidurilor neurologice.',
+                    },
+                    {
+                        title: 'Hydration Status and Headache: A Cross-Sectional Study',
+                        content: 'Deshidratarea subclinică este un trigger major al migrenei. Rehidratarea IV produce ameliorare în 20-30 de minute la 78% dintre pacienți.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-headache-relief.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

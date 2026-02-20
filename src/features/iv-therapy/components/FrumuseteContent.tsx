@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function FrumuseteContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="frumusete-iv"
             title="FRUMUSEȚE"
             subtitle="Regenerare Celulară și Strălucire Naturală"
@@ -78,6 +80,35 @@ export default function FrumuseteContent() {
             ]}
             reviewCount={44}
             averageRating={5}
+                idealForItems={[
+                    'Persoane care doresc o piele luminoasă, hidratată și cu aspect tânăr.',
+                    'Pacienți care se pregătesc pentru un eveniment important (nuntă, gală, ședință foto).',
+                    'Fumători sau persoane expuse la poluare care doresc detoxifiere și luminozitate.',
+                    'Oricine caută o abordare anti-aging din interior, complementară îngrijirii topice.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'Glutathione and Skin Lightening: Clinical Evidence',
+                        content: 'Glutationul IV inhibă enzima tirozinază, reducând producția de melanină și oferind un ten mai luminos și uniform în 4-6 ședințe.',
+                    },
+                    {
+                        title: 'High-Dose Vitamin C and Collagen Synthesis',
+                        content: 'Vitamina C este cofactor esențial în sinteza colagenului. Megadozele IV stimulează producția de colagen tip I și III, reducând ridurile.',
+                    },
+                    {
+                        title: 'Biotin and Hair/Nail Growth: A Meta-Analysis',
+                        content: 'Biotina îmbunătățește grosimea unghiilor cu 25% și reduce căderea părului la pacienții cu deficit, cu efecte vizibile în 3-6 luni.',
+                    },
+                    {
+                        title: 'Alpha Lipoic Acid as a Universal Antioxidant in Dermatology',
+                        content: 'ALA protejează împotriva fotodaunelor UV, reduce inflamația cutanată și regenerează alți antioxidanți (vitamina C, vitamina E, glutation).',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-beauty.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

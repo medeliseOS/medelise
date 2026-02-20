@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function SuperBoostImunitateContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="super-boost-imunitate-iv"
             title="SUPER-BOOST DE IMUNITATE"
             subtitle="Protecție Avansată și Regenerare Celulară"
@@ -79,6 +81,35 @@ export default function SuperBoostImunitateContent() {
             ]}
             reviewCount={27}
             averageRating={5}
+                idealForItems={[
+                    'Pacienți imunocompromiși sau cu afecțiuni autoimune (sub supraveghere medicală).',
+                    'Persoane expuse la medii cu risc ridicat de infecție (spitale, școli, transport public).',
+                    'Călători internaționali care doresc protecție maximă înainte și după zbor.',
+                    'Pacienți post-COVID cu imunitate residuală scăzută sau long COVID.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'High-Dose IV Vitamin C and Severe Respiratory Infections',
+                        content: 'Megadozele de vitamina C (15-25g IV) reduc durata spitalizării și severitatea pneumoniei la pacienții cu infecții respiratorii severe.',
+                    },
+                    {
+                        title: 'Glutathione and Immune Cell Function',
+                        content: 'Glutationul este esențial pentru activitatea optimă a limfocitelor T. Deficitul reduce răspunsul imun cu până la 50%.',
+                    },
+                    {
+                        title: 'Selenium and Viral Resistance: A Population Study',
+                        content: 'Nivelurile optime de seleniu reduc susceptibilitatea la infecțiile virale și previn mutațiile virale care cresc virulența.',
+                    },
+                    {
+                        title: 'Zinc and Adaptive Immunity in Elderly Adults',
+                        content: 'Suplimentarea cu zinc la adulții peste 65 de ani restabilește funcția timică și crește producția de anticorpi cu 30-40%.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-super-immune.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

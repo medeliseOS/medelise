@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function FertilityPlusContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="fertility-plus-iv"
             title="FERTILITY+"
             subtitle="Optimizare Celulară și Suport Reproductiv"
@@ -80,6 +82,35 @@ export default function FertilityPlusContent() {
             ]}
             reviewCount={19}
             averageRating={5}
+                idealForItems={[
+                    'Cupluri aflate în planificarea naturală a sarcinii care doresc să optimizeze fertilitatea.',
+                    'Paciente în pregătire pentru proceduri de FIV/ICSI sau post-transfer embrionar.',
+                    'Bărbați cu parametri spermatici suboptimi (motilitate, morfologie, concentrație).',
+                    'Persoane cu avorturi spontane recurente sau endometrioză care necesită suport antioxidant.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'Coenzyme Q10 and Female Reproductive Aging',
+                        content: 'Suplimentarea cu CoQ10 îmbunătățește calitatea ovocitelor și rata de fertilizare la femeile peste 35 de ani, prin reducerea stresului oxidativ mitocondrial.',
+                    },
+                    {
+                        title: 'Antioxidant Therapy in Male Infertility: A Cochrane Review',
+                        content: 'Antioxidanții (vitamina E, seleniu, zinc, L-carnitină) îmbunătățesc semnificativ parametrii spermogramei și cresc rata de sarcină cu 4-5x.',
+                    },
+                    {
+                        title: 'L-Methylfolate vs Folic Acid in Neural Tube Defect Prevention',
+                        content: 'L-metilfolatul este forma bioactivă, eficientă inclusiv la femeile cu mutația MTHFR (40% din populație), eliminând riscul de conversie insuficientă.',
+                    },
+                    {
+                        title: 'Glutathione and Oocyte Quality in Assisted Reproduction',
+                        content: 'Glutationul reduce fragmentarea ADN-ului ovocitar și îmbunătățește dezvoltarea embrionară, crescând ratele de implantare cu 15-20%.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-fertility.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

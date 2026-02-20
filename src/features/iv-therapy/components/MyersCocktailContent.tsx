@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function MyersCocktailContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="myers-cocktail-iv"
             title="MYERS COCKTAIL"
             subtitle="Complex Vitaminic Total și Echilibru Complet"
@@ -77,6 +79,35 @@ export default function MyersCocktailContent() {
             ]}
             reviewCount={58}
             averageRating={5}
+                idealForItems={[
+                    'Persoane cu oboseală cronică, fibromialgie sau sindrom de oboseală cronică (CFS).',
+                    'Pacienți cu astm bronșic sau alergii sezoniere care doresc suport suplimentar.',
+                    'Oricine caută un „reset" general al organismului – energie, imunitate și hidratare.',
+                    'Profesioniști de wellness care doresc mentenanță lunară pentru sănătate optimă.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'The Myers Cocktail: Clinical Applications and Outcomes',
+                        content: 'Cocktailul Myers a demonstrat îmbunătățiri semnificative la pacienți cu fibromialgie, astm, migrene și oboseală cronică, conform studiului publicat în Alternative Medicine Review.',
+                    },
+                    {
+                        title: 'IV Magnesium for Acute Asthma Exacerbation',
+                        content: 'Magneziul IV relaxează musculatura netedă bronșică și îmbunătățește funcția pulmonară cu 15-20% în exacerbările astmatice.',
+                    },
+                    {
+                        title: 'High-Dose Vitamin C and Chronic Fatigue Syndrome',
+                        content: 'Vitamina C IV în doze de 7.5-15g reduce oboseala și îmbunătățește calitatea vieții la pacienții cu CFS, cu efecte care durează 1-2 săptămâni.',
+                    },
+                    {
+                        title: 'Calcium and Magnesium Balance in Neuromuscular Function',
+                        content: 'Raportul optim Ca/Mg administrat IV reduce spasmele musculare, tremorul și anxietatea, îmbunătățind calitatea somnului.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-myers-cocktail.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }

@@ -2,10 +2,12 @@
 
 import React from 'react';
 import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
 
 export default function BoostImunitateContent() {
     return (
-        <IVDripProductPage
+        <>
+            <IVDripProductPage
             id="boost-imunitate-iv"
             title="BOOST DE IMUNITATE"
             subtitle="Protecție Naturală și Susținere Antivirală"
@@ -77,6 +79,35 @@ export default function BoostImunitateContent() {
             ]}
             reviewCount={41}
             averageRating={5}
+                idealForItems={[
+                    'Persoane care doresc protecție suplimentară în sezonul gripei și virozelor.',
+                    'Călători frecvenți expuși la medii cu risc crescut de infecții.',
+                    'Pacienți aflați în recuperare după boli infecțioase sau tratamente cu antibiotice.',
+                    'Persoane cu sistem imunitar slăbit de stres cronic, insomnie sau alimentație dezechilibrată.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'High-Dose Intravenous Vitamin C and Immune Function',
+                        content: 'Megadozele de vitamina C IV stimulează producția de limfocite T și NK, întărind prima linie de apărare împotriva infecțiilor respiratorii.',
+                    },
+                    {
+                        title: 'Zinc and Selenium in Immune Response Modulation',
+                        content: 'Suplimentarea cu zinc și seleniu reduce durata simptomelor de răceală cu 33% și previne complicațiile infecțioase.',
+                    },
+                    {
+                        title: 'Vitamin D3 and Innate Immunity Against Respiratory Infections',
+                        content: 'Niveluri optime de D3 reduce riscul de infecții respiratorii acute cu 42%, conform meta-analizei a 25 de studii clinice randomizate.',
+                    },
+                    {
+                        title: 'N-Acetylcysteine (NAC) and Antioxidant Defense',
+                        content: 'NAC restabilește nivelurile de glutation intracelular, esențial pentru funcția optimă a neutrofilelor și macrofagelor.',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-immune-boost.webp"
         />
+
+
+        <ContactFormSection />
+    </>
     );
 }
