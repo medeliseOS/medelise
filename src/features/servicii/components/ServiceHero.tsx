@@ -88,10 +88,11 @@ export default function ServiceHero({
             </div>
 
             <style jsx>{`
+                /* ── Desktop ── */
                 .svc-hero {
                     width: 100%;
                     background: #fff;
-                    padding: 64px 64px;
+                    padding: 64px 64px 64px;
                 }
 
                 .svc-hero__inner {
@@ -144,54 +145,87 @@ export default function ServiceHero({
                     min-height: 700px;
                 }
 
-                /* ── Responsive ── */
-
+                /* ── Tablet (≤1024px) ── */
                 @media (max-width: 1024px) {
                     .svc-hero {
-                        padding: 48px 32px;
+                        padding: 64px 32px 0;
                     }
 
                     .svc-hero__inner {
+                        max-width: 704px;
                         flex-direction: column;
-                        gap: 40px;
+                        align-items: center;
+                        gap: 64px;
+                        padding: 0;
                     }
 
                     .svc-hero__text {
                         padding-bottom: 0;
-                        gap: 32px;
+                        gap: 48px;
+                        width: 100%;
                     }
 
                     .svc-hero__title {
-                        font-size: 36px;
+                        font-size: 48px;
+                        line-height: 1.25;
                     }
 
                     .svc-hero__media {
-                        min-height: auto;
                         width: 100%;
+                        min-height: auto;
+                        height: 398px;
+                        overflow: hidden;
+                        border-top-left-radius: 32px;
+                        border-top-right-radius: 32px;
+                        border-bottom-left-radius: 0;
+                        border-bottom-right-radius: 0;
                     }
                 }
 
+                /* ── Mobile (≤640px) ── */
                 @media (max-width: 640px) {
                     .svc-hero {
-                        padding: 32px 20px;
+                        padding: 48px 16px 0;
+                        overflow: hidden;
+                    }
+
+                    .svc-hero__inner {
+                        max-width: 343px;
+                        gap: 48px;
+                    }
+
+                    .svc-hero__text {
+                        gap: 32px;
+                        align-items: center;
                     }
 
                     .svc-hero__title {
+                        font-family: var(--font-body, 'Montserrat', sans-serif);
                         font-size: 28px;
+                        font-weight: 600;
+                        line-height: 1.29;
                     }
 
                     .svc-hero__desc p {
                         font-size: 16px;
+                        line-height: 1.5;
                     }
 
-                    .svc-hero__text {
-                        gap: 24px;
+                    .svc-hero__media {
+                        width: calc(100% + 32px);
+                        margin-left: -16px;
+                        margin-right: -16px;
+                        height: 342px;
+                        overflow: hidden;
+                        border-top-left-radius: 0;
+                        border-top-right-radius: 0;
                     }
                 }
             `}</style>
 
             {/* Global styles for Next/Image and Link (can't use jsx scoped) */}
             <style jsx global>{`
+                /* ── Desktop image ── */
                 .svc-hero__img {
                     width: 100%;
                     height: auto;
@@ -200,6 +234,7 @@ export default function ServiceHero({
                     border-radius: 32px;
                 }
 
+                /* ── CTA button ── */
                 .svc-hero__cta {
                     display: flex;
                     align-items: center;
@@ -228,10 +263,30 @@ export default function ServiceHero({
                     transform: translateY(0);
                 }
 
+                /* ── Tablet image ── */
+                @media (max-width: 1024px) {
+                    .svc-hero__img {
+                        width: 100%;
+                        height: 100%;
+                        max-height: none;
+                        object-fit: cover;
+                        object-position: center top;
+                        border-radius: 32px;
+                        border-bottom-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+                }
+
+                /* ── Mobile image ── */
                 @media (max-width: 640px) {
-                    .svc-hero__cta {
-                        font-size: 16px;
-                        padding: 12px 16px;
+                    .svc-hero__img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center top;
+                        border-radius: 0;
+                        border-top-left-radius: 16px;
+                        border-top-right-radius: 16px;
                     }
                 }
             `}</style>
