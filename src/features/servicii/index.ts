@@ -4,6 +4,8 @@ export { default as ServiceSectionHeader } from './components/ServiceSectionHead
 export type { ServiceSectionHeaderProps } from './components/ServiceSectionHeader';
 export { default as ServiceRoleTabs } from './components/ServiceRoleTabs';
 export type { ServiceRoleTabsProps, RoleType } from './components/ServiceRoleTabs';
+export { default as ServiceCard } from './components/ServiceCard';
+export type { ServiceCardProps } from './components/ServiceCard';
 export { default as MonitorizareDiagnosticContent } from './components/MonitorizareDiagnosticContent';
 export { default as IngrijiriPostoperatoriiContent } from './components/IngrijiriPostoperatoriiContent';
 export { default as AdministrareTratamenteContent } from './components/AdministrareTratamenteContent';
