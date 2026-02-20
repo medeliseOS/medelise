@@ -156,9 +156,7 @@ export default function CookiesContent() {
                 .legal-layout {
                     display: flex;
                     gap: 32px;
-                    max-width: 1216px;
-                    margin: 0 auto;
-                    padding: 32px 0;
+                    padding: 32px 64px;
                 }
 
                 /* ── Table of Contents ── */
