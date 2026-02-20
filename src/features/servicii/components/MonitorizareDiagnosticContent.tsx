@@ -50,30 +50,7 @@ Prevenția începe cu monitorizarea corectă.`}
                 coPayment="0 RON (decontat CNAS) / 50 RON (privat)"
             />
 
-            <ServiceCard
-                title="Electrocardiogramă (EKG) la domiciliu"
-                description="Înregistrare EKG cu 12 derivații, realizată cu aparat portabil profesional. Rezultatele sunt transmise digital medicului cardiolog pentru interpretare."
-                price="150"
-                duration="15 - 20 min"
-                cnasStatus="decontat"
-                triageLevel={4}
-                triageLabel="Diagnostic"
-                triageDescription="Procedură diagnostică non-invazivă care necesită echipament specializat și interpretare medicală."
-                indications="Dureri toracice, palpitații, dispnee, sincopă, monitorizare post-infarct, evaluare pre-operatorie."
-                contraindications="Nu există contraindicații absolute. Precauții la pacienți cu leziuni cutanate în zona electrozilor."
-                immediateBenefit="Detectarea aritmiilor, ischemiei miocardice și a altor anomalii cardiace în timp real."
-                premedication="Nu necesită premedicație."
-                monitoringNeed="Transmitere rezultate către medic cardiolog."
-                patientPrep="Pacientul trebuie dezbrăcat la nivelul toracelui, piele curată, fără creme sau loțiuni."
-                medicalRecommendation="Recomandare de la medicul de familie sau cardiolog."
-                referralTicket="Necesar pentru decontare CNAS."
-                crew="1 asistent medical cu competențe EKG"
-                expertiseLevel="Competențe avansate – interpretare EKG de bază"
-                location="La domiciliul pacientului"
-                cnasInfo="Decontat prin CNAS cu bilet de trimitere de la medicul de familie."
-                privateInsurance="Acoperit de majoritatea asigurărilor private."
-                coPayment="0 RON (CNAS) / 150 RON (privat)"
-            />
+
 
             {/* More sections will be added here */}
         </main>
