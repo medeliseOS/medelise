@@ -361,6 +361,15 @@ export default function TermeniContent() {
                     display: flex;
                     flex-direction: column;
                     gap: 32px;
+                    align-items: stretch;
+                }
+
+                /* Force ALL children to stretch full width */
+                .termeni-content > *,
+                .termeni-section > * {
+                    width: 100%;
+                    align-self: stretch;
+                    box-sizing: border-box;
                 }
 
                 .termeni-welcome {

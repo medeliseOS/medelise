@@ -271,6 +271,14 @@ export default function FAQContent() {
                     flex-direction: column;
                     gap: 16px;
                     margin-bottom: 48px;
+                    align-items: stretch;
+                }
+
+                /* Force ALL children to stretch full width */
+                .faq-list > * {
+                    width: 100%;
+                    align-self: stretch;
+                    box-sizing: border-box;
                 }
 
                 .faq-item {
