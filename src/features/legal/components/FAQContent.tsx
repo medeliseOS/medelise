@@ -292,12 +292,9 @@ export default function FAQContent() {
                             >
                                 <div className="faq-question-row">
                                     <div className={`faq-chevron ${openIndex === i ? 'open' : ''}`}>
-                                        <Image
-                                            src="/icons-medelise/md-system/md-ico-chevron-down.webp"
-                                            alt=""
-                                            width={18}
-                                            height={18}
-                                        />
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="6 9 12 15 18 9" />
+                                        </svg>
                                     </div>
                                     <h3 className="faq-question">{item.question}</h3>
                                 </div>
