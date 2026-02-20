@@ -437,6 +437,7 @@ export default function ServiceCard({
                 /* ── Info column ── */
                 .svc-card__info {
                     flex: 1 1 0;
+                    padding-left: 16px;
                     padding-right: 32px;
                     display: inline-flex;
                     flex-direction: column;
