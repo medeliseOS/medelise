@@ -86,18 +86,18 @@ const IV_DRIP_ITEMS: SubMenuItem[] = [
 ];
 
 const SERVICII_ITEMS: SubMenuItem[] = [
-    { title: 'Monitorizare & Diagnostic', subtitle: 'Parametri vitali, recoltări, EKG, etc.' },
-    { title: 'Îngrijiri postoperatorii & plăgi', subtitle: 'Plăgi simple, suprainfectate, escare, suturi, etc.' },
-    { title: 'Administrare & Tratamente', subtitle: 'Injecții, perfuzii, administrări orale, etc.' },
-    { title: 'Consultații medicale', subtitle: 'Consult medic specialist / medic de familie / etc.' },
-    { title: 'Kinetoterapie & Recuperare', subtitle: 'Drenaj limfatic, reeducare mers, post-AVC, etc.' },
-    { title: 'Masaj terapeutic & relaxare', subtitle: 'Decontracturant, terapeutic, drenaj limfatic, etc.' },
-    { title: 'Profilaxie & Prevenție', subtitle: 'Educație medicală, prevenție escare, etc.' },
-    { title: 'Pachete & Planuri medicale', subtitle: 'Pachete postoperatorii, cronici, seniori, etc.' },
-    { title: 'Îngrijire seniori & paliativă', subtitle: 'Îngrijiri complexe, pacienți cronici sau terminali, etc.' },
-    { title: 'Îngrijiri de suport & confort', subtitle: 'Toaletă, igienă, mobilizare ușoară, etc.' },
-    { title: 'Servicii de laborator la domiciliu', subtitle: 'Recoltări sânge, urină, buletin de analize, etc.' },
-    { title: 'Telemedicină', subtitle: 'Consulturi video, interpretare analize, etc.' },
+    { title: 'Monitorizare & Diagnostic', subtitle: 'Parametri vitali, recoltări, EKG, etc.', href: '/servicii/monitorizare-diagnostic' },
+    { title: 'Îngrijiri postoperatorii & plăgi', subtitle: 'Plăgi simple, suprainfectate, escare, suturi, etc.', href: '/servicii/ingrijiri-postoperatorii-plagi' },
+    { title: 'Administrare & Tratamente', subtitle: 'Injecții, perfuzii, administrări orale, etc.', href: '/servicii/administrare-tratamente' },
+    { title: 'Consultații medicale', subtitle: 'Consult medic specialist / medic de familie / etc.', href: '/servicii/consultatii-medicale' },
+    { title: 'Kinetoterapie & Recuperare', subtitle: 'Drenaj limfatic, reeducare mers, post-AVC, etc.', href: '/servicii/kinetoterapie-recuperare' },
+    { title: 'Masaj terapeutic & relaxare', subtitle: 'Decontracturant, terapeutic, drenaj limfatic, etc.', href: '/servicii/masaj-terapeutic-relaxare' },
+    { title: 'Profilaxie & Prevenție', subtitle: 'Educație medicală, prevenție escare, etc.', href: '/servicii/profilaxie-preventie' },
+    { title: 'Pachete & Planuri medicale', subtitle: 'Pachete postoperatorii, cronici, seniori, etc.', href: '/servicii/pachete-planuri-medicale' },
+    { title: 'Îngrijire seniori & paliativă', subtitle: 'Îngrijiri complexe, pacienți cronici sau terminali, etc.', href: '/servicii/ingrijire-seniori-paliativa' },
+    { title: 'Îngrijiri de suport & confort', subtitle: 'Toaletă, igienă, mobilizare ușoară, etc.', href: '/servicii/ingrijiri-suport-confort' },
+    { title: 'Servicii de laborator la domiciliu', subtitle: 'Recoltări sânge, urină, buletin de analize, etc.', href: '/servicii/servicii-laborator-domiciliu' },
+    { title: 'Telemedicină', subtitle: 'Consulturi video, interpretare analize, etc.', href: '/servicii/telemedicina' },
 ];
 
 /** Helper: split flat items into N columns for desktop grid */
