@@ -201,16 +201,7 @@ export default function ServiceCard({
                 <div className="svc-card__body">
                     <div className="svc-card__row">
                         <div className="svc-card__row-inner">
-                            {/* Icon */}
-                            <div className="svc-card__icon">
-                                <Image
-                                    src="/icons-medelise/md-system/md-ico-arrow-drop-up.webp"
-                                    alt=""
-                                    width={25}
-                                    height={24}
-                                    style={{ objectFit: 'contain' }}
-                                />
-                            </div>
+
 
                             {/* Info column */}
                             <div className="svc-card__info">
