@@ -643,34 +643,42 @@ export default function ServiceCard({
                 }
 
                 .svc-card__detail-row {
-                    display: flex;
+                    width: 100%;
+                    height: 28px;
+                    display: inline-flex;
+                    justify-content: flex-start;
                     align-items: center;
                     gap: 8px;
-                    min-height: 28px;
                 }
 
                 .svc-card__detail-icon {
+                    width: 20px;
+                    height: 20px;
                     flex-shrink: 0;
                     display: flex;
                     align-items: center;
+                    justify-content: center;
+                    position: relative;
                 }
 
                 .svc-card__detail-label {
-                    flex: 1;
-                    color: #213170;
+                    flex: 1 1 0;
+                    color: var(--Indigo, #213170);
                     font-size: 18px;
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 400;
                     line-height: 28px;
+                    word-wrap: break-word;
                 }
 
                 .svc-card__detail-value {
-                    flex: 1;
+                    flex: 1 1 0;
                     color: #213170;
                     font-size: 18px;
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 400;
                     line-height: 28px;
+                    word-wrap: break-word;
                 }
 
                 .svc-card__bottom-cta {
