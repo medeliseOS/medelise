@@ -1,3 +1,5 @@
+export { default as ServiceHero } from './components/ServiceHero';
+export type { ServiceHeroProps } from './components/ServiceHero';
 export { default as MonitorizareDiagnosticContent } from './components/MonitorizareDiagnosticContent';
 export { default as IngrijiriPostoperatoriiContent } from './components/IngrijiriPostoperatoriiContent';
 export { default as AdministrareTratamenteContent } from './components/AdministrareTratamenteContent';
