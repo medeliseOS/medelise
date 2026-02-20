@@ -124,6 +124,7 @@ export default function IVWhySection({
                     gap: 64px;
                     padding: var(--space-16) 0;
                     font-family: 'Montserrat', sans-serif;
+                    background: white;
                 }
 
                 /* ── Header ── */

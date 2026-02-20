@@ -447,8 +447,8 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 }
                 .drez-tab-active { border-bottom: 2px solid var(--color-accent); }
                 .drez-accordion { display: none; }
-                .drez-tab-content { padding: 32px 64px; }
-                .drez-tab-panel { display: flex; flex-direction: column; gap: 16px; }
+                .drez-tab-content { padding: 32px 64px; background: white; }
+                .drez-tab-panel { display: flex; flex-direction: column; gap: 0; background: white; }
                 .drez-tab-panel-title { color: var(--color-primary); font-size: 24px; font-weight: 600; margin: 0; }
                 .drez-tab-panel-subtitle { color: var(--color-primary); font-size: 18px; font-weight: 600; margin: 16px 0 0; }
                 .drez-tab-panel-text { color: var(--color-primary); font-size: 16px; font-weight: 400; line-height: 1.6; margin: 0; }
