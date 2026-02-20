@@ -118,11 +118,9 @@ function InsuranceIcon() { return <svg width="20" height="20" viewBox="0 0 24 24
 function DetailRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
     return (
         <div className="svc-card__detail-row">
-            <div className="svc-card__detail-label-group">
-                <span className="svc-card__detail-icon">{icon}</span>
-                <span className="svc-card__detail-label">{label}</span>
-            </div>
-            <span className="svc-card__detail-value">{value}</span>
+            <span className="svc-card__detail-icon">{icon}</span>
+            <div className="svc-card__detail-label">{label}</div>
+            <div className="svc-card__detail-value">{value}</div>
         </div>
     );
 }
