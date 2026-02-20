@@ -636,8 +636,10 @@ export default function ServiceCard({
 
                 .svc-card__detail-row {
                     width: 100%;
-                    height: 28px;
-                    display: inline-flex;
+                    min-height: 28px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
                     justify-content: flex-start;
                     align-items: center;
                     gap: 8px;
