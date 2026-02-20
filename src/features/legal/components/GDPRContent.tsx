@@ -7,20 +7,22 @@ import useLegalSearch from '../hooks/useLegalSearch';
 
 /* ── Sidebar items ──────────────────────────────────────────────── */
 const SECTIONS = [
-    { id: 'introducere', label: 'Introducere' },
-    { id: 'operator', label: 'Operatorul de date' },
-    { id: 'date-colectate', label: 'Datele personale colectate' },
-    { id: 'scop-legal', label: 'Scopul și temeiul legal' },
-    { id: 'partajare', label: 'Partajarea datelor' },
-    { id: 'durata-stocare', label: 'Durata stocării' },
+    { id: 'cine-suntem', label: 'Cine suntem?' },
+    { id: 'date-personale', label: 'Ce sunt datele personale?' },
+    { id: 'prelucrare', label: 'Ce înseamnă prelucrarea datelor?' },
+    { id: 'ce-date', label: 'Ce date prelucrăm?' },
+    { id: 'temei-legal', label: 'Care este temeiul legal?' },
+    { id: 'durata', label: 'Cât timp păstrăm datele?' },
+    { id: 'contact', label: 'Cum ne contactați?' },
+    { id: 'divulgare', label: 'Cui divulgăm datele?' },
     { id: 'drepturi', label: 'Drepturile dumneavoastră' },
     { id: 'securitate', label: 'Securitatea datelor' },
-    { id: 'autoritate', label: 'Autoritatea de supraveghere' },
+    { id: 'modificari', label: 'Modificări ale politicii' },
 ];
 
 export default function GDPRContent() {
     const { searchQuery, setSearchQuery, matchCount, contentRef, clearSearch } = useLegalSearch();
-    const [activeId, setActiveId] = useState('introducere');
+    const [activeId, setActiveId] = useState('cine-suntem');
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     /* ── Scroll-spy ──────────────────────────────────────────── */
@@ -52,7 +54,7 @@ export default function GDPRContent() {
         }
     };
 
-    const activeLabel = SECTIONS.find((s) => s.id === activeId)?.label ?? 'Introducere';
+    const activeLabel = SECTIONS.find((s) => s.id === activeId)?.label ?? 'Cine suntem?';
 
     return (
         <>
@@ -73,7 +75,6 @@ export default function GDPRContent() {
                     <div className="gdpr-body-inner">
                         {/* Sidebar — desktop */}
                         <aside className="gdpr-sidebar">
-                            <p className="gdpr-sidebar-greeting">Bine ai venit!</p>
                             <nav className="gdpr-sidebar-nav">
                                 {SECTIONS.map(({ id, label }) => (
                                     <button
@@ -125,144 +126,176 @@ export default function GDPRContent() {
 
                         {/* Content */}
                         <div className="gdpr-content" ref={contentRef}>
-                            {/* Welcome */}
-                            <p className="gdpr-welcome" id="introducere">
-                                Bine ai venit!<br />
-                                Această politică descrie modul în care colectăm, folosim și protejăm datele dvs. personale.
-                            </p>
 
-                            <h2 className="gdpr-section-title-lg">1. Introducere</h2>
-                            <p className="gdpr-text">
-                                <strong>MEDELISE HEALTH SOLUTIONS S.R.L.</strong> respectă confidențialitatea datelor
-                                dumneavoastră personale și se angajează să le protejeze în conformitate cu Regulamentul
-                                General privind Protecția Datelor (GDPR — Regulamentul UE 2016/679) și legislația
-                                națională în vigoare.
-                            </p>
-                            <p className="gdpr-text">
-                                Această politică descrie ce date personale colectăm, de ce le colectăm, cum le
-                                folosim și care sunt drepturile dumneavoastră.
-                            </p>
-
-                            {/* 2. Operator */}
-                            <div className="gdpr-section" id="operator">
-                                <h3 className="gdpr-section-title">2. Operatorul de date</h3>
-                                <p className="gdpr-text">
-                                    Operatorul de date este <strong>MEDELISE HEALTH SOLUTIONS S.R.L.</strong>, cu sediul
-                                    în București, România.
+                            {/* 1. Cine suntem? */}
+                            <div className="gdpr-section" id="cine-suntem">
+                                <h3 className="gdpr-section-title">1. Cine suntem?</h3>
+                                <p className="gdpr-text gdpr-text--bold">MEDVITA HEALTH SOLUTIONS S.R.L.</p>
+                                <p className="gdpr-text gdpr-text--medium">
+                                    Sediu: Str. Solstițiului, nr. 19, Bl. 1, Sc. B, Parter, Ap. 4, Popești-Leordeni, Ilfov
+                                    &nbsp;&nbsp;&nbsp;&nbsp;CUI: 46951403
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Nr. înregistrare ONRC: J23/6788/03.10.2022
                                 </p>
-                                <ul className="gdpr-list">
-                                    <li>Email DPO: <a href="mailto:dpo@medelise.ro">dpo@medelise.ro</a></li>
-                                    <li>Email general: <a href="mailto:office@medelise.ro">office@medelise.ro</a></li>
-                                    <li>Telefon: <a href="tel:+40784414555">+40 (784) 414 555</a></li>
+                                <div className="gdpr-email-row">
+                                    <span className="gdpr-email-icon">📧</span>
+                                    <span className="gdpr-text gdpr-text--medium">dpo@medvita.ro (responsabil cu protecția datelor)</span>
+                                </div>
+                            </div>
+
+                            {/* 2. Ce sunt datele personale? */}
+                            <div className="gdpr-section" id="date-personale">
+                                <h3 className="gdpr-section-title">2. Ce sunt datele personale?</h3>
+                                <p className="gdpr-text">Orice informație care vă poate identifica direct sau indirect:</p>
+                                <div className="gdpr-callout-dark">
+                                    <p>ex: nume, CNP, adresă, telefon, date medicale, IP, locație, semnătură, identificatori online.</p>
+                                </div>
+                            </div>
+
+                            {/* 3. Ce înseamnă prelucrarea datelor? */}
+                            <div className="gdpr-section" id="prelucrare">
+                                <h3 className="gdpr-section-title">3. Ce înseamnă prelucrarea datelor?</h3>
+                                <p className="gdpr-text">Prelucrarea înseamnă orice operațiune asupra datelor:</p>
+                                <div className="gdpr-callout-dark">
+                                    <p>
+                                        colectare,<br />
+                                        înregistrare,<br />
+                                        organizare,<br />
+                                        utilizare,<br />
+                                        stocare,<br />
+                                        transmitere,<br />
+                                        ștergere.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 4. Ce date personale prelucrăm? */}
+                            <div className="gdpr-section" id="ce-date">
+                                <h3 className="gdpr-section-title">4. Ce date personale prelucrăm?</h3>
+                                <div className="gdpr-callout-dark">
+                                    <p>
+                                        Nume și prenume<br />
+                                        CNP / coduri unice<br />
+                                        Telefon, e-mail, adresă<br />
+                                        Date medicale (diagnostic, istoric, tratamente)<br />
+                                        Semnătură electronică / fizică<br />
+                                        Date biometrice (dacă e justificat clinic)<br />
+                                        Informații de plată<br />
+                                        IP, device, sistem de operare<br />
+                                        Date aparținători (unde este cazul)
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 5. Care este temeiul legal? */}
+                            <div className="gdpr-section" id="temei-legal">
+                                <h3 className="gdpr-section-title">5. Care este temeiul legal?</h3>
+                                <p className="gdpr-text">Prelucrăm datele dvs. în baza următoarelor articole din GDPR:</p>
+                                <div className="gdpr-callout-dark">
+                                    <p>
+                                        Art. 6(1)(b) – Executarea unui contract (ex: consultații, cont careOS)<br />
+                                        Art. 6(1)(c) – Obligație legală (ex: arhivare, raportări medicale)<br />
+                                        Art. 6(1)(a) – Consimțământ (ex: newsletter, campanii)<br />
+                                        Art. 6(1)(f) – Interes legitim (ex: prevenirea fraudelor, optimizare servicii)
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* 6. Cât timp păstrăm datele? */}
+                            <div className="gdpr-section" id="durata">
+                                <h3 className="gdpr-section-title">6. Cât timp păstrăm datele?</h3>
+                                <ul className="gdpr-icon-list">
+                                    <li>📋 Date medicale: min. 5 ani, conform legislației (Ordin MS 679/2016)</li>
+                                    <li>🗓️ Date financiare: 10 ani (Cod fiscal)</li>
+                                    <li>💻 Date platformă: până la închiderea contului + perioada legală</li>
+                                    <li>📩 Date marketing: până la retragerea consimțământului</li>
                                 </ul>
                             </div>
 
-                            {/* 3. Date colectate */}
-                            <div className="gdpr-section" id="date-colectate">
-                                <h3 className="gdpr-section-title">3. Datele personale colectate</h3>
-                                <p className="gdpr-text">Colectăm următoarele categorii de date personale:</p>
-                                <div className="gdpr-callout-dark">
-                                    <p>
-                                        <strong>Date de identificare:</strong> nume, prenume, CNP (pentru servicii medicale), data nașterii<br />
-                                        <strong>Date de contact:</strong> adresă email, număr de telefon, adresa de domiciliu<br />
-                                        <strong>Date medicale:</strong> istoricul medical relevant, alergii, tratamente curente (categorie specială conform art. 9 GDPR)<br />
-                                        <strong>Date de utilizare:</strong> adresa IP, tipul de browser, pagini vizitate, durata sesiunii<br />
-                                        <strong>Date de plată:</strong> procesate securizat prin furnizori terți (nu stocăm datele cardurilor)
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* 4. Scopul */}
-                            <div className="gdpr-section" id="scop-legal">
-                                <h3 className="gdpr-section-title">4. Scopul și temeiul legal al prelucrării</h3>
-                                <p className="gdpr-text">Prelucrăm datele dumneavoastră personale în baza următoarelor temeiuri legale:</p>
-                                <div className="gdpr-callout-dark">
-                                    <p>
-                                        <strong>Executarea contractului</strong> (art. 6(1)(b) GDPR) — pentru furnizarea serviciilor medicale solicitate<br />
-                                        <strong>Obligație legală</strong> (art. 6(1)(c) GDPR) — conformitate cu obligațiile fiscale și de raportare medicală<br />
-                                        <strong>Consimțământ explicit</strong> (art. 9(2)(a) GDPR) — pentru prelucrarea datelor medicale sensibile<br />
-                                        <strong>Interes legitim</strong> (art. 6(1)(f) GDPR) — pentru îmbunătățirea serviciilor și securitatea platformei
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* 5. Partajarea */}
-                            <div className="gdpr-section" id="partajare">
-                                <h3 className="gdpr-section-title">5. Partajarea datelor</h3>
-                                <p className="gdpr-text">Datele dumneavoastră pot fi partajate cu:</p>
-                                <div className="gdpr-callout-dark">
-                                    <p>
-                                        <strong>Profesioniști medicali</strong> — care furnizează serviciile solicitate<br />
-                                        <strong>Furnizori de plăți</strong> — pentru procesarea securizată a tranzacțiilor<br />
-                                        <strong>Furnizori de hosting și IT</strong> — pentru funcționarea platformei<br />
-                                        <strong>Autorități publice</strong> — când legislația impune acest lucru
-                                    </p>
-                                </div>
-                                <div className="gdpr-callout-warning">
-                                    <p>Nu vindem și nu închiriem datele dumneavoastră personale către terți.</p>
-                                </div>
-                            </div>
-
-                            {/* 6. Durata */}
-                            <div className="gdpr-section" id="durata-stocare">
-                                <h3 className="gdpr-section-title">6. Durata stocării</h3>
+                            {/* 7. Cum ne contactați? */}
+                            <div className="gdpr-section" id="contact">
+                                <h3 className="gdpr-section-title">7. Cum ne contactați?</h3>
+                                <p className="gdpr-text">Pentru orice solicitare privind datele:</p>
                                 <p className="gdpr-text">
-                                    Datele personale sunt stocate doar pe perioada necesară îndeplinirii scopurilor pentru
-                                    care au fost colectate:
+                                    Sediu: Str. Solstițiului, nr. 19, Bl. 1, Sc. B, Parter, Ap. 4, Popești-Leordeni, Ilfov
+                                    &nbsp;&nbsp;&nbsp;&nbsp;CUI: 46951403
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Nr. înregistrare ONRC: <strong>J23/6788/03.10.2022</strong>
                                 </p>
-                                <div className="gdpr-callout-dark">
-                                    <p>
-                                        Date medicale — conform legislației medicale (minimum 5 ani)<br />
-                                        Date financiare — conform legislației fiscale (10 ani)<br />
-                                        Date de cont — pe durata relației contractuale + 3 ani<br />
-                                        Date de navigare — maximum 26 luni
-                                    </p>
+                                <div className="gdpr-email-row">
+                                    <span className="gdpr-email-icon">📧</span>
+                                    <span className="gdpr-text gdpr-text--medium">dpo@medvita.ro (responsabil cu protecția datelor)</span>
                                 </div>
                             </div>
 
-                            {/* 7. Drepturi */}
+                            {/* 8. Cui putem divulga datele? */}
+                            <div className="gdpr-section" id="divulgare">
+                                <h3 className="gdpr-section-title">8. Cui putem divulga datele?</h3>
+                                <p className="gdpr-text">Datele pot fi partajate doar dacă este justificat legal sau contractual:</p>
+                                <div className="gdpr-callout-dark">
+                                    <p>
+                                        Medici colaboratori, asistenți, operatori logistici<br />
+                                        Furnizori digitali (Google, Meta, TikTok, etc.)<br />
+                                        Autorități (ANAF, DSP, CNAS)
+                                    </p>
+                                </div>
+                                <p className="gdpr-text">Nu transferăm datele în afara UE fără garanții legale (ex: Clauze contractuale standard).</p>
+                                <p className="gdpr-text gdpr-text--small">
+                                    „În scopuri de analiză, promovare și personalizare, putem utiliza și colaboratori tehnici precum:
+                                    Google (Analytics, Ads), Meta (Pixel, Business Suite), TikTok (Ads, Events API), LinkedIn Ads,
+                                    Hotjar, Mixpanel, Microsoft Clarity, HubSpot sau Brevo. Prelucrarea datelor prin aceste platforme
+                                    se face exclusiv în baza consimțământului exprimat prin Politica de cookies."
+                                </p>
+                            </div>
+
+                            {/* 9. Drepturile dumneavoastră */}
                             <div className="gdpr-section" id="drepturi">
-                                <h3 className="gdpr-section-title">7. Drepturile dumneavoastră</h3>
-                                <p className="gdpr-text">Conform GDPR, aveți următoarele drepturi:</p>
+                                <h3 className="gdpr-section-title">9. Drepturile dumneavoastră</h3>
+                                <p className="gdpr-text">Aveți dreptul la:</p>
+                                <ul className="gdpr-icon-list gdpr-icon-list--rights">
+                                    <li>📋 Acces la datele personale</li>
+                                    <li>✅ Rectificarea datelor</li>
+                                    <li>🗑️ Ștergerea datelor („dreptul de a fi uitat")</li>
+                                    <li>🔒 Restricționarea procesării</li>
+                                    <li>📦 Portabilitate</li>
+                                    <li>🚫 Opoziție (ex: profilare, marketing)</li>
+                                    <li>↩️ Retragerea consimțământului</li>
+                                </ul>
+                                <div className="gdpr-email-row">
+                                    <span className="gdpr-email-icon">📧</span>
+                                    <span className="gdpr-text gdpr-text--bold-sm">Trimite o cerere la: dpo@medvita.ro</span>
+                                </div>
+                            </div>
+
+                            {/* 10. Securitatea datelor */}
+                            <div className="gdpr-section" id="securitate">
+                                <h3 className="gdpr-section-title">10. Securitatea datelor</h3>
+                                <p className="gdpr-text">Medvita aplică măsuri solide de securitate:</p>
                                 <div className="gdpr-callout-dark">
                                     <p>
-                                        <strong>Dreptul de acces</strong> — să solicitați o copie a datelor personale<br />
-                                        <strong>Dreptul la rectificare</strong> — să corectați datele inexacte<br />
-                                        <strong>Dreptul la ștergere</strong> (&quot;dreptul de a fi uitat&quot;) — cu excepția obligațiilor legale<br />
-                                        <strong>Dreptul la restricționare</strong> — să limitați prelucrarea<br />
-                                        <strong>Dreptul la portabilitate</strong> — să primiți datele într-un format structurat<br />
-                                        <strong>Dreptul la opoziție</strong> — să vă opuneți prelucrării bazate pe interes legitim<br />
-                                        <strong>Dreptul de retragere a consimțământului</strong> — în orice moment, fără a afecta legalitatea prelucrării anterioare
+                                        Autentificare cu parolă și OTP<br />
+                                        Backup-uri criptate<br />
+                                        Loguri de acces<br />
+                                        Colaboratori certificați ISO/echivalent
                                     </p>
                                 </div>
-                                <p className="gdpr-text">
-                                    Pentru exercitarea acestor drepturi, contactați-ne la <a href="mailto:dpo@medelise.ro">dpo@medelise.ro</a>.
-                                    Vom răspunde în maximum 30 de zile.
-                                </p>
                             </div>
 
-                            {/* 8. Securitate */}
-                            <div className="gdpr-section" id="securitate">
-                                <h3 className="gdpr-section-title">8. Securitatea datelor</h3>
-                                <p className="gdpr-text">
-                                    Implementăm măsuri tehnice și organizatorice adecvate pentru a proteja datele personale
-                                    împotriva accesului neautorizat, pierderii sau distrugerii, inclusiv: criptare SSL/TLS,
-                                    acces bazat pe roluri, backup-uri regulate și audituri de securitate periodice.
-                                </p>
+                            {/* 11. Modificări ale politicii */}
+                            <div className="gdpr-section" id="modificari">
+                                <h3 className="gdpr-section-title">11. Modificări ale politicii</h3>
+                                <div className="gdpr-callout-gray">
+                                    <p>Ne rezervăm dreptul de a modifica această politică.
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Recomandăm consultarea periodică a versiunii actualizate pe site-ul oficial.</p>
+                                </div>
                             </div>
 
-                            {/* 9. Autoritatea */}
-                            <div className="gdpr-section" id="autoritate">
-                                <h3 className="gdpr-section-title">9. Autoritatea de supraveghere</h3>
-                                <p className="gdpr-text">
-                                    Dacă considerați că prelucrarea datelor dumneavoastră încalcă GDPR, aveți dreptul să
-                                    depuneți o plângere la <strong>Autoritatea Națională de Supraveghere a Prelucrării
-                                        Datelor cu Caracter Personal (ANSPDCP)</strong>:
+                            {/* Footer disclaimer */}
+                            <div className="gdpr-footer-disclaimer">
+                                <p>
+                                    Pentru orice întrebări sau sesizări <strong>PRIVIND POLITICA DE CONFIDENȚIALITATEA ȘI
+                                        PRELUCRAREA DATELOR CU CARACTER PERSONAL</strong>, vă rugăm să ne scrieți la
+                                    office@medvita.ro (Responsabil cu protecția datelor).
                                 </p>
-                                <ul className="gdpr-list">
-                                    <li>Website: <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">www.dataprotection.ro</a></li>
-                                    <li>Email: anspdcp@dataprotection.ro</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -310,16 +343,8 @@ export default function GDPRContent() {
                     top: 100px;
                     display: flex;
                     flex-direction: column;
-                    gap: 32px;
+                    gap: 16px;
                     align-self: flex-start;
-                }
-
-                .gdpr-sidebar-greeting {
-                    color: #213170;
-                    font-size: 16px;
-                    font-weight: 500;
-                    line-height: 24px;
-                    margin: 0;
                 }
 
                 .gdpr-sidebar-nav {
@@ -362,23 +387,6 @@ export default function GDPRContent() {
                     gap: 32px;
                 }
 
-                .gdpr-welcome {
-                    color: #213170;
-                    font-size: 20px;
-                    font-weight: 600;
-                    line-height: 28px;
-                    margin: 0;
-                    scroll-margin-top: 120px;
-                }
-
-                .gdpr-section-title-lg {
-                    color: #213170;
-                    font-size: 20px;
-                    font-weight: 600;
-                    line-height: 28px;
-                    margin: 0;
-                }
-
                 .gdpr-section {
                     display: flex;
                     flex-direction: column;
@@ -396,10 +404,30 @@ export default function GDPRContent() {
 
                 .gdpr-text {
                     color: #213170;
-                    font-size: 16px;
+                    font-size: 18px;
                     font-weight: 400;
-                    line-height: 24px;
+                    line-height: 28px;
                     margin: 0;
+                }
+
+                .gdpr-text--bold {
+                    font-weight: 600;
+                }
+
+                .gdpr-text--medium {
+                    font-weight: 500;
+                }
+
+                .gdpr-text--bold-sm {
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+
+                .gdpr-text--small {
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 20px;
                 }
 
                 .gdpr-text a {
@@ -407,21 +435,51 @@ export default function GDPRContent() {
                     text-decoration: underline;
                 }
 
-                .gdpr-list {
-                    color: #213170;
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 24px;
+                /* Email row with icon */
+                .gdpr-email-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .gdpr-email-icon {
+                    font-size: 20px;
+                    width: 32px;
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                }
+
+                /* Icon list for sections 6 and 9 */
+                .gdpr-icon-list {
+                    list-style: none;
+                    padding: 0;
                     margin: 0;
-                    padding-left: 20px;
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
                 }
 
-                .gdpr-list a {
-                    color: #FE5D16;
-                    text-decoration: underline;
+                .gdpr-icon-list li {
+                    color: #213170;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 28px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .gdpr-icon-list--rights {
+                    gap: 16px;
+                }
+
+                .gdpr-icon-list--rights li {
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
                 }
 
                 /* Callout: dark blue bg + white text */
@@ -433,46 +491,58 @@ export default function GDPRContent() {
 
                 .gdpr-callout-dark p {
                     color: #fff;
-                    font-size: 16px;
+                    font-size: 18px;
                     font-weight: 400;
-                    line-height: 24px;
+                    line-height: 28px;
                     margin: 0;
                 }
 
-                .gdpr-callout-dark strong {
-                    font-weight: 500;
-                }
-
-                /* Callout: gray bg + orange text */
-                .gdpr-callout-warning {
+                /* Callout: gray bg */
+                .gdpr-callout-gray {
                     padding: 24px;
                     background: #F2F4F7;
                     border-radius: 8px;
                 }
 
-                .gdpr-callout-warning p {
-                    color: #FE5D16;
+                .gdpr-callout-gray p {
+                    color: #213170;
                     font-size: 16px;
                     font-weight: 400;
                     line-height: 24px;
                     margin: 0;
+                }
+
+                /* Footer disclaimer */
+                .gdpr-footer-disclaimer {
+                    padding-top: 32px;
+                    border-top: none;
+                }
+
+                .gdpr-footer-disclaimer p {
+                    color: #213170;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    margin: 0;
+                }
+
+                .gdpr-footer-disclaimer strong {
+                    font-weight: 600;
                 }
 
                 /* ═══════════════════════════════════════════════════
                    RESPONSIVE
                    ═══════════════════════════════════════════════════ */
 
-                /* ── Dropdown (hidden on desktop) ────────────────── */
+                /* Dropdown (hidden on desktop) */
                 .gdpr-dropdown-wrap {
                     display: none;
                 }
 
                 /* ── Tablet ──────────────────────────────────────── */
                 @media (max-width: 1024px) {
-
                     .gdpr-body {
                         padding: 32px var(--space-section-px-md);
-                        background: white;
                     }
                     .gdpr-body-inner {
                         flex-direction: column;
@@ -482,7 +552,6 @@ export default function GDPRContent() {
                         display: none;
                     }
 
-                    /* Show dropdown nav */
                     .gdpr-dropdown-wrap {
                         display: block;
                         width: 100%;
@@ -550,49 +619,39 @@ export default function GDPRContent() {
                     }
 
                     .gdpr-content {
-                        padding: 48px 0 48px 0;
-                    }
-
-                    /* Callout text → 16px on tablet */
-                    .gdpr-callout-warning p,
-                    .gdpr-callout-dark p {
-                        font-size: 16px;
-                        line-height: 24px;
+                        padding: 48px 0;
                     }
                 }
 
                 /* ── Mobile ──────────────────────────────────────── */
                 @media (max-width: 480px) {
-
-                    /* Body */
                     .gdpr-body {
                         padding: 16px var(--space-section-px-sm) 48px;
                     }
                     .gdpr-body-inner {
                         gap: 16px;
                     }
-
-                    /* Dropdown label → 14px */
                     .gdpr-dropdown-label {
                         font-size: 14px;
                         line-height: 20px;
                     }
-
-                    /* Content */
                     .gdpr-content {
                         padding: 16px 8px;
                         gap: 32px;
                     }
-
-                    /* Welcome & section-title-lg → 16px */
-                    .gdpr-welcome,
-                    .gdpr-section-title-lg {
+                    .gdpr-section-title {
                         font-size: 16px;
                         line-height: 24px;
                     }
-
-                    /* Section titles → 16px */
-                    .gdpr-section-title {
+                    .gdpr-text {
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    .gdpr-callout-dark p {
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    .gdpr-icon-list li {
                         font-size: 16px;
                         line-height: 24px;
                     }
