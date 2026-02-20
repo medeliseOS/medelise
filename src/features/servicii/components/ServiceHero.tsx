@@ -96,8 +96,7 @@ export default function ServiceHero({
                 }
 
                 .svc-hero__inner {
-                    max-width: 1216px;
-                    margin: 0 auto;
+                    width: 100%;
                     display: flex;
                     align-items: center;
                     gap: 32px;
