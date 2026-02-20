@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function ServiciiLaboratorContent() {
     return (
@@ -19,6 +20,8 @@ Analizele tale, în confortul casei tale – rapid, sigur și fără stress.`}
                 title="Recoltări biologice la domiciliu cu rezultate digitale rapide"
                 description="Recoltări de sânge, urină și alte probe biologice efectuate în condiții sterile, cu rezultate transmise digital prin laboratoare acreditate."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

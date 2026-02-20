@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function KinetoterapieRecuperareContent() {
     return (
@@ -19,6 +20,8 @@ Recuperarea reală se face acolo unde te simți în siguranță – acasă.`}
                 title="Programe de kinetoterapie și recuperare funcțională la domiciliu"
                 description="Exerciții terapeutice, drenaj limfatic manual și reeducare neuromotorie realizate de kinetoterapeuți cu experiență clinică, adaptate fiecărei etape de recuperare."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

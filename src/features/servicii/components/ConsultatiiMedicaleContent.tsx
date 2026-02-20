@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function ConsultatiiMedicaleContent() {
     return (
@@ -19,6 +20,8 @@ Sănătatea ta merită atenție personalizată, nu săli de așteptare.`}
                 title="Consultații complete cu medici de familie și medici specialiști"
                 description="Evaluare clinică, diagnostic diferențial, prescripție și plan terapeutic personalizat, realizate de medici cu experiență în practica la domiciliu."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

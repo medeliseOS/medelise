@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function IngrijiriSuportConfortContent() {
     return (
@@ -19,6 +20,8 @@ Confortul nu e un lux – e un drept. Noi îl asigurăm cu profesionalism.`}
                 title="Servicii de suport pentru confort și activități zilnice"
                 description="Toaletă, igienă, mobilizare asistată și suport nutrițional realizate de personal empatic și calificat, pentru menținerea demnității și confortului zilnic."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function PachetePlanuriContent() {
     return (
@@ -19,6 +20,8 @@ export default function PachetePlanuriContent() {
                 title="Pachete de îngrijire structurate pentru fiecare etapă de viață"
                 description="Planuri medicale personalizate cu vizite programate, monitorizare continuă și raportare digitală, destinate pacienților postoperatorii, cronici și seniori."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

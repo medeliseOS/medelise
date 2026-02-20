@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function IngrijireSenioriContent() {
     return (
@@ -19,6 +20,8 @@ Fiecare persoană merită îngrijire cu respect, până în ultimul moment.`}
                 title="Îngrijire specializată pentru seniori și pacienți paliativ"
                 description="Asistență medicală complexă, gestionarea durerii, suport emoțional și comunicare transparentă cu familia, pentru pacienți vârstnici sau aflați în stadii terminale."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

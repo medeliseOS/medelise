@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function MasajTerapeuticContent() {
     return (
@@ -19,6 +20,8 @@ Corpul tău are nevoie de îngrijire profesională, nu doar de relaxare.`}
                 title="Tehnici profesionale de masaj terapeutic și relaxare profundă"
                 description="Masaj decontracturant, terapeutic medical și drenaj limfatic manual efectuate de specialiști cu formare clinică, adaptate nevoilor fiecărui pacient."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

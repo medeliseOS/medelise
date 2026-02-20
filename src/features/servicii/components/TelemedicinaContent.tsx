@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function TelemedicinaContent() {
     return (
@@ -19,6 +20,8 @@ Medicina viitorului este digitală. Cu Medelise, viitorul e deja aici.`}
                 title="Consultații video și monitorizare la distanță cu medici specialiști"
                 description="Acces la medici de toate specialitățile prin platformă video securizată, cu interpretare analize, prescripții digitale și urmărire terapeutică continuă."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function MonitorizareDiagnosticContent() {
     return (
@@ -19,6 +20,8 @@ Prevenția începe cu monitorizarea corectă.`}
                 title="Monitorizare medicală completă – parametri vitali, EKG și analize rapide"
                 description="Verificări precise și non-invazive ale stării de sănătate, efectuate cu echipament profesional la domiciliu de asistenți medicali certificați."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>

@@ -2,6 +2,8 @@ export { default as ServiceHero } from './components/ServiceHero';
 export type { ServiceHeroProps } from './components/ServiceHero';
 export { default as ServiceSectionHeader } from './components/ServiceSectionHeader';
 export type { ServiceSectionHeaderProps } from './components/ServiceSectionHeader';
+export { default as ServiceRoleTabs } from './components/ServiceRoleTabs';
+export type { ServiceRoleTabsProps, RoleType } from './components/ServiceRoleTabs';
 export { default as MonitorizareDiagnosticContent } from './components/MonitorizareDiagnosticContent';
 export { default as IngrijiriPostoperatoriiContent } from './components/IngrijiriPostoperatoriiContent';
 export { default as AdministrareTratamenteContent } from './components/AdministrareTratamenteContent';

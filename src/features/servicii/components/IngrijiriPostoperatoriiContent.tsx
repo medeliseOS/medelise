@@ -2,6 +2,7 @@
 
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
+import ServiceRoleTabs from './ServiceRoleTabs';
 
 export default function IngrijiriPostoperatoriiContent() {
     return (
@@ -19,6 +20,8 @@ Reducem riscul de infecție și accelerăm vindecarea, fără deplasări inutile
                 title="Îngrijirea profesională a plăgilor și recuperarea postoperatorie"
                 description="Pansamente, tușeuri, îngrijire escare și monitorizare post-chirurgicală efectuate cu materiale sterile și protocoale spitalicești, la domiciliu."
             />
+
+            <ServiceRoleTabs />
 
             {/* More sections will be added here */}
         </main>
