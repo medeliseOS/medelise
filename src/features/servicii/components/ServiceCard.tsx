@@ -536,19 +536,19 @@ export default function ServiceCard({
 
                 .svc-card__duration-label {
                     color: var(--Indigo, #213170);
-                    font-size: 14px;
+                    font-size: 18px;
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 500;
-                    line-height: 20px;
+                    line-height: 28px;
                     word-wrap: break-word;
                 }
 
                 .svc-card__duration-value {
                     color: #213170;
-                    font-size: 14px;
+                    font-size: 18px;
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 400;
-                    line-height: 20px;
+                    line-height: 28px;
                     word-wrap: break-word;
                 }
 
