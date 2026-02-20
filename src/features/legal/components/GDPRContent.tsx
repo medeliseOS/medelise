@@ -385,6 +385,15 @@ export default function GDPRContent() {
                     display: flex;
                     flex-direction: column;
                     gap: 32px;
+                    align-items: stretch;
+                }
+
+                /* Force ALL children to stretch full width */
+                .gdpr-content > *,
+                .gdpr-section > * {
+                    width: 100%;
+                    align-self: stretch;
+                    box-sizing: border-box;
                 }
 
                 .gdpr-section {

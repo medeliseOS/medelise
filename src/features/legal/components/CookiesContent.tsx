@@ -205,6 +205,15 @@ export default function CookiesContent() {
                     display: flex;
                     flex-direction: column;
                     gap: 32px;
+                    align-items: stretch;
+                }
+
+                /* Force ALL children to stretch full width */
+                .legal-content > *,
+                .legal-section > * {
+                    width: 100%;
+                    align-self: stretch;
+                    box-sizing: border-box;
                 }
 
                 .legal-welcome {
