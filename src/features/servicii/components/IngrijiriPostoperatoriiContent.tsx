@@ -1,17 +1,20 @@
 'use client';
 
+import ServiceHero from './ServiceHero';
+
 export default function IngrijiriPostoperatoriiContent() {
     return (
-        <main className="service-page">
-            {/* Sections will be added here */}
+        <main>
+            <ServiceHero
+                title="Îngrijiri postoperatorii & plăgi – recuperare accelerată, la domiciliu"
+                description={`Pansamente sterile, îngrijirea escarelor, suturilor și plăgilor complexe – toate realizate de asistenți medicali cu experiență în chirurgie generală și ortopedie.
 
-            <style jsx>{`
-                .service-page {
-                    font-family: var(--font-heading);
-                    min-height: 100vh;
-                    background: var(--color-white);
-                }
-            `}</style>
+Reducem riscul de infecție și accelerăm vindecarea, fără deplasări inutile la spital.`}
+                imageSrc="/images-medelise/md-hero/ASISTENTA MEDICALA SPECIALIZATA ( ASISTENT )/_Gallery Features Base.svg"
+                imageAlt="Asistentă medicală Medelise realizând pansamentul unei plăgi postoperatorii la domiciliu"
+            />
+
+            {/* Sections will be added here */}
         </main>
     );
 }
