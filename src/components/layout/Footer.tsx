@@ -283,7 +283,7 @@ export default function Footer() {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background: var(--color-primary);
+                    background: transparent;
                     border-radius: 6px;
                     transition: transform 0.2s ease, opacity 0.2s ease;
                 }
