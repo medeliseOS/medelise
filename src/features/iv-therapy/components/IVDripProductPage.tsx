@@ -429,7 +429,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 .drez-btn-fav:active { transform: scale(0.9); }
                 .drez-btn-fav-active { border-color: var(--color-error); }
                 .drez-disclaimer {
-                    width: 100%; background: white; padding: 10px 20px;
+                    width: 100%; background: #F2F4F7; padding: 10px 20px;
                     border-radius: 8px; color: var(--color-primary); font-size: 14px;
                     font-family: 'Montserrat', sans-serif; font-weight: 400;
                     text-align: center; line-height: 20px;
