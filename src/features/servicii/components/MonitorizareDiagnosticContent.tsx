@@ -3,7 +3,6 @@
 import ServiceHero from './ServiceHero';
 import ServiceSectionHeader from './ServiceSectionHeader';
 import ServiceRoleTabs from './ServiceRoleTabs';
-import ServiceCard from './ServiceCard';
 
 export default function MonitorizareDiagnosticContent() {
     return (
@@ -23,34 +22,6 @@ Prevenția începe cu monitorizarea corectă.`}
             />
 
             <ServiceRoleTabs />
-
-            {/* ── Service Cards ── */}
-            <ServiceCard
-                title="Măsurarea tensiunii arteriale (TA)"
-                description="Monitorizare non-invazivă a presiunii arteriale sistolice și diastolice cu tensiometru digital calibrat. Include interpretarea valorilor și recomandări de conduită."
-                price="50"
-                duration="5 - 10 min"
-                cnasStatus="decontat"
-                triageLevel={5}
-                triageLabel="Control"
-                triageDescription="Procedură de verificare standard fără risc, indicată pentru monitorizare periodică sau la cererea pacientului."
-                indications="Hipertensiune arterială, hipotensiune, amețeli, cefalee, monitorizare post-medicație antihipertensivă."
-                contraindications="Nu există contraindicații absolute."
-                immediateBenefit="Depistarea precoce a valorilor anormale ale TA și prevenirea complicațiilor cardiovasculare."
-                premedication="Nu necesită premedicație."
-                monitoringNeed="Nu necesită monitorizare suplimentară."
-                patientPrep="Pacientul trebuie să fie în repaus de cel puțin 5 minute, fără consum de cafea/fumat cu 30 min înainte."
-                medicalRecommendation="Nu este necesară."
-                referralTicket="Nu este necesar."
-                crew="1 asistent medical"
-                expertiseLevel="Competențe de bază în nursing"
-                location="La domiciliul pacientului"
-                cnasInfo="Decontat integral prin CNAS cu bilet de trimitere."
-                privateInsurance="Acoperit de majoritatea asigurărilor private."
-                coPayment="0 RON (decontat CNAS) / 50 RON (privat)"
-            />
-
-
 
             {/* More sections will be added here */}
         </main>
