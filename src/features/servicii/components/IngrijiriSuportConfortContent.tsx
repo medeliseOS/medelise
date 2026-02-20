@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function IngrijiriSuportConfortContent() {
     return (
@@ -14,7 +15,12 @@ Confortul nu e un lux – e un drept. Noi îl asigurăm cu profesionalism.`}
                 imageAlt="Asistentă Medelise oferind sprijin și îngrijire de confort unui pacient la domiciliu"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Servicii de suport pentru confort și activități zilnice"
+                description="Toaletă, igienă, mobilizare asistată și suport nutrițional realizate de personal empatic și calificat, pentru menținerea demnității și confortului zilnic."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

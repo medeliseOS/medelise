@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function IngrijireSenioriContent() {
     return (
@@ -14,7 +15,12 @@ Fiecare persoană merită îngrijire cu respect, până în ultimul moment.`}
                 imageAlt="Asistentă medicală Medelise oferind îngrijire paliativă unui pacient senior la domiciliu"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Îngrijire specializată pentru seniori și pacienți paliativ"
+                description="Asistență medicală complexă, gestionarea durerii, suport emoțional și comunicare transparentă cu familia, pentru pacienți vârstnici sau aflați în stadii terminale."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

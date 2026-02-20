@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function TelemedicinaContent() {
     return (
@@ -14,7 +15,12 @@ Medicina viitorului este digitală. Cu Medelise, viitorul e deja aici.`}
                 imageAlt="Pacient în consultație video cu un medic specialist pe platforma Medelise"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Consultații video și monitorizare la distanță cu medici specialiști"
+                description="Acces la medici de toate specialitățile prin platformă video securizată, cu interpretare analize, prescripții digitale și urmărire terapeutică continuă."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

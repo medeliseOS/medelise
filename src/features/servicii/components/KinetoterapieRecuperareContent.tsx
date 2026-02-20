@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function KinetoterapieRecuperareContent() {
     return (
@@ -14,7 +15,12 @@ Recuperarea reală se face acolo unde te simți în siguranță – acasă.`}
                 imageAlt="Kinetoterapeut Medelise ghidând un pacient prin exerciții de recuperare la domiciliu"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Programe de kinetoterapie și recuperare funcțională la domiciliu"
+                description="Exerciții terapeutice, drenaj limfatic manual și reeducare neuromotorie realizate de kinetoterapeuți cu experiență clinică, adaptate fiecărei etape de recuperare."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

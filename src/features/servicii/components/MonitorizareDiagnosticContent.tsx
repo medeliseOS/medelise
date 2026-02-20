@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function MonitorizareDiagnosticContent() {
     return (
@@ -14,7 +15,12 @@ Prevenția începe cu monitorizarea corectă.`}
                 imageAlt="Asistentă medicală Medelise monitorizând parametrii vitali ai unui pacient la domiciliu"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Monitorizare medicală completă – parametri vitali, EKG și analize rapide"
+                description="Verificări precise și non-invazive ale stării de sănătate, efectuate cu echipament profesional la domiciliu de asistenți medicali certificați."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

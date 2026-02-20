@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function AdministrareTratamenteContent() {
     return (
@@ -14,7 +15,12 @@ export default function AdministrareTratamenteContent() {
                 imageAlt="Asistentă medicală Medelise administrând un tratament intravenos la domiciliu"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Servicii și proceduri la domiciliu – realizate de asistenți medicali autorizați"
+                description="Proceduri sigure și standardizate, efectuate la domiciliu de asistenți medicali specializați, conform protocoalelor medicale internaționale."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

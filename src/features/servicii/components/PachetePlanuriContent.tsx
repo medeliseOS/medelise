@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function PachetePlanuriContent() {
     return (
@@ -14,7 +15,12 @@ export default function PachetePlanuriContent() {
                 imageAlt="Echipa medicală Medelise prezentând un plan de îngrijire personalizat unui pacient"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Pachete de îngrijire structurate pentru fiecare etapă de viață"
+                description="Planuri medicale personalizate cu vizite programate, monitorizare continuă și raportare digitală, destinate pacienților postoperatorii, cronici și seniori."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

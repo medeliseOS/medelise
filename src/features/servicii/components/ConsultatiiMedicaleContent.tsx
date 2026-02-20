@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function ConsultatiiMedicaleContent() {
     return (
@@ -14,7 +15,12 @@ Sănătatea ta merită atenție personalizată, nu săli de așteptare.`}
                 imageAlt="Medic Medelise efectuând o consultație medicală la domiciliul pacientului"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Consultații complete cu medici de familie și medici specialiști"
+                description="Evaluare clinică, diagnostic diferențial, prescripție și plan terapeutic personalizat, realizate de medici cu experiență în practica la domiciliu."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

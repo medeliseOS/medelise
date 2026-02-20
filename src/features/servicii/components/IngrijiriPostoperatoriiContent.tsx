@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function IngrijiriPostoperatoriiContent() {
     return (
@@ -14,7 +15,12 @@ Reducem riscul de infecție și accelerăm vindecarea, fără deplasări inutile
                 imageAlt="Asistentă medicală Medelise realizând pansamentul unei plăgi postoperatorii la domiciliu"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Îngrijirea profesională a plăgilor și recuperarea postoperatorie"
+                description="Pansamente, tușeuri, îngrijire escare și monitorizare post-chirurgicală efectuate cu materiale sterile și protocoale spitalicești, la domiciliu."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }

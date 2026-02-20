@@ -1,6 +1,7 @@
 'use client';
 
 import ServiceHero from './ServiceHero';
+import ServiceSectionHeader from './ServiceSectionHeader';
 
 export default function ProfilaxiePreventieContent() {
     return (
@@ -14,7 +15,12 @@ Prevenția inteligentă costă mai puțin decât tratamentul.`}
                 imageAlt="Asistentă medicală Medelise oferind consultanță de prevenție medicală unui pacient"
             />
 
-            {/* Sections will be added here */}
+            <ServiceSectionHeader
+                title="Programe de prevenție medicală și educație pentru sănătate"
+                description="Evaluări periodice, screening de rutină și programe educaționale concepute pentru a preveni complicațiile și a menține sănătatea optimă pe termen lung."
+            />
+
+            {/* More sections will be added here */}
         </main>
     );
 }
