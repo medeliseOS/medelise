@@ -36,10 +36,10 @@ const LEGAL_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-    { icon: '/images-medelise/md-quality/md-img-instagram-icon.webp', href: 'https://instagram.com', label: 'Instagram' },
-    { icon: '/images-medelise/md-quality/md-img-facebook-icon.webp', href: 'https://facebook.com', label: 'Facebook', round: true },
-    { icon: '/images-medelise/md-quality/md-img-twitter-icon.webp', href: 'https://x.com', label: 'X / Twitter' },
-    { icon: '/images-medelise/md-quality/md-img-linkedin-icon.webp', href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: '/icons-medelise/md-social/Name=Instagram_result.webp', href: 'https://instagram.com', label: 'Instagram' },
+    { icon: '/icons-medelise/md-social/Name=Facebook_result.webp', href: 'https://facebook.com', label: 'Facebook', round: true },
+    { icon: '/icons-medelise/md-social/Name=Twitter_result.webp', href: 'https://x.com', label: 'X / Twitter' },
+    { icon: '/icons-medelise/md-social/Name=Linkedin_result.webp', href: 'https://linkedin.com', label: 'LinkedIn' },
 ];
 
 /* ── Footer Component ─────────────────────────────────────────── */
