@@ -65,7 +65,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
         <div className="drez-page">
             <div className="drez-container">
                 <div className="drez-main-row">
-                    {/* Left Column: Image + Disclaimer */}
+                    {/* Left Column: Image + Desktop Disclaimer */}
                     <div className="drez-left-column">
                         <div className="drez-image-wrapper">
                             <Image
@@ -77,7 +77,7 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                                 style={{ objectFit: 'contain', objectPosition: 'center' }}
                             />
                         </div>
-                        {disclaimer && <div className="drez-disclaimer">{disclaimer}</div>}
+                        {disclaimer && <div className="drez-disclaimer drez-disclaimer-desktop">{disclaimer}</div>}
                     </div>
 
                     {/* Content */}
@@ -180,7 +180,12 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                         </div>
                     </div>
 
-
+                    {/* Mobile Disclaimer */}
+                    {disclaimer && (
+                        <div className="drez-disclaimer-mobile">
+                            <span className="drez-disclaimer-text">{disclaimer}</span>
+                        </div>
+                    )}
                 </div>
 
                 {/* Tabs Section (Full Width) */}
@@ -501,49 +506,74 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
                     .drez-page { padding: 0; }
-                    .drez-container { max-width: 100%; padding: 0 0 64px; gap: 32px; }
-                    .drez-main-row { gap: 32px; flex-direction: column; width: 100%; }
-                    .drez-left-column { width: 100%; max-width: 100%; padding: 0 16px; }
-                    .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 360px; }
-                    .drez-image { width: 100%; max-height: 360px; object-fit: contain; }
-                    .drez-content { padding: 0 16px; gap: 32px; }
-                    .drez-title { font-size: 16px; font-weight: 600; line-height: 24px; margin: 0; }
-                    .drez-subtitle { font-size: 12px; font-weight: 600; line-height: 16px; margin: 0; color: var(--color-primary); }
-                    .drez-review-count { font-size: 14px; font-weight: 500; line-height: 20px; color: var(--color-primary); }
-                    .drez-price-current { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); }
-                    .drez-price-old { font-size: 20px; font-weight: 600; line-height: 28px; text-decoration: line-through; color: #FE5D16; }
-                    .drez-discount-badge { font-size: 16px; font-weight: 500; line-height: 24px; color: #FE5D16; }
-                    .drez-eco-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); }
-                    .drez-eco-value { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); }
-                    .drez-benefits-title { font-size: 16px; font-weight: 600; line-height: 24px; margin-bottom: 8px; color: var(--color-primary); }
-                    .drez-benefits-list li { font-size: 14px; font-weight: 400; line-height: 20px; color: var(--color-primary); }
-                    .drez-selector-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); }
-                    .drez-qty-display { font-size: 14px; font-weight: 600; line-height: 20px; }
-                    /* Full width on mobile */
-                    .drez-vol-btn { width: 100% !important; flex: 1; }
-
-                    .drez-volume-options { gap: 16px; }
-                    .drez-disclaimer { font-size: 12px; font-weight: 400; line-height: 16px; text-align: left; }
-                    .drez-tabs-bar { 
-                        display: flex; 
-                        flex-direction: row;
-                        padding: 64px 16px; 
-                        width: 100%;
-                        justify-content: space-between;
-                    }
-                    .drez-tab { 
-                        flex: 1; 
-                        width: auto; 
-                        justify-content: center; 
-                        padding: 10px 4px; 
-                        font-size: 14px; 
-                    }
-                    .drez-tabs-section { padding: 0; }
-                    .drez-disclaimer { padding: 10px 16px; }
-                    .drez-tab-content { padding: 16px 16px; }
-                    .drez-tab-panel-title { font-size: 18px; }
-                    .drez-tab-panel-subtitle { font-size: 16px; }
-                    .drez-tab-panel-text, .drez-tab-panel-list { font-size: 14px; }
+                    .drez-container { max-width: 100%; padding: 0; gap: 32px; background: white; }
+                    .drez-main-row { padding: 32px 16px; gap: 32px; flex-direction: column; width: 100%; background: white; }
+                    .drez-left-column { width: 100%; max-width: 100%; padding: 0; gap: 32px; }
+                    .drez-image-wrapper { width: 100%; max-width: 100%; height: 359px; max-height: 359px; }
+                    .drez-image { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+                    
+                    .drez-content { width: 100%; padding: 0; gap: 32px; align-items: flex-start; }
+                    .drez-header-group { width: 100%; gap: 16px; }
+                    
+                    /* TITLE BLOCK */
+                    .drez-title { font-size: 16px; font-weight: 600; line-height: 24px; margin: 0; font-family: 'Montserrat', sans-serif; color: var(--color-primary); }
+                    .drez-subtitle { font-size: 12px; font-weight: 600; line-height: 16px; margin: 0; font-family: 'Montserrat', sans-serif; color: var(--color-primary); }
+                    
+                    /* RATING */
+                    .drez-rating-row { gap: 8px; align-items: center; }
+                    .drez-stars { width: 90px; height: 18px; }
+                    .drez-star-icon, .drez-star-icon-empty { width: 18px; height: 18px; }
+                    .drez-star-icon::after, .drez-star-icon-empty::after { width: 15px; height: 14.25px; } 
+                    .drez-review-count { font-size: 14px; font-weight: 500; line-height: 20px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
+                    
+                    /* PRICE BLOCK */
+                    .drez-price-group { width: 100%; gap: 4px; } 
+                    .drez-price-row { gap: 8px; align-items: flex-start; } 
+                    .drez-price-current { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
+                    .drez-price-old { font-size: 20px; font-weight: 600; line-height: 28px; text-decoration: line-through; color: #FE5D16; font-family: 'Montserrat', sans-serif; }
+                    
+                    .drez-discount-badge { font-size: 16px; font-weight: 500; line-height: 24px; color: #FE5D16; font-family: 'Montserrat', sans-serif; margin-top: 4px; }
+                    
+                    .drez-economy-group { gap: 8px; margin-top: 4px; }
+                    .drez-eco-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
+                    .drez-eco-value { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
+                    
+                    /* BENEFITS */
+                    .drez-benefits-group { width: 100%; gap: 8px; margin-top: 8px; }
+                    .drez-benefits-title { font-size: 16px; font-weight: 600; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; margin-bottom: 0; }
+                    .drez-benefits-list { gap: 0; }
+                    .drez-benefits-list li { font-size: 14px; font-weight: 400; line-height: 20px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; margin-bottom: 0; }
+                    
+                    /* SELECTORS */
+                    .drez-selectors { width: 100%; gap: 16px; margin-top: 8px; }
+                    .drez-selector-block { width: 100%; gap: 16px; align-items: center; }
+                    .drez-selector-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; text-align: center; width: 100%; }
+                    
+                    .drez-volume-options { gap: 32px; width: 100%; justify-content: center; } 
+                    .drez-vol-btn { width: unset !important; flex: none; padding: 10px 20px; font-size: 14px; font-weight: 500; line-height: 20px; border-radius: 8px; font-family: 'Montserrat', sans-serif; }
+                    
+                    .drez-qty-control { width: fit-content; justify-content: center; }
+                    .drez-qty-display { font-size: 14px; font-weight: 600; line-height: 20px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; padding: 8px 16px; }
+                    .drez-qty-btn { padding: 8px 16px; }
+                    
+                    /* CTA */
+                    .drez-cta-row { width: 100%; gap: 24px; align-items: center; }
+                    .drez-btn-primary { flex: 1 1 0; padding: 10px 20px; font-size: 16px; font-weight: 500; line-height: 24px; border-radius: 8px; font-family: 'Montserrat', sans-serif; }
+                    .drez-btn-fav { width: 44px; height: 44px; border-radius: 8px; }
+                    
+                    /* DISCLAIMER */
+                    .drez-disclaimer-desktop { display: none; }
+                    .drez-disclaimer-mobile { display: flex; width: 100%; background: #F2F4F7; padding: 10px 20px; border-radius: 8px; justify-content: center; align-items: center; margin-top: 0; }
+                    .drez-disclaimer-text { flex: 1; text-align: center; color: var(--color-primary); font-size: 12px; font-weight: 400; line-height: 16px; font-family: 'Montserrat', sans-serif; text-transform: none; }
+                    
+                    /* TABS */
+                    .drez-tabs-bar { display: flex; flex-direction: row; padding: 32px 16px 16px; width: 100%; justify-content: space-between; gap: 16px; background: white; }
+                    .drez-tab { flex: 1; width: auto; justify-content: center; padding: 10px 4px; font-size: 14px; font-family: 'Montserrat', sans-serif; }
+                    .drez-tabs-section { padding: 0; background: white; }
+                    .drez-tab-content { padding: 16px; }
+                    .drez-tab-panel-title { font-size: 18px; font-family: 'Montserrat', sans-serif; }
+                    .drez-tab-panel-subtitle { font-size: 16px; font-family: 'Montserrat', sans-serif; }
+                    .drez-tab-panel-text, .drez-tab-panel-list { font-size: 14px; font-family: 'Montserrat', sans-serif; }
                 }
             `}</style>
             </div>
