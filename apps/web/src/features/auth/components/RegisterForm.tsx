@@ -4,19 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef, useMemo } from 'react';
 import AnimatedEyeToggle from './AnimatedEyeToggle';
+import { createClient } from '@/lib/supabase/client';
 
 interface RegisterFormProps {
     onSwitchToLogin?: () => void;
-    onSubmit?: (data: {
-        nume: string;
-        prenume: string;
-        username: string;
-        birthDay: string;
-        birthMonth: string;
-        birthYear: string;
-        email: string;
-        password: string;
-    }) => void;
     className?: string;
 }
 
@@ -61,7 +52,6 @@ const YEARS = Array.from({ length: 100 }, (_, i) => String(currentYear - i));
 
 export default function RegisterForm({
     onSwitchToLogin,
-    onSubmit,
     className = '',
 }: RegisterFormProps) {
     const [showPassword, setShowPassword] = useState(false);
@@ -77,24 +67,48 @@ export default function RegisterForm({
     const confirmRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
 
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+
     const username = useMemo(() => toUsername(prenume, nume), [prenume, nume]);
     const strength = useMemo(() => getPasswordStrength(password), [password]);
     const passwordsMatch = confirmPassword.length > 0 && password === confirmPassword;
     const passwordsMismatch = confirmPassword.length > 0 && password !== confirmPassword;
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const supabase = createClient();
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (password !== confirmPassword) return;
-        onSubmit?.({
-            nume,
-            prenume,
-            username,
-            birthDay,
-            birthMonth,
-            birthYear,
-            email: emailRef.current?.value || '',
+        if (password !== confirmPassword) {
+            setErrorMessage('Parolele nu coincid.');
+            return;
+        }
+
+        setStatus('loading');
+        setErrorMessage('');
+
+        const email = emailRef.current?.value || '';
+
+        const { error } = await supabase.auth.signUp({
+            email,
             password,
+            options: {
+                data: {
+                    nume,
+                    prenume,
+                    username,
+                    birth_date: `${birthYear}-${birthMonth.padStart(2, '0')}-${birthDay.padStart(2, '0')}`,
+                },
+                emailRedirectTo: `${window.location.origin}/patient`,
+            }
         });
+
+        if (error) {
+            setStatus('error');
+            setErrorMessage(error.message);
+        } else {
+            setStatus('success');
+        }
     };
 
     return (
@@ -108,217 +122,262 @@ export default function RegisterForm({
                     </div>
 
 
-
-                    {/* Form Fields */}
-                    <form className="register-fields" onSubmit={handleSubmit}>
-                        {/* Nume + Prenume */}
-                        <div className="register-name-row">
-                            <div className="register-field-group">
-                                <label className="register-label">Nume</label>
-                                <div className="register-input-wrapper">
-                                    <input
-                                        type="text"
-                                        placeholder="Introdu numele"
-                                        className="register-input"
-                                        value={nume}
-                                        onChange={(e) => setNume(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="register-field-group">
-                                <label className="register-label">Prenume</label>
-                                <div className="register-input-wrapper">
-                                    <input
-                                        type="text"
-                                        placeholder="Introdu prenumele"
-                                        className="register-input"
-                                        value={prenume}
-                                        onChange={(e) => setPrenume(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Username */}
-                        <div className="register-field-group">
-                            <label className="register-label">Utilizator</label>
-                            <div className="register-input-wrapper register-username-wrapper">
-                                <span className="register-username-display">
-                                    {username || '@'}
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Date of Birth — Day + Month + Year */}
-                        <div className="register-dob-row">
-                            <div className="register-field-group register-dob-day">
-                                <label className="register-label">Ziua</label>
-                                <div className="register-input-wrapper">
-                                    <select
-                                        className="register-select"
-                                        value={birthDay}
-                                        onChange={(e) => setBirthDay(e.target.value)}
-                                    >
-                                        <option value="" disabled>Zi</option>
-                                        {DAYS.map((d) => (
-                                            <option key={d} value={d}>{d}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="register-field-group register-dob-month">
-                                <label className="register-label">Luna</label>
-                                <div className="register-input-wrapper">
-                                    <select
-                                        className="register-select"
-                                        value={birthMonth}
-                                        onChange={(e) => setBirthMonth(e.target.value)}
-                                    >
-                                        <option value="" disabled>Luna</option>
-                                        {MONTHS.map((m, i) => (
-                                            <option key={m} value={String(i + 1)}>{m}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="register-field-group register-dob-year">
-                                <label className="register-label">Anul</label>
-                                <div className="register-input-wrapper">
-                                    <select
-                                        className="register-select"
-                                        value={birthYear}
-                                        onChange={(e) => setBirthYear(e.target.value)}
-                                    >
-                                        <option value="" disabled>Anul</option>
-                                        {YEARS.map((y) => (
-                                            <option key={y} value={y}>{y}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Email */}
-                        <div className="register-field-group">
-                            <label className="register-label">Email</label>
-                            <div className="register-input-wrapper">
-                                <Image
-                                    src="/images-medelise/md-login/md-img-login-ico-mail.webp"
-                                    alt=""
-                                    width={24}
-                                    height={24}
-                                    className="register-input-icon"
-                                />
-                                <input
-                                    ref={emailRef}
-                                    type="email"
-                                    placeholder="Introdu adresa de email"
-                                    className="register-input"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Password */}
-                        <div className="register-field-group">
-                            <label className="register-label">Parolă</label>
-                            <div className="register-input-wrapper">
-                                <Image
-                                    src="/images-medelise/md-login/md-img-login-ico-lock.webp"
-                                    alt=""
-                                    width={24}
-                                    height={24}
-                                    className="register-input-icon"
-                                />
-                                <input
-                                    ref={passwordRef}
-                                    type={showPassword ? 'text' : 'password'}
-                                    placeholder="Creează o parolă"
-                                    className="register-input"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                                <AnimatedEyeToggle
-                                    isVisible={showPassword}
-                                    onToggle={() => setShowPassword(!showPassword)}
-                                    inputRef={passwordRef}
-                                />
-                            </div>
-                            {/* Password strength bar */}
-                            {password.length > 0 && (
-                                <div className="register-strength">
-                                    <div className="register-strength-track">
-                                        {[0, 1, 2, 3].map((i) => (
-                                            <div
-                                                key={i}
-                                                className="register-strength-segment"
-                                                style={{
-                                                    background: i < strength.score ? strength.color : 'var(--color-surface-border)',
-                                                }}
-                                            />
-                                        ))}
-                                    </div>
-                                    <span
-                                        className="register-strength-label"
-                                        style={{ color: strength.color }}
-                                    >
-                                        {strength.label}
-                                    </span>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Confirm Password */}
-                        <div className="register-field-group">
-                            <label className="register-label">Confirmă parola</label>
-                            <div className={`register-input-wrapper ${passwordsMismatch ? 'register-input-error' : ''} ${passwordsMatch ? 'register-input-success' : ''}`}>
-                                <Image
-                                    src="/images-medelise/md-login/md-img-login-ico-lock.webp"
-                                    alt=""
-                                    width={24}
-                                    height={24}
-                                    className="register-input-icon"
-                                />
-                                <input
-                                    ref={confirmRef}
-                                    type={showConfirm ? 'text' : 'password'}
-                                    placeholder="Repetă parola"
-                                    className="register-input"
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                />
-                                <AnimatedEyeToggle
-                                    isVisible={showConfirm}
-                                    onToggle={() => setShowConfirm(!showConfirm)}
-                                    inputRef={confirmRef}
-                                />
-                            </div>
-                            {passwordsMismatch && (
-                                <span className="register-error-text">Parolele nu coincid</span>
-                            )}
-                            {passwordsMatch && (
-                                <span className="register-match-text">✓ Parolele coincid</span>
-                            )}
-                        </div>
-
-                        {/* Register Button */}
-                        <div className="register-actions">
-                            <button type="submit" className="register-submit-btn">
-                                Înregistrează-te
+                    {status === 'success' ? (
+                        <div className="px-4 py-8 text-center bg-green-50 rounded-2xl border border-green-100 mb-6 w-full">
+                            <p className="text-xl font-semibold text-green-800 mb-2">Verifică-ți adresa de email!</p>
+                            <p className="text-sm text-green-700 font-medium">
+                                Ți-am trimis un link securizat pentru confirmarea contului tău.
+                                Dă click pe acel link pentru a putea să te autentifici.
+                            </p>
+                            <button
+                                type="button"
+                                className="register-submit-btn mt-6"
+                                onClick={onSwitchToLogin}
+                            >
+                                Du-mă la Autentificare
                             </button>
                         </div>
-                    </form>
+                    ) : (
+                        <>
+                            <form className="register-fields" onSubmit={handleSubmit}>
+                                {/* Nume + Prenume */}
+                                <div className="register-name-row">
+                                    <div className="register-field-group">
+                                        <label className="register-label">Nume</label>
+                                        <div className="register-input-wrapper">
+                                            <input
+                                                type="text"
+                                                placeholder="Introdu numele"
+                                                className="register-input"
+                                                value={nume}
+                                                onChange={(e) => setNume(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="register-field-group">
+                                        <label className="register-label">Prenume</label>
+                                        <div className="register-input-wrapper">
+                                            <input
+                                                type="text"
+                                                placeholder="Introdu prenumele"
+                                                className="register-input"
+                                                value={prenume}
+                                                onChange={(e) => setPrenume(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
 
-                    {/* Switch to Login */}
-                    <div className="register-login-row">
-                        <span className="register-login-text">Ai deja un cont?</span>
-                        <button
-                            type="button"
-                            className="register-login-link"
-                            onClick={onSwitchToLogin}
-                        >
-                            Conectează-te
-                        </button>
-                    </div>
+                                {/* Username */}
+                                <div className="register-field-group">
+                                    <label className="register-label">Utilizator</label>
+                                    <div className="register-input-wrapper register-username-wrapper">
+                                        <span className="register-username-display">
+                                            {username || '@'}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Date of Birth — Day + Month + Year */}
+                                <div className="register-dob-row">
+                                    <div className="register-field-group register-dob-day">
+                                        <label className="register-label">Ziua</label>
+                                        <div className="register-input-wrapper">
+                                            <select
+                                                className="register-select"
+                                                value={birthDay}
+                                                onChange={(e) => setBirthDay(e.target.value)}
+                                            >
+                                                <option value="" disabled>Zi</option>
+                                                {DAYS.map((d) => (
+                                                    <option key={d} value={d}>{d}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="register-field-group register-dob-month">
+                                        <label className="register-label">Luna</label>
+                                        <div className="register-input-wrapper">
+                                            <select
+                                                className="register-select"
+                                                value={birthMonth}
+                                                onChange={(e) => setBirthMonth(e.target.value)}
+                                            >
+                                                <option value="" disabled>Luna</option>
+                                                {MONTHS.map((m, i) => (
+                                                    <option key={m} value={String(i + 1)}>{m}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="register-field-group register-dob-year">
+                                        <label className="register-label">Anul</label>
+                                        <div className="register-input-wrapper">
+                                            <select
+                                                className="register-select"
+                                                value={birthYear}
+                                                onChange={(e) => setBirthYear(e.target.value)}
+                                            >
+                                                <option value="" disabled>Anul</option>
+                                                {YEARS.map((y) => (
+                                                    <option key={y} value={y}>{y}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Email */}
+                                <div className="register-field-group">
+                                    <label className="register-label">Email</label>
+                                    <div className="register-input-wrapper">
+                                        <Image
+                                            src="/images-medelise/md-login/md-img-login-ico-mail.webp"
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            className="register-input-icon"
+                                        />
+                                        <input
+                                            ref={emailRef}
+                                            type="email"
+                                            placeholder="Introdu adresa de email"
+                                            className="register-input"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Password */}
+                                <div className="register-field-group">
+                                    <label className="register-label">Parolă</label>
+                                    <div className="register-input-wrapper">
+                                        <Image
+                                            src="/images-medelise/md-login/md-img-login-ico-lock.webp"
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            className="register-input-icon"
+                                        />
+                                        <input
+                                            ref={passwordRef}
+                                            type={showPassword ? 'text' : 'password'}
+                                            placeholder="Creează o parolă"
+                                            className="register-input"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                        <AnimatedEyeToggle
+                                            isVisible={showPassword}
+                                            onToggle={() => setShowPassword(!showPassword)}
+                                            inputRef={passwordRef}
+                                        />
+                                    </div>
+                                    {/* Password strength bar */}
+                                    {password.length > 0 && (
+                                        <div className="register-strength">
+                                            <div className="register-strength-track">
+                                                {[0, 1, 2, 3].map((i) => (
+                                                    <div
+                                                        key={i}
+                                                        className="register-strength-segment"
+                                                        style={{
+                                                            background: i < strength.score ? strength.color : 'var(--color-surface-border)',
+                                                        }}
+                                                    />
+                                                ))}
+                                            </div>
+                                            <span
+                                                className="register-strength-label"
+                                                style={{ color: strength.color }}
+                                            >
+                                                {strength.label}
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Confirm Password */}
+                                <div className="register-field-group">
+                                    <label className="register-label">Confirmă parola</label>
+                                    <div className={`register-input-wrapper ${passwordsMismatch ? 'register-input-error' : ''} ${passwordsMatch ? 'register-input-success' : ''}`}>
+                                        <Image
+                                            src="/images-medelise/md-login/md-img-login-ico-lock.webp"
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            className="register-input-icon"
+                                        />
+                                        <input
+                                            ref={confirmRef}
+                                            type={showConfirm ? 'text' : 'password'}
+                                            placeholder="Repetă parola"
+                                            className="register-input"
+                                            value={confirmPassword}
+                                            onChange={(e) => setConfirmPassword(e.target.value)}
+                                        />
+                                        <AnimatedEyeToggle
+                                            isVisible={showConfirm}
+                                            onToggle={() => setShowConfirm(!showConfirm)}
+                                            inputRef={confirmRef}
+                                        />
+                                    </div>
+                                    {passwordsMismatch && (
+                                        <span className="register-error-text">Parolele nu coincid</span>
+                                    )}
+                                    {passwordsMatch && (
+                                        <span className="register-match-text">✓ Parolele coincid</span>
+                                    )}
+                                </div>
+
+                                {/* Terms */}
+                                <div className="register-terms">
+                                    <span className="register-terms-text">
+                                        Prin crearea contului, ești de acord cu{' '}
+                                        <Link href="/termeni-si-conditii" className="register-text-link">Termenii</Link>{' '}
+                                        și{' '}
+                                        <Link href="/politica-de-confidentialitate" className="register-text-link">Politica de confidențialitate</Link>.
+                                    </span>
+                                </div>
+
+                                {/* Error Handling */}
+                                {status === 'error' && (
+                                    <div className="text-red-500 text-sm font-medium mt-2">{errorMessage}</div>
+                                )}
+
+                                {/* Submit Button */}
+                                <div className="register-actions">
+                                    <button
+                                        type="submit"
+                                        className="register-submit-btn"
+                                        disabled={
+                                            !passwordsMatch ||
+                                            strength.score < 2 ||
+                                            !nume ||
+                                            !prenume ||
+                                            !birthDay ||
+                                            !birthMonth ||
+                                            !birthYear ||
+                                            status === 'loading'
+                                        }
+                                    >
+                                        {status === 'loading' ? 'Se procesează...' : 'Creează cont angajat'}
+                                    </button>
+                                </div>
+                            </form>
+
+                            {/* Switch to Login */}
+                            <div className="register-login-row">
+                                <span className="register-login-text">Ai deja un cont?</span>
+                                <button
+                                    type="button"
+                                    className="register-login-link"
+                                    onClick={onSwitchToLogin}
+                                >
+                                    Conectează-te
+                                </button>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
 

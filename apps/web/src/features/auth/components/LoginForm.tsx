@@ -11,6 +11,8 @@ interface LoginFormProps {
     subtitle?: string;
     /** Called when user clicks "Înregistrează-te" to switch to register */
     onSwitchToRegister?: () => void;
+    /** Called when user clicks "Ai uitat parola?" */
+    onForgotPassword?: () => void;
     /** Additional className on the outer wrapper */
     className?: string;
 }
@@ -19,32 +21,50 @@ export default function LoginForm({
     title = 'Bun venit',
     subtitle = 'Conectează-te la contul tău',
     onSwitchToRegister,
+    onForgotPassword,
     className = '',
 }: LoginFormProps) {
+    const [authMode, setAuthMode] = useState<'password' | 'magic_link'>('password');
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
 
     const supabase = createClient();
 
-    const handleMagicLink = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('loading');
         setErrorMessage('');
 
-        const { error } = await supabase.auth.signInWithOtp({
-            email,
-            options: {
-                // Adjust route depending on the user role logic we implement later
-                emailRedirectTo: `${window.location.origin}/patient`,
-            },
-        });
+        if (authMode === 'magic_link') {
+            const { error } = await supabase.auth.signInWithOtp({
+                email,
+                options: {
+                    emailRedirectTo: `${window.location.origin}/patient`,
+                },
+            });
 
-        if (error) {
-            setStatus('error');
-            setErrorMessage(error.message);
+            if (error) {
+                setStatus('error');
+                setErrorMessage(error.message);
+            } else {
+                setStatus('success');
+            }
         } else {
-            setStatus('success');
+            const { error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
+
+            if (error) {
+                setStatus('error');
+                setErrorMessage(error.message);
+            } else {
+                // Succes login cu parola, redirect sau refresh in functie de Next.js router
+                // De regula middleware-ul sau layout-ul se ocupa dupa ce Sesiunea exista in cookie.
+                window.location.href = '/patient';
+            }
         }
     };
 
@@ -82,7 +102,7 @@ export default function LoginForm({
 
 
                             {/* Form Fields */}
-                            <form className="login-fields" onSubmit={handleMagicLink}>
+                            <form className="login-fields" onSubmit={handleSubmit}>
                                 {/* Email */}
                                 <div className="login-field-group">
                                     <label className="login-label">Email</label>
@@ -104,19 +124,66 @@ export default function LoginForm({
                                             disabled={status === 'loading'}
                                         />
                                     </div>
-                                    {status === 'error' && (
-                                        <p className="text-sm text-red-500 font-medium mt-1">{errorMessage}</p>
-                                    )}
                                 </div>
+
+                                {/* Password (only if authMode is 'password') */}
+                                {authMode === 'password' && (
+                                    <div className="login-field-group">
+                                        <div className="flex justify-between items-center w-full">
+                                            <label className="login-label">Parolă</label>
+                                            <button
+                                                type="button"
+                                                onClick={onForgotPassword}
+                                                className="text-sm font-medium text-emerald-600 hover:text-emerald-700 hover:underline transition-colors"
+                                            >
+                                                Ai uitat parola?
+                                            </button>
+                                        </div>
+                                        <div className="login-input-wrapper">
+                                            <input
+                                                type="password"
+                                                required
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                placeholder="••••••••"
+                                                className="login-input"
+                                                disabled={status === 'loading'}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Error message */}
+                                {status === 'error' && (
+                                    <p className="text-sm text-red-500 font-medium">{errorMessage}</p>
+                                )}
 
                                 {/* Login Actions */}
                                 <div className="login-actions">
                                     <button
                                         type="submit"
                                         className="login-submit-btn"
-                                        disabled={status === 'loading' || !email}
+                                        disabled={status === 'loading' || !email || (authMode === 'password' && !password)}
                                     >
-                                        {status === 'loading' ? 'Se procesează...' : 'Conectare securizată'}
+                                        {status === 'loading'
+                                            ? 'Se procesează...'
+                                            : (authMode === 'password' ? 'Conectare securizată' : 'Trimite Magic Link')}
+                                    </button>
+
+                                    {/* Toggle Auth Mode Button */}
+                                    <button
+                                        type="button"
+                                        className="toggle-auth-mode-btn"
+                                        onClick={() => {
+                                            setAuthMode(prev => prev === 'password' ? 'magic_link' : 'password');
+                                            setStatus('idle');
+                                            setErrorMessage('');
+                                        }}
+                                        disabled={status === 'loading'}
+                                    >
+                                        {authMode === 'password'
+                                            ? 'Autentificare fără parolă (Email OTP)'
+                                            : 'Autentificare clasică (Parolă)'}
                                     </button>
                                 </div>
 
@@ -336,6 +403,30 @@ export default function LoginForm({
 
                 .login-submit-btn:disabled {
                     opacity: 0.7;
+                    cursor: not-allowed;
+                }
+
+                .toggle-auth-mode-btn {
+                    width: 100%;
+                    padding: 14px 24px;
+                    background: transparent;
+                    border-radius: var(--radius-pill);
+                    border: 1px solid var(--color-border-form);
+                    color: var(--color-text-muted);
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: color 0.2s, border-color 0.2s;
+                    text-align: center;
+                }
+
+                .toggle-auth-mode-btn:hover:not(:disabled) {
+                    color: var(--color-primary);
+                    border-color: var(--color-primary-hover);
+                }
+
+                .toggle-auth-mode-btn:disabled {
+                    opacity: 0.5;
                     cursor: not-allowed;
                 }
 

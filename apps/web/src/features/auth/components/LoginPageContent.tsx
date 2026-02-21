@@ -4,9 +4,10 @@ import { useState } from 'react';
 import CardScanner from './CardScanner';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import ForgotPasswordForm from './ForgotPasswordForm';
 
 export default function LoginPageContent() {
-    const [isFlipped, setIsFlipped] = useState(false);
+    const [view, setView] = useState<'login' | 'register' | 'forgot_password'>('login');
 
     return (
         <>
@@ -23,14 +24,21 @@ export default function LoginPageContent() {
             <div className="login-page">
                 {/* ── Left Panel: Flip Card ── */}
                 <div className="card-flip-container">
-                    <div className={`card-flip-inner ${isFlipped ? 'flipped' : ''}`}>
-                        {/* Front: Login */}
+                    <div className={`card-flip-inner ${view === 'register' ? 'flipped' : ''}`}>
+                        {/* Front: Login or Forgot Password */}
                         <div className="card-face card-front">
-                            <LoginForm onSwitchToRegister={() => setIsFlipped(true)} />
+                            {view === 'forgot_password' ? (
+                                <ForgotPasswordForm onBackToLogin={() => setView('login')} />
+                            ) : (
+                                <LoginForm
+                                    onSwitchToRegister={() => setView('register')}
+                                    onForgotPassword={() => setView('forgot_password')}
+                                />
+                            )}
                         </div>
                         {/* Back: Register */}
                         <div className="card-face card-back">
-                            <RegisterForm onSwitchToLogin={() => setIsFlipped(false)} />
+                            <RegisterForm onSwitchToLogin={() => setView('login')} />
                         </div>
                     </div>
                 </div>

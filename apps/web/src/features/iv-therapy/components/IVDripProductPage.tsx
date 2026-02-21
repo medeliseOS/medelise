@@ -501,31 +501,46 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
                     .drez-page { padding: 0; }
-                    .drez-container { max-width: 100%; padding: 0 16px 64px; gap: 32px; }
+                    .drez-container { max-width: 100%; padding: 0 0 64px; gap: 32px; }
                     .drez-main-row { gap: 32px; }
-                    .drez-left-column { width: 100%; max-width: 100%; }
+                    .drez-left-column { width: 100%; max-width: 100%; padding: 0 16px; }
                     .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 360px; }
                     .drez-image { width: 100%; max-height: 360px; object-fit: contain; }
-                    .drez-title { font-size: 16px; font-weight: 600; }
-                    .drez-subtitle { font-size: 12px; font-weight: 600; }
-                    .drez-review-count { font-size: 14px; }
-                    .drez-price-current { font-size: 28px; font-weight: 700; }
-                    .drez-price-old { font-size: 18px; }
-                    .drez-discount-badge { font-size: 16px; }
-                    .drez-eco-label, .drez-eco-value { font-size: 16px; }
-                    .drez-benefits-title { font-size: 16px; }
-                    .drez-benefits-list li { font-size: 14px; }
-                    .drez-selector-label { font-size: 16px; }
+                    .drez-content { padding: 0 16px; gap: 32px; }
+                    .drez-title { font-size: 16px; font-weight: 600; line-height: 24px; margin: 0; }
+                    .drez-subtitle { font-size: 12px; font-weight: 600; line-height: 16px; margin: 0; color: var(--color-primary); }
+                    .drez-review-count { font-size: 14px; font-weight: 500; line-height: 20px; color: var(--color-primary); }
+                    .drez-price-current { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); }
+                    .drez-price-old { font-size: 20px; font-weight: 600; line-height: 28px; text-decoration: line-through; color: #FE5D16; }
+                    .drez-discount-badge { font-size: 16px; font-weight: 500; line-height: 24px; color: #FE5D16; }
+                    .drez-eco-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); }
+                    .drez-eco-value { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); }
+                    .drez-benefits-title { font-size: 16px; font-weight: 600; line-height: 24px; margin-bottom: 8px; color: var(--color-primary); }
+                    .drez-benefits-list li { font-size: 14px; font-weight: 400; line-height: 20px; color: var(--color-primary); }
+                    .drez-selector-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); }
+                    .drez-qty-display { font-size: 14px; font-weight: 600; line-height: 20px; }
                     /* Full width on mobile */
                     .drez-vol-btn { width: 100% !important; flex: 1; }
 
                     .drez-volume-options { gap: 16px; }
                     .drez-disclaimer { font-size: 12px; }
-                    .drez-tabs-bar { display: none; }
-                    .drez-accordion { display: block; }
-                    .drez-tabs-section { padding: 16px 16px; }
+                    .drez-tabs-bar { 
+                        display: flex; 
+                        flex-direction: row;
+                        padding: 64px 16px; 
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+                    .drez-tab { 
+                        flex: 1; 
+                        width: auto; 
+                        justify-content: center; 
+                        padding: 10px 4px; 
+                        font-size: 14px; 
+                    }
+                    .drez-tabs-section { padding: 0; }
                     .drez-disclaimer { padding: 10px 16px; }
-                    .drez-tab-content { padding: 16px 0; }
+                    .drez-tab-content { padding: 16px 16px; }
                     .drez-tab-panel-title { font-size: 18px; }
                     .drez-tab-panel-subtitle { font-size: 16px; }
                     .drez-tab-panel-text, .drez-tab-panel-list { font-size: 14px; }
