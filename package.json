@@ -1,57 +1,15 @@
 {
-  "name": "medelise",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "type-check": "tsc --noEmit",
-    "arch-audit": "node scripts/arch-audit.mjs",
-    "prepare": "husky",
-    "test": "vitest run --pool=forks",
-    "test:watch": "vitest --pool=forks"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "node scripts/arch-audit.mjs"
-    ]
-  },
-  "dependencies": {
-    "@types/three": "^0.182.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.564.0",
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "tailwind-merge": "^3.4.0",
-    "three": "^0.182.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/json-schema": "^7.0.15",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@types/stats.js": "^0.17.4",
-    "@types/webxr": "^0.5.24",
-    "dependency-cruiser": "^17.3.8",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "vitest": "^4.0.18"
-  },
-  "overrides": {
-    "minimatch": ">=10.2.1",
-    "ajv": ">=8.18.0"
-  }
+    "name": "medelise-monorepo",
+    "private": true,
+    "packageManager": "pnpm@9.0.0",
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    },
+    "devDependencies": {
+        "prettier": "^3.8.1",
+        "turbo": "^2.3.3"
+    }
 }
