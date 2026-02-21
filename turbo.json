@@ -5,6 +5,14 @@
             "dependsOn": [
                 "^build"
             ],
+            "inputs": [
+                "src/**",
+                "public/**",
+                "package.json",
+                "next.config.**",
+                "postcss.config.**",
+                "tailwind.config.**"
+            ],
             "outputs": [
                 ".next/**",
                 "!.next/cache/**",
