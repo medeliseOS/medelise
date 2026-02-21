@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/iv-drip-therapy/layout,_N_T_/iv-drip-therapy/boost-de-energie/layout,_N_T_/iv-drip-therapy/boost-de-energie/page,_N_T_/iv-drip-therapy/boost-de-energie"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/iv-drip-therapy/boost-de-energie/__PAGE__",
+    "/iv-drip-therapy/boost-de-energie",
+    "/iv-drip-therapy",
+    "/_index",
+    "/_head"
+  ]
+}

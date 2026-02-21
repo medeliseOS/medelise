@@ -107,34 +107,7 @@ export default function RegisterForm({
                         <p className="register-subtitle">Înregistrează-te pentru acces la platforma angajaților</p>
                     </div>
 
-                    {/* Social Sign-up */}
-                    <div className="register-social-row">
-                        <button className="register-social-btn" type="button">
-                            <Image
-                                src="/images-medelise/md-login/md-img-login-social-02.webp"
-                                alt="Google"
-                                width={24}
-                                height={24}
-                            />
-                            <span>Continuă cu Google</span>
-                        </button>
-                        <button className="register-social-btn" type="button">
-                            <Image
-                                src="/images-medelise/md-login/md-img-login-social-01.webp"
-                                alt="Apple"
-                                width={24}
-                                height={24}
-                            />
-                            <span>Continuă cu Apple</span>
-                        </button>
-                    </div>
 
-                    {/* Divider */}
-                    <div className="register-divider">
-                        <div className="register-divider-line" />
-                        <span className="register-divider-text">Sau înregistrează-te cu</span>
-                        <div className="register-divider-line" />
-                    </div>
 
                     {/* Form Fields */}
                     <form className="register-fields" onSubmit={handleSubmit}>

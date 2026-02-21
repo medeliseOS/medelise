@@ -1,0 +1,54 @@
+[00:00:04.109] Server  LOG     ○ Compiling middleware ...
+[00:00:12.566] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:12.650] Server  LOG     ✓ Ready in 12.4s
+[00:00:15.705] Server  LOG     ○ Compiling / ...
+[00:00:35.958] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:36.111] Browser WARN    Image with src "/images-medelise/md-quality/md-img-anpc-badge.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:02:12.399] Server  LOG     ✓ Compiled in 783ms
+[00:02:13.408] Browser ERROR   ./apps/web/src/features/auth/components/LoginPageContent.tsx:5:1
+Export default doesn't exist in target module
+  3 | import { useState } from 'react';
+  4 | import CardScanner from './CardScanner';
+> 5 | import LoginForm from './LoginForm';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import RegisterForm from './RegisterForm';
+  7 |
+  8 | export default function LoginPageContent() {
+
+The export default was not found in module [project]/apps/web/src/features/auth/components/LoginForm.tsx [app-client] (ecmascript).
+Did you mean to import LoginForm?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./apps/web/src/features/auth/components/LoginPageContent.tsx
+    ./apps/web/src/app/login/page.tsx
+[00:02:13.408] Browser ERROR   ./apps/web/src/features/auth/components/LoginPageContent.tsx:5:1
+Export default doesn't exist in target module
+  3 | import { useState } from 'react';
+  4 | import CardScanner from './CardScanner';
+> 5 | import LoginForm from './LoginForm';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import RegisterForm from './RegisterForm';
+  7 |
+  8 | export default function LoginPageContent() {
+
+The export default was not found in module [project]/apps/web/src/features/auth/components/LoginForm.tsx [app-ssr] (ecmascript).
+Did you mean to import LoginForm?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./apps/web/src/features/auth/components/LoginPageContent.tsx
+    ./apps/web/src/app/login/page.tsx
+[00:02:26.571] Server  LOG     ✓ Compiled in 138ms
+[00:02:26.745] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./apps/web/src/features/auth/components/LoginForm.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:02:27.695] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:09.554] Server  LOG     ✓ Compiled in 204ms
+[00:05:31.737] Server  LOG     ✓ Compiled in 98ms
+[00:05:33.722] Server  LOG     ✓ Compiled in 40ms
+[00:07:23.008] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:23.202] Browser WARN    Image with src "/images-medelise/md-quality/md-img-anpc-badge.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:45.971] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:46.458] Browser WARN    Image with src "/images-medelise/md-quality/md-img-anpc-badge.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:07:54.391] Browser WARN    Image with src "/images-medelise/md-quality/md-img-anpc-badge.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.

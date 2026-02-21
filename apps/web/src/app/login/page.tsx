@@ -1,15 +1,8 @@
-import type { Metadata } from 'next';
-import { LoginPageContent } from '@features/auth/components';
+import LoginPageContent from '@features/auth/components/LoginPageContent';
 
-export const metadata: Metadata = {
-    title: 'Autentificare',
-    description:
-        'Autentifică-te sau creează un cont Medelise pentru a accesa serviciile medicale premium și portalul de pacient.',
-    openGraph: {
-        title: 'Autentificare · Medelise',
-        description:
-            'Accesează contul tău Medelise sau creează unul nou.',
-    },
+export const metadata = {
+    title: 'Autentificare Centralizată | Medelise',
+    description: 'Portalul unic de acces pentru pacienți și personalul medical.',
 };
 
 export default function LoginPage() {

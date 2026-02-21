@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/servicii/layout,_N_T_/servicii/telemedicina/layout,_N_T_/servicii/telemedicina/page,_N_T_/servicii/telemedicina"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/servicii/telemedicina/__PAGE__",
+    "/servicii/telemedicina",
+    "/servicii",
+    "/_index",
+    "/_head"
+  ]
+}

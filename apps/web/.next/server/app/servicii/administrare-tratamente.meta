@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/servicii/layout,_N_T_/servicii/administrare-tratamente/layout,_N_T_/servicii/administrare-tratamente/page,_N_T_/servicii/administrare-tratamente"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/servicii/administrare-tratamente/__PAGE__",
+    "/servicii/administrare-tratamente",
+    "/servicii",
+    "/_index",
+    "/_head"
+  ]
+}

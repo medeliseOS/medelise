@@ -1,0 +1,14 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/apps/web/src/app/servicii/ingrijiri-suport-confort/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}

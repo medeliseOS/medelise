@@ -1,45 +1,61 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { useState, useRef } from 'react';
-import AnimatedEyeToggle from './AnimatedEyeToggle';
+import { useState } from 'react';
+import { createClient } from '@/lib/supabase/client';
 
 interface LoginFormProps {
     /** Override the title text */
     title?: string;
     /** Override the subtitle text */
     subtitle?: string;
-    /** Called when the form is submitted with email & password */
-    onSubmit?: (email: string, password: string, remember: boolean) => void;
     /** Called when user clicks "Înregistrează-te" to switch to register */
     onSwitchToRegister?: () => void;
-    /** Link destination for "Ai uitat parola?" */
-    forgotHref?: string;
     /** Additional className on the outer wrapper */
     className?: string;
 }
 
 export default function LoginForm({
     title = 'Bun venit',
-    subtitle = 'Conectează-te la contul de angajat',
-    onSubmit,
+    subtitle = 'Conectează-te la contul tău',
     onSwitchToRegister,
-    forgotHref = '#',
     className = '',
 }: LoginFormProps) {
-    const [showPassword, setShowPassword] = useState(false);
-    const passwordRef = useRef<HTMLInputElement>(null);
-    const emailRef = useRef<HTMLInputElement>(null);
-    const [remember, setRemember] = useState(false);
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const supabase = createClient();
+
+    const handleMagicLink = async (e: React.FormEvent) => {
         e.preventDefault();
-        onSubmit?.(
-            emailRef.current?.value || '',
-            passwordRef.current?.value || '',
-            remember,
-        );
+        setStatus('loading');
+        setErrorMessage('');
+
+        const { error } = await supabase.auth.signInWithOtp({
+            email,
+            options: {
+                // Adjust route depending on the user role logic we implement later
+                emailRedirectTo: `${window.location.origin}/patient`,
+            },
+        });
+
+        if (error) {
+            setStatus('error');
+            setErrorMessage(error.message);
+        } else {
+            setStatus('success');
+        }
+    };
+
+    const handleProviderLogin = async (provider: 'google' | 'apple') => {
+        setStatus('loading');
+        await supabase.auth.signInWithOAuth({
+            provider,
+            options: {
+                redirectTo: `${window.location.origin}/patient`,
+            },
+        });
     };
 
     return (
@@ -52,148 +68,105 @@ export default function LoginForm({
                         <p className="login-subtitle">{subtitle}</p>
                     </div>
 
-                    {/* Social Sign-in */}
-                    <div className="login-social-row">
-                        <button className="login-social-btn" type="button">
-                            <Image
-                                src="/images-medelise/md-login/md-img-login-social-02.webp"
-                                alt="Google"
-                                width={24}
-                                height={24}
-                            />
-                            <span>Conectare cu Google</span>
-                        </button>
-                        <button className="login-social-btn" type="button">
-                            <Image
-                                src="/images-medelise/md-login/md-img-login-social-01.webp"
-                                alt="Apple"
-                                width={24}
-                                height={24}
-                            />
-                            <span>Conectare cu Apple</span>
-                        </button>
-                    </div>
-
-                    {/* Divider */}
-                    <div className="login-divider">
-                        <div className="login-divider-line" />
-                        <span className="login-divider-text">Sau conectează-te cu</span>
-                        <div className="login-divider-line" />
-                    </div>
-
-                    {/* Form Fields */}
-                    <form className="login-fields" onSubmit={handleSubmit}>
-                        {/* Email */}
-                        <div className="login-field-group">
-                            <label className="login-label">Email</label>
-                            <div className="login-input-wrapper">
-                                <Image
-                                    src="/images-medelise/md-login/md-img-login-ico-mail.webp"
-                                    alt=""
-                                    width={24}
-                                    height={24}
-                                    className="login-input-icon"
-                                />
-                                <input
-                                    ref={emailRef}
-                                    type="email"
-                                    placeholder="Introdu adresa de email"
-                                    className="login-input"
-                                />
-                            </div>
+                    {status === 'success' ? (
+                        <div className="px-4 py-8 text-center bg-green-50 rounded-2xl border border-green-100 mb-6">
+                            <p className="text-xl font-semibold text-green-800 mb-2">Verifică-ți adresa de email!</p>
+                            <p className="text-sm text-green-700 font-medium">
+                                Ți-am trimis un link securizat de conectare la adresa:<br />
+                                <strong className="text-green-900">{email}</strong>
+                            </p>
+                            <p className="mt-4 text-xs text-green-600">Nu uita să verifici și folderul Spam.</p>
                         </div>
+                    ) : (
+                        <>
 
-                        {/* Password */}
-                        <div className="login-field-group">
-                            <label className="login-label">Parolă</label>
-                            <div className="login-input-wrapper">
-                                <Image
-                                    src="/images-medelise/md-login/md-img-login-ico-lock.webp"
-                                    alt=""
-                                    width={24}
-                                    height={24}
-                                    className="login-input-icon"
-                                />
-                                <input
-                                    ref={passwordRef}
-                                    type={showPassword ? 'text' : 'password'}
-                                    placeholder="Introdu parola"
-                                    className="login-input"
-                                />
-                                <AnimatedEyeToggle
-                                    isVisible={showPassword}
-                                    onToggle={() => setShowPassword(!showPassword)}
-                                    inputRef={passwordRef}
-                                />
-                            </div>
-                        </div>
 
-                        {/* Login Button */}
-                        <div className="login-actions">
-                            <button type="submit" className="login-submit-btn">
-                                Conectare
-                            </button>
+                            {/* Form Fields */}
+                            <form className="login-fields" onSubmit={handleMagicLink}>
+                                {/* Email */}
+                                <div className="login-field-group">
+                                    <label className="login-label">Email</label>
+                                    <div className="login-input-wrapper">
+                                        <Image
+                                            src="/images-medelise/md-login/md-img-login-ico-mail.webp"
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            className="login-input-icon"
+                                        />
+                                        <input
+                                            type="email"
+                                            required
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="nume@exemplu.ro"
+                                            className="login-input"
+                                            disabled={status === 'loading'}
+                                        />
+                                    </div>
+                                    {status === 'error' && (
+                                        <p className="text-sm text-red-500 font-medium mt-1">{errorMessage}</p>
+                                    )}
+                                </div>
 
-                            <div className="login-meta-row">
-                                <label className="login-remember">
-                                    <input
-                                        type="checkbox"
-                                        className="login-checkbox"
-                                        checked={remember}
-                                        onChange={(e) => setRemember(e.target.checked)}
-                                    />
-                                    <span>Ține-mă minte</span>
-                                </label>
-                                <Link href={forgotHref} className="login-forgot">
-                                    Ai uitat parola?
-                                </Link>
-                            </div>
-                        </div>
-                    </form>
+                                {/* Login Actions */}
+                                <div className="login-actions">
+                                    <button
+                                        type="submit"
+                                        className="login-submit-btn"
+                                        disabled={status === 'loading' || !email}
+                                    >
+                                        {status === 'loading' ? 'Se procesează...' : 'Conectare securizată'}
+                                    </button>
+                                </div>
 
-                    {/* Sign Up Link */}
-                    <div className="login-signup-row">
-                        <span className="login-signup-text">Nu ai un cont?</span>
-                        <button
-                            type="button"
-                            className="login-signup-link"
-                            onClick={onSwitchToRegister}
-                        >
-                            Înregistrează-te
-                        </button>
-                    </div>
+                                {/* Sign Up */}
+                                <div className="login-signup-row">
+                                    <span className="login-signup-text">
+                                        Nu ai cont?
+                                    </span>
+                                    <button
+                                        type="button"
+                                        className="login-signup-link"
+                                        onClick={onSwitchToRegister}
+                                    >
+                                        Înregistrează-te
+                                    </button>
+                                </div>
+                            </form>
+                        </>
+                    )}
                 </div>
             </div>
 
             <style jsx>{`
-                /* ── LEFT PANEL ── */
                 .login-form-panel {
-                    width: 100%;
-                    height: 100%;
+                    min-width: 480px;
+                    padding: 40px;
+                    background: var(--color-white);
+                    border-radius: 40px;
                     display: flex;
+                    flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    padding: 0 32px;
-                    background: white;
+                    margin: auto;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.05); /* Added slight shadow to pop */
                 }
 
                 .login-form-inner {
                     width: 100%;
-                    max-width: 650px;
+                    max-width: 400px;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    gap: 24px;
+                    gap: 32px;
                 }
 
                 /* Header */
                 .login-header {
-                    text-align: center;
                     display: flex;
                     flex-direction: column;
-                    gap: 12px;
-                    align-self: stretch;
-                    align-items: center;
+                    gap: 8px;
+                    align-items: flex-start;
                 }
 
                 .login-title {
@@ -235,8 +208,12 @@ export default function LoginForm({
                     transition: background 0.2s;
                 }
 
-                .login-social-btn:hover {
+                .login-social-btn:hover:not(:disabled) {
                     background: var(--color-surface-card);
+                }
+
+                .login-social-btn:disabled {
+                    cursor: not-allowed;
                 }
 
                 .login-social-btn span {
@@ -320,13 +297,9 @@ export default function LoginForm({
                     color: var(--color-text-light);
                 }
 
-                .login-eye-btn {
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    padding: 0;
+                .login-input:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
                 }
 
                 /* Login Actions */
@@ -334,6 +307,7 @@ export default function LoginForm({
                     display: flex;
                     flex-direction: column;
                     gap: 16px;
+                    margin-top: 8px;
                 }
 
                 .login-submit-btn {
@@ -351,55 +325,18 @@ export default function LoginForm({
                     text-align: center;
                 }
 
-                .login-submit-btn:hover {
+                .login-submit-btn:hover:not(:disabled) {
                     background: var(--color-primary-hover);
                     transform: translateY(-1px);
                 }
 
-                .login-submit-btn:active {
+                .login-submit-btn:active:not(:disabled) {
                     transform: translateY(0);
                 }
 
-                .login-meta-row {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-
-                .login-remember {
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    cursor: pointer;
-                }
-
-                .login-checkbox {
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 6px;
-                    border: 1px solid var(--color-border-form);
-                    background: var(--color-surface);
-                    cursor: pointer;
-                    accent-color: var(--color-primary);
-                }
-
-                .login-remember span {
-                    color: var(--color-text-light);
-                    font-size: 16px;
-                    font-weight: 500;
-                    line-height: 21.7px;
-                }
-
-                .login-forgot {
-                    color: var(--color-text-muted);
-                    font-size: 16px;
-                    font-weight: 500;
-                    line-height: 21.7px;
-                    text-decoration: none;
-                }
-
-                .login-forgot:hover {
-                    text-decoration: underline;
+                .login-submit-btn:disabled {
+                    opacity: 0.7;
+                    cursor: not-allowed;
                 }
 
                 /* Sign Up */
@@ -407,11 +344,12 @@ export default function LoginForm({
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    justify-content: center;
                     padding: 8px 0;
                 }
 
                 .login-signup-text {
-                    color: var(--color-primary);
+                    color: var(--color-text-light);
                     font-size: 16px;
                     font-weight: 500;
                     line-height: 21.7px;
@@ -436,6 +374,8 @@ export default function LoginForm({
                 /* ── RESPONSIVE ── */
                 @media (max-width: 480px) {
                     .login-form-panel {
+                        min-width: unset;
+                        width: 100%;
                         padding: 24px 16px;
                     }
 

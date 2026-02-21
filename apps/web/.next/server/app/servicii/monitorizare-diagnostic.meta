@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/servicii/layout,_N_T_/servicii/monitorizare-diagnostic/layout,_N_T_/servicii/monitorizare-diagnostic/page,_N_T_/servicii/monitorizare-diagnostic"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/servicii/monitorizare-diagnostic/__PAGE__",
+    "/servicii/monitorizare-diagnostic",
+    "/servicii",
+    "/_index",
+    "/_head"
+  ]
+}

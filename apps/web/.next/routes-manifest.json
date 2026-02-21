@@ -1,0 +1,313 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/cariera/[slug]",
+      "regex": "^/cariera/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/cariera/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/cariera/[slug]/aplica",
+      "regex": "^/cariera/([^/]+?)/aplica(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/cariera/(?<nxtPslug>[^/]+?)/aplica(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/assistant",
+      "regex": "^/assistant(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/assistant(?:/)?$"
+    },
+    {
+      "page": "/button-demo",
+      "regex": "^/button\\-demo(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/button\\-demo(?:/)?$"
+    },
+    {
+      "page": "/cariera",
+      "regex": "^/cariera(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cariera(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/despre-noi",
+      "regex": "^/despre\\-noi(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/despre\\-noi(?:/)?$"
+    },
+    {
+      "page": "/faq",
+      "regex": "^/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faq(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy",
+      "regex": "^/iv\\-drip\\-therapy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/all-inclusive",
+      "regex": "^/iv\\-drip\\-therapy/all\\-inclusive(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/all\\-inclusive(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/anti-mahmureala",
+      "regex": "^/iv\\-drip\\-therapy/anti\\-mahmureala(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/anti\\-mahmureala(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/boost-de-energie",
+      "regex": "^/iv\\-drip\\-therapy/boost\\-de\\-energie(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/boost\\-de\\-energie(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/boost-de-imunitate",
+      "regex": "^/iv\\-drip\\-therapy/boost\\-de\\-imunitate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/boost\\-de\\-imunitate(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/calmarea-migrenelor",
+      "regex": "^/iv\\-drip\\-therapy/calmarea\\-migrenelor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/calmarea\\-migrenelor(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/deshidratare",
+      "regex": "^/iv\\-drip\\-therapy/deshidratare(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/deshidratare(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/fertility-plus",
+      "regex": "^/iv\\-drip\\-therapy/fertility\\-plus(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/fertility\\-plus(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/frumusete",
+      "regex": "^/iv\\-drip\\-therapy/frumusete(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/frumusete(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/gastroenterita",
+      "regex": "^/iv\\-drip\\-therapy/gastroenterita(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/gastroenterita(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/myers-cocktail",
+      "regex": "^/iv\\-drip\\-therapy/myers\\-cocktail(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/myers\\-cocktail(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/recuperare",
+      "regex": "^/iv\\-drip\\-therapy/recuperare(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/recuperare(?:/)?$"
+    },
+    {
+      "page": "/iv-drip-therapy/super-boost-de-imunitate",
+      "regex": "^/iv\\-drip\\-therapy/super\\-boost\\-de\\-imunitate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iv\\-drip\\-therapy/super\\-boost\\-de\\-imunitate(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/patient",
+      "regex": "^/patient(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/patient(?:/)?$"
+    },
+    {
+      "page": "/politica-confidentialitate",
+      "regex": "^/politica\\-confidentialitate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/politica\\-confidentialitate(?:/)?$"
+    },
+    {
+      "page": "/politica-cookies",
+      "regex": "^/politica\\-cookies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/politica\\-cookies(?:/)?$"
+    },
+    {
+      "page": "/programare",
+      "regex": "^/programare(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/programare(?:/)?$"
+    },
+    {
+      "page": "/servicii/administrare-tratamente",
+      "regex": "^/servicii/administrare\\-tratamente(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/administrare\\-tratamente(?:/)?$"
+    },
+    {
+      "page": "/servicii/consultatii-medicale",
+      "regex": "^/servicii/consultatii\\-medicale(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/consultatii\\-medicale(?:/)?$"
+    },
+    {
+      "page": "/servicii/ingrijire-seniori-paliativa",
+      "regex": "^/servicii/ingrijire\\-seniori\\-paliativa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/ingrijire\\-seniori\\-paliativa(?:/)?$"
+    },
+    {
+      "page": "/servicii/ingrijiri-postoperatorii-plagi",
+      "regex": "^/servicii/ingrijiri\\-postoperatorii\\-plagi(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/ingrijiri\\-postoperatorii\\-plagi(?:/)?$"
+    },
+    {
+      "page": "/servicii/ingrijiri-suport-confort",
+      "regex": "^/servicii/ingrijiri\\-suport\\-confort(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/ingrijiri\\-suport\\-confort(?:/)?$"
+    },
+    {
+      "page": "/servicii/kinetoterapie-recuperare",
+      "regex": "^/servicii/kinetoterapie\\-recuperare(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/kinetoterapie\\-recuperare(?:/)?$"
+    },
+    {
+      "page": "/servicii/masaj-terapeutic-relaxare",
+      "regex": "^/servicii/masaj\\-terapeutic\\-relaxare(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/masaj\\-terapeutic\\-relaxare(?:/)?$"
+    },
+    {
+      "page": "/servicii/monitorizare-diagnostic",
+      "regex": "^/servicii/monitorizare\\-diagnostic(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/monitorizare\\-diagnostic(?:/)?$"
+    },
+    {
+      "page": "/servicii/pachete-planuri-medicale",
+      "regex": "^/servicii/pachete\\-planuri\\-medicale(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/pachete\\-planuri\\-medicale(?:/)?$"
+    },
+    {
+      "page": "/servicii/profilaxie-preventie",
+      "regex": "^/servicii/profilaxie\\-preventie(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/profilaxie\\-preventie(?:/)?$"
+    },
+    {
+      "page": "/servicii/servicii-laborator-domiciliu",
+      "regex": "^/servicii/servicii\\-laborator\\-domiciliu(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/servicii\\-laborator\\-domiciliu(?:/)?$"
+    },
+    {
+      "page": "/servicii/telemedicina",
+      "regex": "^/servicii/telemedicina(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicii/telemedicina(?:/)?$"
+    },
+    {
+      "page": "/termeni-si-conditii",
+      "regex": "^/termeni\\-si\\-conditii(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/termeni\\-si\\-conditii(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "app": {
+    "[project]/apps/web/src/app/(dashboards)/admin/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/(dashboards)/assistant/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/(dashboards)/patient/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/_not-found/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/button-demo/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/cariera/[slug]/aplica/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/cariera/[slug]/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/cariera/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/contact/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/despre-noi/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/faq/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/all-inclusive/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/anti-mahmureala/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/boost-de-energie/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/boost-de-imunitate/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/calmarea-migrenelor/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/deshidratare/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/fertility-plus/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/frumusete/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/gastroenterita/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/myers-cocktail/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/recuperare/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/iv-drip-therapy/super-boost-de-imunitate/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/login/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/politica-confidentialitate/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/politica-cookies/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/programare/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/administrare-tratamente/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/consultatii-medicale/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/ingrijire-seniori-paliativa/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/ingrijiri-postoperatorii-plagi/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/ingrijiri-suport-confort/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/kinetoterapie-recuperare/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/masaj-terapeutic-relaxare/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/monitorizare-diagnostic/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/pachete-planuri-medicale/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/profilaxie-preventie/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/servicii-laborator-domiciliu/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/servicii/telemedicina/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/apps/web/src/app/termeni-si-conditii/page": [
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/fe83cf2ab39e9c57-s.p.442acfff.woff2",
+      "static/media/a88409fdd7dc121c-s.p.62b55a98.woff2",
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
