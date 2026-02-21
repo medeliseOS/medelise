@@ -4,51 +4,30 @@
   "private": true,
   "packageManager": "pnpm@10.19.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "type-check": "tsc --noEmit",
+    "type-check": "turbo run type-check",
     "arch-audit": "node scripts/arch-audit.mjs",
     "prepare": "husky",
     "test": "vitest run --pool=forks",
     "test:watch": "vitest --pool=forks"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "apps/web/src/**/*.{ts,tsx}": [
       "node scripts/arch-audit.mjs"
     ]
   },
-  "dependencies": {
-    "@types/three": "^0.182.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.564.0",
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "tailwind-merge": "^3.4.0",
-    "three": "^0.182.0"
-  },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/json-schema": "^7.0.15",
-    "@types/node": "^20.19.33",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@types/stats.js": "^0.17.4",
-    "@types/webxr": "^0.5.24",
     "dependency-cruiser": "^17.3.8",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^4",
-    "typescript": "^5",
+    "turbo": "^2.4.0",
     "vitest": "^4.0.18"
   },
   "overrides": {
