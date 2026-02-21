@@ -421,7 +421,7 @@ export default function DespreNoiContent() {
                             </div>
                             <div className="dn-signed-info">
                                 <div className="dn-signed-name">
-                                    Mircea Popa <br /> Founder Medvita
+                                    Mircea Popa <br /> Founder Medelise
                                 </div>
                             </div>
                         </div>
@@ -453,7 +453,7 @@ export default function DespreNoiContent() {
                             </div>
 
 
-                            {/* Logo 2: Medvita Text/Shape Construction */}
+                            {/* Logo 2: Medelise Text/Shape Construction */}
                             <div className="dn-logo-container" style={{ width: 'auto', height: 'auto', minHeight: 44 }}>
                                 <div style={{ width: 'auto', height: 48, position: 'relative', display: 'flex', alignItems: 'center' }}>
                                     <span style={{

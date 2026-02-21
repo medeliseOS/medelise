@@ -14,7 +14,7 @@ export default function CookiesContent() {
                 <LegalSearchHero
                     title="Politica privind modulele cookie"
                     date="Ultima actualizare: [01 martie 2026]"
-                    description={`Această politică explică modul în care MEDVITA HEALTH SOLUTIONS S.R.L. („Medvita", „noi") utilizează modulele cookie și tehnologii similare pe website-ul nostru [www.medvita.ro] și în platformele noastre digitale (inclusiv careOS).`}
+                    description={`Această politică explică modul în care MEDELISE HEALTH SOLUTIONS S.R.L. („Medelise", „noi") utilizează modulele cookie și tehnologii similare pe website-ul nostru [www.medelise.ro] și în platformele noastre digitale (inclusiv careOS).`}
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
                     matchCount={matchCount}
@@ -38,7 +38,7 @@ export default function CookiesContent() {
                     {/* ── Main content ── */}
                     <section className="legal-content">
                         <p className="legal-welcome">
-                            Bine ai venit! <br />Acești termeni reglementează utilizarea serviciilor Medvita și a platformei careOS.
+                            Bine ai venit! <br />Acești termeni reglementează utilizarea serviciilor Medelise și a platformei careOS.
                         </p>
 
                         <div className="legal-section" id="section-1">
@@ -112,7 +112,7 @@ export default function CookiesContent() {
                             <p className="legal-note">
                                 Acești parteneri pot colecta și procesa date în conformitate cu propriile politici.
                                 Folosim aceste servicii exclusiv pentru a înțelege mai bine nevoile clienților noștri,
-                                a optimiza experiența de navigare și a promova serviciile Medvita într-un mod etic și transparent.
+                                a optimiza experiența de navigare și a promova serviciile Medelise într-un mod etic și transparent.
                             </p>
                         </div>
 
@@ -125,7 +125,7 @@ export default function CookiesContent() {
                                 <p>obținerea unei copii a datelor procesate.</p>
                             </div>
                             <p className="legal-contact">
-                                Pentru exercitarea acestor drepturi: &nbsp;📧&nbsp; <a href="mailto:contact@medvita.ro">contact@medvita.ro</a> &nbsp;📍&nbsp; Str. Solstițiului 19, Popești-Leordeni, Ilfov
+                                Pentru exercitarea acestor drepturi: &nbsp;📧&nbsp; <a href="mailto:contact@medelise.ro">contact@medelise.ro</a> &nbsp;📍&nbsp; Str. Solstițiului 19, Popești-Leordeni, Ilfov
                             </p>
                         </div>
 

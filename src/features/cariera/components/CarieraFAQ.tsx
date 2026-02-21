@@ -7,7 +7,7 @@ import Link from 'next/link';
 /* ─── Career FAQ Data ─── */
 const CAREER_FAQ_ITEMS = [
     {
-        question: 'Cum pot aplica pentru un job în cadrul Medvita?',
+        question: 'Cum pot aplica pentru un job în cadrul Medelise?',
         answer: 'Poți aplica direct din pagina de carieră, selectând poziția dorită și completând formularul de aplicare. Procesul durează sub 5 minute.',
     },
     {
@@ -24,14 +24,14 @@ const CAREER_FAQ_ITEMS = [
     },
     {
         question: 'Pot lucra part-time sau în program flexibil?',
-        answer: 'Absolut. Medvita oferă flexibilitate reală — îți alegi programul, numărul de vizite și intervalele care ți se potrivesc.',
+        answer: 'Absolut. Medelise oferă flexibilitate reală — îți alegi programul, numărul de vizite și intervalele care ți se potrivesc.',
     },
     {
         question: 'În ce zone pot desfășura vizite la domiciliu?',
         answer: 'Acoperim București, Ilfov și zonele limitrofe. Poți alege zonele preferate din aplicație, iar rețeaua se extinde constant.',
     },
     {
-        question: 'Cum este remunerată activitatea în Medvita?',
+        question: 'Cum este remunerată activitatea în Medelise?',
         answer: 'Plata se face transparent, per vizită sau per procedură, cu bonusuri pentru disponibilitate și feedback pozitiv. Detaliile exacte sunt discutate la interviu.',
     },
     {
@@ -39,7 +39,7 @@ const CAREER_FAQ_ITEMS = [
         answer: 'Da, asigurăm echipamente medicale, consumabile și suport de transport pentru vizitele la domiciliu. Nu trebuie să investești din resurse proprii.',
     },
     {
-        question: 'Pot avansa sau schimba rolul în cadrul Medvita?',
+        question: 'Pot avansa sau schimba rolul în cadrul Medelise?',
         answer: 'Da, avem trasee de carieră clar definite. Poți avansa în roluri de coordonator, mentor sau specialist senior, în funcție de experiență și performanță.',
     },
     {
@@ -59,7 +59,7 @@ export default function CarieraFAQ() {
                 <div className="cfaq-header">
                     <p className="cfaq-surtitle">Frequently Asked Questions</p>
                     <h2 id="cfaq-heading" className="cfaq-title">
-                        Pașii pentru a colabora cu Echipa Medvita
+                        Pașii pentru a colabora cu Echipa Medelise
                     </h2>
                 </div>
 
@@ -104,7 +104,7 @@ export default function CarieraFAQ() {
                     <div className="cfaq-cta-content">
                         <h3 className="cfaq-cta-title">Vrei să afli mai multe?</h3>
                         <p className="cfaq-cta-desc">
-                            Contactează-ne și primești suport personalizat din partea echipei Medvita. Răspundem prompt și clar.
+                            Contactează-ne și primești suport personalizat din partea echipei Medelise. Răspundem prompt și clar.
                         </p>
                     </div>
                     <Link href="/contact">

@@ -63,7 +63,7 @@ export default function GDPRContent() {
                 <LegalSearchHero
                     title="POLITICA PRIVIND CONFIDENȚIALITATEA ȘI PRELUCRAREA DATELOR CU CARACTER PERSONAL"
                     date="Ultima actualizare: [01 martie 2026]"
-                    description="Conform Regulamentului General privind Protecția Datelor cu Caracter Personal (GDPR – UE 2016/679), Medvita Health Solutions S.R.L. respectă confidențialitatea datelor personale ale pacienților, utilizatorilor și partenerilor săi. Prezenta politică descrie modul în care colectăm, folosim și protejăm datele dvs."
+                    description="Conform Regulamentului General privind Protecția Datelor cu Caracter Personal (GDPR – UE 2016/679), Medelise Health Solutions S.R.L. respectă confidențialitatea datelor personale ale pacienților, utilizatorilor și partenerilor săi. Prezenta politică descrie modul în care colectăm, folosim și protejăm datele dvs."
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
                     matchCount={matchCount}
@@ -130,7 +130,7 @@ export default function GDPRContent() {
                             {/* 1. Cine suntem? */}
                             <div className="gdpr-section" id="cine-suntem">
                                 <h3 className="gdpr-section-title">1. Cine suntem?</h3>
-                                <p className="gdpr-text gdpr-text--bold">MEDVITA HEALTH SOLUTIONS S.R.L.</p>
+                                <p className="gdpr-text gdpr-text--bold">MEDELISE HEALTH SOLUTIONS S.R.L.</p>
                                 <p className="gdpr-text gdpr-text--medium">
                                     Sediu: Str. Solstițiului, nr. 19, Bl. 1, Sc. B, Parter, Ap. 4, Popești-Leordeni, Ilfov
                                     &nbsp;&nbsp;&nbsp;&nbsp;CUI: 46951403
@@ -138,7 +138,7 @@ export default function GDPRContent() {
                                 </p>
                                 <div className="gdpr-email-row">
                                     <span className="gdpr-email-icon">📧</span>
-                                    <span className="gdpr-text gdpr-text--medium">dpo@medvita.ro (responsabil cu protecția datelor)</span>
+                                    <span className="gdpr-text gdpr-text--medium">dpo@medelise.ro (responsabil cu protecția datelor)</span>
                                 </div>
                             </div>
 
@@ -222,7 +222,7 @@ export default function GDPRContent() {
                                 </p>
                                 <div className="gdpr-email-row">
                                     <span className="gdpr-email-icon">📧</span>
-                                    <span className="gdpr-text gdpr-text--medium">dpo@medvita.ro (responsabil cu protecția datelor)</span>
+                                    <span className="gdpr-text gdpr-text--medium">dpo@medelise.ro (responsabil cu protecția datelor)</span>
                                 </div>
                             </div>
 
@@ -261,14 +261,14 @@ export default function GDPRContent() {
                                 </ul>
                                 <div className="gdpr-email-row">
                                     <span className="gdpr-email-icon">📧</span>
-                                    <span className="gdpr-text gdpr-text--bold-sm">Trimite o cerere la: dpo@medvita.ro</span>
+                                    <span className="gdpr-text gdpr-text--bold-sm">Trimite o cerere la: dpo@medelise.ro</span>
                                 </div>
                             </div>
 
                             {/* 10. Securitatea datelor */}
                             <div className="gdpr-section" id="securitate">
                                 <h3 className="gdpr-section-title">10. Securitatea datelor</h3>
-                                <p className="gdpr-text">Medvita aplică măsuri solide de securitate:</p>
+                                <p className="gdpr-text">Medelise aplică măsuri solide de securitate:</p>
                                 <div className="gdpr-callout-dark">
                                     <p>
                                         Autentificare cu parolă și OTP<br />
@@ -294,7 +294,7 @@ export default function GDPRContent() {
                                 <p>
                                     Pentru orice întrebări sau sesizări <strong>PRIVIND POLITICA DE CONFIDENȚIALITATEA ȘI
                                         PRELUCRAREA DATELOR CU CARACTER PERSONAL</strong>, vă rugăm să ne scrieți la
-                                    office@medvita.ro (Responsabil cu protecția datelor).
+                                    office@medelise.ro (Responsabil cu protecția datelor).
                                 </p>
                             </div>
                         </div>

@@ -9,7 +9,7 @@ const STEPS = [
         icon: '/icons-medelise/md-business/md-ico-calendar-check.webp',
         title: 'Creezi Contul și Alegi Serviciul',
         description:
-            'Începe prin a-ți crea un cont gratuit în Portalul Pacientului Medvita. Odată autentificat, ai acces la întreaga gamă de servicii: de la analize de laborator și kinetoterapie, până la medicină de prevenție sau consulturi de specialitate. Totul este digital, rapid și sigur.',
+            'Începe prin a-ți crea un cont gratuit în Portalul Pacientului Medelise. Odată autentificat, ai acces la întreaga gamă de servicii: de la analize de laborator și kinetoterapie, până la medicină de prevenție sau consulturi de specialitate. Totul este digital, rapid și sigur.',
     },
     {
         step: 'STEP 2',

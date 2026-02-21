@@ -562,7 +562,7 @@ export default function EasyCareSection() {
                     {/* ── Header ── */}
                     <div className="easycare-header">
                         <h2 id="easycare-heading" className="easycare-title">
-                            Medvita EasyCare
+                            Medelise EasyCare
                         </h2>
                         <p className="easycare-subtitle">
                             Ai grijă de tine și de cei dragi, în fiecare zi, cu un singur abonament.

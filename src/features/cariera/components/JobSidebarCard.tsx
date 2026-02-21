@@ -13,7 +13,7 @@ export default function JobSidebarCard({ job, slug, className }: { job: JobDetai
                 <div className="sidebar-company">
                     <div className="sidebar-logo-wrap">
                         <Image
-                            src="/brand-medelise/md-logo-medvita-black.webp"
+                            src="/brand-medelise/md-logo-medelise-black.webp"
                             alt="Medelise"
                             width={36}
                             height={20}

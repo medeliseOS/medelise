@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 /* ── Types ── */
 export interface IVWhyFeature {
@@ -82,9 +83,11 @@ export default function IVWhySection({
                 {/* Center image */}
                 <div className="iv-why__col iv-why__col--image">
                     <div className="iv-why__image-container">
-                        <img
+                        <Image
                             src={imageSrc}
                             alt={imageAlt}
+                            width={384}
+                            height={544}
                             className="iv-why__image"
                         />
                     </div>
@@ -104,7 +107,7 @@ export default function IVWhySection({
             {/* Mobile/Tablet: stacked cards (hidden on desktop) */}
             <div className="iv-why__stack">
                 <div className="iv-why__stack-image-container">
-                    <img src={imageSrc} alt={imageAlt} className="iv-why__stack-image" />
+                    <Image src={imageSrc} alt={imageAlt} width={340} height={620} className="iv-why__stack-image" />
                 </div>
                 {features.map((f, i) => (
                     <div key={i} className="iv-why__card">

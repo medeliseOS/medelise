@@ -137,7 +137,7 @@ export default function TermeniContent() {
 
                             <h2 className="termeni-section-title-lg">Introducere</h2>
                             <p className="termeni-text">
-                                Medvita Health Solutions S.R.L., cu sediul în Popești-Leordeni, Ilfov,
+                                Medelise Health Solutions S.R.L., cu sediul în Popești-Leordeni, Ilfov,
                                 Str. Solstițiului 19, este înregistrată la ONRC cu nr. J23/6788/03.10.2022,
                                 CUI 46951403. Acești Termeni descriu responsabilitățile noastre și ale tale
                                 atunci când folosești platforma Medelise.

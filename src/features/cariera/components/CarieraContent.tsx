@@ -164,7 +164,7 @@ export default function CarieraContent() {
                                                             : `${daysLeft} ${daysLeft === 1 ? 'zi rămasă' : 'zile rămase'}`}
                                                     </span>
                                                     <Image
-                                                        src="/brand-medelise/md-logo-medvita-black.webp"
+                                                        src="/brand-medelise/md-logo-medelise-black.webp"
                                                         alt="Logo Medelise Health Solutions"
                                                         width={36}
                                                         height={20}
@@ -209,10 +209,10 @@ export default function CarieraContent() {
                                 <div className="benefits-text-group">
                                     <div className="benefits-header">
                                         <div className="benefits-title-group">
-                                            <div className="benefits-title">Beneficiile colaborării cu Medvita</div>
+                                            <div className="benefits-title">Beneficiile colaborării cu Medelise</div>
                                             <div className="benefits-desc">
                                                 Viziunea noastră pentru colaboratori<br />
-                                                Colaborarea cu Medvita înseamnă libertate profesională, recunoaștere reală și acces la un ecosistem digital care te ajută să lucrezi eficient, sigur și predictibil. Ne dorim ca fiecare specialist să aibă control asupra programului, a veniturilor și a modului în care își construiește cariera.
+                                                Colaborarea cu Medelise înseamnă libertate profesională, recunoaștere reală și acces la un ecosistem digital care te ajută să lucrezi eficient, sigur și predictibil. Ne dorim ca fiecare specialist să aibă control asupra programului, a veniturilor și a modului în care își construiește cariera.
                                             </div>
                                             <div className="benefits-line-container">
                                                 <Image
@@ -246,7 +246,7 @@ export default function CarieraContent() {
                                                 </div>
                                                 <div className="benefits-feature-title">Echilibru între viață și profesie</div>
                                             </div>
-                                            <div className="benefits-feature-desc">Lucrezi atât cât îți dorești, fără ture forțate. Ai libertatea de a-ți organiza timpul astfel încât să fii prezent pentru familie, studii sau activități personale. Medvita îți oferă control și predictibilitate.</div>
+                                            <div className="benefits-feature-desc">Lucrezi atât cât îți dorești, fără ture forțate. Ai libertatea de a-ți organiza timpul astfel încât să fii prezent pentru familie, studii sau activități personale. Medelise îți oferă control și predictibilitate.</div>
                                         </div>
 
                                         {/* Feature 3 */}
@@ -268,7 +268,7 @@ export default function CarieraContent() {
                                                 </div>
                                                 <div className="benefits-feature-title">Suport și dezvoltare continuă</div>
                                             </div>
-                                            <div className="benefits-feature-desc">Primești sprijin logistic, mentori, protocoale clare și acces la cursurile interne Medvita. Îți oferim un mediu real în care poți crește profesional, poți construi autoritate și poți avansa în roluri coordonatoare.</div>
+                                            <div className="benefits-feature-desc">Primești sprijin logistic, mentori, protocoale clare și acces la cursurile interne Medelise. Îți oferim un mediu real în care poți crește profesional, poți construi autoritate și poți avansa în roluri coordonatoare.</div>
                                         </div>
                                     </div>
                                 </div>

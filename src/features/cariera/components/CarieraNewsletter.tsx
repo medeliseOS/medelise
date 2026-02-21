@@ -22,7 +22,7 @@ export default function CarieraNewsletter() {
                         <div className="nl-image-wrapper">
                             <Image
                                 src="/icons-medelise/md-medical/doctor_result.webp"
-                                alt="Medic Medvita"
+                                alt="Medic Medelise"
                                 width={174}
                                 height={87}
                                 style={{ objectFit: 'contain' }}

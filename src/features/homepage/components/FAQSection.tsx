@@ -8,7 +8,7 @@ const FAQ_ITEMS = [
     {
         question: 'Cum pot programa o vizită medicală la domiciliu?',
         answer:
-            'Poți programa direct online din contul tău Medvita, în mai puțin de 60 de secunde.',
+            'Poți programa direct online din contul tău Medelise, în mai puțin de 60 de secunde.',
     },
     {
         question: 'Ce tipuri de servicii medicale sunt disponibile acasă?',
@@ -23,7 +23,7 @@ const FAQ_ITEMS = [
     {
         question: 'Este nevoie de trimitere medicală sau bilet de internare?',
         answer:
-            'Nu. Medvita funcționează pe bază de abonament sau servicii la cerere, fără birocrație.',
+            'Nu. Medelise funcționează pe bază de abonament sau servicii la cerere, fără birocrație.',
     },
     {
         question: 'Pot folosi Medelise pentru un părinte în vârstă sau copil?',
@@ -354,7 +354,7 @@ export default function FAQSection() {
                             <h3 className="faq-cta-title">Vrei să afli mai multe?</h3>
                             <p className="faq-cta-desc">
                                 Contactează-ne și primești suport personalizat din partea
-                                echipei Medvita. Răspundem prompt și clar.
+                                echipei Medelise. Răspundem prompt și clar.
                             </p>
                         </div>
                         <button className="faq-cta-btn" type="button">

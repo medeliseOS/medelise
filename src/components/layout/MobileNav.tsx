@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ICONS } from '@shared/constants/icons';
 import Logo from './Logo';
 import MenuButton from './MenuButton';
@@ -104,7 +105,7 @@ export default function MobileNav() {
                             {/* Sub-menu heading */}
                             <div className="w-full px-6">
                                 {currentSub.href ? (
-                                    <a href={currentSub.href}>
+                                    <Link href={currentSub.href}>
                                         <h2
                                             className="text-white underline transition-opacity hover:opacity-80"
                                             style={{
@@ -116,7 +117,7 @@ export default function MobileNav() {
                                         >
                                             {currentSub.heading}
                                         </h2>
-                                    </a>
+                                    </Link>
                                 ) : (
                                     <h2
                                         className="text-white underline"
@@ -135,9 +136,10 @@ export default function MobileNav() {
                             {/* Sub-menu items list */}
                             <div className="flex w-full flex-col">
                                 {currentSub.items.map((item) => (
-                                    <a
+                                    <Link
                                         key={item.title}
                                         href={item.href || '#'}
+                                        onClick={handleClose}
                                         className="flex items-center justify-between transition-colors hover:bg-white/5"
                                         style={{
                                             height: 75,
@@ -170,7 +172,7 @@ export default function MobileNav() {
                                             </span>
                                         </div>
                                         <ArrowCircleIcon />
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -269,9 +271,10 @@ export default function MobileNav() {
                             <div className="flex w-full flex-col items-center">
                                 <div className="flex w-full flex-col">
                                     {MENU_SIMPLE.map((item) => (
-                                        <a
+                                        <Link
                                             key={item.label}
                                             href={item.href}
+                                            onClick={handleClose}
                                             className="flex items-center transition-colors hover:bg-white/5"
                                             style={{
                                                 height: 74,
@@ -291,7 +294,7 @@ export default function MobileNav() {
                                             >
                                                 {item.label}
                                             </span>
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -300,9 +303,10 @@ export default function MobileNav() {
                             <div className="flex w-full flex-col items-center">
                                 <div className="flex w-full flex-col">
                                     {NAV_LINKS.map((link) => (
-                                        <a
+                                        <Link
                                             key={link.label}
                                             href={link.href}
+                                            onClick={handleClose}
                                             className="flex items-center transition-colors hover:bg-white/5"
                                             style={{
                                                 height: 74,
@@ -322,7 +326,7 @@ export default function MobileNav() {
                                             >
                                                 {link.label}
                                             </span>
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>

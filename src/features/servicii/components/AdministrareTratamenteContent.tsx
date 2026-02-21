@@ -9,7 +9,7 @@ export default function AdministrareTratamenteContent() {
         <main>
             <ServiceHero
                 title="Administrare profesională a tratamentelor – standard de clinică, la domiciliu"
-                description={`Servicii medicale executate de personal calificat Medvita, conform protocoalelor internaționale. Administrăm tratamente complexe, ajustăm dozele prescrise, monitorizăm reacțiile și asigurăm continuitatea terapeutică, direct la tine acasă.
+                description={`Servicii medicale executate de personal calificat Medelise, conform protocoalelor internaționale. Administrăm tratamente complexe, ajustăm dozele prescrise, monitorizăm reacțiile și asigurăm continuitatea terapeutică, direct la tine acasă.
 
 Îți garantăm siguranță, precizie și zero erori în administrare.`}
                 imageSrc="/images-medelise/md-hero/ASISTENTA MEDICALA SPECIALIZATA ( ASISTENT )/_Gallery Features Base.svg"
