@@ -725,9 +725,9 @@ export default function EasyCareSection() {
                                                 isSelected
                                                     ? {
                                                         '--btn-border': 'var(--color-white)',
-                                                        '--btn-text': 'var(--color-white)',
-                                                        '--btn-bg': 'transparent',
-                                                        '--btn-bg-hover': 'transparent',
+                                                        '--btn-text': 'var(--color-primary)',
+                                                        '--btn-bg': 'var(--color-white)',
+                                                        '--btn-bg-hover': 'var(--color-white)',
                                                     } as React.CSSProperties
                                                     : undefined
                                             }

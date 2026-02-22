@@ -268,15 +268,7 @@ export default function VisionSection() {
                                         Să devenim cel mai eficient și uman ecosistem digital de sănătate la domiciliu din Europa Centrală și de Est.<br />
                                         Un spațiu în care tehnologia, empatia și excelența profesională lucrează împreună pentru oameni.
                                     </div>
-                                    <div className="dn-vision-line-container">
-                                        <Image
-                                            src="/icons-medelise/md-about/md-ico-underline-marker.webp"
-                                            alt=""
-                                            layout="fill"
-                                            objectFit="contain"
-                                            objectPosition="left"
-                                        />
-                                    </div>
+
                                 </div>
                             </div>
 

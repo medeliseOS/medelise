@@ -2,6 +2,12 @@
 // Public API — IV Therapy Feature
 export { default as IVDripCatalog } from './IVDripCatalog';
 export { default as IVDripProductPage } from './IVDripProductPage';
+export { default as IVDripHeroSection } from './IVDripHeroSection';
+export type { IVDripHeroProps } from './IVDripHeroSection';
+export { default as IVDripProductTabs } from './IVDripProductTabs';
+export type { IVDripProductTabsProps, IVDripTab } from './IVDripProductTabs';
+export { default as ProductWhyItWorks } from './ProductWhyItWorks';
+
 export { default as ServiceCard } from './ServiceCard';
 export { default as AllInclusiveContent } from './AllInclusiveContent';
 export { default as AntiMahmurealaContent } from './AntiMahmurealaContent';
