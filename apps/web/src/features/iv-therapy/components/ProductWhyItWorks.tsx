@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function ProductWhyItWorks() {
     return (
-        <section className="w-full max-w-[1920px] mx-auto bg-white px-[16px] md:px-[32px] lg:px-[64px] py-[32px] md:py-[64px] flex flex-col items-center overflow-hidden">
+        <section className="w-full max-w-[1920px] mx-auto bg-white px-[4px] py-[32px] md:py-[64px] flex flex-col items-center overflow-hidden">
             <div className="w-full flex flex-col items-center gap-[32px]">
 
                 {/* ── Title & Subtitle Section ── */}
@@ -92,8 +92,8 @@ export default function ProductWhyItWorks() {
                             </h3>
                             {/* Description */}
                             <p className="text-[#213170] font-['Montserrat'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[28px] break-words">
-                                <span className="block md:hidden">Personal Medvita, respectarea diluțiilor și monitorizare completă</span>
-                                <span className="hidden md:block">Tratamentul este pregătit și monitorizat de personal Medvita, cu respectarea strictă a dozelor, diluțiilor și protocoalelor – pentru efect maxim și zero riscuri.</span>
+                                <span className="block md:hidden">Personal Medelise, respectarea diluțiilor și monitorizare completă</span>
+                                <span className="hidden md:block">Tratamentul este pregătit și monitorizat de personal Medelise, cu respectarea strictă a dozelor, diluțiilor și protocoalelor – pentru efect maxim și zero riscuri.</span>
                             </p>
                         </div>
                     </div>

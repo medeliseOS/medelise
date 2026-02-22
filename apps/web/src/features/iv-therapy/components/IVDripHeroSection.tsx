@@ -2,6 +2,10 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import QuantitySelector from '@/components/ui/QuantitySelector';
+import FavoriteButton from '@/components/ui/FavoriteButton';
+import DisclaimerPanel from '@/components/ui/DisclaimerPanel';
+import StarRating from '@/components/ui/StarRating';
 
 /* ── Types ───────────────────────────────────────────────────────────────── */
 export interface IVDripHeroProps {
@@ -32,25 +36,7 @@ function calcDiscount(price: number, oldPrice: number): string {
     return ((1 - price / oldPrice) * 100).toFixed(2).replace('.', ',');
 }
 
-function StarIcons({ count = 5, size = 24 }: { count?: number; size?: number }) {
-    return (
-        <>
-            {Array.from({ length: count }).map((_, i) => (
-                <span
-                    key={i}
-                    style={{
-                        display: 'inline-block',
-                        width: size,
-                        height: size,
-                        clipPath:
-                            'polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)',
-                        background: 'var(--color-accent, #FD5D16)',
-                    }}
-                />
-            ))}
-        </>
-    );
-}
+
 
 /* ── Component ───────────────────────────────────────────────────────────── */
 export default function IVDripHeroSection({
@@ -100,9 +86,7 @@ export default function IVDripHeroSection({
                         />
                     </div>
                     {disclaimer && (
-                        <div className="ivhero-disclaimer-desktop">
-                            <span className="ivhero-disclaimer-text">{disclaimer}</span>
-                        </div>
+                        <DisclaimerPanel text={disclaimer} />
                     )}
                 </div>
 
@@ -113,31 +97,14 @@ export default function IVDripHeroSection({
                     <div className="ivhero-header">
                         <h1 className="ivhero-title">{title}</h1>
                         <h2 className="ivhero-subtitle">{subtitle}</h2>
-                        <div className="ivhero-rating-row">
-                            <div className="ivhero-stars">
-                                <StarIcons count={Math.round(averageRating)} size={20} />
-                            </div>
-                            <span className="ivhero-review-count">{reviewCount} Recenzii</span>
-                        </div>
+
                     </div>
 
                     {/* Price */}
                     <div className="ivhero-price-block">
                         <div className="ivhero-price-row">
                             <span className="ivhero-price-current">{currentPrice} Lei</span>
-                            {currentOldPrice && (
-                                <span className="ivhero-price-old">{currentOldPrice} Lei</span>
-                            )}
                         </div>
-                        {discountPct && (
-                            <span className="ivhero-discount">Reducere de {discountPct}%</span>
-                        )}
-                        {economy && (
-                            <div className="ivhero-economy">
-                                <span className="ivhero-eco-label">Economisește acum!</span>
-                                <span className="ivhero-eco-value">{economy}</span>
-                            </div>
-                        )}
                     </div>
 
                     {/* Benefits */}
@@ -156,7 +123,7 @@ export default function IVDripHeroSection({
                                 {volumeOptions.map((vol) => (
                                     <button
                                         key={vol}
-                                        className={`ivhero-vol-btn${selectedVolume === vol ? ' ivhero-vol-btn--active' : ''}`}
+                                        className={`ivhero-vol-btn cursor-pointer font-body font-normal transition-all duration-300 hover:brightness-110 hover:scale-105${selectedVolume === vol ? ' ivhero-vol-btn--active' : ''}`}
                                         onClick={() => setSelectedVolume(vol)}
                                     >
                                         {vol}
@@ -169,57 +136,27 @@ export default function IVDripHeroSection({
                     {/* Quantity selector */}
                     <div className="ivhero-selector-block">
                         <span className="ivhero-selector-label">Selectează Cantitatea :</span>
-                        <div className="ivhero-qty-control">
-                            <button
-                                className="ivhero-qty-btn"
-                                aria-label="Scade cantitatea"
-                                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                            >
-                                <span className="ivhero-qty-minus" />
-                            </button>
-                            <span className="ivhero-qty-display">{quantity}</span>
-                            <button
-                                className="ivhero-qty-btn ivhero-qty-btn--last"
-                                aria-label="Creste cantitatea"
-                                onClick={() => setQuantity((q) => q + 1)}
-                            >
-                                <span className="ivhero-qty-plus">
-                                    <span className="bar-h" />
-                                    <span className="bar-v" />
-                                </span>
-                            </button>
-                        </div>
+                        <QuantitySelector value={quantity} onChange={setQuantity} />
                     </div>
 
                     {/* CTA */}
                     <div className="ivhero-cta-row">
-                        <button className="ivhero-btn-schedule" onClick={onSchedule}>
+                        <button
+                            className="ivhero-btn-schedule cursor-pointer transition-all duration-300 hover:brightness-110 hover:scale-105"
+                            onClick={onSchedule}
+                        >
                             Programează
                         </button>
-                        <button
-                            className={`ivhero-btn-fav${isFavorite ? ' ivhero-btn-fav--active' : ''}`}
-                            aria-label={isFavorite ? 'Elimină de la favorite' : 'Adaugă la favorite'}
-                            onClick={() => setIsFavorite((f) => !f)}
-                        >
-                            <svg width="24" height="24" viewBox="0 0 24 24"
-                                fill={isFavorite ? 'var(--color-error, #e03)' : 'none'}
-                                stroke={isFavorite ? 'var(--color-error, #e03)' : 'var(--color-primary, #213170)'}
-                                strokeWidth="1.5"
-                                style={{ transition: 'fill 0.2s, stroke 0.2s' }}
-                            >
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                            </svg>
-                        </button>
+                        <FavoriteButton
+                            isFavorite={isFavorite}
+                            onToggle={() => setIsFavorite((f) => !f)}
+                        />
                     </div>
                 </div>
             </div>
 
             {/* ── Disclaimer banner — tablet & mobile ── */}
-            {disclaimer && (
-                <div className="ivhero-disclaimer-banner">
-                    <span className="ivhero-disclaimer-text">{disclaimer}</span>
-                </div>
-            )}
+            {/* Disclaimer banner — hidden by default, shown on tablet/mobile if needed */}
 
             {/* ──────────────────── STYLES ──────────────────── */}
             <style jsx>{`
@@ -266,17 +203,7 @@ export default function IVDripHeroSection({
                     border-radius: 8px;
                     object-fit: contain;
                 }
-                .ivhero-disclaimer-desktop {
-                    width: 100%;
-                    background: #F9FAFB;
-                    border-radius: 8px;
-                    padding: 10px 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                /* Hidden on tablet/mobile — banner used instead */
-                .ivhero-disclaimer-banner { display: none; }
+                /* Disclaimer — now uses <DisclaimerPanel /> */
 
                 /* ── Right column ── */
                 .ivhero-right {
@@ -320,10 +247,7 @@ export default function IVDripHeroSection({
                     align-items: center;
                     gap: 8px;
                 }
-                .ivhero-stars {
-                    display: inline-flex;
-                    gap: 2px;
-                }
+                /* Stars — now uses <StarRating /> */
                 .ivhero-review-count {
                     color: var(--color-primary, #213170);
                     font-size: 18px;
@@ -460,7 +384,7 @@ export default function IVDripHeroSection({
                     cursor: pointer;
                     transition: background 0.15s, color 0.15s, border-color 0.15s;
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: center;
                     align-items: center;
                 }
                 .ivhero-vol-btn:hover { background: rgba(33,49,112,0.06); }
@@ -470,69 +394,7 @@ export default function IVDripHeroSection({
                     border-color: var(--color-primary, #213170) !important;
                 }
 
-                /* Quantity control — PILL, hug content */
-                .ivhero-qty-control {
-                    display: inline-flex;
-                    width: fit-content;
-                    border: 1px solid #CED2DA;
-                    border-radius: 100px;
-                    overflow: hidden;
-                }
-                .ivhero-qty-btn {
-                    background: white;
-                    border: none;
-                    border-right: 1px solid #CED2DA;
-                    padding: 10px 20px;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: background 0.1s;
-                    position: relative;
-                }
-                .ivhero-qty-btn--last { border-right: none; }
-                .ivhero-qty-display {
-                    padding: 10px 20px;
-                    font-size: 18px;
-                    font-family: 'Open Sans', sans-serif;
-                    font-weight: 600;
-                    line-height: 28px;
-                    color: var(--color-primary, #213170);
-                    border-right: 1px solid #CED2DA;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                /* minus icon */
-                .ivhero-qty-minus {
-                    display: block;
-                    width: 20px;
-                    height: 2px;
-                    background: var(--color-primary, #213170);
-                }
-                /* plus icon */
-                .ivhero-qty-plus {
-                    display: block;
-                    width: 20px;
-                    height: 20px;
-                    position: relative;
-                }
-                .bar-h {
-                    position: absolute;
-                    top: 9px;
-                    left: 0;
-                    width: 20px;
-                    height: 2px;
-                    background: var(--color-primary, #213170);
-                }
-                .bar-v {
-                    position: absolute;
-                    top: 0;
-                    left: 9px;
-                    width: 2px;
-                    height: 20px;
-                    background: var(--color-primary, #213170);
-                }
+                /* Quantity control — now uses <QuantitySelector /> */
 
                 /* CTA row */
                 .ivhero-cta-row {
@@ -544,7 +406,7 @@ export default function IVDripHeroSection({
                 }
                 .ivhero-btn-schedule {
                     flex: 1 1 0;
-                    padding: 10px 20px;
+                    padding: 8px 16px;
                     background: var(--color-primary, #213170);
                     border: none;
                     border-radius: 100px;
@@ -561,33 +423,9 @@ export default function IVDripHeroSection({
                     transition: opacity 0.15s;
                 }
                 .ivhero-btn-schedule:hover { opacity: 0.88; }
-                .ivhero-btn-fav {
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 100px;
-                    border: 1px solid #97A1AF;
-                    background: white;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: border-color 0.2s, transform 0.15s;
-                    flex-shrink: 0;
-                }
-                .ivhero-btn-fav:active { transform: scale(0.9); }
-                .ivhero-btn-fav--active { border-color: var(--color-error, #e03); }
+                /* Favorite button — now uses <FavoriteButton /> */
 
-                /* Disclaimer text shared */
-                .ivhero-disclaimer-text {
-                    flex: 1;
-                    text-align: center;
-                    color: var(--color-primary, #213170);
-                    font-size: 14px;
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 400;
-                    line-height: 20px;
-                    word-wrap: break-word;
-                }
+                /* Disclaimer text — now in <DisclaimerPanel /> */
 
                 /* ═══ TABLET (768px – 1024px) ═══════════════════════════════════════ */
                 @media (max-width: 1024px) {
@@ -601,19 +439,7 @@ export default function IVDripHeroSection({
                     .ivhero-left { width: 100%; align-self: auto; gap: 16px; flex-direction: column; justify-content: flex-start; }
                     .ivhero-image-wrapper { padding: 0; height: 737px; min-height: unset; flex: none; }
 
-                    /* Disclaimer — VISIBLE inside left col on tablet (NOT separate banner) */
-                    .ivhero-disclaimer-desktop {
-                        display: flex;
-                        width: 100%;
-                        background: #F9FAFB;
-                        border-radius: 8px;
-                        padding: 10px 20px;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                    .ivhero-disclaimer-desktop .ivhero-disclaimer-text { font-size: 12px; line-height: 16px; }
-                    /* Hide bottom banner on tablet — disclaimer is inside left col */
-                    .ivhero-disclaimer-banner { display: none; }
+                    /* Disclaimer — handled by <DisclaimerPanel /> */
 
                     /* Content */
                     .ivhero-right { width: 100%; padding: 0; gap: 24px; }
@@ -634,15 +460,14 @@ export default function IVDripHeroSection({
 
                     /* Volume buttons — gap tablet clamp 16-32px, flex-start */
                     .ivhero-vol-options { gap: clamp(16px, 2vw, 32px); justify-content: flex-start; width: 100%; }
-                    .ivhero-vol-btn { width: 154px !important; font-size: 18px; line-height: 28px; justify-content: space-between; }
+                    .ivhero-vol-btn { width: 154px !important; font-size: 18px; line-height: 28px; justify-content: center; }
 
                     /* Qty display */
-                    .ivhero-qty-display { font-size: 18px; line-height: 28px; font-family: 'Open Sans', sans-serif; }
 
                     /* CTA */
                     .ivhero-cta-row { gap: 32px; align-self: stretch; }
                     .ivhero-btn-schedule { font-size: 18px; line-height: 28px; }
-                    .ivhero-btn-fav { border-color: #CED2DA; }
+
                 }
 
                 /* ═══ MOBILE (≤ 767px) ═══════════════════════════════════════════════ */
@@ -658,19 +483,7 @@ export default function IVDripHeroSection({
                     .ivhero-left { width: 100%; gap: 16px; flex-direction: column; justify-content: flex-start; }
                     .ivhero-image-wrapper { padding: 0; height: 359px; min-height: unset; flex: none; }
 
-                    /* Disclaimer — VISIBLE inside left col on mobile (NOT separate banner) */
-                    .ivhero-disclaimer-desktop {
-                        display: flex;
-                        width: 100%;
-                        background: #F2F4F7;
-                        border-radius: 8px;
-                        padding: 10px 20px;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                    .ivhero-disclaimer-desktop .ivhero-disclaimer-text { font-size: 12px; line-height: 16px; }
-                    /* Hide bottom banner — disclaimer is inside left col */
-                    .ivhero-disclaimer-banner { display: none; }
+                    /* Disclaimer — handled by <DisclaimerPanel /> */
 
                     /* Content */
                     .ivhero-right { width: 100%; padding: 0; gap: 16px; }
@@ -681,7 +494,7 @@ export default function IVDripHeroSection({
                     .ivhero-subtitle { font-size: 12px; line-height: 16px; }
 
                     /* Rating */
-                    .ivhero-stars > span { width: 18px !important; height: 18px !important; }
+                    /* Stars — handled by <StarRating /> */
                     .ivhero-review-count { font-size: 14px; line-height: 20px; font-weight: 500; }
 
                     /* Price */
@@ -704,14 +517,11 @@ export default function IVDripHeroSection({
                     .ivhero-vol-btn { width: auto !important; flex: none; font-size: 14px; line-height: 20px; justify-content: center; padding: 10px 20px; }
 
                     /* Qty — hug content, align left, padding 8px 16px, Montserrat 14/600 */
-                    .ivhero-qty-control { width: fit-content; }
-                    .ivhero-qty-btn { padding: 8px 16px; }
-                    .ivhero-qty-display { font-size: 14px; font-weight: 600; line-height: 20px; font-family: 'Montserrat', sans-serif; padding: 8px 16px; }
 
                     /* CTA */
                     .ivhero-cta-row { gap: 24px; align-self: stretch; }
                     .ivhero-btn-schedule { font-size: 16px; font-weight: 500; line-height: 24px; }
-                    .ivhero-btn-fav { border-color: #CED2DA; }
+
                 }
             `}</style>
         </section>
