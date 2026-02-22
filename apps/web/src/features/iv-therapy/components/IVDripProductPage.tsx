@@ -673,6 +673,5 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 }
             `}</style>
         </div>
-        </div >
     );
 }
