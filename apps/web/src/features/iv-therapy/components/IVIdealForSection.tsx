@@ -11,14 +11,14 @@ interface IVIdealForSectionProps {
     items: IdealForItem[];
 }
 
-export default function IVIdealForSection({
-    title = 'Ideal pentru:',
-    items
+export default function IVIdealForSection({ 
+    title = 'Ideal pentru:', 
+    items 
 }: IVIdealForSectionProps) {
     return (
         <section className="ideal-section">
             <h2 className="ideal-title">{title}</h2>
-
+            
             <div className="ideal-grid">
                 {/* Divide items into two columns for Desktop/Tablet if possible */}
                 <div className="ideal-col">
@@ -26,7 +26,7 @@ export default function IVIdealForSection({
                         <div key={i} className="ideal-item">
                             <div className="ideal-icon">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.6666 4.5L6.41663 12.75L3.33331 9.66667" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M14.6666 4.5L6.41663 12.75L3.33331 9.66667" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </div>
                             <p className="ideal-text">{item.text}</p>
@@ -38,7 +38,7 @@ export default function IVIdealForSection({
                         <div key={i} className="ideal-item">
                             <div className="ideal-icon">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.6666 4.5L6.41663 12.75L3.33331 9.66667" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M14.6666 4.5L6.41663 12.75L3.33331 9.66667" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </div>
                             <p className="ideal-text">{item.text}</p>
@@ -96,7 +96,7 @@ export default function IVIdealForSection({
                     width: 32px;
                     height: 32px;
                     border-radius: 50%;
-                    background: white;
+                    background: #F0F6FF; /* Keeping the specific tint or use var(--color-surface) if preferred */
                     display: flex;
                     align-items: center;
                     justify-content: center;

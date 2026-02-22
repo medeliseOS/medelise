@@ -13,7 +13,7 @@ export default function QualityImages({ bagImageSrc, splashImageSrc }: QualityIm
         <div className="quality-images-container">
             <Image
                 src={splashImageSrc}
-                alt="Medelise Water Splash"
+                alt="Medvita Water Splash"
                 width={642}
                 height={461}
                 priority
