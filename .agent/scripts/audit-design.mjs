@@ -11,12 +11,13 @@
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
-import { readFileSync, readdirSync, statSync } from 'fs';
+import { readFileSync, readdirSync, statSync, mkdirSync, writeFileSync } from 'fs';
 import { join, relative, extname } from 'path';
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const SRC_DIR = join(process.cwd(), 'apps/web/src');
 const PUBLIC_DIR = join(process.cwd(), 'apps/web/public');
+const REPORT_DIR = join(process.cwd(), '.agent', 'reports');
 const EXTENSIONS = ['.tsx', '.ts', '.css'];
 
 // ─── DESIGN SYSTEM TOKENS (din globals.css) ──────────────────────────────────
@@ -125,6 +126,10 @@ const stats = {
     missingAlt: 0,
     colorTokenUsage: 0,
     spaceTokenUsage: 0,
+    // Security
+    exposedSecrets: 0,
+    dangerousHTML: 0,
+    evalUsage: 0,
 };
 
 function addIssue(severity, category, file, line, message, code) {
@@ -319,6 +324,49 @@ function auditFile(filePath) {
         // ── CHECK 11: Token Usage Tracking ────────────────────────────────────
         if (line.includes('var(--color-')) stats.colorTokenUsage++;
         if (line.includes('var(--space-')) stats.spaceTokenUsage++;
+
+        // ── CHECK 12: Secrete expuse în frontend ──────────────────────────────
+        if (ext === '.tsx' || ext === '.ts') {
+            // Skip .env files and server-only files
+            const secretPattern = /(?:API_KEY|SECRET_KEY|PRIVATE_KEY|PASSWORD|api_key|secret_key)\s*[=:]\s*["'][^"']{8,}/;
+            if (secretPattern.test(trimmed) && !trimmed.startsWith('//') && !filePath.includes('middleware')) {
+                // Only flag if it's a hardcoded value, not an env var reference
+                if (!trimmed.includes('process.env') && !trimmed.includes('NEXT_PUBLIC_')) {
+                    addIssue(SEV.CRITICAL, 'SECURITY', filePath, lineNum,
+                        `Secret posibil hardcoded detectat → mută în .env.local`,
+                        trimmed
+                    );
+                    stats.exposedSecrets++;
+                }
+            }
+        }
+
+        // ── CHECK 13: dangerouslySetInnerHTML ────────────────────────────────
+        if (ext === '.tsx' && line.includes('dangerouslySetInnerHTML')) {
+            const hasSanitize = [
+                'DOMPurify', 'sanitize', 'sanitizeHtml', 'xss'
+            ].some(s => {
+                try { return readFileSync(filePath, 'utf-8').includes(s); } catch { return false; }
+            });
+            addIssue(
+                hasSanitize ? SEV.WARNING : SEV.CRITICAL,
+                'SECURITY', filePath, lineNum,
+                hasSanitize
+                    ? `dangerouslySetInnerHTML detectat — sanitizare prezentă ✓ verifică corectitudinea`
+                    : `dangerouslySetInnerHTML FĂRĂ sanitizare → risc XSS critic`,
+                trimmed
+            );
+            stats.dangerousHTML++;
+        }
+
+        // ── CHECK 14: eval() / new Function() ────────────────────────────────
+        if ((ext === '.tsx' || ext === '.ts') && /\beval\s*\(|new\s+Function\s*\(/.test(line)) {
+            addIssue(SEV.CRITICAL, 'SECURITY', filePath, lineNum,
+                `eval() sau new Function() detectat → vector de atac XSS`,
+                trimmed
+            );
+            stats.evalUsage++;
+        }
     });
 }
 
@@ -494,6 +542,38 @@ function generateReport(assetStats, medvitaCount) {
     console.log(`║    Pe Indigo doar alb sau Baby Blue          : verificare manuală       ║`);
     console.log(`║    Michroma pt brand, Inter pt display       : ${stats.hardcodedFonts === 0 ? '✅' : '⚠️ '}                        ║`);
     console.log('╚══════════════════════════════════════════════════════════════════════════╝');
+
+    // ── Security summary ──
+    const securityIssues = issues.filter(i => i.category === 'SECURITY');
+    if (securityIssues.length > 0) {
+        console.log('\n╔══════════════════════════════════════════════════════════════════════════╗');
+        console.log('║                     🛡️  SECURITATE — Probleme detectate                 ║');
+        console.log('╠══════════════════════════════════════════════════════════════════════════╣');
+        console.log(`║  Secrete expuse    : ${String(stats.exposedSecrets).padStart(4)}                                           ║`);
+        console.log(`║  dangerousHTML     : ${String(stats.dangerousHTML).padStart(4)}                                           ║`);
+        console.log(`║  eval() / Function : ${String(stats.evalUsage).padStart(4)}                                           ║`);
+        console.log('╚══════════════════════════════════════════════════════════════════════════╝');
+    }
+
+    // ── Save JSON report ──
+    try {
+        mkdirSync(REPORT_DIR, { recursive: true });
+        const report = {
+            timestamp: new Date().toISOString(),
+            score,
+            verdict,
+            stats,
+            assetStats,
+            medvitaCount,
+            summary: { criticals: criticals.length, warnings: warnings.length, infos: infos.length },
+            issues,
+        };
+        writeFileSync(
+            join(REPORT_DIR, 'audit-design-report.json'),
+            JSON.stringify(report, null, 2)
+        );
+        console.log('\n📄 Raport JSON salvat: .agent/reports/audit-design-report.json\n');
+    } catch { /* skip if can't write */ }
 
     // ── Exit code ──
     if (criticals.length > 0) {

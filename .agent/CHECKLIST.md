@@ -1,6 +1,6 @@
 # MEDELISE — Project Architecture Checklist
 
-> **Last updated:** 2026-02-11  
+> **Last updated:** 2026-02-22  
 > **Stack:** Next.js 16.1.6 · React 19.2.3 · Tailwind CSS v4 · styled-jsx · TypeScript  
 > **Design System:** SpheraOS (globals.css)
 
@@ -161,15 +161,13 @@
 
 ### 🔴 Critical
 - [ ] Sub-pages empty (`/cariera`, `/contact`, `/despre-noi`)
-- [ ] No footer section
 
 ### 🟢 Future Sections
-- [ ] Services / IV Drip Therapy
+- [ ] Services / IV Drip Therapy (expand)
 - [ ] Team / About
 - [ ] Testimonials
 - [ ] Contact form
 - [ ] FAQ
-- [ ] Footer
 
 ---
 

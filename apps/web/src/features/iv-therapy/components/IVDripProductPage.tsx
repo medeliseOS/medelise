@@ -64,8 +64,11 @@ export default function IVDripProductPage(props: IVDripProductProps) {
     return (
         <div className="drez-page">
             <div className="drez-container">
+
+                {/* ── Hero Row: Image + Content ── */}
                 <div className="drez-main-row">
-                    {/* Left Column: Image + Desktop Disclaimer */}
+
+                    {/* Left Column: Image */}
                     <div className="drez-left-column">
                         <div className="drez-image-wrapper">
                             <Image
@@ -77,116 +80,113 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                                 style={{ objectFit: 'contain', objectPosition: 'center' }}
                             />
                         </div>
-                        {disclaimer && <div className="drez-disclaimer drez-disclaimer-desktop">{disclaimer}</div>}
                     </div>
 
-                    {/* Content */}
+                    {/* Right Column: Content */}
                     <div className="drez-content">
-                        {/* Header */}
-                        <div className="drez-header-group">
-                            <h1 className="drez-title">{title}</h1>
-                            <h2 className="drez-subtitle">{subtitle}</h2>
-                            <div className="drez-rating-row">
-                                <div className="drez-stars">{renderStarIcons(averageRating)}</div>
-                                <span className="drez-review-count">{reviewCount} Recenzii</span>
-                            </div>
-                        </div>
 
-                        {/* Price */}
-                        <div className="drez-price-group">
-                            <div className="drez-price-row">
-                                <span className="drez-price-current">{currentPrice} Lei</span>
-                                {currentOldPrice && <span className="drez-price-old">{currentOldPrice} Lei</span>}
-                            </div>
-                            {currentOldPrice && (
-                                <div className="drez-discount-badge">Reducere de {discountPercent}%!</div>
-                            )}
-                            {displayEconomy && (
-                                <div className="drez-economy-group">
-                                    <span className="drez-eco-label">Economisește acum!</span>
-                                    <span className="drez-eco-value">
-                                        {displayEconomy}
-                                    </span>
+                        {/* Header Group */}
+                        <div className="drez-header-group">
+                            <div className="drez-title-block">
+                                <h1 className="drez-title">{title}</h1>
+                                <h2 className="drez-subtitle">{subtitle}</h2>
+                                <div className="drez-rating-row">
+                                    <div className="drez-stars">{renderStarIcons(averageRating)}</div>
+                                    <span className="drez-review-count">{reviewCount} Recenzii</span>
                                 </div>
-                            )}
+                            </div>
+
+                            {/* Price Group */}
+                            <div className="drez-price-group">
+                                <div className="drez-price-row">
+                                    <span className="drez-price-current">{currentPrice} Lei</span>
+                                    {currentOldPrice && <span className="drez-price-old">{currentOldPrice} Lei</span>}
+                                </div>
+                                {currentOldPrice && (
+                                    <div className="drez-discount-badge">Reducere de {discountPercent}%</div>
+                                )}
+                                {displayEconomy && (
+                                    <div className="drez-economy-group">
+                                        <span className="drez-eco-label">Economisește acum!</span>
+                                        <span className="drez-eco-value">{displayEconomy}</span>
+                                    </div>
+                                )}
+                            </div>
 
                             {/* Benefits */}
                             <div className="drez-benefits-group">
                                 <h3 className="drez-benefits-title">Beneficii:</h3>
-                                <ul className="drez-benefits-list">
-                                    {benefits.map((b, i) => (
-                                        <li key={i}>{b}</li>
-                                    ))}
-                                </ul>
+                                {benefits.map((b, i) => (
+                                    <div key={i} className="drez-benefit-item">{b}</div>
+                                ))}
                             </div>
 
-                            {/* Selectors */}
-                            <div className="drez-selectors">
-                                {volumeOptions.length > 1 && (
-                                    <div className="drez-selector-block">
-                                        <span className="drez-selector-label">Selectează volumul :</span>
-                                        <div className="drez-volume-options">
-                                            {volumeOptions.map(vol => (
-                                                <Button
-                                                    key={vol}
-                                                    variant={selectedVolume === vol ? 'primary' : 'outline'}
-                                                    onClick={() => setSelectedVolume(vol)}
-                                                    className="drez-vol-btn" // Custom width class
-                                                >
-                                                    {vol}
-                                                </Button>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-
+                            {/* Volume Selector */}
+                            {volumeOptions.length > 1 && (
                                 <div className="drez-selector-block">
-                                    <span className="drez-selector-label">Selectează Cantitatea :</span>
-                                    <div className="drez-qty-control">
-                                        <button className="drez-qty-btn" onClick={handleDecrement} aria-label="Scade cantitatea">
-                                            <div className="drez-qty-minus" />
-                                        </button>
-                                        <div className="drez-qty-display">{quantity}</div>
-                                        <button className="drez-qty-btn" onClick={handleIncrement} aria-label="Creste cantitatea">
-                                            <div className="drez-qty-plus">
-                                                <div className="bar-h" />
-                                                <div className="bar-v" />
-                                            </div>
-                                        </button>
+                                    <span className="drez-selector-label">Selectează volumul :</span>
+                                    <div className="drez-volume-options">
+                                        {volumeOptions.map(vol => (
+                                            <button
+                                                key={vol}
+                                                className={`drez-vol-btn ${selectedVolume === vol ? 'drez-vol-btn-active' : ''}`}
+                                                onClick={() => setSelectedVolume(vol)}
+                                            >
+                                                {vol}
+                                            </button>
+                                        ))}
                                     </div>
                                 </div>
-                            </div>
+                            )}
 
-                            {/* CTA */}
-                            <div className="drez-cta-row">
-                                <Button variant="primary" onClick={handleAddToCart} style={{ flex: 1 }}>
-                                    Programează
-                                </Button>
-                                <button
-                                    className={`drez-btn-fav ${isFavorite ? 'drez-btn-fav-active' : ''}`}
-                                    aria-label={isFavorite ? 'Elimina de la favorite' : 'Adauga la favorite'}
-                                    onClick={toggleFavorite}
-                                >
-                                    <svg width="24" height="24" viewBox="0 0 24 24"
-                                        fill={isFavorite ? 'var(--color-error)' : 'none'}
-                                        stroke={isFavorite ? 'var(--color-error)' : 'var(--color-primary)'}
-                                        strokeWidth="1.5"
-                                        style={{ transition: 'fill 0.2s, stroke 0.2s' }}
-                                    >
-                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                    </svg>
-                                </button>
+                            {/* Quantity Selector */}
+                            <div className="drez-selector-block">
+                                <span className="drez-selector-label">Selectează Cantitatea :</span>
+                                <div className="drez-qty-control">
+                                    <button className="drez-qty-btn" onClick={handleDecrement} aria-label="Scade cantitatea">
+                                        <div className="drez-qty-minus" />
+                                    </button>
+                                    <div className="drez-qty-display">{quantity}</div>
+                                    <button className="drez-qty-btn drez-qty-btn-last" onClick={handleIncrement} aria-label="Creste cantitatea">
+                                        <div className="drez-qty-plus">
+                                            <div className="bar-h" />
+                                            <div className="bar-v" />
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
+                        </div>
+
+                        {/* CTA Row */}
+                        <div className="drez-cta-row">
+                            <Button variant="primary" onClick={handleAddToCart} className="drez-btn-schedule">
+                                Programează
+                            </Button>
+                            <button
+                                className={`drez-btn-fav ${isFavorite ? 'drez-btn-fav-active' : ''}`}
+                                aria-label={isFavorite ? 'Elimina de la favorite' : 'Adauga la favorite'}
+                                onClick={toggleFavorite}
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24"
+                                    fill={isFavorite ? 'var(--color-error)' : 'none'}
+                                    stroke={isFavorite ? 'var(--color-error)' : 'var(--color-primary)'}
+                                    strokeWidth="1.5"
+                                    style={{ transition: 'fill 0.2s, stroke 0.2s' }}
+                                >
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
-
-                    {/* Mobile Disclaimer */}
-                    {disclaimer && (
-                        <div className="drez-disclaimer-mobile">
-                            <span className="drez-disclaimer-text">{disclaimer}</span>
-                        </div>
-                    )}
                 </div>
+
+                {/* ── Disclaimer Banner (Full Width) ── */}
+                {disclaimer && (
+                    <div className="drez-disclaimer-banner">
+                        <span className="drez-disclaimer-text">{disclaimer}</span>
+                    </div>
+                )}
+
 
                 {/* Tabs Section (Full Width) */}
                 <div className="drez-tabs-section">
@@ -394,15 +394,37 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 .drez-eco-value { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 28px; }
                 .drez-benefits-group { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; }
                 .drez-benefits-title { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; line-height: 28px; margin: 0; }
-                .drez-benefits-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
-                .drez-benefits-list li { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 28px; }
-                .drez-benefits-list li::before { content: "• "; margin-right: 4px; }
+                .drez-benefit-item { align-self: stretch; color: var(--color-primary); font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 28px; padding-left: 12px; position: relative; }
+                .drez-benefit-item::before { content: "•"; position: absolute; left: 0; }
                 .drez-selectors { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; }
                 .drez-selector-block { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; }
                 .drez-selector-label { text-align: center; color: var(--color-primary); font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; line-height: 28px; }
                 .drez-volume-options { align-self: stretch; display: inline-flex; justify-content: flex-start; align-items: center; gap: 32px; }
-                /* Custom width for volume button */
-                .drez-vol-btn { width: 154px; }
+                .drez-vol-btn {
+                    width: 154px;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    border: 1px solid var(--color-border-light);
+                    background: white;
+                    color: var(--color-primary);
+                    font-size: 18px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 500;
+                    line-height: 28px;
+                    cursor: pointer;
+                    transition: background 0.15s, color 0.15s, border-color 0.15s;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .drez-vol-btn:hover {
+                    background: rgba(33, 49, 112, 0.06);
+                }
+                .drez-vol-btn-active {
+                    background: var(--color-primary) !important;
+                    color: white !important;
+                    border-color: var(--color-primary) !important;
+                }
 
                 .drez-qty-control {
                     display: inline-flex; width: fit-content; border: 1px solid #CED2DA; border-radius: 8px; overflow: hidden;
@@ -433,12 +455,27 @@ export default function IVDripProductPage(props: IVDripProductProps) {
                 }
                 .drez-btn-fav:active { transform: scale(0.9); }
                 .drez-btn-fav-active { border-color: var(--color-error); }
-                .drez-disclaimer {
-                    width: 100%; background: #F2F4F7; padding: 10px 20px;
-                    border-radius: 8px; color: var(--color-primary); font-size: 14px;
-                    font-family: 'Montserrat', sans-serif; font-weight: 400;
-                    text-align: center; line-height: 20px;
+                /* ── Disclaimer Banner (full width, sub hero row) ── */
+                .drez-disclaimer-banner {
+                    width: 100%;
+                    background: #F2F4F7;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
+                .drez-disclaimer-text {
+                    flex: 1;
+                    text-align: center;
+                    color: var(--color-primary);
+                    font-size: 14px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    line-height: 20px;
+                }
+                /* btn-schedule: flex: 1 1 0 în rândul CTA */
+                .drez-btn-schedule { flex: 1 1 0; }
 
                 /* ═══ Tabs ═══ */
                 .drez-tabs-section { width: 100%; max-width: 100%; padding: 16px 0; }
@@ -486,86 +523,155 @@ export default function IVDripProductPage(props: IVDripProductProps) {
 
                 /* ── Tablet ── */
                 @media (max-width: 1024px) {
+                    /* PAGE / CONTAINER */
                     .drez-page { padding: 0; }
-                    .drez-container { max-width: 704px; padding: 0 32px 64px; gap: 32px; }
+                    .drez-container { max-width: 704px; padding: 32px; gap: 10px; }
                     .drez-main-row { flex-direction: column; align-items: center; gap: 32px; }
-                    .drez-left-column { width: 100%; max-width: 704px; }
-                    .drez-image-wrapper { width: 100%; max-width: 100%; max-height: 500px; }
-                    .drez-image { max-height: 500px; }
-                    .drez-content { width: 100%; align-items: flex-start; }
-                    .drez-title { font-family: 'Montserrat', sans-serif; font-size: 24px; }
-                    .drez-price-row { gap: 8px; }
-                    .drez-price-current { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; }
-                    .drez-price-old { font-size: 24px; }
-                    .drez-benefits-list li { font-size: 16px; }
+
+                    /* IMAGE */
+                    .drez-left-column { width: 100%; max-width: 704px; gap: 16px; }
+                    .drez-image-wrapper { width: 100%; height: 737px; max-height: 737px; }
+                    .drez-image { object-fit: cover; border-radius: 8px; }
+
+                    /* CONTENT */
+                    .drez-content { width: 100%; padding: 0; gap: 32px; align-items: flex-start; }
+                    .drez-header-group { width: 100%; gap: 24px; }
+                    .drez-title-block { gap: 16px; }
+
+                    /* TITLE + SUBTITLE */
+                    .drez-title { font-size: 24px; font-weight: 600; line-height: 32px; font-family: 'Montserrat', sans-serif; margin: 0; }
+                    .drez-subtitle { font-size: 18px; font-weight: 600; line-height: 28px; font-family: 'Montserrat', sans-serif; margin: 0; }
+
+                    /* RATING */
+                    .drez-stars { width: 120px; height: 24px; }
+                    .drez-star-icon, .drez-star-icon-empty { width: 24px; height: 24px; }
+                    .drez-review-count { font-size: 18px; font-weight: 500; line-height: 28px; font-family: 'Montserrat', sans-serif; text-align: center; }
+
+                    /* PRICE */
+                    .drez-price-group { width: 100%; gap: 4px; }
+                    .drez-price-row { gap: 8px; align-items: flex-start; }
+                    .drez-price-current { font-size: 20px; font-weight: 700; line-height: 28px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-price-old { font-size: 16px; font-weight: 700; line-height: 24px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-discount-badge { font-size: 18px; font-weight: 500; line-height: 28px; font-family: 'Montserrat', sans-serif; }
+                    .drez-economy-group { gap: 8px; }
+                    .drez-eco-label { font-size: 18px; font-weight: 500; line-height: 28px; font-family: 'Montserrat', sans-serif; }
+                    .drez-eco-value { font-size: 18px; font-weight: 700; line-height: 28px; font-family: 'Montserrat', sans-serif; }
+
+                    /* BENEFITS */
+                    .drez-benefits-group { width: 100%; gap: 8px; }
+                    .drez-benefits-title { font-size: 18px; font-weight: 600; line-height: 28px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-benefit-item { font-size: 16px; font-weight: 400; line-height: 24px; font-family: 'Montserrat', sans-serif; }
+
+                    /* SELECTORS */
+                    .drez-selector-block { width: 100%; gap: 16px; align-items: flex-start; }
+                    .drez-selector-label { font-size: 18px; font-weight: 600; line-height: 28px; font-family: 'Montserrat', sans-serif; text-align: center; width: 100%; }
+
+                    /* VOLUME BUTTONS — space-between, 154px each */
+                    .drez-volume-options { width: 100%; justify-content: space-between; gap: 0; }
+                    .drez-vol-btn {
+                        width: 154px !important;
+                        padding: 10px 20px;
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 28px;
+                        font-family: 'Montserrat', sans-serif;
+                        justify-content: space-between;
+                    }
+
+                    /* QTY CONTROL */
+                    .drez-qty-control { width: fit-content; }
+                    .drez-qty-display { font-size: 18px; font-weight: 600; line-height: 28px; font-family: 'Open Sans', sans-serif; padding: 10px 20px; }
+                    .drez-qty-btn { padding: 10px 20px; }
+
+                    /* CTA */
+                    .drez-cta-row { width: 100%; gap: 32px; align-items: center; }
+                    .drez-btn-schedule { flex: 1 1 0 !important; font-size: 18px; font-weight: 500; line-height: 28px; font-family: 'Montserrat', sans-serif; }
+                    .drez-btn-fav { width: 44px; height: 44px; border-radius: 8px; outline: 1px #CED2DA solid; }
+
+                    /* DISCLAIMER BANNER */
+                    .drez-disclaimer-banner { border-radius: 8px; padding: 10px 20px; }
+                    .drez-disclaimer-text { font-size: 12px; font-weight: 400; line-height: 16px; font-family: 'Montserrat', sans-serif; }
+
+                    /* TABS */
                     .drez-tab { font-size: 16px; font-family: 'Montserrat', sans-serif; line-height: 24px; }
                     .drez-tabs-section { padding: 16px 32px; }
-                    .drez-disclaimer { padding: 10px 32px; }
+                    .drez-tab-content { padding: 32px; }
                 }
 
                 /* ── Mobile ── */
                 @media (max-width: 767px) {
+                    /* PAGE / CONTAINER */
                     .drez-page { padding: 0; }
-                    .drez-container { max-width: 100%; padding: 0; gap: 32px; background: white; }
-                    .drez-main-row { padding: 32px 16px; gap: 32px; flex-direction: column; width: 100%; background: white; }
-                    .drez-left-column { width: 100%; max-width: 100%; padding: 0; gap: 32px; }
-                    .drez-image-wrapper { width: 100%; max-width: 100%; height: 359px; max-height: 359px; }
-                    .drez-image { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-                    
+                    .drez-container { max-width: 100%; padding: 16px; gap: 8px; background: white; }
+                    .drez-main-row { flex-direction: column; gap: 32px; width: 100%; background: white; padding: 0; }
+
+                    /* IMAGE */
+                    .drez-left-column { width: 100%; max-width: 100%; padding: 0; gap: 16px; }
+                    .drez-image-wrapper { width: 100%; height: 359px; max-height: 359px; }
+                    .drez-image { object-fit: cover; border-radius: 8px; }
+
+                    /* CONTENT */
                     .drez-content { width: 100%; padding: 0; gap: 32px; align-items: flex-start; }
                     .drez-header-group { width: 100%; gap: 16px; }
-                    
-                    /* TITLE BLOCK */
-                    .drez-title { font-size: 16px; font-weight: 600; line-height: 24px; margin: 0; font-family: 'Montserrat', sans-serif; color: var(--color-primary); }
-                    .drez-subtitle { font-size: 12px; font-weight: 600; line-height: 16px; margin: 0; font-family: 'Montserrat', sans-serif; color: var(--color-primary); }
-                    
+                    .drez-title-block { gap: 16px; }
+
+                    /* TITLE + SUBTITLE */
+                    .drez-title { font-size: 16px; font-weight: 600; line-height: 24px; font-family: 'Montserrat', sans-serif; margin: 0; }
+                    .drez-subtitle { font-size: 12px; font-weight: 600; line-height: 16px; font-family: 'Montserrat', sans-serif; margin: 0; }
+
                     /* RATING */
                     .drez-rating-row { gap: 8px; align-items: center; }
                     .drez-stars { width: 90px; height: 18px; }
                     .drez-star-icon, .drez-star-icon-empty { width: 18px; height: 18px; }
-                    .drez-star-icon::after, .drez-star-icon-empty::after { width: 15px; height: 14.25px; } 
-                    .drez-review-count { font-size: 14px; font-weight: 500; line-height: 20px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
-                    
-                    /* PRICE BLOCK */
-                    .drez-price-group { width: 100%; gap: 4px; } 
-                    .drez-price-row { gap: 8px; align-items: flex-start; } 
-                    .drez-price-current { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
-                    .drez-price-old { font-size: 20px; font-weight: 600; line-height: 28px; text-decoration: line-through; color: #FE5D16; font-family: 'Montserrat', sans-serif; }
-                    
-                    .drez-discount-badge { font-size: 16px; font-weight: 500; line-height: 24px; color: #FE5D16; font-family: 'Montserrat', sans-serif; margin-top: 4px; }
-                    
-                    .drez-economy-group { gap: 8px; margin-top: 4px; }
-                    .drez-eco-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
-                    .drez-eco-value { font-size: 16px; font-weight: 700; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; }
-                    
+                    .drez-star-icon::after, .drez-star-icon-empty::after { width: 15px; height: 14.25px; }
+                    .drez-review-count { font-size: 14px; font-weight: 500; line-height: 20px; font-family: 'Montserrat', sans-serif; text-align: center; }
+
+                    /* PRICE */
+                    .drez-price-group { width: 100%; gap: 4px; }
+                    .drez-price-row { gap: 8px; align-items: flex-start; }
+                    .drez-price-current { font-size: 16px; font-weight: 700; line-height: 24px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-price-old { font-size: 14px; font-weight: 700; line-height: 20px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-discount-badge { font-size: 16px; font-weight: 500; line-height: 24px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-economy-group { gap: 8px; }
+                    .drez-eco-label { font-size: 16px; font-weight: 500; line-height: 24px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-eco-value { font-size: 16px; font-weight: 700; line-height: 24px; font-family: 'Montserrat', sans-serif; text-align: center; }
+
                     /* BENEFITS */
-                    .drez-benefits-group { width: 100%; gap: 8px; margin-top: 8px; }
-                    .drez-benefits-title { font-size: 16px; font-weight: 600; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; margin-bottom: 0; }
-                    .drez-benefits-list { gap: 0; }
-                    .drez-benefits-list li { font-size: 14px; font-weight: 400; line-height: 20px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; margin-bottom: 0; }
-                    
+                    .drez-benefits-group { width: 100%; gap: 8px; }
+                    .drez-benefits-title { font-size: 16px; font-weight: 600; line-height: 24px; font-family: 'Montserrat', sans-serif; text-align: center; }
+                    .drez-benefit-item { font-size: 14px; font-weight: 400; line-height: 20px; font-family: 'Montserrat', sans-serif; }
+
                     /* SELECTORS */
-                    .drez-selectors { width: 100%; gap: 16px; margin-top: 8px; }
-                    .drez-selector-block { width: 100%; gap: 16px; align-items: center; }
-                    .drez-selector-label { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; text-align: center; width: 100%; }
-                    
-                    .drez-volume-options { gap: 32px; width: 100%; justify-content: center; } 
-                    .drez-vol-btn { width: unset !important; flex: none; padding: 10px 20px; font-size: 14px; font-weight: 500; line-height: 20px; border-radius: 8px; font-family: 'Montserrat', sans-serif; }
-                    
-                    .drez-qty-control { width: fit-content; justify-content: center; }
-                    .drez-qty-display { font-size: 14px; font-weight: 600; line-height: 20px; color: var(--color-primary); font-family: 'Montserrat', sans-serif; padding: 8px 16px; }
+                    .drez-selector-block { width: 100%; gap: 16px; align-items: flex-start; }
+                    .drez-selector-label { font-size: 16px; font-weight: 500; line-height: 24px; font-family: 'Montserrat', sans-serif; text-align: center; width: 100%; }
+
+                    /* VOLUME BUTTONS — space-between pe toată lățimea */
+                    .drez-volume-options { width: 100%; justify-content: space-between; gap: 0; }
+                    .drez-vol-btn {
+                        width: auto !important;
+                        flex: none;
+                        padding: 10px 20px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 20px;
+                        font-family: 'Montserrat', sans-serif;
+                        justify-content: center;
+                    }
+
+                    /* QTY CONTROL */
+                    .drez-qty-control { width: fit-content; }
+                    .drez-qty-display { font-size: 14px; font-weight: 600; line-height: 20px; font-family: 'Montserrat', sans-serif; padding: 8px 16px; }
                     .drez-qty-btn { padding: 8px 16px; }
-                    
+
                     /* CTA */
                     .drez-cta-row { width: 100%; gap: 24px; align-items: center; }
-                    .drez-btn-primary { flex: 1 1 0; padding: 10px 20px; font-size: 16px; font-weight: 500; line-height: 24px; border-radius: 8px; font-family: 'Montserrat', sans-serif; }
-                    .drez-btn-fav { width: 44px; height: 44px; border-radius: 8px; }
-                    
-                    /* DISCLAIMER */
-                    .drez-disclaimer-desktop { display: none; }
-                    .drez-disclaimer-mobile { display: flex; width: 100%; background: #F2F4F7; padding: 10px 20px; border-radius: 8px; justify-content: center; align-items: center; margin-top: 0; }
-                    .drez-disclaimer-text { flex: 1; text-align: center; color: var(--color-primary); font-size: 12px; font-weight: 400; line-height: 16px; font-family: 'Montserrat', sans-serif; text-transform: none; }
-                    
+                    .drez-btn-schedule { flex: 1 1 0 !important; font-size: 16px; font-weight: 500; line-height: 24px; font-family: 'Montserrat', sans-serif; }
+                    .drez-btn-fav { width: 44px; height: 44px; border-radius: 8px; outline: 1px #CED2DA solid; }
+
+                    /* DISCLAIMER BANNER */
+                    .drez-disclaimer-banner { border-radius: 8px; padding: 10px 20px; }
+                    .drez-disclaimer-text { font-size: 12px; font-weight: 400; line-height: 16px; font-family: 'Montserrat', sans-serif; }
+
                     /* TABS */
                     .drez-tabs-bar { display: flex; flex-direction: row; padding: 32px 16px 16px; width: 100%; justify-content: space-between; gap: 16px; background: white; }
                     .drez-tab { flex: 1; width: auto; justify-content: center; padding: 10px 4px; font-size: 14px; font-family: 'Montserrat', sans-serif; }

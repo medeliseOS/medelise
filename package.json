@@ -14,7 +14,9 @@
     "arch-audit": "node scripts/arch-audit.mjs",
     "prepare": "husky",
     "test": "vitest run --pool=forks",
-    "test:watch": "vitest --pool=forks"
+    "test:watch": "vitest --pool=forks",
+    "audit:design": "node .agent/scripts/audit-design.mjs",
+    "audit:ghost": "node .agent/scripts/ghost-check.mjs"
   },
   "lint-staged": {
     "apps/web/src/**/*.{ts,tsx}": [
@@ -36,6 +38,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
       "esbuild",
       "sharp",
       "unrs-resolver"

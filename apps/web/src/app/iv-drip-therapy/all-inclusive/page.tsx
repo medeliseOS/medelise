@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import { AllInclusiveContent } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
-    title: 'IV Drip All-Inclusive | Medelise',
-    description: 'Tratamentul suprem IV Drip. Pachet complet pentru sănătate, energie, imunitate și frumusețe, livrat la tine acasă de Medelise.',
+    title: 'IV Drip All Inclusive | Medelise',
+    description: 'Tratament IV Drip All Inclusive la domiciliu.',
 };
 
 export default function AllInclusivePage() {
-    return <AllInclusiveContent />;
+    return null;
 }

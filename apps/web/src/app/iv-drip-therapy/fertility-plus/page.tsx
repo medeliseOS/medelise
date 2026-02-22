@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import { FertilityPlusContent } from '@features/iv-therapy/components';
 
 export const metadata: Metadata = {
-    title: 'IV Drip Fertility+ | Medelise',
-    description: 'Tratament IV pentru optimizarea fertilității. Sprijină sănătatea reproductivă și echilibrul hormonal cu terapia Fertility+ de la Medelise.',
+    title: 'IV Drip Fertility Plus | Medelise',
+    description: 'Tratament IV Drip Fertility Plus la domiciliu.',
 };
 
 export default function FertilityPlusPage() {
-    return <FertilityPlusContent />;
+    return null;
 }

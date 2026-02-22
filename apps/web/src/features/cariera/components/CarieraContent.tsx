@@ -214,15 +214,7 @@ export default function CarieraContent() {
                                                 Viziunea noastră pentru colaboratori<br />
                                                 Colaborarea cu Medelise înseamnă libertate profesională, recunoaștere reală și acces la un ecosistem digital care te ajută să lucrezi eficient, sigur și predictibil. Ne dorim ca fiecare specialist să aibă control asupra programului, a veniturilor și a modului în care își construiește cariera.
                                             </div>
-                                            <div className="benefits-line-container">
-                                                <Image
-                                                    src="/icons-medelise/md-about/md-ico-underline-marker.webp"
-                                                    alt=""
-                                                    fill
-                                                    sizes="160px"
-                                                    style={{ objectFit: 'contain', objectPosition: 'left center' }}
-                                                />
-                                            </div>
+
                                         </div>
                                     </div>
 

@@ -183,9 +183,10 @@ export default function HeroSection() {
                     align-items: center;
                 }
 
+                /* ── Avatar wrapper — mobile-first: 32px ── */
                 .hero-avatar-wrapper {
-                    width: 64px;
-                    height: 64px;
+                    width: 32px;
+                    height: 32px;
                     border-radius: 50%;
                     overflow: hidden;
                     border: 2px solid var(--color-white);
@@ -195,7 +196,7 @@ export default function HeroSection() {
                 }
 
                 .hero-avatar-wrapper:not(:first-child) {
-                    margin-left: -16px;
+                    margin-left: -8px;
                 }
 
                 .hero-avatar-wrapper:nth-child(1) { z-index: 4; }
@@ -204,14 +205,16 @@ export default function HeroSection() {
 
                 .hero-avatar-img {
                     width: 100%;
-                    height: 56px;
+                    height: 28px; /* ~87.5% of 32px */
                     object-fit: cover;
                     object-position: top;
+                    transform: scale(1.25);
+                    transform-origin: top center;
                 }
 
                 .hero-avatar-count {
-                    width: 64px;
-                    height: 64px;
+                    width: 32px;
+                    height: 32px;
                     border-radius: 50%;
                     background: var(--color-surface-card);
                     display: flex;
@@ -219,15 +222,15 @@ export default function HeroSection() {
                     align-items: center;
                     flex-shrink: 0;
                     border: 2px solid var(--color-white);
-                    margin-left: -16px;
+                    margin-left: -8px;
                     z-index: 1;
                 }
 
                 .hero-avatar-count-text {
                     color: var(--color-error);
-                    font-size: 14px;
+                    font-size: 10px;
                     font-weight: 500;
-                    line-height: 19.6px;
+                    line-height: 1;
                 }
 
                 .hero-sp-stat-title {
@@ -268,6 +271,20 @@ export default function HeroSection() {
                     .hero-subtitle {
                         max-width: 75%;
                     }
+
+                    /* Avatar — 48px on tablet */
+                    .hero-avatar-wrapper {
+                        width: 48px;
+                        height: 48px;
+                    }
+                    .hero-avatar-wrapper:not(:first-child) { margin-left: -12px; }
+                    .hero-avatar-img { height: 42px; } /* ~87.5% of 48px */
+                    .hero-avatar-count {
+                        width: 48px;
+                        height: 48px;
+                        margin-left: -12px;
+                    }
+                    .hero-avatar-count-text { font-size: 12px; line-height: 1; }
                 }
 
                 /* ═══════════════════════════════════════
@@ -318,10 +335,19 @@ export default function HeroSection() {
                         max-width: 448px;
                     }
 
-                    /* TECH DEBT ELIMINATED: .hero-btn-primary desktop overrides removed
-                       — <Button> component handles responsive sizing via tokens */
-
-
+                    /* Avatar — 64px on desktop */
+                    .hero-avatar-wrapper {
+                        width: 64px;
+                        height: 64px;
+                    }
+                    .hero-avatar-wrapper:not(:first-child) { margin-left: -16px; }
+                    .hero-avatar-img { height: 56px; } /* 87.5% of 64px */
+                    .hero-avatar-count {
+                        width: 64px;
+                        height: 64px;
+                        margin-left: -16px;
+                    }
+                    .hero-avatar-count-text { font-size: 14px; line-height: 19.6px; }
                 }
             `}</style>
 
@@ -366,13 +392,13 @@ export default function HeroSection() {
 
                         <div className="hero-avatars-group">
                             <div className="hero-avatar-wrapper" style={{ background: 'var(--color-accent)' }}>
-                                <Image src={IMAGES.hero.avatar1} alt="Medic 1" width={64} height={64} className="hero-avatar-img" style={{ width: '100%', height: '56px', objectFit: 'cover', objectPosition: 'top' }} />
+                                <Image src={IMAGES.hero.avatar1} alt="Medic 1" width={64} height={64} className="hero-avatar-img" style={{ width: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                             </div>
                             <div className="hero-avatar-wrapper" style={{ background: 'var(--color-secondary)' }}>
-                                <Image src={IMAGES.hero.avatar2} alt="Medic 2" width={64} height={64} className="hero-avatar-img" style={{ width: '100%', height: '56px', objectFit: 'cover', objectPosition: 'top' }} />
+                                <Image src={IMAGES.hero.avatar2} alt="Medic 2" width={64} height={64} className="hero-avatar-img" style={{ width: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                             </div>
                             <div className="hero-avatar-wrapper" style={{ background: 'var(--color-primary)' }}>
-                                <Image src={IMAGES.hero.avatar3} alt="Medic 3" width={64} height={64} className="hero-avatar-img" style={{ width: '100%', height: '56px', objectFit: 'cover', objectPosition: 'top' }} />
+                                <Image src={IMAGES.hero.avatar3} alt="Medic 3" width={64} height={64} className="hero-avatar-img" style={{ width: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                             </div>
                             <div className="hero-avatar-count">
                                 <span className="hero-avatar-count-text">40+</span>
