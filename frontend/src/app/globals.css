@@ -1,0 +1,617 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════════════════╗
+ * ║  SpheraOS Design System — Mathematical Web Governance Protocol        ║
+ * ║  MEDELISE / careOS Ecosystem                                          ║
+ * ║                                                                        ║
+ * ║  Singurul punct de adevăr. Fiecare valoare derivă din --base-unit.    ║
+ * ║  Schimbarea unei singure variabile refactorizează vizual tot proiectul.║
+ * ╠══════════════════════════════════════════════════════════════════════════╣
+ * ║  REGULI INVIOLABILE:                                                   ║
+ * ║   1. CTA principal → Indigo (#213170) cu text alb                     ║
+ * ║   2. Orange (#FE5D16) pentru highlights, eyebrow, accente vizuale     ║
+ * ║   3. Pe Indigo (#213170) DOAR alb sau Baby Blue (#BDE0FF)             ║
+ * ║   4. Michroma pt brand, Montserrat pt headings, Inter pt display     ║
+ * ║      DM Sans pt body + CTA text                                      ║
+ * ║   5. GRID: Strict 8pt — every value = N × var(--base-unit)           ║
+ * ╚══════════════════════════════════════════════════════════════════════════╝
+ */
+
+@import "tailwindcss";
+
+@theme {
+  /* ─── Override Tailwind Typography with Project Architecture ─── */
+  --text-xs: var(--text-xs);
+  /* 12px */
+  --text-sm: var(--text-sm);
+  /* 14px */
+  --text-base: var(--text-body);
+  /* 16px → 18px */
+  --text-lg: var(--text-body-lg);
+  /* 18px → 20px */
+  --text-xl: var(--text-h4);
+  /* 18px → 22px */
+  --text-2xl: var(--text-h3);
+  /* 22px → 28px */
+  --text-3xl: var(--text-h2);
+  /* 26px → 36px */
+  --text-4xl: var(--text-h1);
+  /* 32px → 48px */
+  --text-5xl: var(--text-display);
+  /* 36px → 64px */
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+ * THEME REGISTRATION — Tailwind CSS v4
+ *
+ * Register ALL custom properties so TW doesn't tree-shake them.
+ * Uses `inline` to avoid auto-generating utility classes.
+ * Every variable used in styled-jsx MUST be registered here.
+ * ══════════════════════════════════════════════════════════════════════════ */
+@theme inline {
+  /* ── Colors (single source of truth — registered for Tailwind v4) ──── */
+  --color-primary: #213170;
+  --color-primary-hover: #1A2659;
+  --color-accent: #FE5D16;
+  --color-accent-hover: #E54D0F;
+  --color-secondary: #BDE0FF;
+
+  --color-surface: #F8F9FA;
+  --color-surface-card: #F5F5F5;
+  --color-surface-border: #E5E7EB;
+  --color-text: #232123;
+  --color-text-muted: #637083;
+  --color-text-light: #666D80;
+  --color-input-border: #97a1af;
+  --color-border-light: #CED2DA;
+  --color-border-form: #DFE1E7;
+  --color-white: #FFFFFF;
+
+  --color-success: #10B981;
+  --color-error: #E11D48;
+  --color-warning: #F59E0B;
+  --color-info: #0EA5E9;
+
+  /* ── Spacing, Radius, Shadows → defined once in :root with calc() ──── */
+}
+
+
+/* ==========================================================================
+ * 1. CSS VARIABLES — Central Control Panel
+ *
+ *    --base-unit este fundamentul matematic. Toate valorile derivă din el.
+ *    Schimbarea --base-unit rescalează întreg sistemul.
+ * ========================================================================== */
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════
+   * 1a. THE MATHEMATICAL FOUNDATION
+   * ═══════════════════════════════════════════════════════════════════════ */
+  --base-unit: 4px;
+
+  /* ─── Colors: defined in @theme inline above (single source of truth) ──
+   * The following aliases add colors NOT in the Tailwind theme:            */
+  --color-text-light: #666D80;
+  --color-border-form: #DFE1E7;
+
+  /* ─── Typography Families ─────────────────────────────────────────── */
+  --font-brand: var(--font-michroma), Michroma, sans-serif;
+  --font-heading: var(--font-montserrat), Montserrat, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-cta: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ═══════════════════════════════════════════════════════════════════════
+   * 2. STRICT 8PT GRID — Spacing Scale
+   *
+   *    Every value = N × var(--base-unit).
+   *    Preferred layout values are multiples of 8 (space-2, space-4, …).
+   *    Odd multiples (space-1, space-3, space-5) for micro-spacing only.
+   *
+   *    Rule: padding / margin / gap / width / height must ÷ 4 = 0.
+   * ═══════════════════════════════════════════════════════════════════════ */
+  --space-1: calc(var(--base-unit) * 1);
+  /*  4px  */
+  --space-2: calc(var(--base-unit) * 2);
+  /*  8px  */
+  --space-3: calc(var(--base-unit) * 3);
+  /* 12px  */
+  --space-4: calc(var(--base-unit) * 4);
+  /* 16px  */
+  --space-5: calc(var(--base-unit) * 5);
+  /* 20px  */
+  --space-6: calc(var(--base-unit) * 6);
+  /* 24px  */
+  --space-7: calc(var(--base-unit) * 7);
+  /* 28px  */
+  --space-8: calc(var(--base-unit) * 8);
+  /* 32px  */
+  --space-10: calc(var(--base-unit) * 10);
+  /* 40px  */
+  --space-12: calc(var(--base-unit) * 12);
+  /* 48px  */
+  --space-14: calc(var(--base-unit) * 14);
+  /* 56px  */
+  --space-16: calc(var(--base-unit) * 16);
+  /* 64px  */
+  --space-20: calc(var(--base-unit) * 20);
+  /* 80px  */
+  --space-24: calc(var(--base-unit) * 24);
+  /* 96px  */
+  --space-28: calc(var(--base-unit) * 28);
+  /* 112px */
+
+  /* ─── Fluid Section Spacing (8pt grid, 3 breakpoints) ─────────────────
+   *    Mobile  <641px:  16px horizontal padding
+   *    Tablet  641px:   32px horizontal padding
+   *    Desktop 1025px:  64px horizontal padding
+   *
+   *    Intermediates in 8px multiples:
+   *      --space-section-px-sm  = 16px (mobile base)
+   *      --space-section-px-md  = 32px (tablet)
+   *      --space-section-px-lg  = 64px (desktop)
+   *      --space-section-px     = fluid 16→32→64
+   * ──────────────────────────────────────────────────────────────────── */
+
+  /* Fixed references for explicit media-query usage */
+  --space-section-px-sm: 16px;
+  --space-section-px-md: 32px;
+  --space-section-px-lg: 64px;
+
+  /* Fluid horizontal: 16px @375 → 32px @641 → 64px @1025 */
+  --space-section-px: var(--space-section-px-sm);
+
+  /* Section vertical padding: 48px @375 → 96px @1440 (py-12 → py-24) */
+  --space-section-py: clamp(48px, calc(48px + (96 - 48) * (100vw - 375px) / 1065), 96px);
+
+  /* Tight section vertical: 32px @375 → 48px @1440 */
+  --space-section-py-tight: clamp(32px, calc(32px + (48 - 32) * (100vw - 375px) / 1065), 48px);
+
+  /* Navbar horizontal padding: matches section-px */
+  --space-nav-x: var(--space-section-px);
+
+  /* ─── Container Gutter: matches section-px ─── */
+  --gutter: var(--space-section-px);
+
+  /* ─── Max Width ──────────────────────────────────────────────────────── */
+  --max-width: 1280px;
+
+  /* ═══════════════════════════════════════════════════════════════════════
+   * 3. BORDER RADIUS — derived from --base-unit
+   * ═══════════════════════════════════════════════════════════════════════ */
+  --radius-sm: calc(var(--base-unit) * 1);
+  /*  4px */
+  --radius-main: calc(var(--base-unit) * 2);
+  /*  8px — the golden radius */
+  --radius-lg: calc(var(--base-unit) * 4);
+  /* 16px */
+  --radius-xl: calc(var(--base-unit) * 5);
+  /* 20px */
+  --radius-2xl: calc(var(--base-unit) * 6);
+  /* 24px */
+  --radius-full: 500px;
+  --radius-pill: 100px;
+
+  /* ═══════════════════════════════════════════════════════════════════════
+   * 4. SHADOW SYSTEM — 3 levels, 4px-aligned offsets
+   * ═══════════════════════════════════════════════════════════════════════ */
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-focus: 0 0 0 2px rgba(33, 49, 112, 0.12);
+
+  /* ═══════════════════════════════════════════════════════════════════════
+   * 5. FLUID TYPOGRAPHY — Major Third (1.25) Scale
+   *
+   *    clamp(mobile, calc(mobile + Δ × (100vw − 375px) / 1065), desktop)
+   *    SEO: min 16px body, strict heading hierarchy, WCAG 2.1 AA
+   * ═══════════════════════════════════════════════════════════════════════ */
+
+  /* ─── Micro ─── */
+  --text-overline: clamp(11px, calc(11px + 1 * (100vw - 375px) / 1065), 12px);
+  --text-caption: 12px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+
+  /* ─── Body ─── */
+  --text-body: clamp(16px, calc(16px + 2 * (100vw - 375px) / 1065), 18px);
+  --text-body-lg: clamp(18px, calc(18px + 2 * (100vw - 375px) / 1065), 20px);
+
+  /* ─── Headings (Major Third 1.25 ratio) ─── */
+  --text-h6: clamp(14px, calc(14px + 2 * (100vw - 375px) / 1065), 16px);
+  --text-h5: clamp(16px, calc(16px + 2 * (100vw - 375px) / 1065), 18px);
+  --text-h4: clamp(18px, calc(18px + 4 * (100vw - 375px) / 1065), 22px);
+  --text-h3: clamp(22px, calc(22px + 6 * (100vw - 375px) / 1065), 28px);
+  --text-h2: clamp(26px, calc(26px + 10 * (100vw - 375px) / 1065), 36px);
+  --text-h1: clamp(32px, calc(32px + 16 * (100vw - 375px) / 1065), 48px);
+  --text-display: clamp(36px, calc(36px + 28 * (100vw - 375px) / 1065), 64px);
+
+  /* ─── Legacy Aliases (backward compat — remove after migration) ─── */
+  --text-lg: var(--text-body-lg);
+  --text-xl: var(--text-h4);
+  --text-2xl: var(--text-h3);
+  --text-3xl: var(--text-h2);
+  --text-4xl: var(--text-display);
+
+  /* ─── Line Heights ──────────────────────────────────────────────────── */
+  --lh-body: 1.6;
+  --lh-heading: 1.2;
+
+  /* ─── Readable Width (Measure) ──────────────────────────────────────── */
+  --max-prose: 70ch;
+}
+
+
+/* ==========================================================================
+ * 6. GLOBAL RESETS & BASE STYLES
+ * ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography Resets ───────────────────────────────────────────────── */
+h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: var(--text-h4);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h5 {
+  font-size: var(--text-h5);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+h6 {
+  font-size: var(--text-h6);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+p {
+  max-width: var(--max-prose);
+  margin: 0;
+}
+
+
+/* ==========================================================================
+ * 7. TYPOGRAPHY UTILITY CLASSES
+ *
+ *    Semantic classes for consistent hierarchy.
+ *    Use these instead of arbitrary font-size values.
+ * ========================================================================== */
+
+/* ─── Display (hero only) ── */
+.display {
+  font-size: var(--text-display);
+  line-height: 1.1;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ─── Headings ────────────────────────────────────────────────────────── */
+.heading-1 {
+  font-size: var(--text-h1);
+  line-height: 1.15;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.heading-2 {
+  font-size: var(--text-h2);
+  line-height: 1.2;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.heading-3 {
+  font-size: var(--text-h3);
+  line-height: 1.25;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.heading-4 {
+  font-size: var(--text-h4);
+  line-height: 1.3;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.heading-5 {
+  font-size: var(--text-h5);
+  line-height: 1.35;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.heading-6 {
+  font-size: var(--text-h6);
+  line-height: 1.4;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ─── Body Text ───────────────────────────────────────────────────────── */
+.body-text {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  max-width: var(--max-prose);
+}
+
+.body-lg {
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-body);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  max-width: var(--max-prose);
+}
+
+.body-sm {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+}
+
+/* ─── Micro ───────────────────────────────────────────────────────────── */
+.caption {
+  font-size: var(--text-caption);
+  line-height: 1.4;
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+}
+
+.overline {
+  font-size: var(--text-overline);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+/* ─── Eyebrow / Label (alias for overline) ────────────────────────────── */
+.eyebrow {
+  font-size: var(--text-sm);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+/* ─── Font Family Utilities ───────────────────────────────────────────── */
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-cta {
+  font-family: var(--font-cta);
+}
+
+
+/* ==========================================================================
+ * 8. COLOR UTILITIES
+ * ========================================================================== */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.bg-surface-card {
+  background-color: var(--color-surface-card);
+}
+
+
+/* ==========================================================================
+ * 9. BUTTON SYSTEM
+ *
+ *    All button heights, padding, and radii are --base-unit multiples.
+ * ========================================================================== */
+
+/* ─── CTA Button (Indigo) ─────────────────────────────────────────────── */
+.btn-cta {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-cta);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  line-height: 1;
+  padding: var(--space-3) var(--space-6);
+  /* 12px 24px */
+  border-radius: var(--radius-main);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-cta:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ─── Primary Button (Indigo, larger) ─────────────────────────────────── */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: var(--space-3) var(--space-5);
+  /* 12px 20px */
+  border-radius: var(--radius-main);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-secondary);
+}
+
+/* ─── Accent Button (Orange) ──────────────────────────────────────────── */
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-main);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(254, 93, 22, 0.3);
+}
+
+
+/* ==========================================================================
+ * 10. LAYOUT UTILITIES — Section & Container
+ *
+ *     These mirror the <Section /> and <Container /> React components.
+ *     Use these CSS classes in styled-jsx or non-React contexts.
+ * ========================================================================== */
+
+/* ─── Section Padding (vertical rhythm) ───────────────────────────────── */
+.section-padding {
+  padding-left: var(--space-section-px);
+  padding-right: var(--space-section-px);
+  padding-top: var(--space-section-py);
+  padding-bottom: var(--space-section-py);
+}
+
+.section-py {
+  padding-top: var(--space-section-py);
+  padding-bottom: var(--space-section-py);
+}
+
+.section-py-tight {
+  padding-top: var(--space-section-py-tight);
+  padding-bottom: var(--space-section-py-tight);
+}
+
+/* ─── Container (max-width + gutter) ──────────────────────────────────── */
+.container-main {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* ==========================================================================
+ * 13. RESPONSIVE SECTION PADDING — stepped 8pt grid
+ *
+ *     Mobile (<641px) : 16px
+ *     Tablet (641px+) : 32px
+ *     Desktop (1025px+): 64px
+ * ========================================================================== */
+@media (min-width: 641px) {
+  :root {
+    --space-section-px: var(--space-section-px-md);
+  }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --space-section-px: var(--space-section-px-lg);
+  }
+}

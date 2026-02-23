@@ -1,0 +1,342 @@
+.register-form-panel {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 32px;
+                    background: white;
+                }
+
+                .register-form-inner {
+                    width: 100%;
+                    max-width: 650px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 18px;
+                }
+
+                .register-header {
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    align-self: stretch;
+                    align-items: center;
+                }
+
+                .register-title {
+                    color: var(--color-primary);
+                    font-size: 36px;
+                    font-weight: 500;
+                    line-height: 44px;
+                    margin: 0;
+                }
+
+                .register-subtitle {
+                    color: var(--color-text-light);
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    margin: 0;
+                }
+
+                .register-social-row {
+                    display: flex;
+                    gap: 12px;
+                    align-self: stretch;
+                }
+
+                .register-social-btn {
+                    flex: 1;
+                    height: 44px;
+                    padding: 10px 16px;
+                    background: var(--color-surface);
+                    border-radius: var(--radius-pill);
+                    border: 1px solid var(--color-border-form);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    cursor: pointer;
+                    box-shadow: var(--shadow-sm);
+                    transition: background 0.2s;
+                }
+
+                .register-social-btn:hover {
+                    background: var(--color-surface-card);
+                }
+
+                .register-social-btn span {
+                    color: var(--color-primary);
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 24px;
+                }
+
+                .register-divider {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    align-self: stretch;
+                }
+
+                .register-divider-line {
+                    flex: 1;
+                    height: 1px;
+                    background: var(--color-border-light);
+                }
+
+                .register-divider-text {
+                    color: var(--color-text-muted);
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 18px;
+                    white-space: nowrap;
+                }
+
+                .register-fields {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    align-self: stretch;
+                }
+
+                .register-name-row {
+                    display: flex;
+                    gap: 12px;
+                }
+
+                .register-name-row .register-field-group {
+                    flex: 1;
+                }
+
+                .register-dob-row {
+                    display: flex;
+                    gap: 12px;
+                }
+
+                .register-dob-day {
+                    flex: 0 0 80px;
+                }
+
+                .register-dob-month {
+                    flex: 1;
+                }
+
+                .register-dob-year {
+                    flex: 0 0 100px;
+                }
+
+                .register-field-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                }
+
+                .register-label {
+                    color: var(--color-primary);
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 20px;
+                }
+
+                .register-input-wrapper {
+                    height: 44px;
+                    padding: 8px 16px;
+                    background: var(--color-surface);
+                    border-radius: var(--radius-pill);
+                    border: 1px solid var(--color-border-form);
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    transition: border-color 0.2s, box-shadow 0.2s;
+                }
+
+                .register-input-wrapper:focus-within {
+                    border-color: var(--color-primary-hover);
+                    box-shadow: var(--shadow-focus);
+                }
+
+                .register-input-error {
+                    border-color: var(--color-error) !important;
+                }
+
+                .register-input-success {
+                    border-color: var(--color-success) !important;
+                }
+
+                .register-username-wrapper {
+                    background: var(--color-surface);
+                    cursor: default;
+                }
+
+                .register-username-display {
+                    color: var(--color-primary);
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    letter-spacing: 0.02em;
+                }
+
+                .register-input {
+                    flex: 1;
+                    border: none;
+                    background: transparent;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    color: var(--color-primary);
+                    outline: none;
+                    width: 100%;
+                }
+
+                .register-input::placeholder {
+                    color: var(--color-text-light);
+                }
+
+                .register-select {
+                    flex: 1;
+                    border: none;
+                    background: transparent;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    color: var(--color-primary);
+                    outline: none;
+                    cursor: pointer;
+                    width: 100%;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                }
+
+                .register-select:invalid,
+                .register-select option[value=""] {
+                    color: var(--color-text-light);
+                }
+
+                /* ── Password Strength Bar ── */
+                .register-strength {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 4px;
+                }
+
+                .register-strength-track {
+                    display: flex;
+                    gap: 4px;
+                    flex: 1;
+                }
+
+                .register-strength-segment {
+                    flex: 1;
+                    height: 4px;
+                    border-radius: 2px;
+                    transition: background 0.3s;
+                }
+
+                .register-strength-label {
+                    font-size: 12px;
+                    font-weight: 600;
+                    white-space: nowrap;
+                    min-width: 70px;
+                    text-align: right;
+                }
+
+                .register-error-text {
+                    color: var(--color-error);
+                    font-size: 12px;
+                    font-weight: 500;
+                    margin-top: 2px;
+                }
+
+                .register-match-text {
+                    color: var(--color-success);
+                    font-size: 12px;
+                    font-weight: 500;
+                    margin-top: 2px;
+                }
+
+                .register-actions {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+
+                .register-submit-btn {
+                    width: 100%;
+                    padding: 12px 24px;
+                    background: var(--color-primary);
+                    border-radius: var(--radius-pill);
+                    border: none;
+                    color: var(--color-white);
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 25.6px;
+                    cursor: pointer;
+                    transition: background 0.2s, transform 0.15s;
+                    text-align: center;
+                }
+
+                .register-submit-btn:hover {
+                    background: var(--color-primary-hover);
+                    transform: translateY(-1px);
+                }
+
+                .register-submit-btn:active {
+                    transform: translateY(0);
+                }
+
+                .register-login-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 2px 0;
+                }
+
+                .register-login-text {
+                    color: var(--color-primary);
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 21px;
+                }
+
+                .register-login-link {
+                    color: var(--color-primary);
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    text-decoration: none;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 0;
+                }
+
+                .register-login-link:hover {
+                    text-decoration: underline;
+                }
+
+                @media (max-width: 480px) {
+                    .register-form-panel {
+                        padding: 24px 16px;
+                    }
+
+                    .register-title {
+                        font-size: 28px;
+                        line-height: 36px;
+                    }
+
+                    .register-social-row,
+                    .register-name-row,
+                    .register-dob-row {
+                        flex-direction: column;
+                    }
+
+                    .register-dob-day,
+                    .register-dob-year {
+                        flex: 1;
+                    }       }
