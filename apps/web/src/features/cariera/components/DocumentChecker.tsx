@@ -602,7 +602,7 @@ export default function DocumentChecker({ selectedRole, b2bDocuments }: Document
                     align-items: center;
                     gap: 3px;
                     font-family: var(--font-body);
-                    font-size: 11px;
+                    font-size: 12px;
                     font-weight: 500;
                     color: var(--color-text-muted);
                     background: var(--color-surface);
@@ -727,7 +727,7 @@ export default function DocumentChecker({ selectedRole, b2bDocuments }: Document
 
                 .dc-uploaded-file-size {
                     font-family: var(--font-body);
-                    font-size: 11px;
+                    font-size: 12px;
                     color: var(--color-text-muted);
                     white-space: nowrap;
                     flex-shrink: 0;

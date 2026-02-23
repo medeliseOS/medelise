@@ -1,113 +1,44 @@
 'use client';
 
-import React from 'react';
-import IVDripProductPage from './IVDripProductPage';
-import { ContactFormSection } from '@features/contact/components';
+import IVDripHeroSection from './IVDripHeroSection';
+import IVDripProductTabs from './IVDripProductTabs';
+import ProductWhyItWorks from './ProductWhyItWorks';
+import IVWellnessRitualSection from './IVWellnessRitualSection';
+import IVSafeAdministrationSection from './IVSafeAdministrationSection';
+import IVClinicalEvidenceSection from './IVClinicalEvidenceSection';
+import TestimonialsSection from '@/components/ui/TestimonialsSection';
 
 export default function MyersCocktailContent() {
     return (
         <>
-            <IVDripProductPage
-            id="myers-cocktail-iv"
-            title="MYERS COCKTAIL"
-            subtitle="Complex Vitaminic Total și Echilibru Complet"
-            imageSrc="/images-medelise/md-iv-drip/md-img-drip-myers-cocktail.webp"
-            imageAlt="Myers Cocktail IV Drip"
-            price={750}
-            oldPrice={850}
-            volumeOptions={['500ml', '1000ml']}
-            economyPerMl={['1,50 Lei/ml', '0,75 Lei/ml']}
-            benefits={[
-                'Cocktailul vitaminic original și cel mai cercetat',
-                'Echilibrare completă a vitaminelor și mineralelor',
-                'Energie sustenabilă și claritate mentală',
-                'Funcție imunitară optimizată',
-                'Reducerea migren și a oboselii cronice',
-                'Ameliorarea simptomelor de astm și alergii',
-            ]}
-            description={{
-                title: 'Myers Cocktail – Protocolul Original de Terapie IV',
-                intro: 'Dezvoltat de Dr. John Myers în anii \'60, acest cocktail intravenos este cel mai studiat și utilizat protocol de terapie IV din lume. Formula sa echilibrată oferă un spectru complet de vitamine și minerale esențiale pentru funcționarea optimă a organismului.',
-                sections: [
-                    {
-                        heading: 'Compoziție',
-                        content: [
-                            'Vitamina C (2-5g)',
-                            'Complex de vitamine B (B1, B2, B3, B5, B6, B12)',
-                            'Magneziu sulfat',
-                            'Calciu gluconat',
-                            'Vitamina B12 (Metilcobalamină)',
-                            'Soluție salină ca vehicul',
-                        ],
-                    },
-                    {
-                        heading: 'Durata tratamentului',
-                        content: 'Perfuzia durează 30-45 de minute. Este unul dintre cele mai rapide protocoale IV, ideal pentru persoanele cu program încărcat.',
-                    },
-                    {
-                        heading: 'Indicații',
-                        content: [
-                            'Oboseală cronică și sindrom de epuizare',
-                            'Migrene și cefalee de tensiune',
-                            'Fibromialgie și dureri cronice',
-                            'Astm bronșic și alergii sezoniere',
-                            'Depresie ușoară și anxietate',
-                            'Menținere generală a sănătății optime',
-                        ],
-                    },
-                ],
-            }}
-            reviews={[
-                {
-                    author: 'Prof. Dr. Ionescu M.',
-                    date: '10 Februarie 2025',
-                    rating: 5,
-                    text: 'Cocktailul Myers este standardul de aur în terapia IV. Medelise îl administrează exemplar, cu ingrediente de cea mai bună calitate.',
-                },
-                {
-                    author: 'Ana-Maria B.',
-                    date: '25 Ianuarie 2025',
-                    rating: 5,
-                    text: 'Fac Myers Cocktail lunar de 6 luni. Migrena mea cronică s-a redus dramatic, iar nivelul de energie este constant ridicat. Best decision ever!',
-                },
-                {
-                    author: 'Florin S.',
-                    date: '12 Ianuarie 2025',
-                    rating: 4,
-                    text: 'Protocol solid, se simte diferența. Ca sportiv amator, îl folosesc pentru menținere generală. Raportul calitate-preț este bun.',
-                },
-            ]}
-            reviewCount={58}
-            averageRating={5}
-                idealForItems={[
-                    'Persoane cu oboseală cronică, fibromialgie sau sindrom de oboseală cronică (CFS).',
-                    'Pacienți cu astm bronșic sau alergii sezoniere care doresc suport suplimentar.',
-                    'Oricine caută un „reset" general al organismului – energie, imunitate și hidratare.',
-                    'Profesioniști de wellness care doresc mentenanță lunară pentru sănătate optimă.',
+            <IVDripHeroSection
+                title="MYERS-COCKTAIL"
+                subtitle="Complex Vitaminic Total"
+                imageSrc="/images-medelise/md-iv-drip/md-img-drip-dehydration.webp"
+                imageAlt="Myers Cocktail IV Drip"
+                volumeOptions={['250ml', '500ml', '1000ml']}
+                pricingVariants={{
+                    '250ml': { price: 300, oldPrice: 400 },
+                    '500ml': { price: 450, oldPrice: 600 },
+                    '1000ml': { price: 700, oldPrice: 950 },
+                }}
+                price={450}
+                benefits={[
+                    'Complex multivitaminic complet administrat intravenos',
+                    'Susținerea sistemului imunitar',
+                    'Reducerea oboselii și a stresului cronic',
+                    'Îmbunătățirea funcției cardiovasculare',
+                    'Ameliorarea migrenelor și a durerilor musculare',
+                    'Revitalizare generală a organismului',
                 ]}
-                clinicalStudies={[
-                    {
-                        title: 'The Myers Cocktail: Clinical Applications and Outcomes',
-                        content: 'Cocktailul Myers a demonstrat îmbunătățiri semnificative la pacienți cu fibromialgie, astm, migrene și oboseală cronică, conform studiului publicat în Alternative Medicine Review.',
-                    },
-                    {
-                        title: 'IV Magnesium for Acute Asthma Exacerbation',
-                        content: 'Magneziul IV relaxează musculatura netedă bronșică și îmbunătățește funcția pulmonară cu 15-20% în exacerbările astmatice.',
-                    },
-                    {
-                        title: 'High-Dose Vitamin C and Chronic Fatigue Syndrome',
-                        content: 'Vitamina C IV în doze de 7.5-15g reduce oboseala și îmbunătățește calitatea vieții la pacienții cu CFS, cu efecte care durează 1-2 săptămâni.',
-                    },
-                    {
-                        title: 'Calcium and Magnesium Balance in Neuromuscular Function',
-                        content: 'Raportul optim Ca/Mg administrat IV reduce spasmele musculare, tremorul și anxietatea, îmbunătățind calitatea somnului.',
-                    },
-                ]}
-                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-myers-cocktail.webp"
-        />
+                reviewCount={52}
+                averageRating={5}
+            />
 
-
-        <ContactFormSection />
-    </>
+            <IVDripProductTabs
+                descriptionContent={<><ProductWhyItWorks /><IVWellnessRitualSection /><IVClinicalEvidenceSection /><IVSafeAdministrationSection /></>}
+                reviewsContent={<TestimonialsSection />}
+            />
+        </>
     );
 }

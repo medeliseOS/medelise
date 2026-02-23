@@ -1,113 +1,44 @@
 'use client';
 
-import React from 'react';
-import IVDripProductPage from './IVDripProductPage';
-import { ContactFormSection } from '@features/contact/components';
+import IVDripHeroSection from './IVDripHeroSection';
+import IVDripProductTabs from './IVDripProductTabs';
+import ProductWhyItWorks from './ProductWhyItWorks';
+import IVWellnessRitualSection from './IVWellnessRitualSection';
+import IVSafeAdministrationSection from './IVSafeAdministrationSection';
+import IVClinicalEvidenceSection from './IVClinicalEvidenceSection';
+import TestimonialsSection from '@/components/ui/TestimonialsSection';
 
 export default function RecuperareContent() {
     return (
         <>
-            <IVDripProductPage
-            id="recuperare-iv"
-            title="RECUPERARE"
-            subtitle="Refacere Accelerată a Organismului"
-            imageSrc="/images-medelise/md-iv-drip/md-img-drip-recovery.webp"
-            imageAlt="Recuperare IV Drip"
-            price={500}
-            oldPrice={700}
-            volumeOptions={['500ml', '1000ml']}
-            economyPerMl={['1,00 Lei/ml', '0,50 Lei/ml']}
-            benefits={[
-                'Recuperare fizică accelerată după efort intens',
-                'Reducerea inflamației și a durerii musculare',
-                'Restabilirea nivelului optim de minerale',
-                'Suport pentru regenerarea țesuturilor',
-                'Îmbunătățirea calității somnului și odihnei',
-                'Boost energetic și mental post-recuperare',
-            ]}
-            description={{
-                title: 'IV Drip Recuperare – Refacere Completă și Accelerată',
-                intro: 'Fie că ești sportiv de performanță, ai trecut prin chirurgie, sau pur și simplu ai un stil de viață solicitant, tratamentul nostru IV Drip pentru Recuperare îți oferă tot ce are nevoie organismul pentru a se reface rapid și complet.',
-                sections: [
-                    {
-                        heading: 'Compoziție',
-                        content: [
-                            'Aminoacizi esențiali pentru refacerea musculară',
-                            'Magneziu și Calciu pentru relaxare musculară',
-                            'Vitamina C în doză mare (antioxidant)',
-                            'Complex de vitamine B pentru metabolismul energetic',
-                            'Zinc și Seleniu pentru recuperarea imunitară',
-                            'Soluție salină pentru hidratare optimă',
-                        ],
-                    },
-                    {
-                        heading: 'Durata tratamentului',
-                        content: 'Tratamentul durează între 45-75 de minute. Este recomandat ca prim pas de recuperare sau ca tratament regulat pentru sportivii de performanță.',
-                    },
-                    {
-                        heading: 'Indicații',
-                        content: [
-                            'Post-antrenament intens sau competiție sportivă',
-                            'Recuperare postoperatorie (cu aviz medical)',
-                            'Oboseală cronică și burnout profesional',
-                            'Recuperare după boli virale sau bacteriene',
-                            'Jet lag sever după călătorii intercontinentale',
-                            'Perioadele de convalescență',
-                        ],
-                    },
-                ],
-            }}
-            reviews={[
-                {
-                    author: 'Radu T.',
-                    date: '1 Februarie 2025',
-                    rating: 5,
-                    text: 'Ca triatlet, recuperarea e esențială. Perfuzia Medelise după cursă e game-changer! Mă simt refăcut mult mai repede decât cu suplimentele orale.',
-                },
-                {
-                    author: 'Simona G.',
-                    date: '18 Ianuarie 2025',
-                    rating: 5,
-                    text: 'Am folosit după o operație minoră (cu acordul chirurgului). Recuperarea a fost mult mai rapidă decât mă așteptam. Foarte recomandat!',
-                },
-                {
-                    author: 'Mihai C.',
-                    date: '27 Decembrie 2024',
-                    rating: 4,
-                    text: 'Bun pentru recuperare post-gripă. Am simțit diferența clar. Personalul foarte amabil și profesionist.',
-                },
-            ]}
-            reviewCount={34}
-            averageRating={5}
-                idealForItems={[
-                    'Sportivi de performanță sau amatori după competiții, maratoane sau antrenamente intense.',
-                    'Persoane aflate în recuperare post-operatorie (cu recomandarea medicului curant).',
-                    'Pacienți post-COVID sau post-infecție virală cu oboseală persistentă.',
-                    'Profesioniști cu program solicitant care au nevoie de recuperare rapidă fizică și mentală.',
+            <IVDripHeroSection
+                title="RECUPERARE"
+                subtitle="Refacere Accelerată"
+                imageSrc="/images-medelise/md-iv-drip/md-img-drip-dehydration.webp"
+                imageAlt="Recuperare IV Drip"
+                volumeOptions={['250ml', '500ml', '1000ml']}
+                pricingVariants={{
+                    '250ml': { price: 240, oldPrice: 340 },
+                    '500ml': { price: 380, oldPrice: 530 },
+                    '1000ml': { price: 620, oldPrice: 880 },
+                }}
+                price={380}
+                benefits={[
+                    'Recuperare accelerată post-efort fizic intens',
+                    'Reducerea inflamației musculare și articulare',
+                    'Restabilirea echilibrului electrolitic',
+                    'Susținerea regenerării țesuturilor',
+                    'Combaterea oboselii și a epuizării fizice',
+                    'Optimizarea performanței sportive pe termen lung',
                 ]}
-                clinicalStudies={[
-                    {
-                        title: 'IV Micronutrient Supplementation for Exercise Recovery',
-                        content: 'Perfuziile cu aminoacizi și vitamine reduc markerii de inflamație musculară (CK, LDH) cu 30-40% și accelerează refacerea fibrelor musculare.',
-                    },
-                    {
-                        title: 'Glutamine and Post-Exercise Immune Suppression',
-                        content: 'Glutamina IV previne imunosupresia post-efort intensă și reduce incidența infecțiilor respiratorii superioare la sportivi cu 50%.',
-                    },
-                    {
-                        title: 'Magnesium and Post-Surgical Recovery',
-                        content: 'Magneziul IV reduce spasmele musculare, îmbunătățește calitatea somnului și accelerează vindecarea tisulară post-operatorie.',
-                    },
-                    {
-                        title: 'B-Complex Vitamins and Neurological Recovery After Illness',
-                        content: 'Complexul B (în special B1, B6, B12) susține regenerarea neuronală și reduce oboseala cognitivă în sindromul post-infecțios.',
-                    },
-                ]}
-                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-recovery.webp"
-        />
+                reviewCount={33}
+                averageRating={5}
+            />
 
-
-        <ContactFormSection />
-    </>
+            <IVDripProductTabs
+                descriptionContent={<><ProductWhyItWorks /><IVWellnessRitualSection /><IVClinicalEvidenceSection /><IVSafeAdministrationSection /></>}
+                reviewsContent={<TestimonialsSection />}
+            />
+        </>
     );
 }

@@ -33,7 +33,7 @@ export default function DespreNoiContent() {
                     font-family: var(--font-heading);
                     font-size: var(--text-display);
                     font-weight: 500;
-                    line-height: 1.1;
+                    line-height: 1.5;
                     word-wrap: break-word;
                     margin: 0;
                 }
@@ -44,7 +44,7 @@ export default function DespreNoiContent() {
                     font-family: var(--font-heading);
                     font-size: var(--text-h3);
                     font-weight: 500;
-                    line-height: 1.3;
+                    line-height: 1.5;
                     word-wrap: break-word;
                     margin: 0;
                     padding-bottom: var(--space-2);
@@ -85,7 +85,7 @@ export default function DespreNoiContent() {
                     font-family: var(--font-heading);
                     font-size: var(--text-h2);
                     font-weight: 600;
-                    line-height: 1.2;
+                    line-height: 1.5;
                     word-wrap: break-word;
                     margin: 0;
                 }
@@ -173,7 +173,7 @@ export default function DespreNoiContent() {
                         width: 100%;
                         font-size: var(--text-h2);
                         font-weight: 600;
-                        line-height: 1.2;
+                        line-height: 1.5;
                     }
 
                     .dn-hero-desc {
@@ -247,7 +247,7 @@ export default function DespreNoiContent() {
                         width: 100%;
                         font-size: var(--text-h3);
                         font-weight: 600;
-                        line-height: 1.3;
+                        line-height: 1.5;
                     }
 
                     .dn-hero-desc {

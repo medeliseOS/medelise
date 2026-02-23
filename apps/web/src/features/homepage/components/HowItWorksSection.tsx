@@ -77,7 +77,7 @@ export default function HowItWorksSection() {
                     font-family: var(--font-heading);
                     font-size: 26px;
                     font-weight: 500;
-                    line-height: 1.3;
+                    line-height: 1.5;
                     margin: 0;
                 }
 
@@ -252,7 +252,7 @@ export default function HowItWorksSection() {
                     }
 
                     .hiw-step-desc {
-                        font-size: 13px;
+                        font-size: 14px;
                         line-height: 20px;
                     }
                 }

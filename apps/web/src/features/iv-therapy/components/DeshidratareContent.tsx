@@ -4,6 +4,10 @@ import React from 'react';
 import IVDripHeroSection from './IVDripHeroSection';
 import IVDripProductTabs from './IVDripProductTabs';
 import ProductWhyItWorks from './ProductWhyItWorks';
+import IVWellnessRitualSection from './IVWellnessRitualSection';
+import IVSafeAdministrationSection from './IVSafeAdministrationSection';
+import IVClinicalEvidenceSection from './IVClinicalEvidenceSection';
+import TestimonialsSection from '@/components/ui/TestimonialsSection';
 
 export default function DeshidratareContent() {
     return (
@@ -39,11 +43,9 @@ export default function DeshidratareContent() {
             />
 
             <IVDripProductTabs
-                descriptionContent={<></>}
-                reviewsContent={<></>}
+                descriptionContent={<><ProductWhyItWorks /><IVWellnessRitualSection /><IVClinicalEvidenceSection /><IVSafeAdministrationSection /></>}
+                reviewsContent={<TestimonialsSection />}
             />
-
-            <ProductWhyItWorks />
         </>
     );
 }

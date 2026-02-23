@@ -733,7 +733,7 @@ export default function CardScanner() {
 
         .cs-sec-badges {
           color: var(--color-primary);
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 400;
           margin: 0;
           opacity: 0.8;
@@ -883,7 +883,7 @@ export default function CardScanner() {
           width: 100%; height: 100%;
           color: rgba(200,180,255,1);
           font-family: 'Courier New', monospace;
-          font-size: 11px;
+          font-size: 12px;
           line-height: 13px;
           overflow: hidden;
           white-space: pre;

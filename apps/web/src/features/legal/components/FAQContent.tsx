@@ -500,7 +500,7 @@ export default function FAQContent() {
                     font-family: var(--font-heading);
                     font-size: 24px;
                     font-weight: 600;
-                    line-height: 1.3;
+                    line-height: 1.5;
                     margin: 0;
                 }
 
@@ -557,7 +557,7 @@ export default function FAQContent() {
                     }
 
                     .faq-tab {
-                        font-size: 13px;
+                        font-size: 14px;
                         padding: 6px 16px;
                     }
                 }

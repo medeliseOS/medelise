@@ -384,7 +384,7 @@ export default function CookiesContent() {
                     }
 
                     .legal-toc-item {
-                        font-size: 13px;
+                        font-size: 14px;
                         padding: 6px 10px;
                     }
 

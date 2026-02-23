@@ -513,7 +513,7 @@ export default function ApplicationFormContent({ slug }: ApplicationFormContentP
                 }
 
                 .apply-error-text {
-                    font-size: 13px;
+                    font-size: 14px;
                     color: var(--color-error);
                     margin: 0;
                     line-height: 18px;

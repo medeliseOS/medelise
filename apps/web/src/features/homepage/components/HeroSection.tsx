@@ -228,7 +228,7 @@ export default function HeroSection() {
 
                 .hero-avatar-count-text {
                     color: var(--color-error);
-                    font-size: 10px;
+                    font-size: 12px;
                     font-weight: 500;
                     line-height: 1;
                 }
@@ -314,7 +314,7 @@ export default function HeroSection() {
 
                     .hero-heading {
                         font-size: var(--text-h1);
-                        line-height: 1.3;
+                        line-height: 1.5;
                         max-width: 728px;
                     }
 

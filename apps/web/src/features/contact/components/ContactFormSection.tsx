@@ -216,7 +216,7 @@ export default function ContactFormSection({ className = '' }: ContactFormSectio
                     color: white;
                     font-size: var(--text-h2);
                     font-weight: 600;
-                    line-height: 1.2;
+                    line-height: 1.5;
                     margin: 0;
                 }
 

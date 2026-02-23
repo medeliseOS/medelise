@@ -185,7 +185,7 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                     font-weight: 700;
                     color: var(--color-white);
                     margin: 0 0 var(--space-2) 0;
-                    line-height: 1.2;
+                    line-height: 1.5;
                 }
 
                 .aj-header-subtitle {
@@ -247,12 +247,12 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
 
                 .aj-progress-label {
                     font-family: var(--font-body);
-                    font-size: 11px;
+                    font-size: 12px;
                     font-weight: 500;
                     color: var(--color-text-muted);
                     text-align: center;
                     max-width: 80px;
-                    line-height: 1.3;
+                    line-height: 1.5;
                     transition: color 0.3s ease;
                 }
 
@@ -636,7 +636,7 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                         padding: 0 var(--space-section-px-md) var(--space-16);
                     }
                     .aj-progress-label {
-                        font-size: 11px;
+                        font-size: 12px;
                     }
                 }
 
@@ -668,7 +668,7 @@ export default function ApplicationJourney({ slug }: ApplicationJourneyProps) {
                     }
 
                     .aj-progress-label {
-                        font-size: 10px;
+                        font-size: 12px;
                         max-width: 60px;
                         overflow: hidden;
                         text-overflow: ellipsis;

@@ -367,7 +367,7 @@ export default function ApplicationFormStyles({ children }: { children: React.Re
                 }
 
                 .apply-error-text {
-                    font-size: 13px;
+                    font-size: 14px;
                     color: var(--color-error);
                     margin: 0;
                     line-height: 18px;

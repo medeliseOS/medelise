@@ -35,11 +35,11 @@ export default function IVDripProductTabs({
     };
 
     return (
-        <section className="w-full bg-white px-[16px] md:px-[32px] xl:px-[480px] py-[16px] flex flex-col justify-start items-center md:items-start gap-[10px] mx-auto overflow-hidden">
+        <section className="w-full bg-white px-[16px] md:px-[32px] lg:px-[64px] py-[16px] flex flex-col justify-start items-center md:items-start gap-[10px] mx-auto overflow-visible">
             {/* ── Desktop & Tablet: underline tab bar ── */}
             <div className="hidden md:flex self-stretch justify-center items-start">
                 <button
-                    className={`flex items-center justify-between py-[10px] px-[20px] w-[235.5px] xl:w-[240px] border-b-2 transition-colors ${activeTab === 'description' ? 'border-[#FE5D16]' : 'border-[#BDE0FF] hover:border-[#FE5D16]/50'
+                    className={`flex items-center justify-center py-[10px] px-[20px] w-[235.5px] xl:w-[240px] border-b-2 transition-colors ${activeTab === 'description' ? 'border-[#FE5D16]' : 'border-[#BDE0FF] hover:border-[#FE5D16]/50'
                         }`}
                     onClick={() => setActiveTab('description')}
                     aria-selected={activeTab === 'description'}
@@ -53,7 +53,7 @@ export default function IVDripProductTabs({
                     </span>
                 </button>
                 <button
-                    className={`flex items-center justify-between py-[10px] px-[20px] w-[235.5px] xl:w-[240px] border-b-2 transition-colors ${activeTab === 'reviews' ? 'border-[#FE5D16]' : 'border-[#BDE0FF] hover:border-[#FE5D16]/50'
+                    className={`flex items-center justify-center py-[10px] px-[20px] w-[235.5px] xl:w-[240px] border-b-2 transition-colors ${activeTab === 'reviews' ? 'border-[#FE5D16]' : 'border-[#BDE0FF] hover:border-[#FE5D16]/50'
                         }`}
                     onClick={() => setActiveTab('reviews')}
                     aria-selected={activeTab === 'reviews'}
@@ -110,8 +110,33 @@ export default function IVDripProductTabs({
 
             {/* ── Content area ── */}
             <div className="w-full mt-2" role="tabpanel">
-                {activeTab === 'description' ? descriptionContent : reviewsContent}
+                {activeTab === 'description' ? (
+                    descriptionContent
+                ) : (
+                    <div className="reviews-edge-right">
+                        {reviewsContent}
+                    </div>
+                )}
             </div>
+
+            <style jsx>{`
+                .reviews-edge-right {
+                    width: calc(100% + 64px);
+                    margin-right: -64px;
+                }
+                @media (max-width: 1024px) {
+                    .reviews-edge-right {
+                        width: calc(100% + 32px);
+                        margin-right: -32px;
+                    }
+                }
+                @media (max-width: 767px) {
+                    .reviews-edge-right {
+                        width: calc(100% + 16px);
+                        margin-right: -16px;
+                    }
+                }
+            `}</style>
         </section>
     );
 }
