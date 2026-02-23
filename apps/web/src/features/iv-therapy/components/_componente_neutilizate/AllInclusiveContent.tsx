@@ -1,0 +1,128 @@
+'use client';
+
+import React from 'react';
+import IVDripProductPage from './IVDripProductPage';
+import { ContactFormSection } from '@features/contact/components';
+
+export default function AllInclusiveContent() {
+    return (
+        <>
+            <IVDripProductPage
+            id="all-inclusive-iv"
+            title="ALL-INCLUSIVE"
+            subtitle="Suport Complet VIP – Toate Beneficiile într-o Singură Perfuzie"
+            imageSrc="/images-medelise/md-iv-drip/md-img-drip-all-inclusive.webp"
+            imageAlt="All-Inclusive IV Drip"
+            price={1500}
+            oldPrice={2500}
+            volumeOptions={['1000ml']}
+            economyPerMl={['1,50 Lei/ml']}
+            benefits={[
+                'Pachet VIP complet – combină toate terapiile',
+                'Hidratare, imunitate, energie și detoxifiere',
+                'Regenerare celulară și anti-aging premium',
+                'Suport cognitiv și neurologic avansat',
+                'Cele mai mari doze de antioxidanți disponibile',
+                'Experiența ultimă în wellness intravenos',
+            ]}
+            description={{
+                title: 'IV Drip All-Inclusive – Pachetul VIP Complet',
+                intro: 'All-Inclusive este protocolul nostru de vârf – o perfuzie premium care combină cele mai valoroase elemente din toate terapiile noastre IV. Conceput pentru cei care doresc cel mai înalt nivel de wellness, acest cocktail oferă beneficii la 360° pentru organism.',
+                sections: [
+                    {
+                        heading: 'Compoziție',
+                        content: [
+                            'Glutation Premium – detoxifiere și luminozitate',
+                            'Vitamina C megadoză (20g+)',
+                            'Complex complet de vitamine B (B1-B12)',
+                            'Magneziu, Zinc, Seleniu, Calciu',
+                            'Coenzima Q10 și L-Carnitină',
+                            'Alpha Lipoic Acid (ALA)',
+                            'N-Acetilcisteină (NAC)',
+                            'Taurină și aminoacizi esențiali',
+                            'Vitamina D3 și Vitamina E',
+                            'Biotină pentru piele, păr, unghii',
+                        ],
+                    },
+                    {
+                        heading: 'Durata tratamentului',
+                        content: 'Perfuzia durează 90-120 de minute datorită cantității mari de substanțe active. Se administrează într-un cadru confortabil, cu monitorizare continuă.',
+                    },
+                    {
+                        heading: 'Ce include',
+                        content: [
+                            'Consultație inițială cu personalul medical',
+                            'Evaluare pre-administrare completă',
+                            'Perfuzia All-Inclusive premium',
+                            'Monitorizare pe toată durata administrării',
+                            'Kit de wellness post-tratament',
+                            'Follow-up telefonic la 24h',
+                        ],
+                    },
+                    {
+                        heading: 'Indicații',
+                        content: [
+                            'Wellness premium și mentenanță lunară',
+                            'Pregătire pentru evenimente importante',
+                            'Recuperare completă post-boală sau chirurgie',
+                            'Detoxifiere și reset complet al organismului',
+                            'Anti-aging și regenerare celulară completă',
+                            'Cadou VIP pentru persoane dragi',
+                        ],
+                    },
+                ],
+            }}
+            reviews={[
+                {
+                    author: 'Maximilian H.',
+                    date: '12 Februarie 2025',
+                    rating: 5,
+                    text: 'Experiență VIP în adevăratul sens! Echipa Medelise a fost impecabilă de la consultație până la follow-up. Este cel mai bun lucru pe care l-am făcut pentru sănătatea mea. Merită fiecare bănuț!',
+                },
+                {
+                    author: 'Adriana B.',
+                    date: '28 Ianuarie 2025',
+                    rating: 5,
+                    text: 'Am primit All-Inclusive cadou de la soț. Cel mai bun cadou posibil! M-am simțit extraordinar zile întregi după perfuzie. Acum e abonament lunar!',
+                },
+                {
+                    author: 'Inv. Dr. Teodorescu',
+                    date: '5 Ianuarie 2025',
+                    rating: 5,
+                    text: 'Ca medic și pacient, apreciez protocoalele Medelise. All-Inclusive este formulat impecabil, cu ingrediente de cea mai înaltă calitate. Recomandare fără rezerve.',
+                },
+            ]}
+            reviewCount={22}
+            averageRating={5}
+                idealForItems={[
+                    'Persoane care doresc cel mai complet protocol de wellness intravenos disponibil.',
+                    'Executivi, antreprenori și personalități care investesc în sănătate preventivă premium.',
+                    'Pacienți care se pregătesc pentru evenimente importante și doresc să arate și să se simtă la cel mai înalt nivel.',
+                    'Oricine caută o experiență VIP de wellness cu beneficii la 360° pentru organism.',
+                ]}
+                clinicalStudies={[
+                    {
+                        title: 'Multivitamin IV Infusion and Quality of Life Outcomes',
+                        content: 'Perfuziile multivitaminice complete îmbunătățesc scorurile de calitate a vieții (SF-36) cu 25-35% la pacienții cu deficiențe nutriționale multiple.',
+                    },
+                    {
+                        title: 'Synergistic Effects of Combined Antioxidant Therapy',
+                        content: 'Combinarea glutationului, vitaminei C, ALA și NAC produce un efect sinergic de detoxifiere celulară 4x mai puternic decât orice antioxidant administrat individual.',
+                    },
+                    {
+                        title: 'Anti-Aging Properties of Intravenous NAD+ Precursors',
+                        content: 'Precursorii NAD+ (inclusiv NAC și CoQ10) activează sirtuinele, proteinele longevității, reducând senescența celulară și inflamația cronică.',
+                    },
+                    {
+                        title: 'Comprehensive Nutrient Repletion and Metabolic Health',
+                        content: 'Replețiea simultană a tuturor micronutrienților esențiali optimizează metabolismul bazal și reduce markerii de inflamație sistemică (IL-6, TNF-α, PCR).',
+                    },
+                ]}
+                qualityBagImageSrc="/images-medelise/md-iv-drip/md-img-drip-all-inclusive.webp"
+        />
+
+
+        <ContactFormSection />
+    </>
+    );
+}

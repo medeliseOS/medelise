@@ -15,7 +15,17 @@
 
 import { useState, useCallback } from 'react';
 import { useCart } from '@features/scheduling';
-import type { IVDripProductProps } from '../components/iv-drip/types';
+/** Type previously in ../components/iv-drip/types (removed during refactor) */
+export interface IVDripProductProps {
+    id: string;
+    title: string;
+    price: number;
+    oldPrice?: number;
+    volumeOptions?: string[];
+    economyPerMl?: string[];
+    pricingVariants?: Record<string, { price: number; oldPrice?: number }>;
+    imageSrc: string;
+}
 
 type TabValue = 'descriere' | 'recenzii';
 
